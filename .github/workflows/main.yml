@@ -4,7 +4,7 @@ name: Java CI
 on:
   schedule:
     # Runs at 2 AM UTC every day
-    - cron: '40 21 * * *'
+    - cron: '08 22 * * *'
 
 jobs:
   build:
@@ -13,10 +13,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2 
 
-    - name: Set up JDK 11
+    - name: Set up JDK 21
       uses: actions/setup-java@v2
       with:
-        java-version: '11' # Setup a specific version of Java
+        java-version: '21' # Setup a specific version of Java
         distribution: 'adopt' # Use 'adopt' distribution on Windows
         architecture: x64
     
