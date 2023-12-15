@@ -4,7 +4,7 @@ name: Java CI
 on:
   schedule:
     # Runs at 2 AM UTC every day
-    - cron: '0 2 * * *'
+    - cron: '30 20 * * *'
 
 jobs:
   build:
@@ -20,6 +20,11 @@ jobs:
 
     - name: Run Java code
       run: java -jar CMRITLeaderboard2025.jar
+
+    - name: Archive Generated File
+      run: |
+          mkdir -p ${{ github.workspace }}\Leaderboards
+          move .\Leaderboards\CMRIT2025Leaderboard.xlsx ${{ github.workspace }}\Leaderboards
 
     - name: Commit HTML File
       run: |
