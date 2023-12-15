@@ -4,11 +4,11 @@ name: Java CI
 on:
   schedule:
     # Runs at 2 AM UTC every day
-    - cron: '30 20 * * *'
+    - cron: '50 20 * * *'
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2 
@@ -17,7 +17,9 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11' # Setup a specific version of Java
-
+        distribution: 'adopt' # Use 'adopt' distribution on Windows
+        architecture: x64
+          
     - name: Run Java code
       run: java -jar CMRITLeaderboard2025.jar
 
