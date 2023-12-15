@@ -4,7 +4,7 @@ name: Java CI
 on:
   schedule:
     # Runs at 2 AM UTC every day
-    - cron: '50 20 * * *'
+    - cron: '10 21 * * *'
 
 jobs:
   build:
@@ -19,7 +19,11 @@ jobs:
         java-version: '11' # Setup a specific version of Java
         distribution: 'adopt' # Use 'adopt' distribution on Windows
         architecture: x64
-          
+    
+    - name: Compile Project
+      run: |
+          javac -d bin -cp ".\lib\*" -Xlint:deprecation .\*.jar
+    
     - name: Run Java code
       run: java -jar CMRITLeaderboard2025.jar
 
