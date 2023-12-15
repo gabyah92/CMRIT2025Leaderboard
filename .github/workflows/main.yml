@@ -4,7 +4,7 @@ name: Java CI
 on:
   schedule:
     # Runs at 2 AM UTC every day
-    - cron: '10 21 * * *'
+    - cron: '28 21 * * *'
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
     
     - name: Compile Project
       run: |
-          javac -d bin -cp ".\lib\*" -Xlint:deprecation .\*.jar
+          javac -d bin -cp ".\lib\*" 
     
     - name: Run Java code
       run: java -jar CMRITLeaderboard2025.jar
