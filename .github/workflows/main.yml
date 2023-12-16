@@ -1,47 +1,41 @@
-
-name: Java CI
-
+name: Update Leaderboard and Site
 on:
   schedule:
-    # Runs at 2 AM UTC every day
-    - cron: '05 05 * * *'
+    # Runs at this time UTC every day
+    - cron: '15 06 * * *'
 
 jobs:
-  build:
-    runs-on: windows-latest
+  update-leaderboard:
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-java@v4
+    - uses: actions/checkout@v2
+
+    - name: Setup Java
+      uses: actions/setup-java@v2
       with:
         distribution: 'temurin'
-        java-version: '21'
-        architecture: x64
-    
+        java-version: '17' # Use LTS version of Java unless 21 is specifically required
+
     - name: Compile Project
-      run: |
-          javac -d bin -cp ".\lib\*" -Xlint:deprecation .\*.java
+      run: javac -d ./build/classes/cmritleaderboard2025 -cp "./lib/*" cmritleaderboard2025/CMRITLeaderboard2025.java
 
-    - name: Run CLI
-      run: |
-          java -cp ".\bin;.\lib\*;.\lib\*" cmritleaderboard2025.Main
+    - name: Run Java Program
+      run: java -cp "./build/classes/cmritleaderboard2025:./lib/*" cmritleaderboard2025.CMRITLeaderboard2025
 
-    - name: Archive Generated File
-      run: |
-          mkdir -p ${{ github.workspace }}\Leaderboards
-          move .\Leaderboards\CMRIT2025Leaderboard.xlsx ${{ github.workspace }}\Leaderboards
+    - name: Replace index.html
+      run: mv -f ./CMRITLeaderboard2025.html index.html
 
-    - name: Commit HTML File
+    - name: Commit and Push Changes
       run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git add ${{ github.workspace }}\index.html
-          git commit -m "Add generated leaderboard data - ${{ steps.date.outputs.date }}"
-          git push
-
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        git add index.html Leaderboards/CMRIT2025Leaderboard.xlsx
+        git commit -m "Update Leaderboard - $(date +'%Y-%m-%d %H:%M:%S')"
+        git push
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
-          name: Leaderboard
-          path: ${{ github.workspace }}
+        name: Generated-index-html
+        path: ./index.html
