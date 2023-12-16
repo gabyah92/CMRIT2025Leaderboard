@@ -4,7 +4,7 @@ name: Java CI
 on:
   schedule:
     # Runs at 2 AM UTC every day
-    - cron: '45 04 * * *'
+    - cron: '05 05 * * *'
 
 jobs:
   build:
