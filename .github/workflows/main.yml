@@ -2,7 +2,7 @@ name: Update Leaderboard and Site
 on:
   schedule:
     # Runs at this time UTC every day
-    - cron: '05 07 * * *'
+    - cron: '22 07 * * *'
 
 jobs:
   update-leaderboard:
@@ -27,7 +27,7 @@ jobs:
       run: |
         git config --global user.name 'GitHub Actions'
         git config --global user.email 'actions@github.com'
-        git add index.html Leaderboards/CMRIT2025Leaderboard.xlsx
+        git add index.html Leaderboards/CurrentCMRITLeaderboard2025.xlsx
         git commit -m "Update Leaderboard - $(date +'%Y-%m-%d %H:%M:%S')"
         git push
 
