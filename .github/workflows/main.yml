@@ -2,7 +2,7 @@ name: Update Leaderboard and Site
 on:
   schedule:
     # Runs at this time UTC every day
-    - cron: '22 07 * * *'
+    - cron: '28 08 * * *'
 
 jobs:
   update-leaderboard:
@@ -21,7 +21,7 @@ jobs:
       run: javac -d ./build/classes/cmritleaderboard2025 -cp "./lib/*" cmritleaderboard2025/CMRITLeaderboard2025.java
 
     - name: Run Java Program
-      run: java -cp "./build/classes/cmritleaderboard2025:./lib/*" cmritleaderboard2025.CMRITLeaderboard2025
+      run: java -Djava.awt.headless=true -cp "./build/classes/cmritleaderboard2025:./lib/*" cmritleaderboard2025.CMRITLeaderboard2025
 
     - name: Commit and Push Changes
       run: |
