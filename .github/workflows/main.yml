@@ -24,7 +24,7 @@ jobs:
       run: java -cp "./build/classes/cmritleaderboard2025:./lib/*" cmritleaderboard2025.CMRITLeaderboard2025
 
     - name: Replace index.html
-      run: mv -f ./CMRITLeaderboard2025.html index.html
+      run: mv -f ./index.html index.html
 
     - name: Commit and Push Changes
       run: |
