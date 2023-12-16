@@ -2,7 +2,7 @@ name: Update Leaderboard and Site
 on:
   schedule:
     # Runs at this time UTC every day
-    - cron: '35 06 * * *'
+    - cron: '05 07 * * *'
 
 jobs:
   update-leaderboard:
@@ -22,9 +22,6 @@ jobs:
 
     - name: Run Java Program
       run: java -cp "./build/classes/cmritleaderboard2025:./lib/*" cmritleaderboard2025.CMRITLeaderboard2025
-
-    - name: Replace index.html
-      run: mv -f ./index.html index.html
 
     - name: Commit and Push Changes
       run: |
