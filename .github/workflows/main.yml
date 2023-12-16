@@ -4,7 +4,7 @@ name: Java CI
 on:
   schedule:
     # Runs at 2 AM UTC every day
-    - cron: '50 03 * * *'
+    - cron: '15 04 * * *'
 
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
 
     - name: Run CLI
       run: |
-          java -cp ".\bin;.\lib\*;.\lib\*" CMRIT2025Leaderboard.Main
+          java -cp ".\bin;.\lib\*;.\lib\*" cmritleaderboard2025.Main
 
     - name: Archive Generated File
       run: |
