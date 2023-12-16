@@ -2,7 +2,7 @@ name: Update Leaderboard and Site
 on:
   schedule:
     # Runs at this time UTC every day
-    - cron: '15 06 * * *'
+    - cron: '35 06 * * *'
 
 jobs:
   update-leaderboard:
