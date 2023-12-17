@@ -2,7 +2,7 @@ name: Update Leaderboard and Site
 
 on:
   schedule:
-    - cron: '34 17 * * *'
+    - cron: '05 18 * * *'
 
 jobs:
   update-leaderboard:
@@ -18,17 +18,17 @@ jobs:
           java-version: '21'
 
       - name: Compile Java Program
-        run: javac -d build/classes -cp "./lib/*" src/cmritleaderboard2025/*.java
+        run: javac -d build/classes -cp ".\lib\*" src\cmritleaderboard2025\*.java
 
       - name: Run Java Program
-        run: java -cp ./build/classes;./lib/* cmritleaderboard2025.CMRITLeaderboard2025
+        run: java -cp .\build\classes;.\lib\* cmritleaderboard2025.CMRITLeaderboard2025
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-          git add ${{ github.workspace }}/Leaderboards/CurrentCMRITLeaderboard2025.xlsx
-          git add ${{ github.workspace }}/index.html
+          git add Leaderboards/CurrentCMRITLeaderboard2025.xlsx
+          git add index.html
           git commit -m "Update Leaderboard - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" || echo "No changes to commit"
           git push
 
