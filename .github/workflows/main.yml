@@ -3,7 +3,7 @@ name: Update Leaderboard and Site
 
 on:
   schedule:
-    - cron: '58 09 * * *'
+    - cron: '03 14 * * *'
 
 jobs:
   update-leaderboard:
@@ -28,7 +28,8 @@ jobs:
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-          git add index.html Leaderboards/
+          git add ${{ github.workspace }}\Leaderboards\CurrentCMRITLeaderboard2025.xlsx
+          git add ${{ github.workspace }}\index.html
           git commit -m "Update Leaderboard - $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
           git push
 
@@ -36,4 +37,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: generated-index-html
-          path: index.html
+          path: ${{ github.workspace }}
