@@ -1,4 +1,4 @@
-name: CodeRankingWorkflow
+name: Test Run of generating Leaedrboard
 
 on:
   workflow_dispatch:
@@ -43,6 +43,6 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git add ${{ github.workspace }}/LeaderboardsStorage/*
+          git add ${{ github.workspace }}/Leaderboards/*
           git commit -m "Add generated leaderboard data - ${{ steps.date.outputs.date }}"
           git push
