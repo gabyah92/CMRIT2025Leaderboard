@@ -1,5 +1,6 @@
 ### IntelliJ IDEA ###
-out/
+out/production
+!out/artifacts/CMRITLeaderboard2025_jar/*
 !**/src/main/**/out/
 !**/src/test/**/out/
 
