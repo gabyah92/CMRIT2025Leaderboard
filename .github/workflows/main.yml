@@ -22,7 +22,7 @@ jobs:
 
       - name: Run CLI
         run: |
-          java -jar ./out/artifacts/CMRITLeaderboard2025_jar/CMRITLeaderboard2025.jar minimal
+          java -jar ./out/artifacts/CMRITLeaderboard2025_jar/CMRITLeaderboard2025.jar
           
       - name: Archive Generated File
         run: |
