@@ -3,7 +3,7 @@ name: Update Leaderboard and Site
 
 on:
   schedule:
-    - cron: '10 09 * * *'
+    - cron: '45 09 * * *'
 
 jobs:
   update-leaderboard:
@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'temurin'
-          java-version: '21'
+          java-version: '17'
 
       - name: Compile Java Program
         run: javac -d build/classes -cp "./lib/*" src/cmritleaderboard2025/*.java
