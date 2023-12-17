@@ -812,11 +812,14 @@ public class CMRITLeaderboard2025{
             System.exit(0);
         }
         else if (args.length == 1){
-            if (args[0] == "minimal") {
+            // Calling the constructor with minimal Excel sheet
+            if (Objects.equals(args[0], "minimal")) {
                 new CMRITLeaderboard2025(true);
-            } else {
-                new CMRITLeaderboard2025(false);
             }
+        }
+        else {
+            // Calling the constructor with default Excel sheet
+            new CMRITLeaderboard2025(false);
         }
         } catch (Exception e) {
             System.out.println("Something went wrong!" + "Error!!!");

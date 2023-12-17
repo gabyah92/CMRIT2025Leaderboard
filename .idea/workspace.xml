@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17621965-8b63-4478-9ab3-a925b02c3cf3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="17621965-8b63-4478-9ab3-a925b02c3cf3" name="Changes" comment="Add jar file for ease of run">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/CMRITLeaderboard2025_jar/CMRITLeaderboard2025.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/CMRITLeaderboard2025_jar/CMRITLeaderboard2025.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CMRITLeaderboard2025.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMRITLeaderboard2025.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +80,24 @@
       <option name="presentableId" value="Default" />
       <updated>1702798931936</updated>
       <workItem from="1702798933007" duration="3762000" />
-      <workItem from="1702817020677" duration="226000" />
+      <workItem from="1702817020677" duration="1320000" />
     </task>
+    <task id="LOCAL-00001" summary="Add jar file for ease of run">
+      <option name="closed" value="true" />
+      <created>1702817296199</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702817296199</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add jar file for ease of run" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add jar file for ease of run" />
   </component>
 </project>
