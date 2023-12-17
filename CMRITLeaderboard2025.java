@@ -2,14 +2,14 @@
 // Technical Trainer
 package cmritleaderboard2025;
 
-import javax.swing.*;
-import java.awt.*; 
 import java.io.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.net.HttpURLConnection; 
-import java.net.URL;
+import java.net.URI; 
 import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat; 
 import java.util.ArrayList;
 import java.util.Collections; 
@@ -31,7 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject; 
 
 public class CMRITLeaderboard2025 extends javax.swing.JFrame { 
-    private String excelSheetField = "lib//CMRIT2025Leaderboard.xlsx";
+    private String excelSheetField = "lib\\CMRIT2025Leaderboard.xlsx";
     HashMap <String, Integer> geeksforgeeksDB = new HashMap<>(); 
     HashMap <String, Integer> hackerrankDB = new HashMap<>(); 
     HashMap <String, Integer> codeforcesDB = new HashMap<>(); 
@@ -71,11 +71,12 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
                     // Display the leaderboard in console 
                     exportParticipantsToExcel((ArrayList<Participant>) curr_leaderboard); 
                     curr_leaderboard.clear();
-                } catch(Exception f) { JOptionPane.showMessageDialog(null, "Invalid Excel Sheet! ", "Error", JOptionPane.ERROR_MESSAGE); }
-            } else { JOptionPane.showMessageDialog(null, "Select an Excel Sheet! ", "Error", JOptionPane.ERROR_MESSAGE);  }  
+                } catch(Exception f) {  }
+            } else {   }  
             this.geeksforgeeksDB.clear();
             this.hackerrankDB.clear(); 
             this.codeforcesDB.clear(); 
+            System.exit(0);
     }
 
     static void exportParticipantsToExcel(ArrayList<Participant> participants) {
@@ -265,9 +266,7 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
             File file = new File(baseFileName + extension); 
             try ( FileOutputStream fileOut = new FileOutputStream(file)) { 
                 workbook.write(fileOut);
-                System.out.println("Excel file created successfully!");
-                JOptionPane.showMessageDialog(null, "Generated! ", "Finished Generating Leaderboard!", JOptionPane.INFORMATION_MESSAGE);
-                
+                System.out.println("Excel file created successfully!"); 
                 {
                     {  
                         StringBuilder htmlBuilder = new StringBuilder(); 
@@ -349,7 +348,7 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
                         try (FileOutputStream htmlOut = new FileOutputStream("index.html")) {
                             htmlOut.write(htmlBuilder.toString().getBytes());
                             System.out.println("HTML file created successfully!");
-                            JOptionPane.showMessageDialog(null, "HTML Generated!", "Finished Generating HTML Leaderboard!", JOptionPane.INFORMATION_MESSAGE);
+                            
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -366,18 +365,16 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
                 
                 workbook.close();
 
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Something Went Wrong! ", "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (Exception e) { 
             }
-        } catch (HeadlessException e) {
-            JOptionPane.showMessageDialog(null, "Something Went Wrong!", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch ( Exception e) { 
         } 
     }
 
     private List<Participant> downloadLeaderboard(List <Participant>list) throws Exception {  
         try{
             String url;
-            URL websiteUrl;
+            URI websiteUrl;
             URLConnection connection;
             HttpURLConnection o;
             InputStream inputStream;
@@ -385,9 +382,9 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
             for(int j=1;j<=10000;j++){ 
                 try{
                     url = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page="+j;
-                    websiteUrl = new URL(url);
-                    connection = new URL(url).openConnection();
-                    o = (HttpURLConnection) websiteUrl.openConnection();
+                    websiteUrl = new URI(url);
+                    connection = new URI(url).toURL().openConnection();
+                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
                     o.setRequestMethod("GET");
                     if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){ continue; } 
                     inputStream = connection.getInputStream();
@@ -422,9 +419,9 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
                         for(int j=0;j<10000;j+=100){ 
                             try{
                                 url = "https://www.hackerrank.com/rest/contests/" + tracker_name +  "/leaderboard?offset="+j+"&limit=100";
-                                websiteUrl = new URL(url);
-                                connection = new URL(url).openConnection();
-                                o = (HttpURLConnection) websiteUrl.openConnection();
+                                websiteUrl = new URI(url);
+                                connection = new URI(url).toURL().openConnection();
+                                o = (HttpURLConnection) websiteUrl.toURL().openConnection();
                                 o.setRequestMethod("GET");
                                 connection.setRequestProperty("Accept", "application/json");
                                 connection.setRequestProperty("User-Agent", "Mozilla/5.0");
@@ -454,7 +451,7 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
                                 } catch(Exception t) {}
                             }
                             catch(ArithmeticException e){ 
-                                JOptionPane.showMessageDialog(null, tracker_name+" is invalid. Ignoring...", "Error", JOptionPane.ERROR_MESSAGE); 
+                                
                                 break;
                             }
                             catch(Exception pp) {}
@@ -468,9 +465,9 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
                 try{
                     if(list.get(i).getGeeksForGeeksHandle().isBlank()) throw new Exception("");
                     url = "https://coding-platform-profile-api.onrender.com/geeksforgeeks/"+list.get(i).getGeeksForGeeksHandle(); 
-                    websiteUrl = new URL(url);
-                    connection = new URL(url).openConnection();
-                    o = (HttpURLConnection) websiteUrl.openConnection();
+                    websiteUrl = new URI(url);
+                    connection = new URI(url).toURL().openConnection();
+                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
                     o.setRequestMethod("GET");
                     if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){
                         throw new ArithmeticException();
@@ -496,9 +493,9 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
                 try{
                     if(list.get(i).getCodeChefHandle().isBlank()) throw new Exception("");
                     url = "https://codechef-api.vercel.app/"+list.get(i).getCodeChefHandle();
-                    websiteUrl = new URL(url);
-                    connection = new URL(url).openConnection();
-                    o = (HttpURLConnection) websiteUrl.openConnection();
+                    websiteUrl = new URI(url);
+                    connection = new URI(url).toURL().openConnection();
+                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
                     o.setRequestMethod("GET");
                     if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){
                         throw new ArithmeticException();
@@ -523,10 +520,15 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
                 // leetcode
                 try{ 
                     if(list.get(i).leetcode_handle.isBlank()) throw new Exception("");
-                    url = "https://leetcode.com/graphql?query=query{userContestRanking(username:\""+ list.get(i).getLeetcodeHandle() + "\"){rating}}";
-                    websiteUrl = new URL(url);
-                    connection = new URL(url).openConnection();
-                    o = (HttpURLConnection) websiteUrl.openConnection();
+                    
+                    String username = list.get(i).leetcode_handle;
+                    String encodedUsername = URLEncoder.encode(username, StandardCharsets.UTF_8);
+        
+                    url = "https://leetcode.com/graphql?query=" + 
+                           URLEncoder.encode("query{userContestRanking(username:\"" + encodedUsername + "\"){rating}}", StandardCharsets.UTF_8); 
+                    websiteUrl = new URI(url);
+                    connection = new URI(url).toURL().openConnection();
+                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
                     o.setRequestMethod("GET");
                     if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE)
                     {  throw new ArithmeticException(); } 
@@ -553,13 +555,14 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
         try {
             String url = "https://codeforces.com/api/user.ratedList?activeOnly=false&includeRetired=true";
             JSONArray rows = null;
-            try {
-                URL websiteUrl = new URL(url);
-                URLConnection connection = new URL(url).openConnection();
-                HttpURLConnection o = (HttpURLConnection) websiteUrl.openConnection();
+            try {  
+                URI websiteUrl = new URI(url);
+                URLConnection connection = new URI(url).toURL().openConnection();
+                HttpURLConnection o = (HttpURLConnection) websiteUrl.toURL().openConnection();
+                
                 o.setRequestMethod("GET");
                 if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE) {
-                    JOptionPane.showMessageDialog(null, "No Internet | Could not connect!", "Error", JOptionPane.ERROR_MESSAGE); 
+                    
                 }
                 InputStream inputStream = connection.getInputStream();
                 try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
@@ -574,8 +577,8 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
                         rows = jsonObject.getJSONArray("result");
                     }
                 }
-            } catch (HeadlessException | IOException | NumberFormatException | JSONException e) {
-                JOptionPane.showMessageDialog(null, "No Internet!", "Error", JOptionPane.ERROR_MESSAGE); 
+            } catch ( IOException | NumberFormatException | JSONException e) {
+                
             }
             JSONArray standings = rows; 
             try { 
@@ -589,11 +592,10 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
                             codeforcesMaxRating = Integer.max(points, codeforcesMaxRating); 
                         } 
                     }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Something went wrong! 222", "Error", JOptionPane.ERROR_MESSAGE);
+                } else { 
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Something Went Wrong! 223", "Error", JOptionPane.ERROR_MESSAGE);
+                
             }
         } catch(Exception e) {  } 
         return list;
@@ -617,7 +619,7 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
             p.percentile = percentile;
             return percentile;
         }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Something went wrong!", "Error", JOptionPane.ERROR_MESSAGE);
+            
             return 0;
         }
     }
@@ -641,12 +643,12 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
                 int hackerrankInd = 5;
 
                 if ( handleInd==-1 || gfgInd == -1 || codeforcesInd == -1 || leetcodeInd == -1 || codechefInd == -1 || sheet.getRow(0).getCell(codeforcesInd) == null || sheet.getRow(0).getCell(gfgInd) == null || sheet.getRow(0).getCell(leetcodeInd) == null || sheet.getRow(0).getCell(codechefInd) == null || sheet.getRow(0).getCell(handleInd) == null  ) {
-                    JOptionPane.showMessageDialog(null, "Source Excel Sheet must have Columns: {Name|Handle, GFG_Handle, Codeforces_Handle, LeetCode_Handle, CodeChef_Handle, Hackerrank(Optional)}!", "Error", JOptionPane.ERROR_MESSAGE); 
+                    
                     return new ArrayList<>();
                 }
                 
                 if( (hackerrankchk && sheet.getRow(0).getCell(hackerrankInd) == null   ) ){
-                    JOptionPane.showMessageDialog(null, "Hackerrank Contest ID's were provided! Yet Excel sheet doesn't haveHackerRank Usernames! Retry!", "Error", JOptionPane.ERROR_MESSAGE);
+                    
                     return new ArrayList<>();
                 }
                 
@@ -708,7 +710,7 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
                 }
             }
         } catch ( Exception e ) {
-            JOptionPane.showMessageDialog(null, "Source Excel Sheet must have Columns: {Name|Handle, GFG_Handle, Codeforces_Handle, LeetCode_Handle, CodeChef_Handle, HackerRank_Handle(Optional)}!", "Error", JOptionPane.ERROR_MESSAGE);
+            
             return new ArrayList<>();
         }
         return participants;
@@ -721,7 +723,7 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
                 leaderboard.get(i).setRank(i + 1);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Something went wrong!", "Error", JOptionPane.ERROR_MESSAGE);
+            
         }
     }
 
@@ -867,12 +869,7 @@ public class CMRITLeaderboard2025 extends javax.swing.JFrame {
         }
     } 
     public static void main(String[] args) {
-        try {
-            SwingUtilities.invokeLater(() -> {
-                new CMRITLeaderboard2025().setVisible(true);
-            });
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Something went wrong!", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+         new CMRITLeaderboard2025();
+        
     }
 }
