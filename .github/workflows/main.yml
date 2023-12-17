@@ -3,7 +3,7 @@ name: Update Leaderboard and Site
 
 on:
   schedule:
-    - cron: '00 02 * * *'
+    - cron: '10 09 * * *'
 
 jobs:
   update-leaderboard:
