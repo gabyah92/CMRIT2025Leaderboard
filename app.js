@@ -15,7 +15,7 @@ const gridOptions = {
     columnDefs: [
         // Rank,Handle,Codeforces_Handle,Codeforces_Rating,GFG_Handle,GFG_Contest_Score,GFG_Practice_Score,Leetcode_Handle,Leetcode_Rating,Codechef_Handle,Codechef_Rating,HackerRank_Handle,HackerRank_Practice_Score,Percentile
         { headerName: 'Rank', field: 'Rank', sortable: true, width: 70  , comparator: numberSort, lockPosition: true, pinned: 'left'},
-        { headerName: 'Handle', field: 'Handle', sortable: true, width: 110, lockPosition: true, pinned: 'left' },
+        { headerName: 'Handle', field: 'Handle', sortable: true, width: 110, lockPosition: true, pinned: 'left', filter: true },
         { headerName: 'Codeforces Handle', field: 'Codeforces_Handle', sortable: true },
         { headerName: 'Codeforces Rating', field: 'Codeforces_Rating', sortable: true, comparator: numberSort },
         { headerName: 'GFG Handle', field: 'GFG_Handle', sortable: true },

@@ -6,13 +6,13 @@ import java.awt.*;
 import java.io.*;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.util.*;
 import java.util.List;
 
+import jdk.jfr.SettingControl;
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -57,11 +57,12 @@ public class CMRITLeaderboard2025{
         List<Participant> curr_leaderboard = null;
 
         if (is_minimal) {
+            System.out.println("Loading Minimal Excel Sheet");
             excelSheetField = "lib//CMRIT2025Leaderboard_Minimal.xlsx";
         }
 
         String excelSheetPath = excelSheetField;
-        System.out.print(excelSheetPath);
+        System.out.print("Loading User Data from " + excelSheetPath);
         if (!excelSheetPath.equals("")) {
             try{
                 curr_leaderboard = loadExcelSheet(excelSheetPath);
@@ -86,7 +87,7 @@ public class CMRITLeaderboard2025{
     }
 
     static void exportParticipantsToExcel(ArrayList<Participant> participants) {
-        System.out.println("Exporting participants to Excel...");
+        System.out.println("Generating Excel Sheet...");
         try {
             // Create a new Workbook
             XSSFWorkbook workbook = new XSSFWorkbook();
@@ -191,13 +192,10 @@ public class CMRITLeaderboard2025{
             percentileHeaderCell.setCellValue("Percentile");
             percentileHeaderCell.setCellStyle(boldCenteredCellStyle);
 
-            System.out.println("Completed initialization of column headers.");
-
             // Add participants' data : Rank, Codeforces_Handle, 35% Codeforces_Rating,
             //       GFG_Handle, 30% GFG_Contest_Score, 10% GFG_Practice_Score,
             //       Leetcode_Handle, 15% Leetcode_Rating
             //       CodeChef_Handle, 10% Codechef_Rating
-            System.out.println("Adding participants' data...");
             for (int i = 0; i < participants.size(); i++) {
                 Participant participant = participants.get(i);
                 Row row = sheet.createRow(i + 1);
@@ -261,59 +259,52 @@ public class CMRITLeaderboard2025{
                 scoreCell6.setCellStyle(boldCellStyle);
             }
 
-            System.out.println("Completed adding participants' data.");
             File folder = new File("Leaderboards");
             if (!folder.exists()) {
                 folder.mkdir();
             }
 
             // Resize columns to fit the content
-            System.out.println("Resizing columns...");
             for(int i=0;i<12 + (hackerrankchk?2:0);i++) sheet.autoSizeColumn(i);
 
             String baseFileName = "Leaderboards/CurrentCMRITLeaderboard2025";
             String extension = ".xlsx";
 
 
-            System.out.println("Creating Excel file...");
             File file = new File(baseFileName + extension);
-            // check if file already exists
+            // if file exists, delete it
             if (file.exists()) {
                 file.delete();
             }
             try ( FileOutputStream fileOut = new FileOutputStream(file)) {
                 workbook.write(fileOut);
                 System.out.println("Excel file created successfully!");
-                System.out.println("Generated! " +  "\nFinished Generating Leaderboard!");
                 workbook.close();
 
             } catch (Exception e) {
-                System.out.println("Something Went Wrong! " + "Error!!!");
+                System.out.println(e.getMessage());
             }
-        } catch (HeadlessException e) {
-            System.out.println("Something Went Wrong!" + "Error!!!");
+        } catch ( Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
     private List<Participant> downloadLeaderboard(List <Participant>list) throws Exception {
-        System.out.println("Downloading leaderboard...");
-        System.out.println("=============================");
         try{
             String url;
-            URL websiteUrl;
+            URI websiteUrl;
             URLConnection connection;
             HttpURLConnection o;
             InputStream inputStream;
             // geeksforgeeks
-            System.out.println();
             System.out.println("Downloading GFG leaderboard...");
             for(int j=1;j<=10000;j++){
                 System.out.println("Page "+j);
                 try{
                     url = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page="+j;
-                    websiteUrl = new URL(url);
-                    connection = new URL(url).openConnection();
-                    o = (HttpURLConnection) websiteUrl.openConnection();
+                    websiteUrl = new URI(url);
+                    connection = new URI(url).toURL().openConnection();
+                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
                     o.setRequestMethod("GET");
                     if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){ continue; }
                     inputStream = connection.getInputStream();
@@ -332,8 +323,8 @@ public class CMRITLeaderboard2025{
                             String userHandle = tmp.getString("user_handle").toLowerCase();
                             if(geeksforgeeksDB.containsKey(userHandle)) {
                                 int score = (int)tmp.getDouble("user_score");
+                                System.out.println("GFG: Setting "+userHandle+" to "+score);
                                 list.get(geeksforgeeksDB.get(userHandle)).setGeeksForGeeksScore(score);
-                                System.out.println("Setting " + userHandle + " " + score);
                                 GFGMaxScore = Integer.max(GFGMaxScore, score);
                             }
                         }
@@ -346,13 +337,13 @@ public class CMRITLeaderboard2025{
                 try{
                     String tracker_names[] = searchToken.replace(" ", "").split(",");
                     for(String tracker_name : tracker_names){
-                        System.out.print(tracker_name + " ");
+                        System.out.print(tracker_name);
                         for(int j=0;j<10000;j+=100){
                             try{
                                 url = "https://www.hackerrank.com/rest/contests/" + tracker_name +  "/leaderboard?offset="+j+"&limit=100";
-                                websiteUrl = new URL(url);
-                                connection = new URL(url).openConnection();
-                                o = (HttpURLConnection) websiteUrl.openConnection();
+                                websiteUrl = new URI(url);
+                                connection = new URI(url).toURL().openConnection();
+                                o = (HttpURLConnection) websiteUrl.toURL().openConnection();
                                 o.setRequestMethod("GET");
                                 connection.setRequestProperty("Accept", "application/json");
                                 connection.setRequestProperty("User-Agent", "Mozilla/5.0");
@@ -375,6 +366,7 @@ public class CMRITLeaderboard2025{
                                         if( ( !userHandle.isBlank() && !userHandle.equals("[deleted]")) && this.hackerrankDB.containsKey(userHandle)) {
                                             int index = hackerrankDB.get(userHandle);
                                             int score = list.get(index).getHackerrankScore()+(int)tmp.getDouble("score");
+                                            System.out.println("HR: Setting "+userHandle+" to "+score);
                                             hackerrankMaxScore = Integer.max(score, hackerrankMaxScore);
                                             list.get(index).setHackerrankScore(score);
                                         }
@@ -382,7 +374,7 @@ public class CMRITLeaderboard2025{
                                 } catch(Exception t) {}
                             }
                             catch(ArithmeticException e){
-                                System.out.println(tracker_name+" is invalid. Ignoring..." + "Error!!!");
+
                                 break;
                             }
                             catch(Exception pp) {}
@@ -390,16 +382,17 @@ public class CMRITLeaderboard2025{
                     }
                 }catch(Exception ee){}
             }
-            System.out.println("\nDownloading GFG Practice leaderboard...");
             int n = list.size();
             for(int i=0;i<n;i++){
+                System.out.println("User "+i+" : "+list.get(i).getHandle());
+                System.out.println("---------------------------------");
                 // geeksforgeeks overallScore
                 try{
                     if(list.get(i).getGeeksForGeeksHandle().isBlank()) throw new Exception("");
                     url = "https://coding-platform-profile-api.onrender.com/geeksforgeeks/"+list.get(i).getGeeksForGeeksHandle();
-                    websiteUrl = new URL(url);
-                    connection = new URL(url).openConnection();
-                    o = (HttpURLConnection) websiteUrl.openConnection();
+                    websiteUrl = new URI(url);
+                    connection = new URI(url).toURL().openConnection();
+                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
                     o.setRequestMethod("GET");
                     if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){
                         throw new ArithmeticException();
@@ -417,19 +410,18 @@ public class CMRITLeaderboard2025{
                             score = jsonObject.getInt("overall_coding_score");
                         }catch(Exception e) { score = 0; }
                         list.get(i).setGeeksForGeekspScore(score);
-                        System.out.println("Setting " + list.get(i).getGeeksForGeeksHandle() + " " + score);
+                        System.out.println("GFG: Setting "+list.get(i).getHandle()+" to "+score);
                         GFGpMaxScore = Integer.max(score, GFGpMaxScore);
                     }catch (Exception e) { }
                 }catch(Exception e) {  }
 
                 // Codechef
-                System.out.println("Fetching Codechef leaderboard for "+list.get(i).getCodeChefHandle());
                 try{
                     if(list.get(i).getCodeChefHandle().isBlank()) throw new Exception("");
                     url = "https://codechef-api.vercel.app/"+list.get(i).getCodeChefHandle();
-                    websiteUrl = new URL(url);
-                    connection = new URL(url).openConnection();
-                    o = (HttpURLConnection) websiteUrl.openConnection();
+                    websiteUrl = new URI(url);
+                    connection = new URI(url).toURL().openConnection();
+                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
                     o.setRequestMethod("GET");
                     if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){
                         throw new ArithmeticException();
@@ -446,20 +438,24 @@ public class CMRITLeaderboard2025{
                         try{
                             rating = jsonObject.getInt("currentRating");
                         }catch(Exception e) { rating = 0; }
-                        System.out.println("Setting Codechef rating : "+rating + " for "+list.get(i).getCodeChefHandle());
                         list.get(i).setCodeChefRating(rating);
+                        System.out.println("CC: Setting "+list.get(i).getHandle()+" to "+rating);
                         codechefMaxRating = Integer.max(codechefMaxRating, rating);
                     }catch (Exception e) { }
                 }catch(Exception e){  }
 
                 // leetcode
-                System.out.println("Fetching leetcode leaderboard for "+list.get(i).getLeetcodeHandle());
                 try{
                     if(list.get(i).leetcode_handle.isBlank()) throw new Exception("");
-                    url = "https://leetcode.com/graphql?query=query{userContestRanking(username:\""+ list.get(i).getLeetcodeHandle() + "\"){rating}}";
-                    websiteUrl = new URL(url);
-                    connection = new URL(url).openConnection();
-                    o = (HttpURLConnection) websiteUrl.openConnection();
+
+                    String username = list.get(i).leetcode_handle;
+                    String encodedUsername = URLEncoder.encode(username, StandardCharsets.UTF_8);
+
+                    url = "https://leetcode.com/graphql?query=" +
+                            URLEncoder.encode("query{userContestRanking(username:\"" + encodedUsername + "\"){rating}}", StandardCharsets.UTF_8);
+                    websiteUrl = new URI(url);
+                    connection = new URI(url).toURL().openConnection();
+                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
                     o.setRequestMethod("GET");
                     if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE)
                     {  throw new ArithmeticException(); }
@@ -479,23 +475,26 @@ public class CMRITLeaderboard2025{
                         leetcodeMaxRating = Integer.max(rating, leetcodeMaxRating);
                     }catch (Exception e) { }
                 }catch(Exception e) {  }
+
+                System.out.println("\n");
             }
         } catch(Exception e) {}
 
         //codeforces
-        System.out.println("Downloading codeforces leaderboard...");
+        System.out.println("Getting Codeforces standings...");
         try {
-            String url = "https://codeforces.com/api/user.ratedList?activeOnly=true&includeRetired=false";
+            String url = "https://codeforces.com/api/user.ratedList?activeOnly=false&includeRetired=true";
             JSONArray rows = null;
             try {
-                URL websiteUrl = new URL(url);
-                URLConnection connection = new URL(url).openConnection();
-                HttpURLConnection o = (HttpURLConnection) websiteUrl.openConnection();
+                URI websiteUrl = new URI(url);
+                URLConnection connection = new URI(url).toURL().openConnection();
+                HttpURLConnection o = (HttpURLConnection) websiteUrl.toURL().openConnection();
+
                 o.setRequestMethod("GET");
                 if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE) {
-                    System.out.println("No Internet | Could not connect!" + "Error!!!");
+
                 }
-                System.out.println("Codeforces API response code : " + o.getResponseCode());
+                System.out.println("Codeforces Response: "+o.getResponseCode());
                 InputStream inputStream = connection.getInputStream();
                 try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
                     StringBuilder jsonContent = new StringBuilder();
@@ -509,8 +508,8 @@ public class CMRITLeaderboard2025{
                         rows = jsonObject.getJSONArray("result");
                     }
                 }
-            } catch (HeadlessException | IOException | NumberFormatException | JSONException e) {
-                System.out.println("No Internet!" + "Error!!!");
+            } catch ( IOException | NumberFormatException | JSONException e) {
+
             }
             JSONArray standings = rows;
             try {
@@ -520,18 +519,15 @@ public class CMRITLeaderboard2025{
                         String handle = member.getString("handle").toLowerCase();
                         int points = member.getInt("rating");
                         if(codeforcesDB.containsKey(handle)) {
-                            System.out.println("Setting Codeforces rating : "+points + " for "+handle);
+                            System.out.println("CF: Setting "+list.get(codeforcesDB.get(handle)).getHandle()+" to "+points);
                             list.get(codeforcesDB.get(handle)).setCodeforcesRating(points);
                             codeforcesMaxRating = Integer.max(points, codeforcesMaxRating);
                         }
                     }
                 } else {
-                    System.out.println("Something went wrong! 222" + "Error!!!");
-                    System.out.println("Something went wrong at codeforces leaderboard");
                 }
             } catch (Exception e) {
-                System.out.println("Something Went Wrong! 223" + "Error!!!");
-                System.out.println("Something went wrong at codeforces leaderboard");
+
             }
         } catch(Exception e) {  }
         return list;
@@ -555,13 +551,12 @@ public class CMRITLeaderboard2025{
             p.percentile = percentile;
             return percentile;
         }catch (Exception e) {
-            System.out.println("Something went wrong!" + "Error!!!");
+
             return 0;
         }
     }
 
     private List<Participant> loadExcelSheet(String excelSheetPath) {
-        System.out.println("Loading Excel Sheet from : " + excelSheetPath);
         // Format of excel sheet must be : {Handle, GFG_Handle, Codeforces_Handle, LeetCode_Handle, CodeChef_Handle}
         ArrayList<Participant> participants = new ArrayList<>( );
 
@@ -580,12 +575,12 @@ public class CMRITLeaderboard2025{
                 int hackerrankInd = 5;
 
                 if ( handleInd==-1 || gfgInd == -1 || codeforcesInd == -1 || leetcodeInd == -1 || codechefInd == -1 || sheet.getRow(0).getCell(codeforcesInd) == null || sheet.getRow(0).getCell(gfgInd) == null || sheet.getRow(0).getCell(leetcodeInd) == null || sheet.getRow(0).getCell(codechefInd) == null || sheet.getRow(0).getCell(handleInd) == null  ) {
-                    System.out.println("Source Excel Sheet must have Columns: {Name|Handle, GFG_Handle, Codeforces_Handle, LeetCode_Handle, CodeChef_Handle, Hackerrank(Optional)}!" + "Error!!!");
+
                     return new ArrayList<>();
                 }
 
                 if( (hackerrankchk && sheet.getRow(0).getCell(hackerrankInd) == null   ) ){
-                    System.out.println("Hackerrank Contest ID's were provided! Yet Excel sheet doesn't haveHackerRank Usernames! Retry!" + "Error!!!");
+
                     return new ArrayList<>();
                 }
 
@@ -647,7 +642,7 @@ public class CMRITLeaderboard2025{
                 }
             }
         } catch ( Exception e ) {
-            System.out.println("Source Excel Sheet must have Columns: {Name|Handle, GFG_Handle, Codeforces_Handle, LeetCode_Handle, CodeChef_Handle, HackerRank_Handle(Optional)}!" + "Error!!!");
+
             return new ArrayList<>();
         }
         return participants;
@@ -660,11 +655,11 @@ public class CMRITLeaderboard2025{
                 leaderboard.get(i).setRank(i + 1);
             }
         } catch (Exception e) {
-            System.out.println("Something went wrong!" + "Error!!!");
+
         }
     }
 
-    private static class Participant {
+    private class Participant {
         private String handle;
 
         private String codechef_handle;
