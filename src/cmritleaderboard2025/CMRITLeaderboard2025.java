@@ -30,7 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject; 
 
-public class CMRITLeaderboard2025 extends javax.swing.JFrame { 
+public class CMRITLeaderboard2025 { 
     private String excelSheetField = "lib\\CMRIT2025Leaderboard.xlsx";
     HashMap <String, Integer> geeksforgeeksDB = new HashMap<>(); 
     HashMap <String, Integer> hackerrankDB = new HashMap<>(); 
