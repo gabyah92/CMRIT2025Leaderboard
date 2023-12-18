@@ -1,9 +1,8 @@
-name: Test Run of generating Leaedrboard
-
+name: Generate Leaderboard
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0,12 * * *' # Runs at 12 am and 12 pm UTC time, 5:30 AM and PM respectively
+    - cron: '0 0 * * *' # Runs at 12 am UTC time i.e, 5:30 AM IST
 
 jobs:
   build:
