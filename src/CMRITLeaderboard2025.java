@@ -1,8 +1,6 @@
 // Built OVERNIGHT, yes again, by https://www.instagram.com/gabyah92 (Instagram)
 // Technical Trainer
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.*;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -49,7 +47,7 @@ public class CMRITLeaderboard2025{
         codechefMaxRating = 0;
         leetcodeMaxRating = 0;
         codeforcesMaxRating = 0;
-        searchToken = "cmrit25-1-basics, cmrit25-4-rbd, cmrit25-3-iterables, cmrit25-2-lpb, cmrit25-5-ds, 1-basics-2025, 2-loops-2025, 3-bitpat-2025, 4-iterables-2025, ds-2025, codevita-2025";
+        searchToken = "cmrit25-1-basics, cmrit25-4-rbd, cmrit25-3-iterables, cmrit25-2-lpb, cmrit25-5-ds, 1-basics-2025, 2-loops-2025, 3-bitpat-2025, 4-iterables-2025, 5-recursion-2025, ds-2025, codevita-2025";
         if (searchToken.equals("")) {
             hackerrankchk = false;
         }
@@ -196,6 +194,11 @@ public class CMRITLeaderboard2025{
             //       GFG_Handle, 30% GFG_Contest_Score, 10% GFG_Practice_Score,
             //       Leetcode_Handle, 15% Leetcode_Rating
             //       CodeChef_Handle, 10% Codechef_Rating
+
+            // Since the array here would already be sorted, if first persons codeforces score is 0, then there was a mistake with fetching from codeforces.
+            if( participants.size() >= 1 && participants.get(0).getCodeforcesRating() == 0 ) System.exit(666); 
+
+            
             for (int i = 0; i < participants.size(); i++) {
                 Participant participant = participants.get(i);
                 Row row = sheet.createRow(i + 1);
@@ -290,6 +293,54 @@ public class CMRITLeaderboard2025{
     }
 
     private List<Participant> downloadLeaderboard(List <Participant>list) throws Exception {
+
+        //codeforces
+        System.out.println("Getting Codeforces standings...");
+        try {
+            String url = "https://codeforces.com/api/user.ratedList?activeOnly=false&includeRetired=true";
+            JSONArray rows = null;
+            try {
+                URI websiteUrl = new URI(url);
+                URLConnection connection = new URI(url).toURL().openConnection();
+                HttpURLConnection o = (HttpURLConnection) websiteUrl.toURL().openConnection();
+
+                o.setRequestMethod("GET");
+                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE) {
+
+                }
+                System.out.println("Codeforces Response: "+o.getResponseCode());
+                InputStream inputStream = connection.getInputStream();
+                try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
+                    StringBuilder jsonContent = new StringBuilder();
+                    String line;
+                    while ((line = bufferedReader.readLine()) != null) {
+                        jsonContent.append(line);
+                    }
+                    JSONObject jsonObject = new JSONObject(jsonContent.toString());
+                    String status = jsonObject.getString("status");
+                    if (status.equals("OK")) {
+                        rows = jsonObject.getJSONArray("result");
+                    }
+                }
+            } catch ( IOException | NumberFormatException | JSONException e) {
+
+            }
+            JSONArray standings = rows;
+            try {
+                if (standings != null) {
+                    for (int j = 0; j < standings.length(); j++) {
+                        JSONObject member = standings.getJSONObject(j);
+                        String handle = member.getString("handle").toLowerCase();
+                        int points = member.getInt("rating");
+                        if(codeforcesDB.containsKey(handle)) { 
+                            list.get(codeforcesDB.get(handle)).setCodeforcesRating(points);
+                            codeforcesMaxRating = Integer.max(points, codeforcesMaxRating);
+                        }
+                    }
+                } 
+            } catch (Exception e) { }
+        } catch(Exception e) {  }
+        
         try{
             String url;
             URI websiteUrl;
@@ -298,8 +349,7 @@ public class CMRITLeaderboard2025{
             InputStream inputStream;
             // geeksforgeeks
             System.out.println("Downloading GFG leaderboard...");
-            for(int j=1;j<=10000;j++){
-                System.out.println("Page "+j);
+            for(int j=1;j<=10000;j++){ 
                 try{
                     url = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page="+j;
                     websiteUrl = new URI(url);
@@ -322,8 +372,7 @@ public class CMRITLeaderboard2025{
                             JSONObject tmp = arr.getJSONObject(i);
                             String userHandle = tmp.getString("user_handle").toLowerCase();
                             if(geeksforgeeksDB.containsKey(userHandle)) {
-                                int score = (int)tmp.getDouble("user_score");
-                                System.out.println("GFG: Setting "+userHandle+" to "+score);
+                                int score = (int)tmp.getDouble("user_score"); 
                                 list.get(geeksforgeeksDB.get(userHandle)).setGeeksForGeeksScore(score);
                                 GFGMaxScore = Integer.max(GFGMaxScore, score);
                             }
@@ -365,8 +414,7 @@ public class CMRITLeaderboard2025{
 
                                         if( ( !userHandle.isBlank() && !userHandle.equals("[deleted]")) && this.hackerrankDB.containsKey(userHandle)) {
                                             int index = hackerrankDB.get(userHandle);
-                                            int score = list.get(index).getHackerrankScore()+(int)tmp.getDouble("score");
-                                            System.out.println("HR: Setting "+userHandle+" to "+score);
+                                            int score = list.get(index).getHackerrankScore()+(int)tmp.getDouble("score"); 
                                             hackerrankMaxScore = Integer.max(score, hackerrankMaxScore);
                                             list.get(index).setHackerrankScore(score);
                                         }
@@ -383,9 +431,7 @@ public class CMRITLeaderboard2025{
                 }catch(Exception ee){}
             }
             int n = list.size();
-            for(int i=0;i<n;i++){
-                System.out.println("User "+i+" : "+list.get(i).getHandle());
-                System.out.println("---------------------------------");
+            for(int i=0;i<n;i++){  
                 // geeksforgeeks overallScore
                 try{
                     if(list.get(i).getGeeksForGeeksHandle().isBlank()) throw new Exception("");
@@ -409,8 +455,7 @@ public class CMRITLeaderboard2025{
                         try{
                             score = jsonObject.getInt("overall_coding_score");
                         }catch(Exception e) { score = 0; }
-                        list.get(i).setGeeksForGeekspScore(score);
-                        System.out.println("GFG: Setting "+list.get(i).getHandle()+" to "+score);
+                        list.get(i).setGeeksForGeekspScore(score); 
                         GFGpMaxScore = Integer.max(score, GFGpMaxScore);
                     }catch (Exception e) { }
                 }catch(Exception e) {  }
@@ -438,8 +483,7 @@ public class CMRITLeaderboard2025{
                         try{
                             rating = jsonObject.getInt("currentRating");
                         }catch(Exception e) { rating = 0; }
-                        list.get(i).setCodeChefRating(rating);
-                        System.out.println("CC: Setting "+list.get(i).getHandle()+" to "+rating);
+                        list.get(i).setCodeChefRating(rating); 
                         codechefMaxRating = Integer.max(codechefMaxRating, rating);
                     }catch (Exception e) { }
                 }catch(Exception e){  }
@@ -475,61 +519,11 @@ public class CMRITLeaderboard2025{
                         leetcodeMaxRating = Integer.max(rating, leetcodeMaxRating);
                     }catch (Exception e) { }
                 }catch(Exception e) {  }
-
-                System.out.println("\n");
+ 
             }
         } catch(Exception e) {}
 
-        //codeforces
-        System.out.println("Getting Codeforces standings...");
-        try {
-            String url = "https://codeforces.com/api/user.ratedList?activeOnly=false&includeRetired=true";
-            JSONArray rows = null;
-            try {
-                URI websiteUrl = new URI(url);
-                URLConnection connection = new URI(url).toURL().openConnection();
-                HttpURLConnection o = (HttpURLConnection) websiteUrl.toURL().openConnection();
-
-                o.setRequestMethod("GET");
-                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE) {
-
-                }
-                System.out.println("Codeforces Response: "+o.getResponseCode());
-                InputStream inputStream = connection.getInputStream();
-                try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
-                    StringBuilder jsonContent = new StringBuilder();
-                    String line;
-                    while ((line = bufferedReader.readLine()) != null) {
-                        jsonContent.append(line);
-                    }
-                    JSONObject jsonObject = new JSONObject(jsonContent.toString());
-                    String status = jsonObject.getString("status");
-                    if (status.equals("OK")) {
-                        rows = jsonObject.getJSONArray("result");
-                    }
-                }
-            } catch ( IOException | NumberFormatException | JSONException e) {
-
-            }
-            JSONArray standings = rows;
-            try {
-                if (standings != null) {
-                    for (int j = 0; j < standings.length(); j++) {
-                        JSONObject member = standings.getJSONObject(j);
-                        String handle = member.getString("handle").toLowerCase();
-                        int points = member.getInt("rating");
-                        if(codeforcesDB.containsKey(handle)) {
-                            System.out.println("CF: Setting "+list.get(codeforcesDB.get(handle)).getHandle()+" to "+points);
-                            list.get(codeforcesDB.get(handle)).setCodeforcesRating(points);
-                            codeforcesMaxRating = Integer.max(points, codeforcesMaxRating);
-                        }
-                    }
-                } else {
-                }
-            } catch (Exception e) {
-
-            }
-        } catch(Exception e) {  }
+        
         return list;
     }
 
