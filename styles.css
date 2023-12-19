@@ -7,4 +7,10 @@
 #myGrid {
     flex: 1 1 0px;
     width: 100%;
+} 
+div.ag-root .ag-cell-focus {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
 }
