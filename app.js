@@ -7,30 +7,28 @@ const numberSort = (num1, num2) => {
 const floatSort = (num1, num2) => {
     return parseFloat(num1) - parseFloat(num2);
 };
-
 const gridOptions = {
     autoSizeStrategy: {
         type: 'fitCellContents'
     },
     columnDefs: [
-        // Rank,Handle,Codeforces_Handle,Codeforces_Rating,GFG_Handle,GFG_Contest_Score,GFG_Practice_Score,Leetcode_Handle,Leetcode_Rating,Codechef_Handle,Codechef_Rating,HackerRank_Handle,HackerRank_Practice_Score,Percentile
-        { headerName: 'Rank', field: 'Rank', sortable: true, width: 70  , comparator: numberSort, lockPosition: true, pinned: 'left'},
-        { headerName: 'Handle', field: 'Handle', sortable: true, width: 110, lockPosition: true, pinned: 'left', filter: true },
-        { headerName: 'Codeforces Handle', field: 'Codeforces_Handle', sortable: true },
-        { headerName: 'Codeforces Rating', field: 'Codeforces_Rating', sortable: true, comparator: numberSort },
-        { headerName: 'GFG Handle', field: 'GFG_Handle', sortable: true },
-        { headerName: 'GFG Contest Score', field: 'GFG_Contest_Score', sortable: true, comparator: numberSort },
-        { headerName: 'GFG Practice Score', field: 'GFG_Practice_Score', sortable: true, comparator: numberSort },
-        { headerName: 'Leetcode Handle', field: 'Leetcode_Handle', sortable: true },
-        { headerName: 'Leetcode Rating', field: 'Leetcode_Rating', sortable: true, comparator: numberSort },
-        { headerName: 'Codechef Handle', field: 'Codechef_Handle', sortable: true },
-        { headerName: 'Codechef Rating', field: 'Codechef_Rating', sortable: true, comparator: numberSort },
-        { headerName: 'HackerRank Handle', field: 'HackerRank_Handle', sortable: true },
-        { headerName: 'HackerRank Practice Score', field: 'HackerRank_Practice_Score', sortable: true, comparator: numberSort },
-        { headerName: 'Percentile', field: 'Percentile', sortable: true, width: 120, comparator: floatSort}
+        { headerName: 'Rank', field: 'Rank', sortable: true, width: 100, comparator: numberSort, lockPosition: true, pinned: 'left', filter: 'agNumberColumnFilter' },
+        { headerName: 'Handle', field: 'Handle', sortable: true, width: 250, lockPosition: true, pinned: 'left', filter: 'agTextColumnFilter',floatingFilter: true },
+        { headerName: 'Codeforces Handle', field: 'Codeforces_Handle', sortable: true, filter: 'agTextColumnFilter',floatingFilter: true },
+        { headerName: 'Codeforces Rating', field: 'Codeforces_Rating', sortable: true, comparator: numberSort, filter: 'agNumberColumnFilter' },
+        { headerName: 'GFG Handle', field: 'GFG_Handle', sortable: true, filter: 'agTextColumnFilter',floatingFilter: true },
+        { headerName: 'GFG Contest Score', field: 'GFG_Contest_Score', sortable: true, comparator: numberSort, filter: 'agNumberColumnFilter' },
+        { headerName: 'GFG Practice Score', field: 'GFG_Practice_Score', sortable: true, comparator: numberSort, filter: 'agNumberColumnFilter' },
+        { headerName: 'Leetcode Handle', field: 'Leetcode_Handle', sortable: true, filter: 'agTextColumnFilter',floatingFilter: true },
+        { headerName: 'Leetcode Rating', field: 'Leetcode_Rating', sortable: true, comparator: numberSort, filter: 'agNumberColumnFilter' },
+        { headerName: 'Codechef Handle', field: 'Codechef_Handle', sortable: true, filter: 'agTextColumnFilter',floatingFilter: true },
+        { headerName: 'Codechef Rating', field: 'Codechef_Rating', sortable: true, comparator: numberSort, filter: 'agNumberColumnFilter' },
+        { headerName: 'HackerRank Handle', field: 'HackerRank_Handle', sortable: true, filter: 'agTextColumnFilter', floatingFilter: true },
+        { headerName: 'HackerRank Practice Score', field: 'HackerRank_Practice_Score', sortable: true, comparator: numberSort, filter: 'agNumberColumnFilter', width: 260 },
+        { headerName: 'Percentile', field: 'Percentile', sortable: true, comparator: floatSort, filter: 'agNumberColumnFilter'}
     ],
 
-  rowData: [],
+    rowData: [],
 };
 
 // XMLHttpRequest in promise format
