@@ -7,7 +7,9 @@ const numberSort = (num1, num2) => {
 const floatSort = (num1, num2) => {
     return parseFloat(num1) - parseFloat(num2);
 };
-const gridOptions = {
+const gridOptions = { 
+    pagination: true,  
+    paginationPageSize: 30,
     autoSizeStrategy: {
         type: 'fitCellContents'
     },
