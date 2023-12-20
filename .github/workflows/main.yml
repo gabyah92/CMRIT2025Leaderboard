@@ -2,7 +2,7 @@ name: Generate Leaderboard
 on:
   workflow_dispatch:
   schedule:
-    - cron: '22 10 * * *'
+    - cron: '49 10 * * *' 
 
 jobs:
   build:
@@ -16,16 +16,12 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '21'
-          distribution: 'adopt' 
+          distribution: 'temurin' # Use 'adopt' distribution on Windows
           architecture: x64
-
-      - name: Compile Java Project
-        run: |
-          javac -cp "./lib/*" ./src/CMRIT2025Leaderboard.java -d ./out
 
       - name: Run CLI
         run: |
-          java -cp "./lib/*:./out" CMRIT2025Leaderboard
+          java -jar ./out/artifacts/CMRITLeaderboard2025_jar/CMRITLeaderboard2025.jar
           
       - name: Archive Generated File
         run: |
