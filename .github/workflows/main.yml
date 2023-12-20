@@ -2,7 +2,7 @@ name: Generate Leaderboard
 on:
   workflow_dispatch:
   schedule:
-    - cron: '49 10 * * *' 
+    - cron: '53 2 * * *' 
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '21'
-          distribution: 'temurin' # Use 'adopt' distribution on Windows
+          distribution: 'adopt' 
           architecture: x64
 
       - name: Run CLI
