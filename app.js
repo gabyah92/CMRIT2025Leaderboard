@@ -9,7 +9,7 @@ const floatSort = (num1, num2) => {
 };
 const gridOptions = { 
     pagination: true,  
-    paginationPageSize: 30,
+    paginationPageSize: 10,
     autoSizeStrategy: {
         type: 'fitCellContents'
     },
