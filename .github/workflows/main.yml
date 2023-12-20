@@ -1,9 +1,8 @@
 name: Generate Leaderboard
-
 on:
   workflow_dispatch:
   schedule:
-    - cron: '24 9 * * *'
+    - cron: '22 10 * * *'
 
 jobs:
   build:
@@ -17,35 +16,37 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '21'
-          distribution: 'temurin'
+          distribution: 'adopt' 
           architecture: x64
-      
-      - name: Compile Java Program
-        run: |
-          javac -cp './lib/*' src/CMRITLeaderboard2025.java 
-        
-      - name: Run Java Program
-        run: java -cp "./lib/*:." CMRITLeaderboard2025 
 
+      - name: Compile Java Project
+        run: |
+          javac -cp "./lib/*" ./src/CMRIT2025Leaderboard.java -d ./out
+
+      - name: Run CLI
+        run: |
+          java -cp "./lib/*:./out" CMRIT2025Leaderboard
+          
       - name: Archive Generated File
         run: |
-          mkdir -p LeaderboardsStorage
-          cp -f Leaderboards/* LeaderboardsStorage/ 
+          mkdir -p ${{ github.workspace }}/LeaderboardsStorage
+          cp -f Leaderboards/* ${{ github.workspace }}/LeaderboardsStorage
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.0.0
         with:
           name: leaderboard-artifact
-          path: LeaderboardsStorage/ 
+          path: ${{ github.workspace }}/LeaderboardsStorage
 
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%d-%m-%Y %H:%M:%S')" 
+        run: echo "::set-output name=date::$(date +'%d-%m-%Y %H:%M:%S')"
 
       - name: Commit Generated Excel File
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git add Leaderboards/*
+          git add ${{ github.workspace }}/Leaderboards/*
           git commit -m "Add generated leaderboard data - ${{ steps.date.outputs.date }}"
           git pull --rebase
-          git push 
+          git push
