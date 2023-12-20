@@ -44,4 +44,4 @@ jobs:
           git config --global user.name "GitHub Actions"
           git add ${{ github.workspace }}/Leaderboards/*
           git commit -m "Add generated leaderboard data - ${{ steps.date.outputs.date }}"
-          git push
+          git push -f origin master
