@@ -3,7 +3,12 @@
     flex-direction: column;
     height: 100%;
 }
-
+h1{ 
+  color:white;
+}
+a{
+  color: orange;
+}
 #myGrid {
     flex: 1 1 0px;
     width: 100%;
