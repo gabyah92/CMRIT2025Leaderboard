@@ -196,9 +196,9 @@ public class CMRITLeaderboard2025{
             //       CodeChef_Handle, 10% Codechef_Rating
 
             // Since the array here would already be sorted, if first persons codeforces score is 0, then there was a mistake with fetching from codeforces.
-            if( participants.size() >= 1 && participants.get(0).getCodeforcesRating() == 0 ) System.exit(666); 
+            if( participants.size() >= 1 && participants.get(0).getCodeforcesRating() == 0 ) System.exit(666);
 
-            
+
             for (int i = 0; i < participants.size(); i++) {
                 Participant participant = participants.get(i);
                 Row row = sheet.createRow(i + 1);
@@ -332,16 +332,16 @@ public class CMRITLeaderboard2025{
                         JSONObject member = standings.getJSONObject(j);
                         String handle = member.getString("handle").toLowerCase();
                         int points = member.getInt("rating");
-                        if(codeforcesDB.containsKey(handle)) { 
+                        if(codeforcesDB.containsKey(handle)) {
                             list.get(codeforcesDB.get(handle)).setCodeforcesRating(points);
                             codeforcesMaxRating = Integer.max(points, codeforcesMaxRating);
                         }
                     }
-                } 
+                }
             } catch (Exception e) { }
         } catch(Exception e) {  }
-        
-        try{
+
+        try {
             String url;
             URI websiteUrl;
             URLConnection connection;
@@ -349,16 +349,18 @@ public class CMRITLeaderboard2025{
             InputStream inputStream;
             // geeksforgeeks
             System.out.println("Downloading GFG leaderboard...");
-            for(int j=1;j<=10000;j++){ 
-                try{
-                    url = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page="+j;
+            for (int j = 1; j <= 10000; j++) {
+                try {
+                    url = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page=" + j;
                     websiteUrl = new URI(url);
                     connection = new URI(url).toURL().openConnection();
                     o = (HttpURLConnection) websiteUrl.toURL().openConnection();
                     o.setRequestMethod("GET");
-                    if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){ continue; }
+                    if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE) {
+                        continue;
+                    }
                     inputStream = connection.getInputStream();
-                    try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
+                    try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
                         StringBuilder jsonContent = new StringBuilder();
                         String line;
                         while ((line = bufferedReader.readLine()) != null) {
@@ -367,38 +369,42 @@ public class CMRITLeaderboard2025{
                         JSONObject jsonObject = new JSONObject(jsonContent.toString());
                         JSONArray arr = jsonObject.getJSONArray("results");
                         int n = arr.length();
-                        if( n == 0) break;
-                        for(int i=0;i<n;i++){
+                        if (n == 0) break;
+                        for (int i = 0; i < n; i++) {
                             JSONObject tmp = arr.getJSONObject(i);
                             String userHandle = tmp.getString("user_handle").toLowerCase();
-                            if(geeksforgeeksDB.containsKey(userHandle)) {
-                                int score = (int)tmp.getDouble("user_score"); 
+                            if (geeksforgeeksDB.containsKey(userHandle)) {
+                                int score = (int) tmp.getDouble("user_score");
                                 list.get(geeksforgeeksDB.get(userHandle)).setGeeksForGeeksScore(score);
                                 GFGMaxScore = Integer.max(GFGMaxScore, score);
                             }
                         }
-                    } catch(Exception t) {}
-                }catch(Exception pp) {}
+                    } catch (Exception t) {
+                    }
+                } catch (Exception pp) {
+                }
             }
             // hackerrank
             System.out.println("Downloading HR leaderboard...");
-            if(hackerrankchk){
-                try{
+            if (hackerrankchk) {
+                try {
                     String tracker_names[] = searchToken.replace(" ", "").split(",");
-                    for(String tracker_name : tracker_names){
+                    for (String tracker_name : tracker_names) {
                         System.out.print(tracker_name);
-                        for(int j=0;j<10000;j+=100){
-                            try{
-                                url = "https://www.hackerrank.com/rest/contests/" + tracker_name +  "/leaderboard?offset="+j+"&limit=100";
+                        for (int j = 0; j < 10000; j += 100) {
+                            try {
+                                url = "https://www.hackerrank.com/rest/contests/" + tracker_name + "/leaderboard?offset=" + j + "&limit=100";
                                 websiteUrl = new URI(url);
                                 connection = new URI(url).toURL().openConnection();
                                 o = (HttpURLConnection) websiteUrl.toURL().openConnection();
                                 o.setRequestMethod("GET");
                                 connection.setRequestProperty("Accept", "application/json");
                                 connection.setRequestProperty("User-Agent", "Mozilla/5.0");
-                                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){ throw new ArithmeticException("INVALID URL : " + tracker_name); }
+                                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE) {
+                                    throw new ArithmeticException("INVALID URL : " + tracker_name);
+                                }
                                 inputStream = connection.getInputStream();
-                                try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
+                                try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
                                     StringBuilder jsonContent = new StringBuilder();
                                     String line;
                                     while ((line = bufferedReader.readLine()) != null) {
@@ -407,124 +413,116 @@ public class CMRITLeaderboard2025{
                                     JSONObject jsonObject = new JSONObject(jsonContent.toString());
                                     JSONArray arr = jsonObject.getJSONArray("models");
                                     int n = arr.length();
-                                    if( n == 0) break;
-                                    for(int i=0;i<n;i++){
+                                    if (n == 0) break;
+                                    for (int i = 0; i < n; i++) {
                                         JSONObject tmp = arr.getJSONObject(i);
                                         String userHandle = tmp.getString("hacker").toLowerCase();
 
-                                        if( ( !userHandle.isBlank() && !userHandle.equals("[deleted]")) && this.hackerrankDB.containsKey(userHandle)) {
+                                        if ((!userHandle.isBlank() && !userHandle.equals("[deleted]")) && this.hackerrankDB.containsKey(userHandle)) {
                                             int index = hackerrankDB.get(userHandle);
-                                            int score = list.get(index).getHackerrankScore()+(int)tmp.getDouble("score"); 
+                                            int score = list.get(index).getHackerrankScore() + (int) tmp.getDouble("score");
                                             hackerrankMaxScore = Integer.max(score, hackerrankMaxScore);
                                             list.get(index).setHackerrankScore(score);
                                         }
                                     }
-                                } catch(Exception t) {}
-                            }
-                            catch(ArithmeticException e){
+                                } catch (Exception t) {
+                                }
+                            } catch (ArithmeticException e) {
 
                                 break;
+                            } catch (Exception pp) {
                             }
-                            catch(Exception pp) {}
                         }
                     }
-                }catch(Exception ee){}
+                } catch (Exception ee) {
+                }
             }
-            int n = list.size();
-            for(int i=0;i<n;i++){  
-                // geeksforgeeks overallScore
-                try{
-                    if(list.get(i).getGeeksForGeeksHandle().isBlank()) throw new Exception("");
-                    url = "https://coding-platform-profile-api.onrender.com/geeksforgeeks/"+list.get(i).getGeeksForGeeksHandle();
-                    websiteUrl = new URI(url);
-                    connection = new URI(url).toURL().openConnection();
-                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
-                    o.setRequestMethod("GET");
-                    if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){
-                        throw new ArithmeticException();
-                    }
-                    inputStream = connection.getInputStream();
-                    try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
-                        StringBuilder jsonContent = new StringBuilder();
-                        String line;
-                        while ((line = bufferedReader.readLine()) != null) {
-                            jsonContent.append(line);
-                        }
-                        JSONObject jsonObject = new JSONObject(jsonContent.toString());
-                        int score;
-                        try{
+            try {
+                for (int i = 0; i < list.size(); i++) {
+                    // GeeksForGeeks
+                    if (!list.get(i).getGeeksForGeeksHandle().isBlank()) {
+                        url = "https://coding-platform-profile-api.onrender.com/geeksforgeeks/" + list.get(i).getGeeksForGeeksHandle();
+                        JSONObject jsonObject = makeHttpRequest(url);
+                        int score = 0;
+                        try {
                             score = jsonObject.getInt("overall_coding_score");
-                        }catch(Exception e) { score = 0; }
-                        list.get(i).setGeeksForGeekspScore(score); 
+                        } catch (Exception e) {
+                            score = 0;
+                        }
+                        list.get(i).setGeeksForGeekspScore(score);
                         GFGpMaxScore = Integer.max(score, GFGpMaxScore);
-                    }catch (Exception e) { }
-                }catch(Exception e) {  }
-
-                // Codechef
-                try{
-                    if(list.get(i).getCodeChefHandle().isBlank()) throw new Exception("");
-                    url = "https://codechef-api.vercel.app/"+list.get(i).getCodeChefHandle();
-                    websiteUrl = new URI(url);
-                    connection = new URI(url).toURL().openConnection();
-                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
-                    o.setRequestMethod("GET");
-                    if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){
-                        throw new ArithmeticException();
                     }
-                    inputStream = connection.getInputStream();
-                    try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
-                        StringBuilder jsonContent = new StringBuilder();
-                        String line;
-                        while ((line = bufferedReader.readLine()) != null) {
-                            jsonContent.append(line);
-                        }
-                        JSONObject jsonObject = new JSONObject(jsonContent.toString());
+
+                    // Codechef
+                    if (!list.get(i).getCodeChefHandle().isBlank()) {
+                        url = "https://codechef-api.vercel.app/" + list.get(i).getCodeChefHandle();
+                        JSONObject jsonObject = makeHttpRequest(url);
                         int rating = 0;
-                        try{
+                        try {
                             rating = jsonObject.getInt("currentRating");
-                        }catch(Exception e) { rating = 0; }
-                        list.get(i).setCodeChefRating(rating); 
-                        codechefMaxRating = Integer.max(codechefMaxRating, rating);
-                    }catch (Exception e) { }
-                }catch(Exception e){  }
-
-                // leetcode
-                try{
-                    if(list.get(i).leetcode_handle.isBlank()) throw new Exception("");
-
-                    String username = list.get(i).leetcode_handle;
-                    String encodedUsername = URLEncoder.encode(username, StandardCharsets.UTF_8);
-
-                    url = "https://leetcode.com/graphql?query=" +
-                            URLEncoder.encode("query{userContestRanking(username:\"" + encodedUsername + "\"){rating}}", StandardCharsets.UTF_8);
-                    websiteUrl = new URI(url);
-                    connection = new URI(url).toURL().openConnection();
-                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
-                    o.setRequestMethod("GET");
-                    if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE)
-                    {  throw new ArithmeticException(); }
-                    inputStream = connection.getInputStream();
-                    try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
-                        StringBuilder jsonContent = new StringBuilder();
-                        String line;
-                        while ((line = bufferedReader.readLine()) != null) {
-                            jsonContent.append(line);
+                        } catch (Exception e) {
+                            rating = 0;
                         }
-                        JSONObject jsonObject = new JSONObject(jsonContent.toString());
+                        list.get(i).setCodeChefRating(rating);
+                        codechefMaxRating = Integer.max(codechefMaxRating, rating);
+                    }
+
+                    // Leetcode
+                    if (!list.get(i).leetcode_handle.isBlank()) {
+                        String username = list.get(i).leetcode_handle;
+                        String encodedUsername = URLEncoder.encode(username, StandardCharsets.UTF_8);
+                        url = "https://leetcode.com/graphql?query=" +
+                                URLEncoder.encode("query{userContestRanking(username:\"" + encodedUsername + "\"){rating}}", StandardCharsets.UTF_8);
+                        JSONObject jsonObject = makeHttpRequest(url);
                         int rating = 0;
-                        try{
-                            rating = (int)jsonObject.getJSONObject("data").getJSONObject("userContestRanking").getDouble("rating");
-                        }catch(Exception e) { rating = 0; }
+                        try {
+                            rating = (int) jsonObject.getJSONObject("data").getJSONObject("userContestRanking").getDouble("rating");
+                        } catch (Exception e) {
+                            rating = 0;
+                        }
                         list.get(i).setLeetcodeRating(rating);
                         leetcodeMaxRating = Integer.max(rating, leetcodeMaxRating);
-                    }catch (Exception e) { }
-                }catch(Exception e) {  }
- 
+                    }
+                }
+            } catch (Exception e) {
             }
-        } catch(Exception e) {}
 
-        
-        return list;
+            return list;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // Method to make HTTP request and return JSON response
+    private JSONObject makeHttpRequest(String url) throws IOException, JSONException {
+        HttpURLConnection connection = null;
+        InputStream inputStream = null;
+        BufferedReader bufferedReader = null;
+        try {
+            connection = (HttpURLConnection) new URL(url).openConnection();
+            connection.setRequestMethod("GET");
+            if (connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || connection.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE) {
+                throw new ArithmeticException();
+            }
+            inputStream = connection.getInputStream();
+            bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder jsonContent = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                jsonContent.append(line);
+            }
+            return new JSONObject(jsonContent.toString());
+        } finally {
+            if (bufferedReader != null) {
+                bufferedReader.close();
+            }
+            if (inputStream != null) {
+                inputStream.close();
+            }
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
     }
 
     private double participantRank(Participant p){ // using normalization and weighted averages
@@ -796,20 +794,20 @@ public class CMRITLeaderboard2025{
     }
     public static void main(String[] args) {
         try {
-        if (args.length > 1){
-            System.out.println("Invalid Arguments!");
-            System.exit(0);
-        }
-        else if (args.length == 1){
-            // Calling the constructor with minimal Excel sheet
-            if (Objects.equals(args[0], "minimal")) {
-                new CMRITLeaderboard2025(true);
+            if (args.length > 1){
+                System.out.println("Invalid Arguments!");
+                System.exit(0);
             }
-        }
-        else {
-            // Calling the constructor with default Excel sheet
-            new CMRITLeaderboard2025(false);
-        }
+            else if (args.length == 1){
+                // Calling the constructor with minimal Excel sheet
+                if (Objects.equals(args[0], "minimal")) {
+                    new CMRITLeaderboard2025(true);
+                }
+            }
+            else {
+                // Calling the constructor with default Excel sheet
+                new CMRITLeaderboard2025(false);
+            }
         } catch (Exception e) {
             System.out.println("Something went wrong!" + "Error!!!");
         }
