@@ -18,7 +18,7 @@ const gridOptions = {
         { headerName: 'Handle', field: 'Handle', sortable: true, width: 250, lockPosition: true, pinned: 'left', filter: 'agTextColumnFilter',floatingFilter: true },
         { headerName: 'Codeforces Handle', field: 'Codeforces_Handle', sortable: true, filter: 'agTextColumnFilter',floatingFilter: true },
         { headerName: 'Codeforces Rating', field: 'Codeforces_Rating', sortable: true, comparator: numberSort, filter: 'agNumberColumnFilter' },
-        { headerName: 'GFG Handle', field: 'GFG_Handle', sortable: true, filter: 'agTextColumnFilter',floatingFilter: true },
+        { headerName: 'GFG Handle', field: 'GFG_Handle', sortable: true, filter: 'agTextColumnFilter',floatingFilter: true }, 
         { headerName: 'GFG Contest Score', field: 'GFG_Contest_Score', sortable: true, comparator: numberSort, filter: 'agNumberColumnFilter' },
         { headerName: 'GFG Practice Score', field: 'GFG_Practice_Score', sortable: true, comparator: numberSort, filter: 'agNumberColumnFilter' },
         { headerName: 'Leetcode Handle', field: 'Leetcode_Handle', sortable: true, filter: 'agTextColumnFilter',floatingFilter: true },
