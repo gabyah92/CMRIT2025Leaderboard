@@ -2,7 +2,7 @@ name: Generate Leaderboard
 on:
   workflow_dispatch:
   schedule:
-    - cron: '32 15 * * *' 
+    - cron: '42 18 * * *' 
 
 jobs:
   build:
