@@ -45,4 +45,4 @@ jobs:
           git add ${{ github.workspace }}/Leaderboards/*
           git commit -m "Add generated leaderboard data - ${{ steps.date.outputs.date }}"
           git pull --rebase
-          git push
+          git push --force
