@@ -40,7 +40,7 @@ jobs:
 
     - name: Run CLI
       run: |
-        java -jar ./build/libs/CMRITLeaderboard2025-1.0-SNAPSHOT.jar
+        java -jar ./build/libs/CMRITLeaderboard2025-1.0-SNAPSHOT.jar minimal
 
     - name: Archive Generated File
       run: |
