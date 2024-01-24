@@ -42,6 +42,10 @@ jobs:
       with:
         arguments: build
 
+    - name: Check all files
+      run: |
+        ls -R
+
     - name: Run CLI
       run: |
         java -jar ./build/libs/CMRITLeaderboard2025-1.0-SNAPSHOT.jar minimal
