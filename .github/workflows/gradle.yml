@@ -53,6 +53,13 @@ jobs:
 
     steps:
     
+    - name: Checkout Repository
+      uses: actions/checkout@v4.1.1
+
+    - name: Check all files
+      run: |
+        ls -R
+    
     - name: Set up JDK 21
       uses: actions/setup-java@v3
       with:
@@ -87,6 +94,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4.1.1
+
+    - name: Check all files
+      run: |
+        ls -R
 
     - name: Download Artifact
       uses: actions/download-artifact@v4.0.0
