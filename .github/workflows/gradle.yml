@@ -40,6 +40,12 @@ jobs:
       with:
         arguments: build
 
+    - name: Archive JAR Artifact
+      uses: actions/upload-artifact@v4.0.0
+      with:
+        name: jar-artifact
+        path: ./build/libs/CMRIT2025Leaderboard-1.0-SNAPSHOT.jar
+
   check:
     needs: build
 
@@ -47,14 +53,13 @@ jobs:
 
     steps:
 
-    - name: Checkout Repository
-      uses: actions/checkout@v4.1.1
+    - name: Download JAR Artifact
+      uses: actions/download-artifact@v4.0.0
+      with:
+        name: jar-artifact
+        path: ./build/libs/
 
-    - name: Check all files
-      run: |
-        ls -R
-
-    - name: Run CLI
+    - name: Run JAR File
       run: |
         java -jar ./build/libs/CMRIT2025Leaderboard-1.0-SNAPSHOT.jar
 
@@ -76,6 +81,12 @@ jobs:
 
     steps:
 
+    - name: Download Artifact
+      uses: actions/download-artifact@v4.0.0
+      with:
+        name: leaderboard-artifact
+        path: ./LeaderboardsStorage
+
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date +'%d-%m-%Y %H:%M:%S')"
@@ -84,6 +95,6 @@ jobs:
       run: |
         git config --global user.email "actions@github.com"
         git config --global user.name "GitHub Actions"
-        git add ${{ github.workspace }}/Leaderboards/*
+        git add LeaderboardsStorage/*
         git commit -m "Add generated leaderboard data - ${{ steps.date.outputs.date }}"
         git push --force
