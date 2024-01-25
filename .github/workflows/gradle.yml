@@ -108,6 +108,9 @@ jobs:
         name: leaderboard-artifact
         path: ./LeaderboardsStorage
 
+    - name: Move Excel to Leaderboards
+      run: mv -f ./LeaderboardsStorage/* Leaderboards/
+
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date +'%d-%m-%Y %H:%M:%S')"
@@ -116,6 +119,9 @@ jobs:
       run: |
         git config --global user.email "actions@github.com"
         git config --global user.name "GitHub Actions"
-        git add LeaderboardsStorage/*
+        git add Leaderboards/*
         git commit -m "Add generated leaderboard data - ${{ steps.date.outputs.date }}"
         git push --force
+
+    - name: Delete workflow artifact
+      uses: philips-labs/action-delete-artifacts@v1.0.0
