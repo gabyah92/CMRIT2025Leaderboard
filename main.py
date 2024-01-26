@@ -43,8 +43,6 @@ def load_excel_sheet(excel_sheet_path):
 
 
 def check_url_exists(url):
-    if url.endswith("#N/A" or "N/A/"):
-        return False
     header = {
         "User-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36"
     }
@@ -77,11 +75,11 @@ def main():
             row = [handle, codeforces_handle, geeksforgeeks_handle, leetcode_handle, codechef_handle, hackerrank_handle]
 
             # Checking if URLs exist for each handle
-            codeforces_url_exists = check_url_exists(f"https://codeforces.com/profile/{codeforces_handle}") if codeforces_handle else ''
-            geeksforgeeks_url_exists = check_url_exists(f"https://auth.geeksforgeeks.org/user/{geeksforgeeks_handle}/") if geeksforgeeks_handle else ''
-            leetcode_url_exists = check_url_exists(f"https://leetcode.com/{leetcode_handle}/") if leetcode_handle else ''
-            codechef_url_exists = check_url_exists(f"https://www.codechef.com/users/{codechef_handle}") if codechef_handle else ''
-            hackerrank_url_exists = check_url_exists(f"https://www.hackerrank.com/profile/{hackerrank_handle}") if hackerrank_handle else ''
+            codeforces_url_exists = check_url_exists(f"https://codeforces.com/profile/{codeforces_handle}") if codeforces_handle != '#N/A' else ''
+            geeksforgeeks_url_exists = check_url_exists(f"https://auth.geeksforgeeks.org/user/{geeksforgeeks_handle}/") if geeksforgeeks_handle != '#N/A' else ''
+            leetcode_url_exists = check_url_exists(f"https://leetcode.com/{leetcode_handle}/") if leetcode_handle != '#N/A' else ''
+            codechef_url_exists = check_url_exists(f"https://www.codechef.com/users/{codechef_handle}") if codechef_handle != '#N/A' else ''
+            hackerrank_url_exists = check_url_exists(f"https://www.hackerrank.com/profile/{hackerrank_handle}") if hackerrank_handle != '#N/A' else ''
 
             row.extend([codeforces_url_exists, geeksforgeeks_url_exists, leetcode_url_exists, codechef_url_exists, hackerrank_url_exists])
             print('{},{},{},{},{},{},{},{},{},{},{}'.format(handle, codeforces_handle, geeksforgeeks_handle, leetcode_handle, codechef_handle, hackerrank_handle, codeforces_url_exists, geeksforgeeks_url_exists, leetcode_url_exists, codechef_url_exists, hackerrank_url_exists))
