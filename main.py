@@ -2,6 +2,7 @@ import openpyxl
 import requests
 import csv
 from tqdm import tqdm  # Import tqdm library for progress bar
+from time import sleep
 
 
 class Participant:
@@ -76,10 +77,15 @@ def main():
 
             # Checking if URLs exist for each handle
             codeforces_url_exists = check_url_exists(f"https://codeforces.com/profile/{codeforces_handle}") if codeforces_handle != '#N/A' else ''
+            sleep(.5)
             geeksforgeeks_url_exists = check_url_exists(f"https://auth.geeksforgeeks.org/user/{geeksforgeeks_handle}/") if geeksforgeeks_handle != '#N/A' else ''
+            sleep(.5)
             leetcode_url_exists = check_url_exists(f"https://leetcode.com/{leetcode_handle}/") if leetcode_handle != '#N/A' else ''
+            sleep(.5)
             codechef_url_exists = check_url_exists(f"https://www.codechef.com/users/{codechef_handle}") if codechef_handle != '#N/A' else ''
+            sleep(.5)
             hackerrank_url_exists = check_url_exists(f"https://www.hackerrank.com/profile/{hackerrank_handle}") if hackerrank_handle != '#N/A' else ''
+            sleep(.5)
 
             row.extend([codeforces_url_exists, geeksforgeeks_url_exists, leetcode_url_exists, codechef_url_exists, hackerrank_url_exists])
             print('{},{},{},{},{},{},{},{},{},{},{}'.format(handle, codeforces_handle, geeksforgeeks_handle, leetcode_handle, codechef_handle, hackerrank_handle, codeforces_url_exists, geeksforgeeks_url_exists, leetcode_url_exists, codechef_url_exists, hackerrank_url_exists))
