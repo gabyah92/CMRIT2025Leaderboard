@@ -76,15 +76,39 @@ def main():
             row = [handle, codeforces_handle, geeksforgeeks_handle, leetcode_handle, codechef_handle, hackerrank_handle]
 
             # Checking if URLs exist for each handle
-            codeforces_url_exists = check_url_exists(f"https://codeforces.com/profile/{codeforces_handle}") if codeforces_handle != '#N/A' else ''
+            if codeforces_handle != '#N/A':
+                codeforces_url_exists = check_url_exists("https://codeforces.com/profile/" + codeforces_handle)
+            else:
+                codeforces_url_exists = False
+
             sleep(.5)
-            geeksforgeeks_url_exists = check_url_exists(f"https://auth.geeksforgeeks.org/user/{geeksforgeeks_handle}/") if geeksforgeeks_handle != '#N/A' else ''
+
+            if geeksforgeeks_handle != '#N/A':
+                geeksforgeeks_url_exists = check_url_exists("https://auth.geeksforgeeks.org/user/" + geeksforgeeks_handle)
+            else:
+                geeksforgeeks_url_exists = False
+
             sleep(.5)
-            leetcode_url_exists = check_url_exists(f"https://leetcode.com/{leetcode_handle}/") if leetcode_handle != '#N/A' else ''
+
+            if leetcode_handle != '#N/A':
+                leetcode_url_exists = check_url_exists("https://leetcode.com/" + leetcode_handle)
+            else:
+                leetcode_url_exists = False
+
             sleep(.5)
-            codechef_url_exists = check_url_exists(f"https://www.codechef.com/users/{codechef_handle}") if codechef_handle != '#N/A' else ''
+
+            if codechef_handle != '#N/A':
+                codechef_url_exists = check_url_exists("https://www.codechef.com/users/" + codechef_handle)
+            else:
+                codechef_url_exists = False
+
             sleep(.5)
-            hackerrank_url_exists = check_url_exists(f"https://www.hackerrank.com/profile/{hackerrank_handle}") if hackerrank_handle != '#N/A' else ''
+
+            if hackerrank_handle != '#N/A':
+                hackerrank_url_exists = check_url_exists("https://www.hackerrank.com/profile/" + hackerrank_handle)
+            else:
+                hackerrank_url_exists = False
+
             sleep(.5)
 
             row.extend([codeforces_url_exists, geeksforgeeks_url_exists, leetcode_url_exists, codechef_url_exists, hackerrank_url_exists])
