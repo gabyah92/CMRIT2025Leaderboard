@@ -49,7 +49,11 @@ def check_url_exists(url):
     }
     try:
         response = requests.get(url, headers=header)
-        return response.status_code == 200
+        if response.status_code == 200:
+            # Check if the final URL is the same as the original URL (no redirect)
+            if response.url == url:
+                return True
+        return False
     except requests.exceptions.RequestException:
         return False
 
