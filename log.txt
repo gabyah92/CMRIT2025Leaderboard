@@ -1,6 +1,6 @@
 Handle: 21R01A7201
-Codeforces Handle: 21r01a7201
-Codeforces URL: https://codeforces.com/profile/21r01a7201
+Codeforces Handle: CMRIT25_21R01A7201
+Codeforces URL: https://codeforces.com/profile/CMRIT25_21R01A7201
 Response URL: https://codeforces.com/profile/CMRIT25_21R01A7201
 Codeforces URL Exists: True
 
@@ -80,8 +80,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 21R01A7207
-Codeforces Handle: 21r01a7207
-Codeforces URL: https://codeforces.com/profile/21r01a7207
+Codeforces Handle: CMRIT25_21R01A7207
+Codeforces URL: https://codeforces.com/profile/CMRIT25_21R01A7207
 Response URL: https://codeforces.com/profile/CMRIT25_21R01A7207
 Codeforces URL Exists: True
 
@@ -471,7 +471,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7235
 LeetCode URL: https://leetcode.com/21r01a7235
 Response URL: https://leetcode.com/21r01a7235/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: sneha_kavali
 CodeChef URL: https://www.codechef.com/users/sneha_kavali
@@ -498,7 +498,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: kjcreddy666
 LeetCode URL: https://leetcode.com/kjcreddy666
 Response URL: https://leetcode.com/kjcreddy666/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: jai_21r01a7238
 CodeChef URL: https://www.codechef.com/users/jai_21r01a7238
@@ -660,7 +660,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: nithisha45
 LeetCode URL: https://leetcode.com/nithisha45
 Response URL: https://leetcode.com/nithisha45/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: nithisha_45
 CodeChef URL: https://www.codechef.com/users/nithisha_45
@@ -714,7 +714,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: mohammad_shadulla
 LeetCode URL: https://leetcode.com/mohammad_shadulla
 Response URL: https://leetcode.com/mohammad_shadulla/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: mohammadshadul
 CodeChef URL: https://www.codechef.com/users/mohammadshadul
@@ -741,7 +741,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7248
 LeetCode URL: https://leetcode.com/21r01a7248
 Response URL: https://leetcode.com/21r01a7248/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr21r01a7248
 CodeChef URL: https://www.codechef.com/users/cmr21r01a7248
@@ -768,7 +768,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7250
 LeetCode URL: https://leetcode.com/21r01a7250
 Response URL: https://leetcode.com/21r01a7250/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: adarsha_630
 CodeChef URL: https://www.codechef.com/users/adarsha_630
@@ -795,7 +795,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A7251
 LeetCode URL: https://leetcode.com/21R01A7251
 Response URL: https://leetcode.com/21R01A7251/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: ramcharan01
 CodeChef URL: https://www.codechef.com/users/ramcharan01
@@ -822,7 +822,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7252
 LeetCode URL: https://leetcode.com/21r01a7252
 Response URL: https://leetcode.com/21r01a7252/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: divijapittala
 CodeChef URL: https://www.codechef.com/users/divijapittala
@@ -849,7 +849,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A7253
 LeetCode URL: https://leetcode.com/21R01A7253
 Response URL: https://leetcode.com/21R01A7253/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: gouthami
 CodeChef URL: https://www.codechef.com/users/gouthami
@@ -876,7 +876,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7255
 LeetCode URL: https://leetcode.com/21r01a7255
 Response URL: https://leetcode.com/21r01a7255/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: sai_21r01a7255
 CodeChef URL: https://www.codechef.com/users/sai_21r01a7255
@@ -903,7 +903,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: vaishnavisingireddy
 LeetCode URL: https://leetcode.com/vaishnavisingireddy
 Response URL: https://leetcode.com/vaishnavisingireddy/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: vaishnavisingi
 CodeChef URL: https://www.codechef.com/users/vaishnavisingi
@@ -930,7 +930,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: somajhansi7258
 LeetCode URL: https://leetcode.com/somajhansi7258
 Response URL: https://leetcode.com/somajhansi7258/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: anonymous44
 CodeChef URL: https://www.codechef.com/users/anonymous44
@@ -957,7 +957,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7259
 LeetCode URL: https://leetcode.com/21r01a7259
 Response URL: https://leetcode.com/21r01a7259/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: arjun1515
 CodeChef URL: https://www.codechef.com/users/arjun1515
@@ -1092,7 +1092,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a7206
 LeetCode URL: https://leetcode.com/22r05a7206
 Response URL: https://leetcode.com/22r05a7206/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r05a7206
 CodeChef URL: https://www.codechef.com/users/r05a7206
@@ -1146,7 +1146,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: nithish_123
 LeetCode URL: https://leetcode.com/nithish_123
 Response URL: https://leetcode.com/nithish_123/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: aletinithish
 CodeChef URL: https://www.codechef.com/users/aletinithish
@@ -1173,7 +1173,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0504
 LeetCode URL: https://leetcode.com/21r01a0504
 Response URL: https://leetcode.com/21r01a0504/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: madhusudhan04
 CodeChef URL: https://www.codechef.com/users/madhusudhan04
@@ -1200,7 +1200,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0507
 LeetCode URL: https://leetcode.com/21r01a0507
 Response URL: https://leetcode.com/21r01a0507/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: sairaj11
 CodeChef URL: https://www.codechef.com/users/sairaj11
@@ -1227,7 +1227,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0508
 LeetCode URL: https://leetcode.com/21r01a0508
 Response URL: https://leetcode.com/21r01a0508/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: vishnupriya508
 CodeChef URL: https://www.codechef.com/users/vishnupriya508
@@ -1254,7 +1254,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: bhavani_2234
 LeetCode URL: https://leetcode.com/bhavani_2234
 Response URL: https://leetcode.com/bhavani_2234/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: bhavani_2234
 CodeChef URL: https://www.codechef.com/users/bhavani_2234
@@ -1281,7 +1281,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: ranjith_890
 LeetCode URL: https://leetcode.com/ranjith_890
 Response URL: https://leetcode.com/ranjith_890/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: ranjith_890
 CodeChef URL: https://www.codechef.com/users/ranjith_890
@@ -1308,7 +1308,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0513
 LeetCode URL: https://leetcode.com/21r01a0513
 Response URL: https://leetcode.com/21r01a0513/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: vishwatej4
 CodeChef URL: https://www.codechef.com/users/vishwatej4
@@ -1524,7 +1524,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: srilekha_3
 LeetCode URL: https://leetcode.com/srilekha_3
 Response URL: https://leetcode.com/srilekha_3/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: tinnu_3_3
 CodeChef URL: https://www.codechef.com/users/tinnu_3_3
@@ -1551,7 +1551,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0528
 LeetCode URL: https://leetcode.com/21r01a0528
 Response URL: https://leetcode.com/21r01a0528/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: k_prakashraj17
 CodeChef URL: https://www.codechef.com/users/k_prakashraj17
@@ -1578,7 +1578,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A0531
 LeetCode URL: https://leetcode.com/21R01A0531
 Response URL: https://leetcode.com/21R01A0531/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: meg_21r01a0531
 CodeChef URL: https://www.codechef.com/users/meg_21r01a0531
@@ -1605,7 +1605,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0532
 LeetCode URL: https://leetcode.com/21r01a0532
 Response URL: https://leetcode.com/21r01a0532/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a0532
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a0532
@@ -1632,7 +1632,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0533
 LeetCode URL: https://leetcode.com/21r01a0533
 Response URL: https://leetcode.com/21r01a0533/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: harikakaranam
 CodeChef URL: https://www.codechef.com/users/harikakaranam
@@ -1659,7 +1659,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A0534
 LeetCode URL: https://leetcode.com/21R01A0534
 Response URL: https://leetcode.com/21R01A0534/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmrit_21r01a05
 CodeChef URL: https://www.codechef.com/users/cmrit_21r01a05
@@ -1686,7 +1686,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Srishanth
 LeetCode URL: https://leetcode.com/Srishanth
 Response URL: https://leetcode.com/Srishanth/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: Srishanth_18
 CodeChef URL: https://www.codechef.com/users/Srishanth_18
@@ -1713,7 +1713,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0536
 LeetCode URL: https://leetcode.com/21r01a0536
 Response URL: https://leetcode.com/21r01a0536/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: akanksha_konga
 CodeChef URL: https://www.codechef.com/users/akanksha_konga
@@ -1916,8 +1916,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 21R01A0547
-Codeforces Handle: 21r01a0547_navadeep
-Codeforces URL: https://codeforces.com/profile/21r01a0547_navadeep
+Codeforces Handle: CMRIT25_21R01A0547
+Codeforces URL: https://codeforces.com/profile/CMRIT25_21R01A0547
 Response URL: https://codeforces.com/profile/CMRIT25_21R01A0547
 Codeforces URL Exists: True
 
@@ -2010,7 +2010,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0550
 LeetCode URL: https://leetcode.com/21r01a0550
 Response URL: https://leetcode.com/21r01a0550/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: akhil_550
 CodeChef URL: https://www.codechef.com/users/akhil_550
@@ -2037,7 +2037,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: abhiram_212
 LeetCode URL: https://leetcode.com/abhiram_212
 Response URL: https://leetcode.com/abhiram_212/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: abhiram_2023
 CodeChef URL: https://www.codechef.com/users/abhiram_2023
@@ -2064,7 +2064,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21R01A0552
 LeetCode URL: https://leetcode.com/21R01A0552
 Response URL: https://leetcode.com/21R01A0552/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Shravani52
 CodeChef URL: https://www.codechef.com/users/Shravani52
@@ -2091,7 +2091,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: srijaseepathi07
 LeetCode URL: https://leetcode.com/srijaseepathi07
 Response URL: https://leetcode.com/srijaseepathi07/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: srijaseepathi
 CodeChef URL: https://www.codechef.com/users/srijaseepathi
@@ -2324,7 +2324,7 @@ Handle: 21R01A0564
 Codeforces Handle: akshitha12
 Codeforces URL: https://codeforces.com/profile/akshitha12
 Response URL: https://codeforces.com/profile/akshitha12
-Codeforces URL Exists: False
+Codeforces URL Exists: True
 
 GeeksForGeeks Handle: CMRIT25_21R01A0564
 GeeksForGeeks URL: https://auth.geeksforgeeks.org/user/CMRIT25_21R01A0564
@@ -2350,7 +2350,7 @@ HackerRank URL Exists: True
 Handle: 21R01A0565
 Codeforces Handle: 21r01ar0tu
 Codeforces URL: https://codeforces.com/profile/21r01ar0tu
-Response URL: https://codeforces.com/profile/21r01ar0tu
+Response URL: https://codeforces.com/
 Codeforces URL Exists: False
 
 GeeksForGeeks Handle: CMRIT25_21R01A0565
@@ -2377,7 +2377,7 @@ HackerRank URL Exists: True
 Handle: 21R01A0566
 Codeforces Handle: 21r01a1fp0
 Codeforces URL: https://codeforces.com/profile/21r01a1fp0
-Response URL: https://codeforces.com/profile/21r01a1fp0
+Response URL: https://codeforces.com/
 Codeforces URL Exists: False
 
 GeeksForGeeks Handle: CMRIT25_21R01A0566
@@ -2404,7 +2404,7 @@ HackerRank URL Exists: True
 Handle: 21R01A0567
 Codeforces Handle: 21r01abk04
 Codeforces URL: https://codeforces.com/profile/21r01abk04
-Response URL: https://codeforces.com/profile/21r01abk04
+Response URL: https://codeforces.com/
 Codeforces URL Exists: False
 
 GeeksForGeeks Handle: 21r01a0567
@@ -2431,7 +2431,7 @@ HackerRank URL Exists: True
 Handle: 21R01A0568
 Codeforces Handle: 21r01amhbr
 Codeforces URL: https://codeforces.com/profile/21r01amhbr
-Response URL: https://codeforces.com/profile/21r01amhbr
+Response URL: https://codeforces.com/
 Codeforces URL Exists: False
 
 GeeksForGeeks Handle: #N/A
@@ -2442,7 +2442,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0568
 LeetCode URL: https://leetcode.com/21r01a0568
 Response URL: https://leetcode.com/21r01a0568/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: deekshitha777
 CodeChef URL: https://www.codechef.com/users/deekshitha777
@@ -2458,7 +2458,7 @@ HackerRank URL Exists: True
 Handle: 21R01A0570
 Codeforces Handle: 21r01a0570
 Codeforces URL: https://codeforces.com/profile/21r01a0570
-Response URL: https://codeforces.com/profile/21r01a0570
+Response URL: https://codeforces.com/
 Codeforces URL Exists: False
 
 GeeksForGeeks Handle: CMRIT_ 21R01A0570
@@ -2469,7 +2469,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0570
 LeetCode URL: https://leetcode.com/21r01a0570
 Response URL: https://leetcode.com/21r01a0570/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: shreya_1_17
 CodeChef URL: https://www.codechef.com/users/shreya_1_17
@@ -2512,7 +2512,7 @@ HackerRank URL Exists: False
 Handle: 21R01A0572
 Codeforces Handle: 21r01a0572
 Codeforces URL: https://codeforces.com/profile/21r01a0572
-Response URL: https://codeforces.com/profile/21r01a0572
+Response URL: https://codeforces.com/
 Codeforces URL Exists: False
 
 GeeksForGeeks Handle: CMRIT25_21R01A0572
@@ -2523,7 +2523,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: vasundhara123
 LeetCode URL: https://leetcode.com/vasundhara123
 Response URL: https://leetcode.com/vasundhara123/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: vasundhara2
 CodeChef URL: https://www.codechef.com/users/vasundhara2
@@ -2540,7 +2540,7 @@ Handle: 21R01A0573
 Codeforces Handle: datta73
 Codeforces URL: https://codeforces.com/profile/datta73
 Response URL: https://codeforces.com/profile/datta73
-Codeforces URL Exists: False
+Codeforces URL Exists: True
 
 GeeksForGeeks Handle: #N/A
 GeeksForGeeks URL: https://auth.geeksforgeeks.org/user/#N/A
@@ -2550,7 +2550,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: datta73
 LeetCode URL: https://leetcode.com/datta73
 Response URL: https://leetcode.com/datta73/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: datta73
 CodeChef URL: https://www.codechef.com/users/datta73
@@ -2901,7 +2901,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A0589
 LeetCode URL: https://leetcode.com/21R01A0589
 Response URL: https://leetcode.com/21R01A0589/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: anuh21r01a0589
 CodeChef URL: https://www.codechef.com/users/anuh21r01a0589
@@ -2928,7 +2928,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0590
 LeetCode URL: https://leetcode.com/21r01a0590
 Response URL: https://leetcode.com/21r01a0590/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: manikanta61
 CodeChef URL: https://www.codechef.com/users/manikanta61
@@ -2982,7 +2982,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A0593
 LeetCode URL: https://leetcode.com/21R01A0593
 Response URL: https://leetcode.com/21R01A0593/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: vishnu_593
 CodeChef URL: https://www.codechef.com/users/vishnu_593
@@ -3009,7 +3009,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0595
 LeetCode URL: https://leetcode.com/21r01a0595
 Response URL: https://leetcode.com/21r01a0595/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: sadhvika12
 CodeChef URL: https://www.codechef.com/users/sadhvika12
@@ -3036,7 +3036,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0596
 LeetCode URL: https://leetcode.com/21r01a0596
 Response URL: https://leetcode.com/21r01a0596/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r01a0596
 CodeChef URL: https://www.codechef.com/users/r01a0596
@@ -3063,7 +3063,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: vamshi_yadav2727
 LeetCode URL: https://leetcode.com/vamshi_yadav2727
 Response URL: https://leetcode.com/vamshi_yadav2727/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: vamshiyadav07
 CodeChef URL: https://www.codechef.com/users/vamshiyadav07
@@ -3117,7 +3117,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05a0
 LeetCode URL: https://leetcode.com/21r01a05a0
 Response URL: https://leetcode.com/21r01a05a0/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: 21R01A05A0shadab01
 CodeChef URL: https://www.codechef.com/users/21R01A05A0shadab01
@@ -3144,7 +3144,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A05A1
 LeetCode URL: https://leetcode.com/21R01A05A1
 Response URL: https://leetcode.com/21R01A05A1/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: mehrajfatima
 CodeChef URL: https://www.codechef.com/users/mehrajfatima
@@ -3171,7 +3171,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05a2
 LeetCode URL: https://leetcode.com/21r01a05a2
 Response URL: https://leetcode.com/21r01a05a2/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: s21ro1ao5a2
 CodeChef URL: https://www.codechef.com/users/s21ro1ao5a2
@@ -3198,7 +3198,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05a3
 LeetCode URL: https://leetcode.com/21r01a05a3
 Response URL: https://leetcode.com/21r01a05a3/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: rahilsubhan
 CodeChef URL: https://www.codechef.com/users/rahilsubhan
@@ -3252,7 +3252,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05a6
 LeetCode URL: https://leetcode.com/21r01a05a6
 Response URL: https://leetcode.com/21r01a05a6/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: harishgo764
 CodeChef URL: https://www.codechef.com/users/harishgo764
@@ -3279,7 +3279,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05a8
 LeetCode URL: https://leetcode.com/21r01a05a8
 Response URL: https://leetcode.com/21r01a05a8/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: pallavi2004
 CodeChef URL: https://www.codechef.com/users/pallavi2004
@@ -3306,7 +3306,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05b0
 LeetCode URL: https://leetcode.com/21r01a05b0
 Response URL: https://leetcode.com/21r01a05b0/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: surabhi_nanda
 CodeChef URL: https://www.codechef.com/users/surabhi_nanda
@@ -3765,7 +3765,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05d8
 LeetCode URL: https://leetcode.com/21r01a05d8
 Response URL: https://leetcode.com/21r01a05d8/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: sai21r01a05d8
 CodeChef URL: https://www.codechef.com/users/sai21r01a05d8
@@ -3792,7 +3792,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21R01A05D9
 LeetCode URL: https://leetcode.com/21R01A05D9
 Response URL: https://leetcode.com/21R01A05D9/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: s_21r01a05d9
 CodeChef URL: https://www.codechef.com/users/s_21r01a05d9
@@ -3819,7 +3819,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Naveenbathini
 LeetCode URL: https://leetcode.com/Naveenbathini
 Response URL: https://leetcode.com/Naveenbathini/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: naveenbathini3
 CodeChef URL: https://www.codechef.com/users/naveenbathini3
@@ -3846,7 +3846,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05e1
 LeetCode URL: https://leetcode.com/21r01a05e1
 Response URL: https://leetcode.com/21r01a05e1/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a05e1
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a05e1
@@ -4197,7 +4197,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21R01A05G3
 LeetCode URL: https://leetcode.com/21R01A05G3
 Response URL: https://leetcode.com/21R01A05G3/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cse_21r01a05g3
 CodeChef URL: https://www.codechef.com/users/cse_21r01a05g3
@@ -4224,7 +4224,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A05G4
 LeetCode URL: https://leetcode.com/21R01A05G4
 Response URL: https://leetcode.com/21R01A05G4/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: r01a05g4
 CodeChef URL: https://www.codechef.com/users/r01a05g4
@@ -4251,7 +4251,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: ruthikchary
 LeetCode URL: https://leetcode.com/ruthikchary
 Response URL: https://leetcode.com/ruthikchary/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: ruthik25
 CodeChef URL: https://www.codechef.com/users/ruthik25
@@ -4278,7 +4278,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05g6
 LeetCode URL: https://leetcode.com/21r01a05g6
 Response URL: https://leetcode.com/21r01a05g6/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a05g6
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a05g6
@@ -4710,7 +4710,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: sreenath_5j5
 LeetCode URL: https://leetcode.com/sreenath_5j5
 Response URL: https://leetcode.com/sreenath_5j5/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: Sreenath_5j5
 CodeChef URL: https://www.codechef.com/users/Sreenath_5j5
@@ -4737,7 +4737,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05j6
 LeetCode URL: https://leetcode.com/21r01a05j6
 Response URL: https://leetcode.com/21r01a05j6/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: hima21r01a05j6
 CodeChef URL: https://www.codechef.com/users/hima21r01a05j6
@@ -4764,7 +4764,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: cmr_21r01a05j7
 LeetCode URL: https://leetcode.com/cmr_21r01a05j7
 Response URL: https://leetcode.com/cmr_21r01a05j7/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: vishnu_5j7
 CodeChef URL: https://www.codechef.com/users/vishnu_5j7
@@ -4791,7 +4791,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A05J8lt
 LeetCode URL: https://leetcode.com/21R01A05J8lt
 Response URL: https://leetcode.com/21R01A05J8lt/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: tevinj8
 CodeChef URL: https://www.codechef.com/users/tevinj8
@@ -4845,7 +4845,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A05K1
 LeetCode URL: https://leetcode.com/21R01A05K1
 Response URL: https://leetcode.com/21R01A05K1/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: preethivarthya
 CodeChef URL: https://www.codechef.com/users/preethivarthya
@@ -4872,7 +4872,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05k3
 LeetCode URL: https://leetcode.com/21r01a05k3
 Response URL: https://leetcode.com/21r01a05k3/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: ruthvik5k3
 CodeChef URL: https://www.codechef.com/users/ruthvik5k3
@@ -4899,7 +4899,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: veerendra74
 LeetCode URL: https://leetcode.com/veerendra74
 Response URL: https://leetcode.com/veerendra74/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: veerendra74
 CodeChef URL: https://www.codechef.com/users/veerendra74
@@ -4926,7 +4926,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05k6
 LeetCode URL: https://leetcode.com/21r01a05k6
 Response URL: https://leetcode.com/21r01a05k6/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a05k6
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a05k6
@@ -4953,7 +4953,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05k7
 LeetCode URL: https://leetcode.com/21r01a05k7
 Response URL: https://leetcode.com/21r01a05k7/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmrit5k7
 CodeChef URL: https://www.codechef.com/users/cmrit5k7
@@ -4980,7 +4980,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A05K8
 LeetCode URL: https://leetcode.com/21R01A05K8
 Response URL: https://leetcode.com/21R01A05K8/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: srujan_20
 CodeChef URL: https://www.codechef.com/users/srujan_20
@@ -5007,7 +5007,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: ManognaKumar
 LeetCode URL: https://leetcode.com/ManognaKumar
 Response URL: https://leetcode.com/ManognaKumar/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: manognakumar
 CodeChef URL: https://www.codechef.com/users/manognakumar
@@ -5034,7 +5034,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05l1cmrit
 LeetCode URL: https://leetcode.com/21r01a05l1cmrit
 Response URL: https://leetcode.com/21r01a05l1cmrit/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: selveenagrace0
 CodeChef URL: https://www.codechef.com/users/selveenagrace0
@@ -5061,7 +5061,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: CMRIT_HARISH5628
 LeetCode URL: https://leetcode.com/CMRIT_HARISH5628
 Response URL: https://leetcode.com/CMRIT_HARISH5628/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: CMRIT_harish5628
 CodeChef URL: https://www.codechef.com/users/CMRIT_harish5628
@@ -5088,7 +5088,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A05L6
 LeetCode URL: https://leetcode.com/21R01A05L6
 Response URL: https://leetcode.com/21R01A05L6/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: ranjith_20
 CodeChef URL: https://www.codechef.com/users/ranjith_20
@@ -5385,7 +5385,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A05N5
 LeetCode URL: https://leetcode.com/21R01A05N5
 Response URL: https://leetcode.com/21R01A05N5/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r01a05n5
 CodeChef URL: https://www.codechef.com/users/r01a05n5
@@ -5412,7 +5412,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05n6
 LeetCode URL: https://leetcode.com/21r01a05n6
 Response URL: https://leetcode.com/21r01a05n6/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a05n6
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a05n6
@@ -5439,7 +5439,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05n7
 LeetCode URL: https://leetcode.com/21r01a05n7
 Response URL: https://leetcode.com/21r01a05n7/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a05n7
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a05n7
@@ -5466,7 +5466,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: karthik_51
 LeetCode URL: https://leetcode.com/karthik_51
 Response URL: https://leetcode.com/karthik_51/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: karthik_51
 CodeChef URL: https://www.codechef.com/users/karthik_51
@@ -5871,7 +5871,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05r0
 LeetCode URL: https://leetcode.com/21r01a05r0
 Response URL: https://leetcode.com/21r01a05r0/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a05r0
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a05r0
@@ -5898,7 +5898,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05r3
 LeetCode URL: https://leetcode.com/21r01a05r3
 Response URL: https://leetcode.com/21r01a05r3/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: bhanuprakash75
 CodeChef URL: https://www.codechef.com/users/bhanuprakash75
@@ -5925,7 +5925,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05r4shravani
 LeetCode URL: https://leetcode.com/21r01a05r4shravani
 Response URL: https://leetcode.com/21r01a05r4shravani/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: sravs_76
 CodeChef URL: https://www.codechef.com/users/sravs_76
@@ -5952,7 +5952,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05r6
 LeetCode URL: https://leetcode.com/21r01a05r6
 Response URL: https://leetcode.com/21r01a05r6/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a05r6
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a05r6
@@ -6182,8 +6182,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 22R05A0512
-Codeforces Handle: 22r05a0512
-Codeforces URL: https://codeforces.com/profile/22r05a0512
+Codeforces Handle: CMRIT25_22R05A0512
+Codeforces URL: https://codeforces.com/profile/CMRIT25_22R05A0512
 Response URL: https://codeforces.com/profile/CMRIT25_22R05A0512
 Codeforces URL Exists: True
 
@@ -6195,7 +6195,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a0512
 LeetCode URL: https://leetcode.com/22r05a0512
 Response URL: https://leetcode.com/22r05a0512/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Kalyani2003
 CodeChef URL: https://www.codechef.com/users/Kalyani2003
@@ -6222,7 +6222,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a0513
 LeetCode URL: https://leetcode.com/22r05a0513
 Response URL: https://leetcode.com/22r05a0513/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: saichandra513
 CodeChef URL: https://www.codechef.com/users/saichandra513
@@ -6249,7 +6249,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a0514
 LeetCode URL: https://leetcode.com/22r05a0514
 Response URL: https://leetcode.com/22r05a0514/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Kodam1
 CodeChef URL: https://www.codechef.com/users/Kodam1
@@ -6276,7 +6276,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Sahithilakkarasu
 LeetCode URL: https://leetcode.com/Sahithilakkarasu
 Response URL: https://leetcode.com/Sahithilakkarasu/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: sahithi_2702
 CodeChef URL: https://www.codechef.com/users/sahithi_2702
@@ -6303,7 +6303,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a0518
 LeetCode URL: https://leetcode.com/22r05a0518
 Response URL: https://leetcode.com/22r05a0518/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: venu22r05a0518
 CodeChef URL: https://www.codechef.com/users/venu22r05a0518
@@ -6330,7 +6330,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 22R05A0520
 LeetCode URL: https://leetcode.com/22R05A0520
 Response URL: https://leetcode.com/22R05A0520/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: ramupalla912
 CodeChef URL: https://www.codechef.com/users/ramupalla912
@@ -6600,7 +6600,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A6606
 LeetCode URL: https://leetcode.com/21R01A6606
 Response URL: https://leetcode.com/21R01A6606/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: chandravathi
 CodeChef URL: https://www.codechef.com/users/chandravathi
@@ -6627,7 +6627,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6607
 LeetCode URL: https://leetcode.com/21r01a6607
 Response URL: https://leetcode.com/21r01a6607/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: sri_21r01a6607
 CodeChef URL: https://www.codechef.com/users/sri_21r01a6607
@@ -6708,7 +6708,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: subodh994
 LeetCode URL: https://leetcode.com/subodh994
 Response URL: https://leetcode.com/subodh994/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: subodd994
 CodeChef URL: https://www.codechef.com/users/subodd994
@@ -6735,7 +6735,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6611
 LeetCode URL: https://leetcode.com/21r01a6611
 Response URL: https://leetcode.com/21r01a6611/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: b21r01a6611
 CodeChef URL: https://www.codechef.com/users/b21r01a6611
@@ -6762,7 +6762,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A6613
 LeetCode URL: https://leetcode.com/21R01A6613
 Response URL: https://leetcode.com/21R01A6613/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: sheershitha_77
 CodeChef URL: https://www.codechef.com/users/sheershitha_77
@@ -7086,7 +7086,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6626
 LeetCode URL: https://leetcode.com/21r01a6626
 Response URL: https://leetcode.com/21r01a6626/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmrit_21r01a6626
 CodeChef URL: https://www.codechef.com/users/cmrit_21r01a6626
@@ -7113,7 +7113,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: nikhitha_2604
 LeetCode URL: https://leetcode.com/nikhitha_2604
 Response URL: https://leetcode.com/nikhitha_2604/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: nikhitha_2604
 CodeChef URL: https://www.codechef.com/users/nikhitha_2604
@@ -7140,7 +7140,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6629
 LeetCode URL: https://leetcode.com/21r01a6629
 Response URL: https://leetcode.com/21r01a6629/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: deepak_029
 CodeChef URL: https://www.codechef.com/users/deepak_029
@@ -7167,7 +7167,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: adhinath_9393
 LeetCode URL: https://leetcode.com/adhinath_9393
 Response URL: https://leetcode.com/adhinath_9393/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: adhinath_9393
 CodeChef URL: https://www.codechef.com/users/adhinath_9393
@@ -7194,7 +7194,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A6631
 LeetCode URL: https://leetcode.com/21R01A6631
 Response URL: https://leetcode.com/21R01A6631/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a6631
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a6631
@@ -7221,7 +7221,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6632
 LeetCode URL: https://leetcode.com/21r01a6632
 Response URL: https://leetcode.com/21r01a6632/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr21r01a6632
 CodeChef URL: https://www.codechef.com/users/cmr21r01a6632
@@ -7248,7 +7248,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: sairam_sagar
 LeetCode URL: https://leetcode.com/sairam_sagar
 Response URL: https://leetcode.com/sairam_sagar/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: sairam_33
 CodeChef URL: https://www.codechef.com/users/sairam_33
@@ -7275,7 +7275,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: nikitha92
 LeetCode URL: https://leetcode.com/nikitha92
 Response URL: https://leetcode.com/nikitha92/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: nikitha92
 CodeChef URL: https://www.codechef.com/users/nikitha92
@@ -7302,7 +7302,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: mdabdulkadeer
 LeetCode URL: https://leetcode.com/mdabdulkadeer
 Response URL: https://leetcode.com/mdabdulkadeer/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: mdabdulkadeer
 CodeChef URL: https://www.codechef.com/users/mdabdulkadeer
@@ -7329,7 +7329,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6636
 LeetCode URL: https://leetcode.com/21r01a6636
 Response URL: https://leetcode.com/21r01a6636/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: h21r01a6636
 CodeChef URL: https://www.codechef.com/users/h21r01a6636
@@ -7356,7 +7356,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A6637
 LeetCode URL: https://leetcode.com/21R01A6637
 Response URL: https://leetcode.com/21R01A6637/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Y21r01a6637
 CodeChef URL: https://www.codechef.com/users/Y21r01a6637
@@ -7383,7 +7383,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Menganisaikiran
 LeetCode URL: https://leetcode.com/Menganisaikiran
 Response URL: https://leetcode.com/Menganisaikiran/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a6638
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a6638
@@ -7437,7 +7437,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a6641
 LeetCode URL: https://leetcode.com/21r01a6641
 Response URL: https://leetcode.com/21r01a6641/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: ashritha92
 CodeChef URL: https://www.codechef.com/users/ashritha92
@@ -7464,7 +7464,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a6642
 LeetCode URL: https://leetcode.com/21r01a6642
 Response URL: https://leetcode.com/21r01a6642/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: mani_6642
 CodeChef URL: https://www.codechef.com/users/mani_6642
@@ -7869,7 +7869,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: abhishekabramaina
 LeetCode URL: https://leetcode.com/abhishekabramaina
 Response URL: https://leetcode.com/abhishekabramaina/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: abhishek202002
 CodeChef URL: https://www.codechef.com/users/abhishek202002
@@ -7896,7 +7896,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6666
 LeetCode URL: https://leetcode.com/21r01a6666
 Response URL: https://leetcode.com/21r01a6666/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a6666
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a6666
@@ -7950,7 +7950,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6669
 LeetCode URL: https://leetcode.com/21r01a6669
 Response URL: https://leetcode.com/21r01a6669/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r01a6669
 CodeChef URL: https://www.codechef.com/users/r01a6669
@@ -7977,7 +7977,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: vidhya_6670
 LeetCode URL: https://leetcode.com/vidhya_6670
 Response URL: https://leetcode.com/vidhya_6670/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: vidhya_6670
 CodeChef URL: https://www.codechef.com/users/vidhya_6670
@@ -8004,7 +8004,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A6672
 LeetCode URL: https://leetcode.com/21R01A6672
 Response URL: https://leetcode.com/21R01A6672/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: sanjana_6672
 CodeChef URL: https://www.codechef.com/users/sanjana_6672
@@ -8355,7 +8355,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21R01A6688
 LeetCode URL: https://leetcode.com/21R01A6688
 Response URL: https://leetcode.com/21R01A6688/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: CMRIT_21r01a6688
 CodeChef URL: https://www.codechef.com/users/CMRIT_21r01a6688
@@ -8369,8 +8369,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 21R01A6689
-Codeforces Handle: 21r01a6689
-Codeforces URL: https://codeforces.com/profile/21r01a6689
+Codeforces Handle: CMRIT25_21R01A6689
+Codeforces URL: https://codeforces.com/profile/CMRIT25_21R01A6689
 Response URL: https://codeforces.com/profile/CMRIT25_21R01A6689
 Codeforces URL Exists: True
 
@@ -8382,7 +8382,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Ashwini_21r01a6689
 LeetCode URL: https://leetcode.com/Ashwini_21r01a6689
 Response URL: https://leetcode.com/Ashwini_21r01a6689/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: ashu21r01a6689
 CodeChef URL: https://www.codechef.com/users/ashu21r01a6689
@@ -8409,7 +8409,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6690
 LeetCode URL: https://leetcode.com/21r01a6690
 Response URL: https://leetcode.com/21r01a6690/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: kbaakash12345
 CodeChef URL: https://www.codechef.com/users/kbaakash12345
@@ -8463,7 +8463,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6692
 LeetCode URL: https://leetcode.com/21r01a6692
 Response URL: https://leetcode.com/21r01a6692/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a6692
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a6692
@@ -8490,7 +8490,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: adithya2210
 LeetCode URL: https://leetcode.com/adithya2210
 Response URL: https://leetcode.com/adithya2210/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: adithya2210
 CodeChef URL: https://www.codechef.com/users/adithya2210
@@ -8504,8 +8504,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 21R01A6696
-Codeforces Handle: 21r01a6696
-Codeforces URL: https://codeforces.com/profile/21r01a6696
+Codeforces Handle: CMRIT25_21R01A6696
+Codeforces URL: https://codeforces.com/profile/CMRIT25_21R01A6696
 Response URL: https://codeforces.com/profile/CMRIT25_21R01A6696
 Codeforces URL Exists: True
 
@@ -8922,7 +8922,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A66B3
 LeetCode URL: https://leetcode.com/21R01A66B3
 Response URL: https://leetcode.com/21R01A66B3/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: saiteja73
 CodeChef URL: https://www.codechef.com/users/saiteja73
@@ -8976,7 +8976,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A66B5
 LeetCode URL: https://leetcode.com/21R01A66B5
 Response URL: https://leetcode.com/21R01A66B5/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: jagadeesh55
 CodeChef URL: https://www.codechef.com/users/jagadeesh55
@@ -9003,7 +9003,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Rajesh
 LeetCode URL: https://leetcode.com/Rajesh
 Response URL: https://leetcode.com/Rajesh/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: 21R01A66B8
 CodeChef URL: https://www.codechef.com/users/21R01A66B8
@@ -9030,7 +9030,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a66c1
 LeetCode URL: https://leetcode.com/21r01a66c1
 Response URL: https://leetcode.com/21r01a66c1/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: mahesh_1709
 CodeChef URL: https://www.codechef.com/users/mahesh_1709
@@ -9057,7 +9057,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: shivani_47
 LeetCode URL: https://leetcode.com/shivani_47
 Response URL: https://leetcode.com/shivani_47/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: shivani_47
 CodeChef URL: https://www.codechef.com/users/shivani_47
@@ -9084,7 +9084,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A66C3
 LeetCode URL: https://leetcode.com/21R01A66C3
 Response URL: https://leetcode.com/21R01A66C3/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: sunitha_12
 CodeChef URL: https://www.codechef.com/users/sunitha_12
@@ -9111,7 +9111,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Nithya66c4
 LeetCode URL: https://leetcode.com/Nithya66c4
 Response URL: https://leetcode.com/Nithya66c4/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: nithhyya
 CodeChef URL: https://www.codechef.com/users/nithhyya
@@ -9138,7 +9138,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: T_DEVENDAR
 LeetCode URL: https://leetcode.com/T_DEVENDAR
 Response URL: https://leetcode.com/T_DEVENDAR/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: devendar7987
 CodeChef URL: https://www.codechef.com/users/devendar7987
@@ -9165,7 +9165,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: varshiniguptha66c6
 LeetCode URL: https://leetcode.com/varshiniguptha66c6
 Response URL: https://leetcode.com/varshiniguptha66c6/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: varshiniguptha
 CodeChef URL: https://www.codechef.com/users/varshiniguptha
@@ -9192,7 +9192,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a66c7
 LeetCode URL: https://leetcode.com/21r01a66c7
 Response URL: https://leetcode.com/21r01a66c7/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: deepikachowdar
 CodeChef URL: https://www.codechef.com/users/deepikachowdar
@@ -9219,7 +9219,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: UTHEJREDDY_VADE
 LeetCode URL: https://leetcode.com/UTHEJREDDY_VADE
 Response URL: https://leetcode.com/UTHEJREDDY_VADE/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: uthejreddyvade
 CodeChef URL: https://www.codechef.com/users/uthejreddyvade
@@ -9327,7 +9327,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: cmr_21r01a66d4
 LeetCode URL: https://leetcode.com/cmr_21r01a66d4
 Response URL: https://leetcode.com/cmr_21r01a66d4/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a66d4
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a66d4
@@ -9354,7 +9354,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A66D5
 LeetCode URL: https://leetcode.com/21R01A66D5
 Response URL: https://leetcode.com/21R01A66D5/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: akhil7777
 CodeChef URL: https://www.codechef.com/users/akhil7777
@@ -9381,7 +9381,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: cmr_21r01a66d6
 LeetCode URL: https://leetcode.com/cmr_21r01a66d6
 Response URL: https://leetcode.com/cmr_21r01a66d6/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a66d6
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a66d6
@@ -9651,7 +9651,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a66f1
 LeetCode URL: https://leetcode.com/21r01a66f1
 Response URL: https://leetcode.com/21r01a66f1/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r01a66f1
 CodeChef URL: https://www.codechef.com/users/r01a66f1
@@ -9705,7 +9705,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: teja_sri26
 LeetCode URL: https://leetcode.com/teja_sri26
 Response URL: https://leetcode.com/teja_sri26/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: teja_sri26
 CodeChef URL: https://www.codechef.com/users/teja_sri26
@@ -9732,7 +9732,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a66f5
 LeetCode URL: https://leetcode.com/21r01a66f5
 Response URL: https://leetcode.com/21r01a66f5/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: 21r01a66f5
 CodeChef URL: https://www.codechef.com/users/21r01a66f5
@@ -9759,7 +9759,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a66f8
 LeetCode URL: https://leetcode.com/21r01a66f8
 Response URL: https://leetcode.com/21r01a66f8/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: keerthi24h
 CodeChef URL: https://www.codechef.com/users/keerthi24h
@@ -9786,7 +9786,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a66g0
 LeetCode URL: https://leetcode.com/21r01a66g0
 Response URL: https://leetcode.com/21r01a66g0/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: anagarika
 CodeChef URL: https://www.codechef.com/users/anagarika
@@ -9813,7 +9813,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A66G1
 LeetCode URL: https://leetcode.com/21R01A66G1
 Response URL: https://leetcode.com/21R01A66G1/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: pavan138
 CodeChef URL: https://www.codechef.com/users/pavan138
@@ -9894,7 +9894,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Navya_66g4
 LeetCode URL: https://leetcode.com/Navya_66g4
 Response URL: https://leetcode.com/Navya_66g4/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: navya66g4
 CodeChef URL: https://www.codechef.com/users/navya66g4
@@ -9921,7 +9921,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: ljampanna
 LeetCode URL: https://leetcode.com/ljampanna
 Response URL: https://leetcode.com/ljampanna/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: jampannag5
 CodeChef URL: https://www.codechef.com/users/jampannag5
@@ -9975,7 +9975,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a66h0
 LeetCode URL: https://leetcode.com/21r01a66h0
 Response URL: https://leetcode.com/21r01a66h0/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: shivakumar_245
 CodeChef URL: https://www.codechef.com/users/shivakumar_245
@@ -10002,7 +10002,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: CMR_21R01A66H1
 LeetCode URL: https://leetcode.com/CMR_21R01A66H1
 Response URL: https://leetcode.com/CMR_21R01A66H1/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Adithya_09
 CodeChef URL: https://www.codechef.com/users/Adithya_09
@@ -10164,7 +10164,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a66j1
 LeetCode URL: https://leetcode.com/21r01a66j1
 Response URL: https://leetcode.com/21r01a66j1/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: yeshwanth_5085
 CodeChef URL: https://www.codechef.com/users/yeshwanth_5085
@@ -10191,7 +10191,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a66j2
 LeetCode URL: https://leetcode.com/21r01a66j2
 Response URL: https://leetcode.com/21r01a66j2/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: r01a66j2
 CodeChef URL: https://www.codechef.com/users/r01a66j2
@@ -10217,8 +10217,8 @@ GeeksForGeeks URL Exists: False
 
 LeetCode Handle: 21R01A66J3
 LeetCode URL: https://leetcode.com/21R01A66J3
-Response URL: https://leetcode.com/21R01A66J3
-LeetCode URL Exists: False
+Response URL: https://leetcode.com/21R01A66J3/
+LeetCode URL Exists: True
 
 CodeChef Handle: CMRIT25_21R01A66J3
 CodeChef URL: https://www.codechef.com/users/CMRIT25_21R01A66J3
@@ -10542,7 +10542,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 22r05a6608
 LeetCode URL: https://leetcode.com/22r05a6608
 Response URL: https://leetcode.com/22r05a6608/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: abhishek4044
 CodeChef URL: https://www.codechef.com/users/abhishek4044
@@ -10569,7 +10569,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a6609
 LeetCode URL: https://leetcode.com/22r05a6609
 Response URL: https://leetcode.com/22r05a6609/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: balakrishna52
 CodeChef URL: https://www.codechef.com/users/balakrishna52
@@ -10596,7 +10596,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a6610r
 LeetCode URL: https://leetcode.com/22r05a6610r
 Response URL: https://leetcode.com/22r05a6610r/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: sairohith0822
 CodeChef URL: https://www.codechef.com/users/sairohith0822
@@ -10623,7 +10623,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a6611
 LeetCode URL: https://leetcode.com/22r05a6611
 Response URL: https://leetcode.com/22r05a6611/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Sinu19
 CodeChef URL: https://www.codechef.com/users/Sinu19
@@ -10677,7 +10677,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a6613
 LeetCode URL: https://leetcode.com/22r05a6613
 Response URL: https://leetcode.com/22r05a6613/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Cmr_22r05a6613
 CodeChef URL: https://www.codechef.com/users/Cmr_22r05a6613
@@ -10704,7 +10704,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a6614
 LeetCode URL: https://leetcode.com/22r05a6614
 Response URL: https://leetcode.com/22r05a6614/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: govardhan14
 CodeChef URL: https://www.codechef.com/users/govardhan14
@@ -10731,7 +10731,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a6617
 LeetCode URL: https://leetcode.com/22r05a6617
 Response URL: https://leetcode.com/22r05a6617/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: s22r05a6617
 CodeChef URL: https://www.codechef.com/users/s22r05a6617
@@ -10758,7 +10758,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: naveen1008
 LeetCode URL: https://leetcode.com/naveen1008
 Response URL: https://leetcode.com/naveen1008/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: velpulanaveen9
 CodeChef URL: https://www.codechef.com/users/velpulanaveen9
@@ -10785,7 +10785,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22R05A6619
 LeetCode URL: https://leetcode.com/22R05A6619
 Response URL: https://leetcode.com/22R05A6619/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: bhavika_21
 CodeChef URL: https://www.codechef.com/users/bhavika_21
@@ -10839,7 +10839,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: ab031
 LeetCode URL: https://leetcode.com/ab031
 Response URL: https://leetcode.com/ab031/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: ab013
 CodeChef URL: https://www.codechef.com/users/ab013
@@ -10920,7 +10920,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: cmr_21r01a7307
 LeetCode URL: https://leetcode.com/cmr_21r01a7307
 Response URL: https://leetcode.com/cmr_21r01a7307/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: shashidhar07
 CodeChef URL: https://www.codechef.com/users/shashidhar07
@@ -10947,7 +10947,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: saketh08
 LeetCode URL: https://leetcode.com/saketh08
 Response URL: https://leetcode.com/saketh08/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: saketh08
 CodeChef URL: https://www.codechef.com/users/saketh08
@@ -10974,7 +10974,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A7309
 LeetCode URL: https://leetcode.com/21R01A7309
 Response URL: https://leetcode.com/21R01A7309/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: abhinav_781
 CodeChef URL: https://www.codechef.com/users/abhinav_781
@@ -11028,7 +11028,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a7313
 LeetCode URL: https://leetcode.com/21r01a7313
 Response URL: https://leetcode.com/21r01a7313/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: jay21r01a7313
 CodeChef URL: https://www.codechef.com/users/jay21r01a7313
@@ -11082,7 +11082,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a7317
 LeetCode URL: https://leetcode.com/21r01a7317
 Response URL: https://leetcode.com/21r01a7317/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: sridhar7317
 CodeChef URL: https://www.codechef.com/users/sridhar7317
@@ -11136,7 +11136,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: GaneshJadav
 LeetCode URL: https://leetcode.com/GaneshJadav
 Response URL: https://leetcode.com/GaneshJadav/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: g21r01a7319
 CodeChef URL: https://www.codechef.com/users/g21r01a7319
@@ -11163,7 +11163,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A7320
 LeetCode URL: https://leetcode.com/21R01A7320
 Response URL: https://leetcode.com/21R01A7320/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: 21r01a7320
 CodeChef URL: https://www.codechef.com/users/21r01a7320
@@ -11217,7 +11217,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A7322
 LeetCode URL: https://leetcode.com/21R01A7322
 Response URL: https://leetcode.com/21R01A7322/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: ramya_7322
 CodeChef URL: https://www.codechef.com/users/ramya_7322
@@ -11271,7 +11271,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: prudhvi-12
 LeetCode URL: https://leetcode.com/prudhvi-12
 Response URL: https://leetcode.com/prudhvi-12/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: prudhvi28
 CodeChef URL: https://www.codechef.com/users/prudhvi28
@@ -11406,7 +11406,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7342
 LeetCode URL: https://leetcode.com/21r01a7342
 Response URL: https://leetcode.com/21r01a7342/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a7342
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a7342
@@ -11433,7 +11433,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A7343
 LeetCode URL: https://leetcode.com/21R01A7343
 Response URL: https://leetcode.com/21R01A7343/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: sruthi38
 CodeChef URL: https://www.codechef.com/users/sruthi38
@@ -11460,7 +11460,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7344
 LeetCode URL: https://leetcode.com/21r01a7344
 Response URL: https://leetcode.com/21r01a7344/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a7344
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a7344
@@ -11487,7 +11487,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: cmr_21r01a7345
 LeetCode URL: https://leetcode.com/cmr_21r01a7345
 Response URL: https://leetcode.com/cmr_21r01a7345/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a7345
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a7345
@@ -11514,7 +11514,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7347
 LeetCode URL: https://leetcode.com/21r01a7347
 Response URL: https://leetcode.com/21r01a7347/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: sadanand26
 CodeChef URL: https://www.codechef.com/users/sadanand26
@@ -11703,7 +11703,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7357
 LeetCode URL: https://leetcode.com/21r01a7357
 Response URL: https://leetcode.com/21r01a7357/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr21r01a7357
 CodeChef URL: https://www.codechef.com/users/cmr21r01a7357
@@ -11730,7 +11730,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: TumuSanjay000
 LeetCode URL: https://leetcode.com/TumuSanjay000
 Response URL: https://leetcode.com/TumuSanjay000/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: tumusanjay
 CodeChef URL: https://www.codechef.com/users/tumusanjay
@@ -11757,7 +11757,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: narayansharma09
 LeetCode URL: https://leetcode.com/narayansharma09
 Response URL: https://leetcode.com/narayansharma09/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: narayansharma
 CodeChef URL: https://www.codechef.com/users/narayansharma
@@ -11784,7 +11784,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7363
 LeetCode URL: https://leetcode.com/21r01a7363
 Response URL: https://leetcode.com/21r01a7363/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: vinayreddy3
 CodeChef URL: https://www.codechef.com/users/vinayreddy3
@@ -11811,7 +11811,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: shlokareddy_97
 LeetCode URL: https://leetcode.com/shlokareddy_97
 Response URL: https://leetcode.com/shlokareddy_97/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: shlokareddy_97
 CodeChef URL: https://www.codechef.com/users/shlokareddy_97
@@ -11838,7 +11838,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7365
 LeetCode URL: https://leetcode.com/21r01a7365
 Response URL: https://leetcode.com/21r01a7365/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a7365
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a7365
@@ -11865,7 +11865,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 22r05a7302
 LeetCode URL: https://leetcode.com/22r05a7302
 Response URL: https://leetcode.com/22r05a7302/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: charanteja45
 CodeChef URL: https://www.codechef.com/users/charanteja45
@@ -11892,7 +11892,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22R05A7304
 LeetCode URL: https://leetcode.com/22R05A7304
 Response URL: https://leetcode.com/22R05A7304/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: nagendra7304
 CodeChef URL: https://www.codechef.com/users/nagendra7304
@@ -11919,7 +11919,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a7307
 LeetCode URL: https://leetcode.com/22r05a7307
 Response URL: https://leetcode.com/22r05a7307/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr22r05a7307
 CodeChef URL: https://www.codechef.com/users/cmr22r05a7307
@@ -11946,7 +11946,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a7305
 LeetCode URL: https://leetcode.com/22r05a7305
 Response URL: https://leetcode.com/22r05a7305/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: mani22r05a7305
 CodeChef URL: https://www.codechef.com/users/mani22r05a7305
@@ -12432,7 +12432,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Shivaraj
 LeetCode URL: https://leetcode.com/Shivaraj
 Response URL: https://leetcode.com/Shivaraj/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: shivaraj15
 CodeChef URL: https://www.codechef.com/users/shivaraj15
@@ -12459,7 +12459,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: vyshnavi_08
 LeetCode URL: https://leetcode.com/vyshnavi_08
 Response URL: https://leetcode.com/vyshnavi_08/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: vyshnavi08
 CodeChef URL: https://www.codechef.com/users/vyshnavi08
@@ -12486,7 +12486,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: rakesh_2425
 LeetCode URL: https://leetcode.com/rakesh_2425
 Response URL: https://leetcode.com/rakesh_2425/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: rakesh_2425
 CodeChef URL: https://www.codechef.com/users/rakesh_2425
@@ -12500,8 +12500,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 21R01A6727
-Codeforces Handle: guru_5
-Codeforces URL: https://codeforces.com/profile/guru_5
+Codeforces Handle: CMRIT25_21R01A6727
+Codeforces URL: https://codeforces.com/profile/CMRIT25_21R01A6727
 Response URL: https://codeforces.com/profile/CMRIT25_21R01A6727
 Codeforces URL Exists: True
 
@@ -12513,7 +12513,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: guru_5
 LeetCode URL: https://leetcode.com/guru_5
 Response URL: https://leetcode.com/guru_5/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: guru_5
 CodeChef URL: https://www.codechef.com/users/guru_5
@@ -12540,7 +12540,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6728
 LeetCode URL: https://leetcode.com/21r01a6728
 Response URL: https://leetcode.com/21r01a6728/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: saipriya2003
 CodeChef URL: https://www.codechef.com/users/saipriya2003
@@ -12567,7 +12567,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: prathyusha79
 LeetCode URL: https://leetcode.com/prathyusha79
 Response URL: https://leetcode.com/prathyusha79/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: prathyusha79
 CodeChef URL: https://www.codechef.com/users/prathyusha79
@@ -12594,7 +12594,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A6732
 LeetCode URL: https://leetcode.com/21R01A6732
 Response URL: https://leetcode.com/21R01A6732/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r01a6732
 CodeChef URL: https://www.codechef.com/users/r01a6732
@@ -12621,7 +12621,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A6734
 LeetCode URL: https://leetcode.com/21R01A6734
 Response URL: https://leetcode.com/21R01A6734/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r01a6734
 CodeChef URL: https://www.codechef.com/users/r01a6734
@@ -12648,7 +12648,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: bhavana_6737
 LeetCode URL: https://leetcode.com/bhavana_6737
 Response URL: https://leetcode.com/bhavana_6737/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: bhavana_6737
 CodeChef URL: https://www.codechef.com/users/bhavana_6737
@@ -12972,7 +12972,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: nandhu2304
 LeetCode URL: https://leetcode.com/nandhu2304
 Response URL: https://leetcode.com/nandhu2304/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: nandhu2304
 CodeChef URL: https://www.codechef.com/users/nandhu2304
@@ -12986,8 +12986,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 21R01A6760
-Codeforces Handle: abhii_05
-Codeforces URL: https://codeforces.com/profile/abhii_05
+Codeforces Handle: CMRIT25_21R01A6760
+Codeforces URL: https://codeforces.com/profile/CMRIT25_21R01A6760
 Response URL: https://codeforces.com/profile/CMRIT25_21R01A6760
 Codeforces URL Exists: True
 
@@ -12999,7 +12999,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: abhii_05
 LeetCode URL: https://leetcode.com/abhii_05
 Response URL: https://leetcode.com/abhii_05/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: abhii_05
 CodeChef URL: https://www.codechef.com/users/abhii_05
@@ -13026,7 +13026,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: ganesh_61
 LeetCode URL: https://leetcode.com/ganesh_61
 Response URL: https://leetcode.com/ganesh_61/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: ganesh_61
 CodeChef URL: https://www.codechef.com/users/ganesh_61
@@ -13080,7 +13080,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: srija_reddie16
 LeetCode URL: https://leetcode.com/srija_reddie16
 Response URL: https://leetcode.com/srija_reddie16/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: srija_reddie16
 CodeChef URL: https://www.codechef.com/users/srija_reddie16
@@ -13107,7 +13107,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6764
 LeetCode URL: https://leetcode.com/21r01a6764
 Response URL: https://leetcode.com/21r01a6764/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: vyshnavi6764
 CodeChef URL: https://www.codechef.com/users/vyshnavi6764
@@ -13134,7 +13134,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6765
 LeetCode URL: https://leetcode.com/21r01a6765
 Response URL: https://leetcode.com/21r01a6765/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: h21r01a6765
 CodeChef URL: https://www.codechef.com/users/h21r01a6765
@@ -13161,7 +13161,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: srinidhi_12
 LeetCode URL: https://leetcode.com/srinidhi_12
 Response URL: https://leetcode.com/srinidhi_12/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: jerry1002
 CodeChef URL: https://www.codechef.com/users/jerry1002
@@ -13188,7 +13188,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Shruthi_40
 LeetCode URL: https://leetcode.com/Shruthi_40
 Response URL: https://leetcode.com/Shruthi_40/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: ballishruthi4
 CodeChef URL: https://www.codechef.com/users/ballishruthi4
@@ -13215,7 +13215,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A6769lt
 LeetCode URL: https://leetcode.com/21R01A6769lt
 Response URL: https://leetcode.com/21R01A6769lt/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: bandarimahesh
 CodeChef URL: https://www.codechef.com/users/bandarimahesh
@@ -13242,7 +13242,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A6772
 LeetCode URL: https://leetcode.com/21R01A6772
 Response URL: https://leetcode.com/21R01A6772/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a6772
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a6772
@@ -13296,7 +13296,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A6775
 LeetCode URL: https://leetcode.com/21R01A6775
 Response URL: https://leetcode.com/21R01A6775/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r016775
 CodeChef URL: https://www.codechef.com/users/cmr_21r016775
@@ -13539,7 +13539,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6786
 LeetCode URL: https://leetcode.com/21r01a6786
 Response URL: https://leetcode.com/21r01a6786/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: premsai1029
 CodeChef URL: https://www.codechef.com/users/premsai1029
@@ -13566,7 +13566,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A6787
 LeetCode URL: https://leetcode.com/21R01A6787
 Response URL: https://leetcode.com/21R01A6787/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a6787
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a6787
@@ -13593,7 +13593,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6788
 LeetCode URL: https://leetcode.com/21r01a6788
 Response URL: https://leetcode.com/21r01a6788/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r01a6788
 CodeChef URL: https://www.codechef.com/users/r01a6788
@@ -13620,7 +13620,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Tagore
 LeetCode URL: https://leetcode.com/Tagore
 Response URL: https://leetcode.com/Tagore/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: 21R01A6790
 CodeChef URL: https://www.codechef.com/users/21R01A6790
@@ -13674,7 +13674,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: upendra456
 LeetCode URL: https://leetcode.com/upendra456
 Response URL: https://leetcode.com/upendra456/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: upendra456
 CodeChef URL: https://www.codechef.com/users/upendra456
@@ -13701,7 +13701,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a6796
 LeetCode URL: https://leetcode.com/21r01a6796
 Response URL: https://leetcode.com/21r01a6796/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: jukantisoumya9
 CodeChef URL: https://www.codechef.com/users/jukantisoumya9
@@ -13728,7 +13728,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: bhagirao
 LeetCode URL: https://leetcode.com/bhagirao
 Response URL: https://leetcode.com/bhagirao/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: bhagirathrao
 CodeChef URL: https://www.codechef.com/users/bhagirathrao
@@ -13755,7 +13755,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: vandana_27
 LeetCode URL: https://leetcode.com/vandana_27
 Response URL: https://leetcode.com/vandana_27/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: vandana2702
 CodeChef URL: https://www.codechef.com/users/vandana2702
@@ -13809,7 +13809,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: meghana_939
 LeetCode URL: https://leetcode.com/meghana_939
 Response URL: https://leetcode.com/meghana_939/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: meghana_939
 CodeChef URL: https://www.codechef.com/users/meghana_939
@@ -13836,7 +13836,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67a6
 LeetCode URL: https://leetcode.com/21r01a67a6
 Response URL: https://leetcode.com/21r01a67a6/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r01a67a6
 CodeChef URL: https://www.codechef.com/users/r01a67a6
@@ -13863,7 +13863,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67a7
 LeetCode URL: https://leetcode.com/21r01a67a7
 Response URL: https://leetcode.com/21r01a67a7/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: s_21r01a67a7
 CodeChef URL: https://www.codechef.com/users/s_21r01a67a7
@@ -13998,7 +13998,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: pokalanandini2
 LeetCode URL: https://leetcode.com/pokalanandini2
 Response URL: https://leetcode.com/pokalanandini2/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: r01a67b4
 CodeChef URL: https://www.codechef.com/users/r01a67b4
@@ -14025,7 +14025,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67b5
 LeetCode URL: https://leetcode.com/21r01a67b5
 Response URL: https://leetcode.com/21r01a67b5/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr21r01a67b5
 CodeChef URL: https://www.codechef.com/users/cmr21r01a67b5
@@ -14052,7 +14052,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A67B6
 LeetCode URL: https://leetcode.com/21R01A67B6
 Response URL: https://leetcode.com/21R01A67B6/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: a_21r01a67b6
 CodeChef URL: https://www.codechef.com/users/a_21r01a67b6
@@ -14079,7 +14079,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A67B7
 LeetCode URL: https://leetcode.com/21R01A67B7
 Response URL: https://leetcode.com/21R01A67B7/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: harshith1753
 CodeChef URL: https://www.codechef.com/users/harshith1753
@@ -14106,7 +14106,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21R01A67B8
 LeetCode URL: https://leetcode.com/21R01A67B8
 Response URL: https://leetcode.com/21R01A67B8/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a67b8
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a67b8
@@ -14133,7 +14133,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: divya_411
 LeetCode URL: https://leetcode.com/divya_411
 Response URL: https://leetcode.com/divya_411/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: divya68
 CodeChef URL: https://www.codechef.com/users/divya68
@@ -14160,7 +14160,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67c0
 LeetCode URL: https://leetcode.com/21r01a67c0
 Response URL: https://leetcode.com/21r01a67c0/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: r01a67c0
 CodeChef URL: https://www.codechef.com/users/r01a67c0
@@ -14187,7 +14187,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A67C2
 LeetCode URL: https://leetcode.com/21R01A67C2
 Response URL: https://leetcode.com/21R01A67C2/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: shreeya72
 CodeChef URL: https://www.codechef.com/users/shreeya72
@@ -14268,7 +14268,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67d0
 LeetCode URL: https://leetcode.com/21r01a67d0
 Response URL: https://leetcode.com/21r01a67d0/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: h21r01a67d0
 CodeChef URL: https://www.codechef.com/users/h21r01a67d0
@@ -14295,7 +14295,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: neha_ankush26
 LeetCode URL: https://leetcode.com/neha_ankush26
 Response URL: https://leetcode.com/neha_ankush26/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: neha_ankush
 CodeChef URL: https://www.codechef.com/users/neha_ankush
@@ -14322,7 +14322,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: cmrit_21R01A67D3
 LeetCode URL: https://leetcode.com/cmrit_21R01A67D3
 Response URL: https://leetcode.com/cmrit_21R01A67D3/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmrit_21r01a67d3
 CodeChef URL: https://www.codechef.com/users/cmrit_21r01a67d3
@@ -14349,7 +14349,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67d4
 LeetCode URL: https://leetcode.com/21r01a67d4
 Response URL: https://leetcode.com/21r01a67d4/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a67d4
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a67d4
@@ -14484,7 +14484,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67e1
 LeetCode URL: https://leetcode.com/21r01a67e1
 Response URL: https://leetcode.com/21r01a67e1/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: mounika_goda
 CodeChef URL: https://www.codechef.com/users/mounika_goda
@@ -14511,7 +14511,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A67E2
 LeetCode URL: https://leetcode.com/21R01A67E2
 Response URL: https://leetcode.com/21R01A67E2/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: raghavendra24
 CodeChef URL: https://www.codechef.com/users/raghavendra24
@@ -14538,7 +14538,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A67E3
 LeetCode URL: https://leetcode.com/21R01A67E3
 Response URL: https://leetcode.com/21R01A67E3/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a67e3
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a67e3
@@ -14565,7 +14565,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67e4
 LeetCode URL: https://leetcode.com/21r01a67e4
 Response URL: https://leetcode.com/21r01a67e4/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Cmr_21r01a67e4
 CodeChef URL: https://www.codechef.com/users/Cmr_21r01a67e4
@@ -14619,7 +14619,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67e6
 LeetCode URL: https://leetcode.com/21r01a67e6
 Response URL: https://leetcode.com/21r01a67e6/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r_21r01a67e6
 CodeChef URL: https://www.codechef.com/users/r_21r01a67e6
@@ -14646,7 +14646,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A67E7
 LeetCode URL: https://leetcode.com/21R01A67E7
 Response URL: https://leetcode.com/21R01A67E7/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: hamilpurajit
 CodeChef URL: https://www.codechef.com/users/hamilpurajit
@@ -14673,7 +14673,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a67e8
 LeetCode URL: https://leetcode.com/21r01a67e8
 Response URL: https://leetcode.com/21r01a67e8/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: joseph1820
 CodeChef URL: https://www.codechef.com/users/joseph1820
@@ -14700,7 +14700,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67f0
 LeetCode URL: https://leetcode.com/21r01a67f0
 Response URL: https://leetcode.com/21r01a67f0/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: harish_52
 CodeChef URL: https://www.codechef.com/users/harish_52
@@ -14727,7 +14727,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Kishore66
 LeetCode URL: https://leetcode.com/Kishore66
 Response URL: https://leetcode.com/Kishore66/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Kishore66
 CodeChef URL: https://www.codechef.com/users/Kishore66
@@ -14741,8 +14741,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 21R01A67F2
-Codeforces Handle: 21r01a67f2
-Codeforces URL: https://codeforces.com/profile/21r01a67f2
+Codeforces Handle: CMRIT25_21R01A67F2
+Codeforces URL: https://codeforces.com/profile/CMRIT25_21R01A67F2
 Response URL: https://codeforces.com/profile/CMRIT25_21R01A67F2
 Codeforces URL Exists: True
 
@@ -14754,7 +14754,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67f2
 LeetCode URL: https://leetcode.com/21r01a67f2
 Response URL: https://leetcode.com/21r01a67f2/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: sribro123
 CodeChef URL: https://www.codechef.com/users/sribro123
@@ -14781,7 +14781,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21R01A67F3
 LeetCode URL: https://leetcode.com/21R01A67F3
 Response URL: https://leetcode.com/21R01A67F3/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: rithish81
 CodeChef URL: https://www.codechef.com/users/rithish81
@@ -14808,7 +14808,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67f4
 LeetCode URL: https://leetcode.com/21r01a67f4
 Response URL: https://leetcode.com/21r01a67f4/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: d21r01a67f4
 CodeChef URL: https://www.codechef.com/users/d21r01a67f4
@@ -15240,7 +15240,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a67h3
 LeetCode URL: https://leetcode.com/21r01a67h3
 Response URL: https://leetcode.com/21r01a67h3/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: 21r01a67h3
 CodeChef URL: https://www.codechef.com/users/21r01a67h3
@@ -15402,7 +15402,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a67j1
 LeetCode URL: https://leetcode.com/21r01a67j1
 Response URL: https://leetcode.com/21r01a67j1/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: CMR_21r01a67j1
 CodeChef URL: https://www.codechef.com/users/CMR_21r01a67j1
@@ -15429,7 +15429,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67j3
 LeetCode URL: https://leetcode.com/21r01a67j3
 Response URL: https://leetcode.com/21r01a67j3/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: sasaank7
 CodeChef URL: https://www.codechef.com/users/sasaank7
@@ -15456,7 +15456,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Anupama_33
 LeetCode URL: https://leetcode.com/Anupama_33
 Response URL: https://leetcode.com/Anupama_33/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: anupama_93
 CodeChef URL: https://www.codechef.com/users/anupama_93
@@ -15483,7 +15483,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67j7
 LeetCode URL: https://leetcode.com/21r01a67j7
 Response URL: https://leetcode.com/21r01a67j7/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a67j7
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a67j7
@@ -15510,7 +15510,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01_A67J8
 LeetCode URL: https://leetcode.com/21R01_A67J8
 Response URL: https://leetcode.com/21R01_A67J8/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: giridhar26
 CodeChef URL: https://www.codechef.com/users/giridhar26
@@ -15537,7 +15537,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a67k0
 LeetCode URL: https://leetcode.com/21r01a67k0
 Response URL: https://leetcode.com/21r01a67k0/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r01a67k0
 CodeChef URL: https://www.codechef.com/users/r01a67k0
@@ -15564,7 +15564,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: anushavempati
 LeetCode URL: https://leetcode.com/anushavempati
 Response URL: https://leetcode.com/anushavempati/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a67k1
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a67k1
@@ -15591,7 +15591,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: charan_k3
 LeetCode URL: https://leetcode.com/charan_k3
 Response URL: https://leetcode.com/charan_k3/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: v21r01a67k3
 CodeChef URL: https://www.codechef.com/users/v21r01a67k3
@@ -15618,7 +15618,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67k4
 LeetCode URL: https://leetcode.com/21r01a67k4
 Response URL: https://leetcode.com/21r01a67k4/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: vishnu_a67k4
 CodeChef URL: https://www.codechef.com/users/vishnu_a67k4
@@ -15699,7 +15699,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a6711
 LeetCode URL: https://leetcode.com/22r05a6711
 Response URL: https://leetcode.com/22r05a6711/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: abhilash031
 CodeChef URL: https://www.codechef.com/users/abhilash031
@@ -15915,7 +15915,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Nandini
 LeetCode URL: https://leetcode.com/Nandini
 Response URL: https://leetcode.com/Nandini/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: Nandini
 CodeChef URL: https://www.codechef.com/users/Nandini
@@ -15969,7 +15969,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21R01A0410
 LeetCode URL: https://leetcode.com/21R01A0410
 Response URL: https://leetcode.com/21R01A0410/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: shivani_0410
 CodeChef URL: https://www.codechef.com/users/shivani_0410
@@ -15996,7 +15996,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Anusha
 LeetCode URL: https://leetcode.com/Anusha
 Response URL: https://leetcode.com/Anusha/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: 21R01A0413
 CodeChef URL: https://www.codechef.com/users/21R01A0413
@@ -16023,7 +16023,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Shashankgurram03
 LeetCode URL: https://leetcode.com/Shashankgurram03
 Response URL: https://leetcode.com/Shashankgurram03/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: gshashank416
 CodeChef URL: https://www.codechef.com/users/gshashank416
@@ -16050,7 +16050,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0417
 LeetCode URL: https://leetcode.com/21r01a0417
 Response URL: https://leetcode.com/21r01a0417/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: hanumanth4410
 CodeChef URL: https://www.codechef.com/users/hanumanth4410
@@ -16077,7 +16077,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: jampuladinesh
 LeetCode URL: https://leetcode.com/jampuladinesh
 Response URL: https://leetcode.com/jampuladinesh/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: dinesh_418
 CodeChef URL: https://www.codechef.com/users/dinesh_418
@@ -16104,7 +16104,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A0419
 LeetCode URL: https://leetcode.com/21R01A0419
 Response URL: https://leetcode.com/21R01A0419/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: ganesh0_2
 CodeChef URL: https://www.codechef.com/users/ganesh0_2
@@ -16131,7 +16131,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a0420
 LeetCode URL: https://leetcode.com/21r01a0420
 Response URL: https://leetcode.com/21r01a0420/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a0420
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a0420
@@ -16158,7 +16158,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: vijay_kumar946
 LeetCode URL: https://leetcode.com/vijay_kumar946
 Response URL: https://leetcode.com/vijay_kumar946/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: vijay421
 CodeChef URL: https://www.codechef.com/users/vijay421
@@ -17103,7 +17103,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: rajkumarcmrit
 LeetCode URL: https://leetcode.com/rajkumarcmrit
 Response URL: https://leetcode.com/rajkumarcmrit/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: rajkumar43
 CodeChef URL: https://www.codechef.com/users/rajkumar43
@@ -17157,7 +17157,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: keerthana_sg
 LeetCode URL: https://leetcode.com/keerthana_sg
 Response URL: https://leetcode.com/keerthana_sg/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: keerthanasg3
 CodeChef URL: https://www.codechef.com/users/keerthanasg3
@@ -17184,7 +17184,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: akanksha2k23
 LeetCode URL: https://leetcode.com/akanksha2k23
 Response URL: https://leetcode.com/akanksha2k23/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: akanksha2k23
 CodeChef URL: https://www.codechef.com/users/akanksha2k23
@@ -17211,7 +17211,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0485
 LeetCode URL: https://leetcode.com/21r01a0485
 Response URL: https://leetcode.com/21r01a0485/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: ramarao444
 CodeChef URL: https://www.codechef.com/users/ramarao444
@@ -17238,7 +17238,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0487
 LeetCode URL: https://leetcode.com/21r01a0487
 Response URL: https://leetcode.com/21r01a0487/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: koushik2004
 CodeChef URL: https://www.codechef.com/users/koushik2004
@@ -17265,7 +17265,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a0489
 LeetCode URL: https://leetcode.com/21r01a0489
 Response URL: https://leetcode.com/21r01a0489/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a0489
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a0489
@@ -17292,7 +17292,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A0492
 LeetCode URL: https://leetcode.com/21R01A0492
 Response URL: https://leetcode.com/21R01A0492/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: kube21r01a0492
 CodeChef URL: https://www.codechef.com/users/kube21r01a0492
@@ -17319,7 +17319,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0493
 LeetCode URL: https://leetcode.com/21r01a0493
 Response URL: https://leetcode.com/21r01a0493/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: nand21r01a0493
 CodeChef URL: https://www.codechef.com/users/nand21r01a0493
@@ -17346,7 +17346,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0494
 LeetCode URL: https://leetcode.com/21r01a0494
 Response URL: https://leetcode.com/21r01a0494/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: 21R01A0494@vamshi
 CodeChef URL: https://www.codechef.com/users/21R01A0494@vamshi
@@ -17373,7 +17373,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Anil496
 LeetCode URL: https://leetcode.com/Anil496
 Response URL: https://leetcode.com/Anil496/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: anil21r01a0496
 CodeChef URL: https://www.codechef.com/users/anil21r01a0496
@@ -17400,7 +17400,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0498
 LeetCode URL: https://leetcode.com/21r01a0498
 Response URL: https://leetcode.com/21r01a0498/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: samatha_498
 CodeChef URL: https://www.codechef.com/users/samatha_498
@@ -17427,7 +17427,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: cmrit_21r01a04a1
 LeetCode URL: https://leetcode.com/cmrit_21r01a04a1
 Response URL: https://leetcode.com/cmrit_21r01a04a1/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr21r01a04a1
 CodeChef URL: https://www.codechef.com/users/cmr21r01a04a1
@@ -17454,7 +17454,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04a2
 LeetCode URL: https://leetcode.com/21r01a04a2
 Response URL: https://leetcode.com/21r01a04a2/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: mahesh_86
 CodeChef URL: https://www.codechef.com/users/mahesh_86
@@ -17481,7 +17481,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04a3
 LeetCode URL: https://leetcode.com/21r01a04a3
 Response URL: https://leetcode.com/21r01a04a3/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: en21r01a04a3
 CodeChef URL: https://www.codechef.com/users/en21r01a04a3
@@ -17616,7 +17616,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: SpAnDaNa
 LeetCode URL: https://leetcode.com/SpAnDaNa
 Response URL: https://leetcode.com/SpAnDaNa/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: spandana63
 CodeChef URL: https://www.codechef.com/users/spandana63
@@ -17643,7 +17643,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04b5
 LeetCode URL: https://leetcode.com/21r01a04b5
 Response URL: https://leetcode.com/21r01a04b5/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a04b5
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a04b5
@@ -17670,7 +17670,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04B8
 LeetCode URL: https://leetcode.com/21R01A04B8
 Response URL: https://leetcode.com/21R01A04B8/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: 21R01A04B8
 CodeChef URL: https://www.codechef.com/users/21R01A04B8
@@ -17697,7 +17697,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: naveen_4c3
 LeetCode URL: https://leetcode.com/naveen_4c3
 Response URL: https://leetcode.com/naveen_4c3/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: naveen_4c3
 CodeChef URL: https://www.codechef.com/users/naveen_4c3
@@ -17751,7 +17751,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: bhavani_19
 LeetCode URL: https://leetcode.com/bhavani_19
 Response URL: https://leetcode.com/bhavani_19/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: bhavani_92
 CodeChef URL: https://www.codechef.com/users/bhavani_92
@@ -17805,7 +17805,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a04d2
 LeetCode URL: https://leetcode.com/21r01a04d2
 Response URL: https://leetcode.com/21r01a04d2/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: akshith4d2
 CodeChef URL: https://www.codechef.com/users/akshith4d2
@@ -17832,7 +17832,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: jhansi2k23
 LeetCode URL: https://leetcode.com/jhansi2k23
 Response URL: https://leetcode.com/jhansi2k23/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: jhansi2k23
 CodeChef URL: https://www.codechef.com/users/jhansi2k23
@@ -17846,8 +17846,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 21R01A04D6
-Codeforces Handle: 21r01a04d6
-Codeforces URL: https://codeforces.com/profile/21r01a04d6
+Codeforces Handle: CMRIT25-21R01A04D6
+Codeforces URL: https://codeforces.com/profile/CMRIT25-21R01A04D6
 Response URL: https://codeforces.com/profile/CMRIT25-21R01A04D6
 Codeforces URL Exists: True
 
@@ -17859,7 +17859,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04D6
 LeetCode URL: https://leetcode.com/21R01A04D6
 Response URL: https://leetcode.com/21R01A04D6/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: sushmitha2k23
 CodeChef URL: https://www.codechef.com/users/sushmitha2k23
@@ -17886,7 +17886,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: swathi2k23
 LeetCode URL: https://leetcode.com/swathi2k23
 Response URL: https://leetcode.com/swathi2k23/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: swathi2k23
 CodeChef URL: https://www.codechef.com/users/swathi2k23
@@ -18129,7 +18129,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04f3
 LeetCode URL: https://leetcode.com/21r01a04f3
 Response URL: https://leetcode.com/21r01a04f3/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: n21r01a04f3
 CodeChef URL: https://www.codechef.com/users/n21r01a04f3
@@ -18183,7 +18183,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04f6
 LeetCode URL: https://leetcode.com/21r01a04f6
 Response URL: https://leetcode.com/21r01a04f6/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: pranish_f6
 CodeChef URL: https://www.codechef.com/users/pranish_f6
@@ -18210,7 +18210,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04F7
 LeetCode URL: https://leetcode.com/21R01A04F7
 Response URL: https://leetcode.com/21R01A04F7/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: bindu_f7
 CodeChef URL: https://www.codechef.com/users/bindu_f7
@@ -18318,7 +18318,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04g4
 LeetCode URL: https://leetcode.com/21r01a04g4
 Response URL: https://leetcode.com/21r01a04g4/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: dhathrija_28
 CodeChef URL: https://www.codechef.com/users/dhathrija_28
@@ -18345,7 +18345,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04G5
 LeetCode URL: https://leetcode.com/21R01A04G5
 Response URL: https://leetcode.com/21R01A04G5/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: shoiab_786
 CodeChef URL: https://www.codechef.com/users/shoiab_786
@@ -18372,7 +18372,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04H9
 LeetCode URL: https://leetcode.com/21R01A04H9
 Response URL: https://leetcode.com/21R01A04H9/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: adithya_h9
 CodeChef URL: https://www.codechef.com/users/adithya_h9
@@ -18399,7 +18399,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04j0
 LeetCode URL: https://leetcode.com/21r01a04j0
 Response URL: https://leetcode.com/21r01a04j0/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: sharathraju
 CodeChef URL: https://www.codechef.com/users/sharathraju
@@ -18426,7 +18426,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04J8
 LeetCode URL: https://leetcode.com/21R01A04J8
 Response URL: https://leetcode.com/21R01A04J8/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: nikhil_j8
 CodeChef URL: https://www.codechef.com/users/nikhil_j8
@@ -18453,7 +18453,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04k0
 LeetCode URL: https://leetcode.com/21r01a04k0
 Response URL: https://leetcode.com/21r01a04k0/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: manojmikey
 CodeChef URL: https://www.codechef.com/users/manojmikey
@@ -18467,8 +18467,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 21R01A04K1
-Codeforces Handle: 21r01a04k1
-Codeforces URL: https://codeforces.com/profile/21r01a04k1
+Codeforces Handle: CMRIT25_21R01A04K1
+Codeforces URL: https://codeforces.com/profile/CMRIT25_21R01A04K1
 Response URL: https://codeforces.com/profile/CMRIT25_21R01A04K1
 Codeforces URL Exists: True
 
@@ -18615,7 +18615,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04L4
 LeetCode URL: https://leetcode.com/21R01A04L4
 Response URL: https://leetcode.com/21R01A04L4/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: yella04l4
 CodeChef URL: https://www.codechef.com/users/yella04l4
@@ -18642,7 +18642,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04l7
 LeetCode URL: https://leetcode.com/21r01a04l7
 Response URL: https://leetcode.com/21r01a04l7/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: naveenl7
 CodeChef URL: https://www.codechef.com/users/naveenl7
@@ -18696,7 +18696,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: koushik_04L9
 LeetCode URL: https://leetcode.com/koushik_04L9
 Response URL: https://leetcode.com/koushik_04L9/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: koushik_4l9
 CodeChef URL: https://www.codechef.com/users/koushik_4l9
@@ -18710,8 +18710,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 21R01A04M0
-Codeforces Handle: 21R01A04M0
-Codeforces URL: https://codeforces.com/profile/21R01A04M0
+Codeforces Handle: Cmrit25_21r01a04m0
+Codeforces URL: https://codeforces.com/profile/Cmrit25_21r01a04m0
 Response URL: https://codeforces.com/profile/Cmrit25_21r01a04m0
 Codeforces URL Exists: True
 
@@ -18737,8 +18737,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 21R01A04M2
-Codeforces Handle: 21r01a04m2
-Codeforces URL: https://codeforces.com/profile/21r01a04m2
+Codeforces Handle: CMRIT25_21R01A04M2
+Codeforces URL: https://codeforces.com/profile/CMRIT25_21R01A04M2
 Response URL: https://codeforces.com/profile/CMRIT25_21R01A04M2
 Codeforces URL Exists: True
 
@@ -18750,7 +18750,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04m2
 LeetCode URL: https://leetcode.com/21r01a04m2
 Response URL: https://leetcode.com/21r01a04m2/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: shashikanth32
 CodeChef URL: https://www.codechef.com/users/shashikanth32
@@ -18777,7 +18777,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04m3
 LeetCode URL: https://leetcode.com/21r01a04m3
 Response URL: https://leetcode.com/21r01a04m3/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: Swetha214m3
 CodeChef URL: https://www.codechef.com/users/Swetha214m3
@@ -18858,7 +18858,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04M9_Cmrit
 LeetCode URL: https://leetcode.com/21R01A04M9_Cmrit
 Response URL: https://leetcode.com/21R01A04M9_Cmrit/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: glavanya
 CodeChef URL: https://www.codechef.com/users/glavanya
@@ -18885,7 +18885,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: cmr_4n1
 LeetCode URL: https://leetcode.com/cmr_4n1
 Response URL: https://leetcode.com/cmr_4n1/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: a21r01a04n1
 CodeChef URL: https://www.codechef.com/users/a21r01a04n1
@@ -18912,7 +18912,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04n2
 LeetCode URL: https://leetcode.com/21r01a04n2
 Response URL: https://leetcode.com/21r01a04n2/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: gouthami13
 CodeChef URL: https://www.codechef.com/users/gouthami13
@@ -18939,7 +18939,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21R01A04N6-CMRIT25
 LeetCode URL: https://leetcode.com/21R01A04N6-CMRIT25
 Response URL: https://leetcode.com/21R01A04N6-CMRIT25/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: guru98
 CodeChef URL: https://www.codechef.com/users/guru98
@@ -18966,7 +18966,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04N9
 LeetCode URL: https://leetcode.com/21R01A04N9
 Response URL: https://leetcode.com/21R01A04N9/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: 21R01A04N9
 CodeChef URL: https://www.codechef.com/users/21R01A04N9
@@ -19155,7 +19155,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04P9
 LeetCode URL: https://leetcode.com/21R01A04P9
 Response URL: https://leetcode.com/21R01A04P9/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: p21r01a04p9
 CodeChef URL: https://www.codechef.com/users/p21r01a04p9
@@ -19209,7 +19209,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: LC21R01A04Q4
 LeetCode URL: https://leetcode.com/LC21R01A04Q4
 Response URL: https://leetcode.com/LC21R01A04Q4/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: s21r01a04q4
 CodeChef URL: https://www.codechef.com/users/s21r01a04q4
@@ -19236,7 +19236,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04q5
 LeetCode URL: https://leetcode.com/21r01a04q5
 Response URL: https://leetcode.com/21r01a04q5/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: c21r01a04q5
 CodeChef URL: https://www.codechef.com/users/c21r01a04q5
@@ -19263,7 +19263,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: jahnavi_q7
 LeetCode URL: https://leetcode.com/jahnavi_q7
 Response URL: https://leetcode.com/jahnavi_q7/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: jahnavi_q7
 CodeChef URL: https://www.codechef.com/users/jahnavi_q7
@@ -19317,7 +19317,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04R2
 LeetCode URL: https://leetcode.com/21R01A04R2
 Response URL: https://leetcode.com/21R01A04R2/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: 21R01A04R2
 CodeChef URL: https://www.codechef.com/users/21R01A04R2
@@ -19344,7 +19344,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04R4
 LeetCode URL: https://leetcode.com/21R01A04R4
 Response URL: https://leetcode.com/21R01A04R4/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: s21r01a04r4
 CodeChef URL: https://www.codechef.com/users/s21r01a04r4
@@ -19371,7 +19371,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04R5
 LeetCode URL: https://leetcode.com/21R01A04R5
 Response URL: https://leetcode.com/21R01A04R5/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: chanduthunga
 CodeChef URL: https://www.codechef.com/users/chanduthunga
@@ -19398,7 +19398,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: cmrit_21R01A04R7
 LeetCode URL: https://leetcode.com/cmrit_21R01A04R7
 Response URL: https://leetcode.com/cmrit_21R01A04R7/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Shiva4r7
 CodeChef URL: https://www.codechef.com/users/Shiva4r7
@@ -19452,7 +19452,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04r9
 LeetCode URL: https://leetcode.com/21r01a04r9
 Response URL: https://leetcode.com/21r01a04r9/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: p21r01a04r9
 CodeChef URL: https://www.codechef.com/users/p21r01a04r9
@@ -19493,8 +19493,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 22R05A0402
-Codeforces Handle: 22r05a0402
-Codeforces URL: https://codeforces.com/profile/22r05a0402
+Codeforces Handle: CMRIT25_22R05A0402
+Codeforces URL: https://codeforces.com/profile/CMRIT25_22R05A0402
 Response URL: https://codeforces.com/profile/CMRIT25_22R05A0402
 Codeforces URL Exists: True
 
@@ -19533,7 +19533,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: rajashashank03
 LeetCode URL: https://leetcode.com/rajashashank03
 Response URL: https://leetcode.com/rajashashank03/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: rajashashank
 CodeChef URL: https://www.codechef.com/users/rajashashank
@@ -19560,7 +19560,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a0404
 LeetCode URL: https://leetcode.com/22r05a0404
 Response URL: https://leetcode.com/22r05a0404/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: chandu404
 CodeChef URL: https://www.codechef.com/users/chandu404
@@ -19587,7 +19587,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a0405
 LeetCode URL: https://leetcode.com/22r05a0405
 Response URL: https://leetcode.com/22r05a0405/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_22r05a0405
 CodeChef URL: https://www.codechef.com/users/cmr_22r05a0405
@@ -19614,7 +19614,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a0408
 LeetCode URL: https://leetcode.com/22r05a0408
 Response URL: https://leetcode.com/22r05a0408/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_22r05a0408
 CodeChef URL: https://www.codechef.com/users/cmr_22r05a0408
@@ -19641,7 +19641,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22ro5ao409
 LeetCode URL: https://leetcode.com/22ro5ao409
 Response URL: https://leetcode.com/22ro5ao409/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: ravi22ro5ao409
 CodeChef URL: https://www.codechef.com/users/ravi22ro5ao409
@@ -19668,7 +19668,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22R05A0410
 LeetCode URL: https://leetcode.com/22R05A0410
 Response URL: https://leetcode.com/22R05A0410/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: kannedeepthi_7
 CodeChef URL: https://www.codechef.com/users/kannedeepthi_7
@@ -19722,7 +19722,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: tejaswini413
 LeetCode URL: https://leetcode.com/tejaswini413
 Response URL: https://leetcode.com/tejaswini413/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: Tejaswini
 CodeChef URL: https://www.codechef.com/users/Tejaswini
@@ -19803,7 +19803,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a0416
 LeetCode URL: https://leetcode.com/22r05a0416
 Response URL: https://leetcode.com/22r05a0416/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: charithasree27
 CodeChef URL: https://www.codechef.com/users/charithasree27
@@ -19830,7 +19830,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a0418
 LeetCode URL: https://leetcode.com/22r05a0418
 Response URL: https://leetcode.com/22r05a0418/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: meghana48
 CodeChef URL: https://www.codechef.com/users/meghana48
@@ -19884,7 +19884,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Bhavana420
 LeetCode URL: https://leetcode.com/Bhavana420
 Response URL: https://leetcode.com/Bhavana420/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: bhavanareddy20
 CodeChef URL: https://www.codechef.com/users/bhavanareddy20
@@ -19911,7 +19911,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a0421
 LeetCode URL: https://leetcode.com/22r05a0421
 Response URL: https://leetcode.com/22r05a0421/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: nissar21
 CodeChef URL: https://www.codechef.com/users/nissar21
@@ -19938,7 +19938,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22R05A0426
 LeetCode URL: https://leetcode.com/22R05A0426
 Response URL: https://leetcode.com/22R05A0426/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_22r05a0426
 CodeChef URL: https://www.codechef.com/users/cmr_22r05a0426
@@ -19965,7 +19965,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: sowmika_27
 LeetCode URL: https://leetcode.com/sowmika_27
 Response URL: https://leetcode.com/sowmika_27/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: Sowmika_27
 CodeChef URL: https://www.codechef.com/users/Sowmika_27
@@ -20019,7 +20019,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22R05A0411
 LeetCode URL: https://leetcode.com/22R05A0411
 Response URL: https://leetcode.com/22R05A0411/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: 22R05A0411
 CodeChef URL: https://www.codechef.com/users/22R05A0411
@@ -20073,7 +20073,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: abrar_waseem10
 LeetCode URL: https://leetcode.com/abrar_waseem10
 Response URL: https://leetcode.com/abrar_waseem10/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: abrarwaseem10
 CodeChef URL: https://www.codechef.com/users/abrarwaseem10
@@ -20100,7 +20100,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a7205
 LeetCode URL: https://leetcode.com/21r01a7205
 Response URL: https://leetcode.com/21r01a7205/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: akshita_911
 CodeChef URL: https://www.codechef.com/users/akshita_911
@@ -20154,7 +20154,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A7213
 LeetCode URL: https://leetcode.com/21R01A7213
 Response URL: https://leetcode.com/21R01A7213/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: CMRIT25_21r01a7213
 CodeChef URL: https://www.codechef.com/users/CMRIT25_21r01a7213
@@ -20181,7 +20181,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: dhansaib6
 LeetCode URL: https://leetcode.com/dhansaib6
 Response URL: https://leetcode.com/dhansaib6/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: dhansaib6
 CodeChef URL: https://www.codechef.com/users/dhansaib6
@@ -20289,7 +20289,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7261
 LeetCode URL: https://leetcode.com/21r01a7261
 Response URL: https://leetcode.com/21r01a7261/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr21r01a7261
 CodeChef URL: https://www.codechef.com/users/cmr21r01a7261
@@ -20316,7 +20316,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a7204
 LeetCode URL: https://leetcode.com/22r05a7204
 Response URL: https://leetcode.com/22r05a7204/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr22r05a7204
 CodeChef URL: https://www.codechef.com/users/cmr22r05a7204
@@ -20343,7 +20343,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0516
 LeetCode URL: https://leetcode.com/21r01a0516
 Response URL: https://leetcode.com/21r01a0516/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: vinuthnagoud
 CodeChef URL: https://www.codechef.com/users/vinuthnagoud
@@ -20370,7 +20370,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Saiujwal_123
 LeetCode URL: https://leetcode.com/Saiujwal_123
 Response URL: https://leetcode.com/Saiujwal_123/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: kadarisaiujwal
 CodeChef URL: https://www.codechef.com/users/kadarisaiujwal
@@ -20397,7 +20397,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0540
 LeetCode URL: https://leetcode.com/21r01a0540
 Response URL: https://leetcode.com/21r01a0540/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: pramodreddy78
 CodeChef URL: https://www.codechef.com/users/pramodreddy78
@@ -20424,7 +20424,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0560
 LeetCode URL: https://leetcode.com/21r01a0560
 Response URL: https://leetcode.com/21r01a0560/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: gangabhavani_9
 CodeChef URL: https://www.codechef.com/users/gangabhavani_9
@@ -20451,7 +20451,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0587
 LeetCode URL: https://leetcode.com/21r01a0587
 Response URL: https://leetcode.com/21r01a0587/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: shiva21r01a058
 CodeChef URL: https://www.codechef.com/users/shiva21r01a058
@@ -20478,7 +20478,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: deekshith_87
 LeetCode URL: https://leetcode.com/deekshith_87
 Response URL: https://leetcode.com/deekshith_87/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: deekshith_587
 CodeChef URL: https://www.codechef.com/users/deekshith_587
@@ -20505,7 +20505,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: mdsayeem
 LeetCode URL: https://leetcode.com/mdsayeem
 Response URL: https://leetcode.com/mdsayeem/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: sayeem01
 CodeChef URL: https://www.codechef.com/users/sayeem01
@@ -20559,7 +20559,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: sripadhasudharshan1
 LeetCode URL: https://leetcode.com/sripadhasudharshan1
 Response URL: https://leetcode.com/sripadhasudharshan1/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: sripadha03
 CodeChef URL: https://www.codechef.com/users/sripadha03
@@ -20586,7 +20586,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: kaushik5f7
 LeetCode URL: https://leetcode.com/kaushik5f7
 Response URL: https://leetcode.com/kaushik5f7/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: kaushik5f7
 CodeChef URL: https://www.codechef.com/users/kaushik5f7
@@ -20613,7 +20613,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05f8
 LeetCode URL: https://leetcode.com/21r01a05f8
 Response URL: https://leetcode.com/21r01a05f8/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: abhiram5f8
 CodeChef URL: https://www.codechef.com/users/abhiram5f8
@@ -20640,7 +20640,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: geetha75
 LeetCode URL: https://leetcode.com/geetha75
 Response URL: https://leetcode.com/geetha75/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: 21R01A05G1
 CodeChef URL: https://www.codechef.com/users/21R01A05G1
@@ -20667,7 +20667,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05l2
 LeetCode URL: https://leetcode.com/21r01a05l2
 Response URL: https://leetcode.com/21r01a05l2/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: r01a05l2
 CodeChef URL: https://www.codechef.com/users/r01a05l2
@@ -20694,7 +20694,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05l8
 LeetCode URL: https://leetcode.com/21r01a05l8
 Response URL: https://leetcode.com/21r01a05l8/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: EeshaPingili
 CodeChef URL: https://www.codechef.com/users/EeshaPingili
@@ -20721,7 +20721,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: SaitejaReddy
 LeetCode URL: https://leetcode.com/SaitejaReddy
 Response URL: https://leetcode.com/SaitejaReddy/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: SaitejaReddy
 CodeChef URL: https://www.codechef.com/users/SaitejaReddy
@@ -20802,7 +20802,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a0508
 LeetCode URL: https://leetcode.com/22r05a0508
 Response URL: https://leetcode.com/22r05a0508/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: mahendar_mahi
 CodeChef URL: https://www.codechef.com/users/mahendar_mahi
@@ -20856,7 +20856,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a0517
 LeetCode URL: https://leetcode.com/22r05a0517
 Response URL: https://leetcode.com/22r05a0517/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: varun43
 CodeChef URL: https://www.codechef.com/users/varun43
@@ -20883,7 +20883,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Vamshi
 LeetCode URL: https://leetcode.com/Vamshi
 Response URL: https://leetcode.com/Vamshi/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: Vamshi6603
 CodeChef URL: https://www.codechef.com/users/Vamshi6603
@@ -20964,7 +20964,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: csm_21r01a6686
 LeetCode URL: https://leetcode.com/csm_21r01a6686
 Response URL: https://leetcode.com/csm_21r01a6686/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a6686
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a6686
@@ -21072,7 +21072,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Dinesh
 LeetCode URL: https://leetcode.com/Dinesh
 Response URL: https://leetcode.com/Dinesh/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: Dinesh
 CodeChef URL: https://www.codechef.com/users/Dinesh
@@ -21180,7 +21180,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a7356
 LeetCode URL: https://leetcode.com/21r01a7356
 Response URL: https://leetcode.com/21r01a7356/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a7356
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a7356
@@ -21207,7 +21207,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a7306
 LeetCode URL: https://leetcode.com/22r05a7306
 Response URL: https://leetcode.com/22r05a7306/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: Praveen_kuchi
 CodeChef URL: https://www.codechef.com/users/Praveen_kuchi
@@ -21599,8 +21599,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 22R05A6706
-Codeforces Handle: laxman06
-Codeforces URL: https://codeforces.com/profile/laxman06
+Codeforces Handle: its.rude06
+Codeforces URL: https://codeforces.com/profile/its.rude06
 Response URL: https://codeforces.com/profile/its.rude06
 Codeforces URL Exists: True
 
@@ -21990,7 +21990,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04b0
 LeetCode URL: https://leetcode.com/21r01a04b0
 Response URL: https://leetcode.com/21r01a04b0/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Kranthi_2612
 CodeChef URL: https://www.codechef.com/users/Kranthi_2612
@@ -22017,7 +22017,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21R01A04C0
 LeetCode URL: https://leetcode.com/21R01A04C0
 Response URL: https://leetcode.com/21R01A04C0/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: 21R01A04C0
 CodeChef URL: https://www.codechef.com/users/21R01A04C0
@@ -22044,7 +22044,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04c4
 LeetCode URL: https://leetcode.com/21r01a04c4
 Response URL: https://leetcode.com/21r01a04c4/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Cmr_21r01a04c4
 CodeChef URL: https://www.codechef.com/users/Cmr_21r01a04c4
@@ -22071,7 +22071,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04e9
 LeetCode URL: https://leetcode.com/21r01a04e9
 Response URL: https://leetcode.com/21r01a04e9/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r01a04e9
 CodeChef URL: https://www.codechef.com/users/r01a04e9
@@ -22125,7 +22125,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04h2
 LeetCode URL: https://leetcode.com/21r01a04h2
 Response URL: https://leetcode.com/21r01a04h2/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: gowtham_h2
 CodeChef URL: https://www.codechef.com/users/gowtham_h2
@@ -22152,7 +22152,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04h4
 LeetCode URL: https://leetcode.com/21r01a04h4
 Response URL: https://leetcode.com/21r01a04h4/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: pavan_h4
 CodeChef URL: https://www.codechef.com/users/pavan_h4
@@ -22179,7 +22179,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04p6
 LeetCode URL: https://leetcode.com/21r01a04p6
 Response URL: https://leetcode.com/21r01a04p6/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a04p6
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a04p6
@@ -22206,7 +22206,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Rishitha_27
 LeetCode URL: https://leetcode.com/Rishitha_27
 Response URL: https://leetcode.com/Rishitha_27/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: rishitha_27
 CodeChef URL: https://www.codechef.com/users/rishitha_27
@@ -22233,7 +22233,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04r3
 LeetCode URL: https://leetcode.com/21r01a04r3
 Response URL: https://leetcode.com/21r01a04r3/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: d21r01a04r3
 CodeChef URL: https://www.codechef.com/users/d21r01a04r3
@@ -22341,7 +22341,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Jaddu_Deviram
 LeetCode URL: https://leetcode.com/Jaddu_Deviram
 Response URL: https://leetcode.com/Jaddu_Deviram/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: cmr_21r01a7232
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a7232
@@ -22368,7 +22368,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7237
 LeetCode URL: https://leetcode.com/21r01a7237
 Response URL: https://leetcode.com/21r01a7237/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: arunreddy26
 CodeChef URL: https://www.codechef.com/users/arunreddy26
@@ -22395,7 +22395,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Kamal_Mudiraj_
 LeetCode URL: https://leetcode.com/Kamal_Mudiraj_
 Response URL: https://leetcode.com/Kamal_Mudiraj_/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: ace_223
 CodeChef URL: https://www.codechef.com/users/ace_223
@@ -22449,7 +22449,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Shravansanjay
 LeetCode URL: https://leetcode.com/Shravansanjay
 Response URL: https://leetcode.com/Shravansanjay/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: shravansanjay
 CodeChef URL: https://www.codechef.com/users/shravansanjay
@@ -22908,7 +22908,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Rekhasushmitha
 LeetCode URL: https://leetcode.com/Rekhasushmitha
 Response URL: https://leetcode.com/Rekhasushmitha/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: sushmitharekha
 CodeChef URL: https://www.codechef.com/users/sushmitharekha
@@ -22989,7 +22989,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A66E1
 LeetCode URL: https://leetcode.com/21R01A66E1
 Response URL: https://leetcode.com/21R01A66E1/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: Vardhan_29
 CodeChef URL: https://www.codechef.com/users/Vardhan_29
@@ -23030,8 +23030,8 @@ HackerRank URL Exists: False
 
 ================================================================================================================================================================================
 Handle: 21R01A66F3
-Codeforces Handle: 21r01a66f3
-Codeforces URL: https://codeforces.com/profile/21r01a66f3
+Codeforces Handle: CMRIT25_21R01A66F3
+Codeforces URL: https://codeforces.com/profile/CMRIT25_21R01A66F3
 Response URL: https://codeforces.com/profile/CMRIT25_21R01A66F3
 Codeforces URL Exists: True
 
@@ -23043,7 +23043,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Akashreddy_Gunnala
 LeetCode URL: https://leetcode.com/Akashreddy_Gunnala
 Response URL: https://leetcode.com/Akashreddy_Gunnala/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: akashreddygunn
 CodeChef URL: https://www.codechef.com/users/akashreddygunn
@@ -23097,7 +23097,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Shivateja_54
 LeetCode URL: https://leetcode.com/Shivateja_54
 Response URL: https://leetcode.com/Shivateja_54/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: Shiva54
 CodeChef URL: https://www.codechef.com/users/Shiva54
@@ -23124,7 +23124,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: jashwanth03
 LeetCode URL: https://leetcode.com/jashwanth03
 Response URL: https://leetcode.com/jashwanth03/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: jashwanth_03
 CodeChef URL: https://www.codechef.com/users/jashwanth_03
@@ -23232,7 +23232,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7326
 LeetCode URL: https://leetcode.com/21r01a7326
 Response URL: https://leetcode.com/21r01a7326/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: 21r01a7326
 CodeChef URL: https://www.codechef.com/users/21r01a7326
@@ -23718,7 +23718,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: sanjaymallikarjuna28
 LeetCode URL: https://leetcode.com/sanjaymallikarjuna28
 Response URL: https://leetcode.com/sanjaymallikarjuna28/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: sanjuz16
 CodeChef URL: https://www.codechef.com/users/sanjuz16
@@ -23772,7 +23772,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0457
 LeetCode URL: https://leetcode.com/21r01a0457
 Response URL: https://leetcode.com/21r01a0457/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: 21R01A0457
 CodeChef URL: https://www.codechef.com/users/21R01A0457
@@ -23799,7 +23799,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0490
 LeetCode URL: https://leetcode.com/21r01a0490
 Response URL: https://leetcode.com/21r01a0490/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: mani40
 CodeChef URL: https://www.codechef.com/users/mani40
@@ -23826,7 +23826,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Surya_21r01a04c9
 LeetCode URL: https://leetcode.com/Surya_21r01a04c9
 Response URL: https://leetcode.com/Surya_21r01a04c9/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: surya_04c9
 CodeChef URL: https://www.codechef.com/users/surya_04c9
@@ -23853,7 +23853,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Rasagna_123
 LeetCode URL: https://leetcode.com/Rasagna_123
 Response URL: https://leetcode.com/Rasagna_123/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: 21R01A04D1
 CodeChef URL: https://www.codechef.com/users/21R01A04D1
@@ -23934,7 +23934,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04J4
 LeetCode URL: https://leetcode.com/21r01a04J4
 Response URL: https://leetcode.com/21r01a04J4/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: karthik_4j4
 CodeChef URL: https://www.codechef.com/users/karthik_4j4
@@ -24056,8 +24056,8 @@ HackerRank URL Exists: True
 
 ================================================================================================================================================================================
 Handle: 21R01A04M1
-Codeforces Handle: 21r01a04m1
-Codeforces URL: https://codeforces.com/profile/21r01a04m1
+Codeforces Handle: CMRIT_21R01A04M1
+Codeforces URL: https://codeforces.com/profile/CMRIT_21R01A04M1
 Response URL: https://codeforces.com/profile/CMRIT_21R01A04M1
 Codeforces URL Exists: True
 
@@ -24069,7 +24069,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04m1
 LeetCode URL: https://leetcode.com/21r01a04m1
 Response URL: https://leetcode.com/21r01a04m1/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: shalini76
 CodeChef URL: https://www.codechef.com/users/shalini76
@@ -24501,7 +24501,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22r05a0516
 LeetCode URL: https://leetcode.com/22r05a0516
 Response URL: https://leetcode.com/22r05a0516/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: vamshi9989
 CodeChef URL: https://www.codechef.com/users/vamshi9989
@@ -24555,7 +24555,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A66B9
 LeetCode URL: https://leetcode.com/21R01A66B9
 Response URL: https://leetcode.com/21R01A66B9/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: Prabhathrakam
 CodeChef URL: https://www.codechef.com/users/Prabhathrakam
@@ -24717,7 +24717,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: cmrit25_22r05a7303
 LeetCode URL: https://leetcode.com/cmrit25_22r05a7303
 Response URL: https://leetcode.com/cmrit25_22r05a7303/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: sai_1211
 CodeChef URL: https://www.codechef.com/users/sai_1211
@@ -24825,7 +24825,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a67j2
 LeetCode URL: https://leetcode.com/21r01a67j2
 Response URL: https://leetcode.com/21r01a67j2/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: anirudh27
 CodeChef URL: https://www.codechef.com/users/anirudh27
@@ -25338,7 +25338,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7211
 LeetCode URL: https://leetcode.com/21r01a7211
 Response URL: https://leetcode.com/21r01a7211/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: 21R01A7211deepak
 CodeChef URL: https://www.codechef.com/users/21R01A7211deepak
@@ -25392,7 +25392,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 22R05A7205
 LeetCode URL: https://leetcode.com/22R05A7205
 Response URL: https://leetcode.com/22R05A7205/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: 22r05a7205@cmritonline.ac.in
 CodeChef URL: https://www.codechef.com/users/22r05a7205@cmritonline.ac.in
@@ -25419,7 +25419,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0503
 LeetCode URL: https://leetcode.com/21r01a0503
 Response URL: https://leetcode.com/21r01a0503/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: hrithik55
 CodeChef URL: https://www.codechef.com/users/hrithik55
@@ -25581,7 +25581,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05c6
 LeetCode URL: https://leetcode.com/21r01a05c6
 Response URL: https://leetcode.com/21r01a05c6/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: mani_shankar
 CodeChef URL: https://www.codechef.com/users/mani_shankar
@@ -26040,7 +26040,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: raghava_04
 LeetCode URL: https://leetcode.com/raghava_04
 Response URL: https://leetcode.com/raghava_04/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: raghava_04
 CodeChef URL: https://www.codechef.com/users/raghava_04
@@ -26094,7 +26094,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21R01A0402
 LeetCode URL: https://leetcode.com/21R01A0402
 Response URL: https://leetcode.com/21R01A0402/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: harneeth45
 CodeChef URL: https://www.codechef.com/users/harneeth45
@@ -26121,7 +26121,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A0412
 LeetCode URL: https://leetcode.com/21R01A0412
 Response URL: https://leetcode.com/21R01A0412/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: prashanth412
 CodeChef URL: https://www.codechef.com/users/prashanth412
@@ -26148,7 +26148,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: thribhuvan_123
 LeetCode URL: https://leetcode.com/thribhuvan_123
 Response URL: https://leetcode.com/thribhuvan_123/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: thribhuvan_123
 CodeChef URL: https://www.codechef.com/users/thribhuvan_123
@@ -26175,7 +26175,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Eshwar_05
 LeetCode URL: https://leetcode.com/Eshwar_05
 Response URL: https://leetcode.com/Eshwar_05/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: eshwar_05
 CodeChef URL: https://www.codechef.com/users/eshwar_05
@@ -26229,7 +26229,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Anilkumar_4e3
 LeetCode URL: https://leetcode.com/Anilkumar_4e3
 Response URL: https://leetcode.com/Anilkumar_4e3/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: anilkumar4e3
 CodeChef URL: https://www.codechef.com/users/anilkumar4e3
@@ -27093,7 +27093,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04b9
 LeetCode URL: https://leetcode.com/21r01a04b9
 Response URL: https://leetcode.com/21r01a04b9/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Dilipkumar_4B9
 CodeChef URL: https://www.codechef.com/users/Dilipkumar_4B9
@@ -27147,7 +27147,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A04F9
 LeetCode URL: https://leetcode.com/21R01A04F9
 Response URL: https://leetcode.com/21R01A04F9/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r01a04f9
 CodeChef URL: https://www.codechef.com/users/r01a04f9
@@ -27228,7 +27228,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a04n4
 LeetCode URL: https://leetcode.com/21r01a04n4
 Response URL: https://leetcode.com/21r01a04n4/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: pavanjukuntla
 CodeChef URL: https://www.codechef.com/users/pavanjukuntla
@@ -27282,7 +27282,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7256
 LeetCode URL: https://leetcode.com/21r01a7256
 Response URL: https://leetcode.com/21r01a7256/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: r01a7256
 CodeChef URL: https://www.codechef.com/users/r01a7256
@@ -27417,7 +27417,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A05Q4
 LeetCode URL: https://leetcode.com/21R01A05Q4
 Response URL: https://leetcode.com/21R01A05Q4/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: nikhilesh5q4
 CodeChef URL: https://www.codechef.com/users/nikhilesh5q4
@@ -27444,7 +27444,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: cmr25_srinu519
 LeetCode URL: https://leetcode.com/cmr25_srinu519
 Response URL: https://leetcode.com/cmr25_srinu519/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: srinivas_189
 CodeChef URL: https://www.codechef.com/users/srinivas_189
@@ -27579,7 +27579,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: Jayanth
 LeetCode URL: https://leetcode.com/Jayanth
 Response URL: https://leetcode.com/Jayanth/
-LeetCode URL Exists: True
+LeetCode URL Exists: False
 
 CodeChef Handle: Jayanth
 CodeChef URL: https://www.codechef.com/users/Jayanth
@@ -28065,7 +28065,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a05l3
 LeetCode URL: https://leetcode.com/21r01a05l3
 Response URL: https://leetcode.com/21r01a05l3/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: viswas14
 CodeChef URL: https://www.codechef.com/users/viswas14
@@ -28092,7 +28092,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a6612
 LeetCode URL: https://leetcode.com/21r01a6612
 Response URL: https://leetcode.com/21r01a6612/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: anuragvamshi
 CodeChef URL: https://www.codechef.com/users/anuragvamshi
@@ -28173,7 +28173,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A66F9
 LeetCode URL: https://leetcode.com/21R01A66F9
 Response URL: https://leetcode.com/21R01A66F9/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: nithin421
 CodeChef URL: https://www.codechef.com/users/nithin421
@@ -28821,7 +28821,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A0537
 LeetCode URL: https://leetcode.com/21R01A0537
 Response URL: https://leetcode.com/21R01A0537/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: sowmya37
 CodeChef URL: https://www.codechef.com/users/sowmya37
@@ -28929,7 +28929,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a7324
 LeetCode URL: https://leetcode.com/21r01a7324
 Response URL: https://leetcode.com/21r01a7324/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: r01a7324
 CodeChef URL: https://www.codechef.com/users/r01a7324
@@ -29037,7 +29037,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: 21r01a0437
 LeetCode URL: https://leetcode.com/21r01a0437
 Response URL: https://leetcode.com/21r01a0437/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a0437
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a0437
@@ -29118,7 +29118,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Jaligam
 LeetCode URL: https://leetcode.com/Jaligam
 Response URL: https://leetcode.com/Jaligam/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: #N/A
 CodeChef URL: https://www.codechef.com/users/#N/A
@@ -29199,7 +29199,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21r01a0512
 LeetCode URL: https://leetcode.com/21r01a0512
 Response URL: https://leetcode.com/21r01a0512/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: vijaykumar512
 CodeChef URL: https://www.codechef.com/users/vijaykumar512
@@ -29253,7 +29253,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: 21R01A05F6
 LeetCode URL: https://leetcode.com/21R01A05F6
 Response URL: https://leetcode.com/21R01A05F6/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: cmr_21r01a05f6
 CodeChef URL: https://www.codechef.com/users/cmr_21r01a05f6
@@ -29334,7 +29334,7 @@ GeeksForGeeks URL Exists: True
 LeetCode Handle: sandeep
 LeetCode URL: https://leetcode.com/sandeep
 Response URL: https://leetcode.com/sandeep/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: Sandeep
 CodeChef URL: https://www.codechef.com/users/Sandeep
@@ -30279,7 +30279,7 @@ GeeksForGeeks URL Exists: False
 LeetCode Handle: Chanti
 LeetCode URL: https://leetcode.com/Chanti
 Response URL: https://leetcode.com/Chanti/
-LeetCode URL Exists: False
+LeetCode URL Exists: True
 
 CodeChef Handle: 21R01A0468
 CodeChef URL: https://www.codechef.com/users/21R01A0468
