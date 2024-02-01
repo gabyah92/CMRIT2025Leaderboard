@@ -81,9 +81,6 @@ def main():
         writer.writerow(['Handle', 'Codeforces Handle', 'GeeksForGeeks Handle', 'LeetCode Handle', 'CodeChef Handle',
                          'HackerRank Handle', 'Codeforces URL Exists', 'GeeksForGeeks URL Exists', 'LeetCode URL Exists',
                          'CodeChef URL Exists', 'HackerRank URL Exists'])
-        print('Handle, Codeforces Handle, GeeksForGeeks Handle, LeetCode Handle, CodeChef Handle, HackerRank Handle, '
-              'Codeforces URL Exists, GeeksForGeeks URL Exists, LeetCode URL Exists, CodeChef URL Exists, HackerRank '
-              'URL Exists')
 
         log_writer = open('log.txt', 'a')
 
@@ -100,6 +97,9 @@ def main():
             # Checking if URLs exist for each handle
             if codeforces_handle != '#N/A':
                 codeforces_url_exists, response_url = check_url_exists("https://codeforces.com/profile/" + codeforces_handle)
+                if response_url != "https://codeforces.com/profile/" + codeforces_handle and codeforces_url_exists == True:
+                    # set codeforces_handle to the handle in the URL
+                    codeforces_handle = response_url.split('/')[-1]
             else:
                 codeforces_url_exists = False
                 response_url = "N/A"
