@@ -97,7 +97,7 @@ def main():
                 response_url = "N/A"
 
             # Write to log.txt, all details of participant
-            log_writer.write("Codeforces Handle: " + codeforces_handle + ", " + "Codeforces URL: " + response_url + ", " + "Codeforces URL Exists: " + str(codeforces_url_exists) + "\n")
+            log_writer.write("Codeforces Handle: " + codeforces_handle + "\n" + "Codeforces URL: " + "https://codeforces.com/profile/" + codeforces_handle + "\n" + "Response URL: " + response_url + "\n" + "Codeforces URL Exists: " + str(codeforces_url_exists) + "\n\n")
 
             if geeksforgeeks_handle != '#N/A':
                 geeksforgeeks_url_exists, response_url = check_url_exists("https://auth.geeksforgeeks.org/user/" + geeksforgeeks_handle)
@@ -106,7 +106,7 @@ def main():
                 response_url = "N/A"
 
             # Write to log.txt, all details of participant
-            log_writer.write("GeeksForGeeks Handle: " + geeksforgeeks_handle + ", " + "GeeksForGeeks URL: " + response_url + ", " + "GeeksForGeeks URL Exists: " + str(geeksforgeeks_url_exists) + "\n")
+            log_writer.write("GeeksForGeeks Handle: " + geeksforgeeks_handle + "\n" + "GeeksForGeeks URL: " + "https://auth.geeksforgeeks.org/user/" + geeksforgeeks_handle + "\n" + "Response URL:" + response_url + "\n" + "GeeksForGeeks URL Exists: " + str(geeksforgeeks_url_exists) + "\n\n")
 
             if leetcode_handle != '#N/A':
                 leetcode_url_exists, response_url = check_url_exists("https://leetcode.com/" + leetcode_handle)
@@ -115,7 +115,7 @@ def main():
                 response_url = "N/A"
 
             # Write to log.txt, all details of participant
-            log_writer.write("LeetCode Handle: " + leetcode_handle + ", " + "LeetCode URL: " + response_url + ", " + "LeetCode URL Exists: " + str(leetcode_url_exists) + "\n")
+            log_writer.write("LeetCode Handle: " + leetcode_handle + "\n" + "LeetCode URL: " + "https://leetcode.com/" + leetcode_handle + "\n" + "Response URL:" + response_url + "\n" + "LeetCode URL Exists: " + str(leetcode_url_exists) + "\n\n")
 
             if codechef_handle != '#N/A':
                 codechef_url_exists, response_url = check_url_exists("https://www.codechef.com/users/" + codechef_handle)
@@ -124,7 +124,7 @@ def main():
                 response_url = "N/A"
 
             # Write to log.txt, all details of participant
-            log_writer.write("CodeChef Handle: " + codechef_handle + ", " + "CodeChef URL: " + response_url + ", " + "CodeChef URL Exists: " + str(codechef_url_exists) + "\n")
+            log_writer.write("CodeChef Handle: " + codechef_handle + "\n" + "CodeChef URL: " + "https://www.codechef.com/users/" + codechef_handle + "\n" + "Response URL:" + response_url + "\n" + "CodeChef URL Exists: " + str(codechef_url_exists) + "\n\n")
 
             if hackerrank_handle != '#N/A':
                 hackerrank_url_exists, response_url = check_url_exists("https://www.hackerrank.com/profile/" + hackerrank_handle)
@@ -133,10 +133,12 @@ def main():
                 response_url = "N/A"
 
             # Write to log.txt, all details of participant
-            log_writer.write("HackerRank Handle: " + hackerrank_handle + ", " + "HackerRank URL: " + response_url + ", " + "HackerRank URL Exists: " + str(hackerrank_url_exists) + "\n")
+            log_writer.write("HackerRank Handle: " + hackerrank_handle + "\n" + "HackerRank URL: " + "https://www.hackerrank.com/profile/" + hackerrank_handle + "\n" + "Response URL:" + response_url + "\n" + "HackerRank URL Exists: " + str(hackerrank_url_exists) + "\n\n")
 
             row.extend([codeforces_url_exists, geeksforgeeks_url_exists, leetcode_url_exists, codechef_url_exists, hackerrank_url_exists])
             print('{},{},{},{},{},{},{},{},{},{},{}'.format(handle, codeforces_handle, geeksforgeeks_handle, leetcode_handle, codechef_handle, hackerrank_handle, codeforces_url_exists, geeksforgeeks_url_exists, leetcode_url_exists, codechef_url_exists, hackerrank_url_exists))
+
+            log_writer.write("================================================================================================================================================================================\n")
 
             writer.writerow(row)
 
