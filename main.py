@@ -51,8 +51,10 @@ def check_url_exists(url):
         response = requests.get(url, headers=header)
         if response.status_code == 200:
             # Check if the final URL is the same as the original URL (no redirect)
-            if response.url == url:
-                return True, response.url
+            if "leetcode.com" in url:
+                url = url + "/"
+                if response.url == url:
+                    return True, response.url
         return False, response.url
     except requests.exceptions.RequestException:
         return False, "Exception"
