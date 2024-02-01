@@ -7,12 +7,12 @@ from time import sleep
 
 class Participant:
     # Class to store participant details
-    def __init__(self, handle, codeforces_handle, geeksforgeeks_handle, leetcode_handle, codechef_handle,
+    def __init__(self, handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle,
                  hackerrank_handle):
         # type cast all handles to string
         handle = str(handle)
-        codeforces_handle = str(codeforces_handle)
         geeksforgeeks_handle = str(geeksforgeeks_handle)
+        codeforces_handle = str(codeforces_handle)
         leetcode_handle = str(leetcode_handle)
         codechef_handle = str(codechef_handle)
         hackerrank_handle = str(hackerrank_handle)
@@ -35,9 +35,9 @@ def load_excel_sheet(excel_sheet_path):
     sheet = workbook.active
 
     for row in tqdm(sheet.iter_rows(min_row=2, values_only=True), desc="Processing Participants", unit="participant"):
-        handle, codeforces_handle, geeksforgeeks_handle, leetcode_handle, codechef_handle, hackerrank_handle = row
+        handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle = row
         participants.append(
-            Participant(handle, codeforces_handle, geeksforgeeks_handle, leetcode_handle, codechef_handle,
+            Participant(handle,geeksforgeeks_handle,  codeforces_handle, leetcode_handle, codechef_handle,
                         hackerrank_handle))
 
     return participants
@@ -78,25 +78,38 @@ def main():
 
     with open('participant_details.csv', mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['Handle', 'Codeforces Handle', 'GeeksForGeeks Handle', 'LeetCode Handle', 'CodeChef Handle',
-                         'HackerRank Handle', 'Codeforces URL Exists', 'GeeksForGeeks URL Exists', 'LeetCode URL Exists',
+        writer.writerow(['Handle','GeeksForGeeks Handle',  'Codeforces Handle', 'LeetCode Handle', 'CodeChef Handle',
+                         'HackerRank Handle', 'GeeksForGeeks URL Exists', 'Codeforces URL Exists',
+                         'LeetCode URL Exists',
                          'CodeChef URL Exists', 'HackerRank URL Exists'])
 
         log_writer = open('log.txt', 'a')
 
         for participant in tqdm(participants, desc="Checking URLs", unit="participant"):
             handle = participant.handle
-            codeforces_handle = participant.codeforces_handle
             geeksforgeeks_handle = participant.geeksforgeeks_handle
+            codeforces_handle = participant.codeforces_handle
             leetcode_handle = participant.leetcode_handle
             codechef_handle = participant.codechef_handle
             hackerrank_handle = participant.hackerrank_handle
 
-            row = [handle, codeforces_handle, geeksforgeeks_handle, leetcode_handle, codechef_handle, hackerrank_handle]
+            row = [handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle]
+
+            if geeksforgeeks_handle != '#N/A':
+                geeksforgeeks_url_exists, response_url = check_url_exists(
+                    "https://auth.geeksforgeeks.org/user/" + geeksforgeeks_handle)
+            else:
+                geeksforgeeks_url_exists = False
+                response_url = "N/A"
+
+            # Write to log.txt, all details of participant
+            log_writer.write(
+                f"GeeksForGeeks Handle: {geeksforgeeks_handle}\nGeeksForGeeks URL: https://auth.geeksforgeeks.org/user/{geeksforgeeks_handle}\nResponse URL: {response_url}\nGeeksForGeeks URL Exists: {geeksforgeeks_url_exists}\n\n")
 
             # Checking if URLs exist for each handle
             if codeforces_handle != '#N/A':
-                codeforces_url_exists, response_url = check_url_exists("https://codeforces.com/profile/" + codeforces_handle)
+                codeforces_url_exists, response_url = check_url_exists(
+                    "https://codeforces.com/profile/" + codeforces_handle)
                 if response_url != "https://codeforces.com/profile/" + codeforces_handle and codeforces_url_exists == True:
                     # set codeforces_handle to the handle in the URL
                     codeforces_handle = response_url.split('/')[-1]
@@ -105,16 +118,8 @@ def main():
                 response_url = "N/A"
 
             # Write to log.txt, all details of participant
-            log_writer.write(f"Handle: {handle}\nCodeforces Handle: {codeforces_handle}\nCodeforces URL: https://codeforces.com/profile/{codeforces_handle}\nResponse URL: {response_url}\nCodeforces URL Exists: {codeforces_url_exists}\n\n")
-
-            if geeksforgeeks_handle != '#N/A':
-                geeksforgeeks_url_exists, response_url = check_url_exists("https://auth.geeksforgeeks.org/user/" + geeksforgeeks_handle)
-            else:
-                geeksforgeeks_url_exists = False
-                response_url = "N/A"
-
-            # Write to log.txt, all details of participant
-            log_writer.write(f"GeeksForGeeks Handle: {geeksforgeeks_handle}\nGeeksForGeeks URL: https://auth.geeksforgeeks.org/user/{geeksforgeeks_handle}\nResponse URL: {response_url}\nGeeksForGeeks URL Exists: {geeksforgeeks_url_exists}\n\n")
+            log_writer.write(
+                f"Handle: {handle}\nCodeforces Handle: {codeforces_handle}\nCodeforces URL: https://codeforces.com/profile/{codeforces_handle}\nResponse URL: {response_url}\nCodeforces URL Exists: {codeforces_url_exists}\n\n")
 
             if leetcode_handle != '#N/A':
                 leetcode_url_exists, response_url = check_url_exists("https://leetcode.com/" + leetcode_handle)
@@ -123,29 +128,36 @@ def main():
                 response_url = "N/A"
 
             # Write to log.txt, all details of participant
-            log_writer.write(f"LeetCode Handle: {leetcode_handle}\nLeetCode URL: https://leetcode.com/{leetcode_handle}\nResponse URL: {response_url}\nLeetCode URL Exists: {leetcode_url_exists}\n\n")
+            log_writer.write(
+                f"LeetCode Handle: {leetcode_handle}\nLeetCode URL: https://leetcode.com/{leetcode_handle}\nResponse URL: {response_url}\nLeetCode URL Exists: {leetcode_url_exists}\n\n")
 
             if codechef_handle != '#N/A':
-                codechef_url_exists, response_url = check_url_exists("https://www.codechef.com/users/" + codechef_handle)
+                codechef_url_exists, response_url = check_url_exists(
+                    "https://www.codechef.com/users/" + codechef_handle)
             else:
                 codechef_url_exists = False
                 response_url = "N/A"
 
             # Write to log.txt, all details of participant
-            log_writer.write(f"CodeChef Handle: {codechef_handle}\nCodeChef URL: https://www.codechef.com/users/{codechef_handle}\nResponse URL: {response_url}\nCodeChef URL Exists: {codechef_url_exists}\n\n")
+            log_writer.write(
+                f"CodeChef Handle: {codechef_handle}\nCodeChef URL: https://www.codechef.com/users/{codechef_handle}\nResponse URL: {response_url}\nCodeChef URL Exists: {codechef_url_exists}\n\n")
 
             if hackerrank_handle != '#N/A':
-                hackerrank_url_exists, response_url = check_url_exists("https://www.hackerrank.com/profile/" + hackerrank_handle)
+                hackerrank_url_exists, response_url = check_url_exists(
+                    "https://www.hackerrank.com/profile/" + hackerrank_handle)
             else:
                 hackerrank_url_exists = False
                 response_url = "N/A"
 
             # Write to log.txt, all details of participant
-            log_writer.write(f"HackerRank Handle: {hackerrank_handle}\nHackerRank URL: https://www.hackerrank.com/profile/{hackerrank_handle}\nResponse URL: {response_url}\nHackerRank URL Exists: {hackerrank_url_exists}\n\n")
+            log_writer.write(
+                f"HackerRank Handle: {hackerrank_handle}\nHackerRank URL: https://www.hackerrank.com/profile/{hackerrank_handle}\nResponse URL: {response_url}\nHackerRank URL Exists: {hackerrank_url_exists}\n\n")
 
-            row.extend([codeforces_url_exists, geeksforgeeks_url_exists, leetcode_url_exists, codechef_url_exists, hackerrank_url_exists])
+            row.extend([geeksforgeeks_url_exists, codeforces_url_exists, leetcode_url_exists, codechef_url_exists,
+                        hackerrank_url_exists])
 
-            log_writer.write("================================================================================================================================================================================\n")
+            log_writer.write(
+                "================================================================================================================================================================================\n")
 
             writer.writerow(row)
 
