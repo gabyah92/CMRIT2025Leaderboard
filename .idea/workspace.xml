@@ -5,32 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4eb88ae-ae22-46ba-bfa6-b76ecb913ed7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/static.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/CMRITLeaderboard2025_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/sqlite-jdbc-3.45.1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/participant_details.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMRITLeaderboard2025.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Leaderboards/CurrentCMRITLeaderboard2025.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/CMRITLeaderboard2025$Participant.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/CMRITLeaderboard2025.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/CMRIT2025Leaderboard.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/CMRIT2025Leaderboard.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/CMRITLeaderboard2025_jar/CMRITLeaderboard2025.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CMRITLeaderboard2025.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cmrit/CMRITLeaderboard2025.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/CMRIT2025Leaderboard.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CMRIT2025Leaderboard.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/CMRIT2025Leaderboard_Minimal.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cmrit/CMRITLeaderboard2025.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cmrit/CMRITLeaderboard2025.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,50 +55,71 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2bMvIOp52dKcTIKZAB3cKsPReMi" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.CMRIT2025Leaderboard [:CMRITLeaderboard2025.main()].executor": "Run",
-    "Gradle.CMRIT2025Leaderboard [assemble].executor": "Run",
-    "Gradle.CMRIT2025Leaderboard [buildDependents].executor": "Run",
-    "Gradle.CMRIT2025Leaderboard [buildNeeded].executor": "Run",
-    "Gradle.CMRIT2025Leaderboard [build].executor": "Run",
-    "Gradle.CMRIT2025Leaderboard [classes].executor": "Run",
-    "Gradle.CMRIT2025Leaderboard [clean].executor": "Run",
-    "Gradle.CMRIT2025Leaderboard [jar].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/gradleBuildLeaderbaord/CMRIT2025Leaderboard",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.1487669",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "build.tools",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.CMRIT2025Leaderboard [:CMRITLeaderboard2025.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CMRIT2025Leaderboard [:ScraperApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CMRIT2025Leaderboard [assemble].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CMRIT2025Leaderboard [buildDependents].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CMRIT2025Leaderboard [buildNeeded].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CMRIT2025Leaderboard [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CMRIT2025Leaderboard [check].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CMRIT2025Leaderboard [classes].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CMRIT2025Leaderboard [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CMRIT2025Leaderboard [jar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CMRIT2025Leaderboard [test].executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.sqlite-jdbc-3.45.1.0.jar.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/gradleBuildLeaderbaord/CMRIT2025Leaderboard/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.1487669&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.cmrit" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\gradleBuildLeaderbaord\CMRIT2025Leaderboard\src\main\resources" />
+      <recent name="D:\gradleBuildLeaderbaord\CMRIT2025Leaderboard\lib" />
       <recent name="D:\gradleBuildLeaderbaord\CMRIT2025Leaderboard" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\gradleBuildLeaderbaord\CMRIT2025Leaderboard\src\main\java\org\cmrit" />
+      <recent name="D:\gradleBuildLeaderbaord\CMRIT2025Leaderboard\src\main\resources" />
+      <recent name="D:\gradleBuildLeaderbaord\CMRIT2025Leaderboard\src\test\resources" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -125,7 +128,21 @@
       <command value="gradle build" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.CMRITLeaderboard2025">
+    <configuration name="CMRITLeaderboard2025" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.cmrit.CMRITLeaderboard2025" />
+      <module name="CMRIT2025Leaderboard.main" />
+      <option name="PROGRAM_PARAMETERS" value="codeforces" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.cmrit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CMRIT2025Leaderboard [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -148,29 +165,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CMRIT2025Leaderboard [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--stacktrace" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="CMRIT2025Leaderboard [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CMRIT2025Leaderboard [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -181,7 +176,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="classes" />
+            <option value="check" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -192,7 +187,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CMRIT2025Leaderboard [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CMRIT2025Leaderboard [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -203,7 +198,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="clean" />
+            <option value="test" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -214,35 +209,24 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CMRIT2025Leaderboard [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+    <configuration name="sqlite-jdbc-3.45.1.0.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/lib/sqlite-jdbc-3.45.1.0.jar" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.CMRITLeaderboard2025" />
+      <item itemvalue="Gradle.CMRIT2025Leaderboard [assemble]" />
+      <item itemvalue="Gradle.CMRIT2025Leaderboard [check]" />
+      <item itemvalue="Gradle.CMRIT2025Leaderboard [test]" />
+      <item itemvalue="JAR Application.sqlite-jdbc-3.45.1.0.jar" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CMRIT2025Leaderboard [build]" />
-        <item itemvalue="Gradle.CMRIT2025Leaderboard [clean]" />
+        <item itemvalue="JAR Application.sqlite-jdbc-3.45.1.0.jar" />
+        <item itemvalue="Application.CMRITLeaderboard2025" />
         <item itemvalue="Gradle.CMRIT2025Leaderboard [assemble]" />
-        <item itemvalue="Gradle.CMRIT2025Leaderboard [jar]" />
-        <item itemvalue="Gradle.CMRIT2025Leaderboard [classes]" />
+        <item itemvalue="Gradle.CMRIT2025Leaderboard [test]" />
+        <item itemvalue="Gradle.CMRIT2025Leaderboard [check]" />
       </list>
     </recent_temporary>
   </component>
@@ -262,6 +246,10 @@
       <option name="presentableId" value="Default" />
       <updated>1706037691350</updated>
       <workItem from="1706037692461" duration="6042000" />
+      <workItem from="1706186421930" duration="5886000" />
+      <workItem from="1706710469111" duration="1000000" />
+      <workItem from="1706713957165" duration="8523000" />
+      <workItem from="1706804859203" duration="7200000" />
     </task>
     <servers />
   </component>

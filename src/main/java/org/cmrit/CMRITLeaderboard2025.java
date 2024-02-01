@@ -1,819 +1,428 @@
-// Built OVERNIGHT, yes again, by https://www.instagram.com/gabyah92 (Instagram)
-// Technical Trainer
-
 package org.cmrit;
 
-import java.io.*;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.net.*;
-import java.nio.charset.StandardCharsets;
-import java.text.DecimalFormat;
-import java.util.*;
-import java.util.List;
-
-import jdk.jfr.SettingControl;
-import org.apache.poi.ss.usermodel.BorderStyle;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.ss.usermodel.HorizontalAlignment;
-import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class CMRITLeaderboard2025{
-    private String excelSheetField = "lib//CMRIT2025Leaderboard.xlsx";
-    HashMap <String, Integer> geeksforgeeksDB = new HashMap<>();
-    HashMap <String, Integer> hackerrankDB = new HashMap<>();
-    HashMap <String, Integer> codeforcesDB = new HashMap<>();
+import java.io.*;
+import java.net.*;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
-    static boolean hackerrankchk = false;
-    static String searchToken = "";
-    static int hackerrankMaxScore = 0;
-    static int GFGMaxScore = 0;
-    static int GFGpMaxScore = 0;
-    static int codechefMaxRating = 0;
-    static int leetcodeMaxRating = 0;
-    static int codeforcesMaxRating = 0;
+public class CMRITLeaderboard2025 {
 
-    public CMRITLeaderboard2025(boolean is_minimal) {
-        hackerrankMaxScore = 0;
-        GFGMaxScore = 0;
-        GFGpMaxScore = 0;
-        codechefMaxRating = 0;
-        leetcodeMaxRating = 0;
-        codeforcesMaxRating = 0;
-        searchToken = "cmrit25-1-basics, cmrit25-4-rbd, cmrit25-3-iterables, cmrit25-2-lpb, cmrit25-5-ds, 1-basics-2025, 2-loops-2025, 3-bitpat-2025, 4-iterables-2025, 5-recursion-2025, ds-2025, codevita-2025";
-        if (searchToken.equals("")) {
-            hackerrankchk = false;
-        }
-        else hackerrankchk = true;
-        List<Participant> curr_leaderboard = null;
+    private static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS " +
+            "users_data (" +
+            "handle TEXT PRIMARY KEY," +
+            "geeksforgeeks_handle TEXT," +
+            "codeforces_handle TEXT," +
+            "leetcode_handle TEXT," +
+            "codechef_handle TEXT," +
+            "hackerrank_handle TEXT," +
+            "codeforces_url_exists INTEGER," +
+            "geeksforgeeks_url_exists INTEGER," +
+            "leetcode_url_exists INTEGER," +
+            "codechef_url_exists INTEGER," +
+            "hackerrank_url_exists INTEGER)";
 
-        if (is_minimal) {
-            System.out.println("Loading Minimal Excel Sheet");
-            excelSheetField = "lib//CMRIT2025Leaderboard_Minimal.xlsx";
-        }
+    private static final String INSERT_DATA_SQL = "REPLACE INTO users_data " +
+            "(handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle, " +
+            "geeksforgeeks_url_exists, codeforces_url_exists, leetcode_url_exists, codechef_url_exists, hackerrank_url_exists) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        String excelSheetPath = excelSheetField;
-        System.out.print("Loading User Data from " + excelSheetPath);
-        if (!excelSheetPath.equals("")) {
-            try{
-                curr_leaderboard = loadExcelSheet(excelSheetPath);
-                if(curr_leaderboard.isEmpty()) throw new Exception();
-                downloadLeaderboard(curr_leaderboard);
-                // Sort and assign ranks
-                assignRanks(curr_leaderboard);
-                // Display the leaderboard in console
-                exportParticipantsToExcel((ArrayList<Participant>) curr_leaderboard);
-                curr_leaderboard.clear();
-            } catch(Exception f) { System.out.println("Invalid Excel Sheet! " + "Error!!!"); }
-        } else {
-            System.out.println("Select an Excel Sheet! " + "Error!!!");
-            // if Djava.awt.headless=true then exit the program
-            if (System.getProperty("java.awt.headless") != null && System.getProperty("java.awt.headless").equals("true")) {
-                System.exit(0);
-            }
-        }
-        this.geeksforgeeksDB.clear();
-        this.hackerrankDB.clear();
-        this.codeforcesDB.clear();
-    }
-
-    static void exportParticipantsToExcel(ArrayList<Participant> participants) {
-        System.out.println("Generating Excel Sheet...");
-        try {
-            // Create a new Workbook
-            XSSFWorkbook workbook = new XSSFWorkbook();
-
-            // Create a new Sheet
-            org.apache.poi.ss.usermodel.Sheet sheet = workbook.createSheet("Current CMRITLeaderboard2025");
-
-            // Create bold font with size 18 for column headers
-            org.apache.poi.ss.usermodel.Font boldFont = workbook.createFont();
-            boldFont.setBold(true);
-            boldFont.setFontHeightInPoints((short) 20);
-
-            org.apache.poi.ss.usermodel.Font boldFont2 = workbook.createFont();
-            boldFont2.setBold(true);
-            boldFont2.setFontHeightInPoints((short) 14);
-
-            // Create bold centered cell style with 14 font size for normal cells
-            CellStyle boldCenteredCellStyle = workbook.createCellStyle();
-            boldCenteredCellStyle.setAlignment(HorizontalAlignment.CENTER);
-            boldCenteredCellStyle.setFont(boldFont);
-            boldCenteredCellStyle.setFillForegroundColor(IndexedColors.LIGHT_TURQUOISE1.getIndex());
-            boldCenteredCellStyle.setBorderBottom(BorderStyle.THICK);
-            boldCenteredCellStyle.setBorderTop(BorderStyle.THICK);
-            boldCenteredCellStyle.setBorderLeft(BorderStyle.THICK);
-            boldCenteredCellStyle.setBorderRight(BorderStyle.THICK);
-            boldCenteredCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-            // Create bold cell style with 14 font size for normal cells
-            CellStyle boldCellStyle = workbook.createCellStyle();
-            boldCellStyle.setAlignment(HorizontalAlignment.CENTER);
-            boldCellStyle.setFont(boldFont2);
-            boldCellStyle.setFillForegroundColor(IndexedColors.TURQUOISE.getIndex());
-            boldCellStyle.setBorderBottom(BorderStyle.THICK);
-            boldCellStyle.setBorderTop(BorderStyle.THICK);
-            boldCellStyle.setBorderLeft(BorderStyle.THICK);
-            boldCellStyle.setBorderRight(BorderStyle.THICK);
-            boldCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-
-            // Add column headers =>
-            // Rank, Codeforces_Handle, 35% Codeforces_Rating,
-            //       GFG_Handle, 30% GFG_Contest_Score, 10% GFG_Practice_Score,
-            //       Leetcode_Handle, 15% Leetcode_Rating
-            //       CodeChef_Handle, 10% Codechef_Rating
-            Row headerRow = sheet.createRow(0);
-            Cell rankHeaderCell = headerRow.createCell(0);
-            rankHeaderCell.setCellValue("Rank");
-            rankHeaderCell.setCellStyle(boldCenteredCellStyle);
-
-            Cell handleHeaderCell = headerRow.createCell(1);
-            handleHeaderCell.setCellValue("Handle");
-            handleHeaderCell.setCellStyle(boldCenteredCellStyle);
-
-            Cell codeforcesIdHeaderCell = headerRow.createCell(2);
-            codeforcesIdHeaderCell.setCellValue("Codeforces_Handle");
-            codeforcesIdHeaderCell.setCellStyle(boldCenteredCellStyle);
-
-            Cell codeforcesRatingHeaderCell = headerRow.createCell(3);
-            codeforcesRatingHeaderCell.setCellValue("Codeforces_Rating");
-            codeforcesRatingHeaderCell.setCellStyle(boldCenteredCellStyle);
-
-            Cell gfgHeaderCell = headerRow.createCell(4);
-            gfgHeaderCell.setCellValue("GFG_Handle");
-            gfgHeaderCell.setCellStyle(boldCenteredCellStyle);
-
-            Cell gfgCScoreHeaderCell = headerRow.createCell(5);
-            gfgCScoreHeaderCell.setCellValue("GFG_Contest_Score");
-            gfgCScoreHeaderCell.setCellStyle(boldCenteredCellStyle);
-
-            Cell gfgPScoreHeaderCell = headerRow.createCell(6);
-            gfgPScoreHeaderCell.setCellValue("GFG_Practice_Score");
-            gfgPScoreHeaderCell.setCellStyle(boldCenteredCellStyle);
-
-            Cell leetcodeHeaderCell = headerRow.createCell(7);
-            leetcodeHeaderCell.setCellValue("Leetcode_Handle");
-            leetcodeHeaderCell.setCellStyle(boldCenteredCellStyle);
-
-            Cell leetcodeRatingHeaderCell = headerRow.createCell(8);
-            leetcodeRatingHeaderCell.setCellValue("Leetcode_Rating");
-            leetcodeRatingHeaderCell.setCellStyle(boldCenteredCellStyle);
-
-            Cell codechefHeaderCell = headerRow.createCell(9);
-            codechefHeaderCell.setCellValue("Codechef_Handle");
-            codechefHeaderCell.setCellStyle(boldCenteredCellStyle);
-
-            Cell codechefRatingHeaderCell = headerRow.createCell(10);
-            codechefRatingHeaderCell.setCellValue("Codechef_Rating");
-            codechefRatingHeaderCell.setCellStyle(boldCenteredCellStyle);
-
-            int hc = 11;
-
-            if( hackerrankchk ){
-                hc = 13;
-                Cell hackerRankHeaderCell = headerRow.createCell(11);
-                hackerRankHeaderCell.setCellValue("HackerRank_Handle");
-                hackerRankHeaderCell.setCellStyle(boldCenteredCellStyle);
-
-                Cell hackerRankRatingHeaderCell = headerRow.createCell(12);
-                hackerRankRatingHeaderCell.setCellValue("HackerRank_Practice_Score");
-                hackerRankRatingHeaderCell.setCellStyle(boldCenteredCellStyle);
-            }
-
-            Cell percentileHeaderCell = headerRow.createCell(hc);
-            percentileHeaderCell.setCellValue("Percentile");
-            percentileHeaderCell.setCellStyle(boldCenteredCellStyle);
-
-            // Add participants' data : Rank, Codeforces_Handle, 35% Codeforces_Rating,
-            //       GFG_Handle, 30% GFG_Contest_Score, 10% GFG_Practice_Score,
-            //       Leetcode_Handle, 15% Leetcode_Rating
-            //       CodeChef_Handle, 10% Codechef_Rating
-
-            // Since the array here would already be sorted, if first persons codeforces score is 0, then there was a mistake with fetching from codeforces.
-            if( participants.size() >= 1 && participants.get(0).getCodeforcesRating() == 0 ) System.exit(666);
+    private static final String CODECHEF_URL = "https://codechef-api.vercel.app/";
+    private static final String CODEFORCES_URL = "https://codeforces.com/api/user.info?handles=";
+    private static final String LEETCODE_URL = "https://leetcode.com/graphql?";
+    private static final String GFG_URL = "https://coding-platform-profile-api.onrender.com/geeksforgeeks/";
 
 
-            for (int i = 0; i < participants.size(); i++) {
-                Participant participant = participants.get(i);
-                Row row = sheet.createRow(i + 1);
+    public static void main(String[] args) {
 
-                Cell rankCell = row.createCell(0);
-                rankCell.setCellValue(participant.getRank());
-                rankCell.setCellStyle(boldCellStyle);
+        // Load data from csv
 
-                Cell handleCell = row.createCell(1);
-                handleCell.setCellValue(participant.getHandle());
-                handleCell.setCellStyle(boldCellStyle);
+        loadCSVtoSQL("src//main//resources//participant_details.csv");
 
-                Cell idCell1 = row.createCell(2);
-                idCell1.setCellValue(participant.getCodeforcesHandle());
-                idCell1.setCellStyle(boldCellStyle);
+        String methodName = args[0];
 
-                Cell scoreCell1 = row.createCell(3);
-                scoreCell1.setCellValue(participant.getCodeforcesRating());
-                scoreCell1.setCellStyle(boldCellStyle);
+        String dbName = "cmrit";
+        Connection conn = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        ArrayList <User> trueCodechef = new ArrayList<>();
+        ArrayList <User> trueCodeforces = new ArrayList<>();
 
-                Cell idCell2 = row.createCell(4);
-                idCell2.setCellValue(participant.getGeeksForGeeksHandle());
-                idCell2.setCellStyle(boldCellStyle);
+        switch (methodName) {
+            case "codechef":
+                // Fetch all true codechef handles from the database
+                try {
+                    conn = DriverManager.getConnection("jdbc:sqlite:" + dbName);
+                    statement = conn.createStatement();
 
-                Cell scoreCell2 = row.createCell(5);
-                scoreCell2.setCellValue(participant.getGeeksForGeeksScore());
-                scoreCell2.setCellStyle(boldCellStyle);
+                    String sql = "SELECT handle, codechef_handle FROM users_data WHERE codechef_url_exists = 1";
+                    resultSet = statement.executeQuery(sql);
 
-                Cell scoreCell2_1 = row.createCell(6);
-                scoreCell2_1.setCellValue(participant.getGeeksForGeekspScore());
-                scoreCell2_1.setCellStyle(boldCellStyle);
+                    assert resultSet != null;
 
-                Cell idCell3 = row.createCell(7);
-                idCell3.setCellValue(participant.getLeetcodeHandle());
-                idCell3.setCellStyle(boldCellStyle);
+                    while (resultSet.next()) {
+                        String handle = resultSet.getString("handle");
+                        String codechefHandle = resultSet.getString("codechef_handle");
+                        if (codechefHandle != null) {
+                            trueCodechef.add(new User(handle, "codechef", codechefHandle));
+                        }
+                    }
 
-                Cell scoreCell3 = row.createCell(8);
-                scoreCell3.setCellValue(participant.getLeetcodeRating());
-                scoreCell3.setCellStyle(boldCellStyle);
-
-                Cell idCell4 = row.createCell(9);
-                idCell4.setCellValue(participant.getCodeChefHandle());
-                idCell4.setCellStyle(boldCellStyle);
-
-                Cell scoreCell4 = row.createCell(10);
-                scoreCell4.setCellValue(participant.getCodeChefRating());
-                scoreCell4.setCellStyle(boldCellStyle);
-
-                if(hackerrankchk){
-                    Cell idCell5 = row.createCell(11);
-                    idCell5.setCellValue(participant.getHackerrankHandle());
-                    idCell5.setCellStyle(boldCellStyle);
-
-                    Cell scoreCell5 = row.createCell(12);
-                    scoreCell5.setCellValue(participant.getHackerrankScore());
-                    scoreCell5.setCellStyle(boldCellStyle);
+                } catch (SQLException e) {
+                    System.err.println("Error fetching true Codechef handles: " + e.getMessage());
+                } finally {
+                    try {
+                        if (resultSet != null) resultSet.close();
+                        if (statement != null) statement.close();
+                        if (conn != null) conn.close();
+                    } catch (SQLException e) {
+                        System.err.println("Error closing resultSet, statement, or connection: " + e.getMessage());
+                    }
                 }
-                Cell scoreCell6 = row.createCell(hc);
-                DecimalFormat df = new DecimalFormat("#.##");
-                scoreCell6.setCellValue( df.format(participant.getPercentile())+"%" );
-                scoreCell6.setCellStyle(boldCellStyle);
-            }
+                scrapeCodechef(trueCodechef);
+                break;
+            case "codeforces":
+                // Fetch all true codeforces handles from the database
+                try {
+                    conn = DriverManager.getConnection("jdbc:sqlite:" + dbName);
+                    statement = conn.createStatement();
 
-            File folder = new File("Leaderboards");
-            if (!folder.exists()) {
-                folder.mkdir();
-            }
+                    String sql = "SELECT handle, codeforces_handle FROM users_data WHERE codeforces_url_exists = 1";
+                    resultSet = statement.executeQuery(sql);
 
-            // Resize columns to fit the content
-            for(int i=0;i<12 + (hackerrankchk?2:0);i++) sheet.autoSizeColumn(i);
+                    assert resultSet != null;
 
-            String baseFileName = "Leaderboards/CurrentCMRITLeaderboard2025";
-            String extension = ".xlsx";
+                    while (resultSet.next()) {
+                        String handle = resultSet.getString("handle");
+                        String codeforcesHandle = resultSet.getString("codeforces_handle");
+                        if (codeforcesHandle != null) {
+                            trueCodeforces.add(new User(handle, "codeforces", codeforcesHandle));
+                        }
+                    }
 
-
-            File file = new File(baseFileName + extension);
-            // if file exists, delete it
-            if (file.exists()) {
-                file.delete();
-            }
-            try ( FileOutputStream fileOut = new FileOutputStream(file)) {
-                workbook.write(fileOut);
-                System.out.println("Excel file created successfully!");
-                workbook.close();
-
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        } catch ( Exception e) {
-            System.out.println(e.getMessage());
+                } catch (SQLException e) {
+                    System.err.println("Error fetching true Codeforces handles: " + e.getMessage());
+                } finally {
+                    try {
+                        if (resultSet != null) resultSet.close();
+                        if (statement != null) statement.close();
+                        if (conn != null) conn.close();
+                    } catch (SQLException e) {
+                        System.err.println("Error closing resultSet, statement, or connection: " + e.getMessage());
+                    }
+                }
+                scrapeCodeforces(trueCodeforces);
+                break;
+            case "leetcode":
+                scrapeLeetcode();
+                break;
+            case "gfg":
+                scrapeGfg();
+                break;
+            case "hackerrank":
+                scrapeHackerrank();
+                break;
+            case "build_leaderboard":
+                buildLeaderboard();
+                break;
+            default:
+                System.err.println("Invalid method specified.");
+                System.exit(1);
         }
     }
 
-    private List<Participant> downloadLeaderboard(List <Participant>list) throws Exception {
+    private static void buildLeaderboard() {
+    }
 
-        //codeforces
-        System.out.println("Getting Codeforces standings...");
-        try {
-            String url = "https://codeforces.com/api/user.ratedList?activeOnly=false&includeRetired=true";
-            JSONArray rows = null;
+    private static void scrapeCodechef(ArrayList <User> resultSet) {
+        // Scraper logic for Codechef
+
+        System.out.println("Codechef scraping in progress...");
+
+        String url;
+        URI websiteUrl;
+        URLConnection connection;
+        HttpURLConnection o;
+        InputStream inputStream;
+
+        // if codechef_ratings.txt exists, delete it
+        File file = new File("codechef_ratings.txt");
+        if (file.exists()) {
+            file.delete();
+        }
+
+        int size = resultSet.size();
+        int i = 1;
+
+        for (User user : resultSet) {
+            String handle = user.getHandle();
+            String codechefHandle = user.getCodechefHandle();
+
+            // remove any spaces from the handle
+            codechefHandle = codechefHandle.replace(" ", "");
+
+            System.out.println("(" + i + "/" + size + ") Scraping Codechef for " + handle + " (Codechef Handle: " + codechefHandle + ")");
+            i++;
+
             try {
-                URI websiteUrl = new URI(url);
-                URLConnection connection = new URI(url).toURL().openConnection();
-                HttpURLConnection o = (HttpURLConnection) websiteUrl.toURL().openConnection();
-
+                url = CODECHEF_URL + codechefHandle;
+                websiteUrl = new URI(url);
+                connection = websiteUrl.toURL().openConnection();
+                o = (HttpURLConnection) connection;
                 o.setRequestMethod("GET");
-                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE) {
-
+                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_BAD_REQUEST) {
+                    throw new RuntimeException();
                 }
-                System.out.println("Codeforces Response: "+o.getResponseCode());
-                InputStream inputStream = connection.getInputStream();
-                try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
+                inputStream = o.getInputStream();
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
                     StringBuilder jsonContent = new StringBuilder();
                     String line;
-                    while ((line = bufferedReader.readLine()) != null) {
+                    while ((line = reader.readLine()) != null) {
                         jsonContent.append(line);
                     }
                     JSONObject jsonObject = new JSONObject(jsonContent.toString());
-                    String status = jsonObject.getString("status");
-                    if (status.equals("OK")) {
-                        rows = jsonObject.getJSONArray("result");
-                    }
-                }
-            } catch ( IOException | NumberFormatException | JSONException e) {
+                    int codechefRating;
+                    try {
+                        codechefRating = jsonObject.getInt("currentRating");
 
+                        System.out.println("Codechef rating for " + codechefHandle + " is: " + codechefRating);
+                        // Write to a text file
+                        FileWriter writer = new FileWriter("codechef_ratings.txt", true);
+                        writer.write(handle + "," + codechefHandle + "," + codechefRating + "\n");
+                        writer.close();
+                    } catch (JSONException e) {
+                        System.err.println("Error fetching codechef rating for " + codechefHandle + ": " + e.getMessage());
+                    }
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+            } catch (URISyntaxException | IOException e) {
+                throw new RuntimeException(e);
             }
-            JSONArray standings = rows;
+
+        }
+
+        System.out.println("Codechef scraping completed.");
+        System.out.println("========================================");
+
+    }
+
+    private static final int MAX_HANDLES_PER_REQUEST = 380;
+
+    private static void scrapeCodeforces(ArrayList<User> resultSet) {
+        // Scraper logic for Codeforces
+        System.out.println("Codeforces scraping in progress...");
+
+        // Create or clear the file for writing
+        File file = new File("codeforces_ratings.txt");
+        try {
+            FileWriter writer = new FileWriter(file);
+            writer.write(""); // Clearing the file
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Error clearing file: " + e.getMessage());
+        }
+
+        List<List<User>> userChunks = splitUsersIntoChunks(resultSet);
+
+        int counter = 1;
+        int totalUsers = resultSet.size();
+
+        for (List<User> users : userChunks) {
             try {
-                if (standings != null) {
-                    for (int j = 0; j < standings.length(); j++) {
-                        JSONObject member = standings.getJSONObject(j);
-                        String handle = member.getString("handle").toLowerCase();
-                        int points = member.getInt("rating");
-                        if(codeforcesDB.containsKey(handle)) {
-                            list.get(codeforcesDB.get(handle)).setCodeforcesRating(points);
-                            codeforcesMaxRating = Integer.max(points, codeforcesMaxRating);
-                        }
-                    }
+                // Create a list of all the Codeforces handles separated by ";"
+                String codeforcesHandles = users.stream()
+                        .map(User::getCodeforcesHandle)
+                        .map(handle -> handle.replaceAll(" ", ""))
+                        .collect(Collectors.joining(";"));
+
+                // Construct the URL with handles
+                String url = CODEFORCES_URL + codeforcesHandles;
+                System.out.println("Codeforces URL: " + url);
+
+                // Make HTTP request
+                URI websiteUrl = new URI(url);
+                URLConnection connection = websiteUrl.toURL().openConnection();
+                HttpURLConnection o = (HttpURLConnection) connection;
+
+                o.setRequestMethod("GET");
+                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_BAD_REQUEST) {
+                    throw new RuntimeException();
                 }
-            } catch (Exception e) { }
-        } catch(Exception e) {  }
 
-        try{
-            String url;
-            URI websiteUrl;
-            URLConnection connection;
-            HttpURLConnection o;
-            InputStream inputStream;
-            // geeksforgeeks
-            System.out.println("Downloading GFG leaderboard...");
-            for(int j=1;j<=10000;j++){
-                try{
-                    url = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page="+j;
-                    websiteUrl = new URI(url);
-                    connection = new URI(url).toURL().openConnection();
-                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
-                    o.setRequestMethod("GET");
-                    if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){ continue; }
-                    inputStream = connection.getInputStream();
-                    try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
-                        StringBuilder jsonContent = new StringBuilder();
-                        String line;
-                        while ((line = bufferedReader.readLine()) != null) {
-                            jsonContent.append(line);
-                        }
-                        JSONObject jsonObject = new JSONObject(jsonContent.toString());
-                        JSONArray arr = jsonObject.getJSONArray("results");
-                        int n = arr.length();
-                        if( n == 0) break;
-                        for(int i=0;i<n;i++){
-                            JSONObject tmp = arr.getJSONObject(i);
-                            String userHandle = tmp.getString("user_handle").toLowerCase();
-                            if(geeksforgeeksDB.containsKey(userHandle)) {
-                                int score = (int)tmp.getDouble("user_score");
-                                list.get(geeksforgeeksDB.get(userHandle)).setGeeksForGeeksScore(score);
-                                GFGMaxScore = Integer.max(GFGMaxScore, score);
-                            }
-                        }
-                    } catch(Exception t) {}
-                }catch(Exception pp) {}
-            }
-            // hackerrank
-            System.out.println("Downloading HR leaderboard...");
-            if(hackerrankchk){
-                try{
-                    String tracker_names[] = searchToken.replace(" ", "").split(",");
-                    for(String tracker_name : tracker_names){
-                        System.out.print(tracker_name);
-                        for(int j=0;j<10000;j+=100){
-                            try{
-                                url = "https://www.hackerrank.com/rest/contests/" + tracker_name +  "/leaderboard?offset="+j+"&limit=100";
-                                websiteUrl = new URI(url);
-                                connection = new URI(url).toURL().openConnection();
-                                o = (HttpURLConnection) websiteUrl.toURL().openConnection();
-                                o.setRequestMethod("GET");
-                                connection.setRequestProperty("Accept", "application/json");
-                                connection.setRequestProperty("User-Agent", "Mozilla/5.0");
-                                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){ throw new ArithmeticException("INVALID URL : " + tracker_name); }
-                                inputStream = connection.getInputStream();
-                                try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
-                                    StringBuilder jsonContent = new StringBuilder();
-                                    String line;
-                                    while ((line = bufferedReader.readLine()) != null) {
-                                        jsonContent.append(line);
-                                    }
-                                    JSONObject jsonObject = new JSONObject(jsonContent.toString());
-                                    JSONArray arr = jsonObject.getJSONArray("models");
-                                    int n = arr.length();
-                                    if( n == 0) break;
-                                    for(int i=0;i<n;i++){
-                                        JSONObject tmp = arr.getJSONObject(i);
-                                        String userHandle = tmp.getString("hacker").toLowerCase();
-
-                                        if( ( !userHandle.isBlank() && !userHandle.equals("[deleted]")) && this.hackerrankDB.containsKey(userHandle)) {
-                                            int index = hackerrankDB.get(userHandle);
-                                            int score = list.get(index).getHackerrankScore()+(int)tmp.getDouble("score");
-                                            hackerrankMaxScore = Integer.max(score, hackerrankMaxScore);
-                                            list.get(index).setHackerrankScore(score);
-                                        }
-                                    }
-                                } catch(Exception t) {}
-                            }
-                            catch(ArithmeticException e){
-
-                                break;
-                            }
-                            catch(Exception pp) {}
-                        }
+                // Read response
+                try (InputStream inputStream = connection.getInputStream();
+                     BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+                    StringBuilder jsonContent = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        jsonContent.append(line);
                     }
-                }catch(Exception ee){}
-            }
-            int n = list.size();
-            for(int i=0;i<n;i++){
-                // geeksforgeeks overallScore
-                try{
-                    if(list.get(i).getGeeksForGeeksHandle().isBlank()) throw new Exception("");
-                    url = "https://coding-platform-profile-api.onrender.com/geeksforgeeks/"+list.get(i).getGeeksForGeeksHandle();
-                    websiteUrl = new URI(url);
-                    connection = new URI(url).toURL().openConnection();
-                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
-                    o.setRequestMethod("GET");
-                    if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){
-                        throw new ArithmeticException();
+
+                    // Parse JSON response
+                    JSONObject jsonObject = new JSONObject(jsonContent.toString());
+                    JSONArray array = jsonObject.getJSONArray("result");
+
+                    // Process JSON data
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject obj = array.getJSONObject(i);
+                        String handle = obj.getString("handle");
+                        int rating = obj.optInt("rating", 0);
+                        System.out.println("(" + counter + "/" + totalUsers + ") " + "Codeforces rating for " + handle + " is: " + rating);
+
+                        // find user handle with codeforces handle
+                        User user = users.stream()
+                                .filter(u -> u.getCodeforcesHandle().replace(" ", "").equalsIgnoreCase(handle.replace(" ", "")))
+                                .findFirst()
+                                .orElse(null);
+                        if (user != null) {
+                            // Write to a text file
+                            FileWriter writer = new FileWriter("codeforces_ratings.txt", true);
+                            writer.write(user.getHandle() + "," + handle + "," + rating + "\n");
+                            writer.close();
+                        }
+
+                        counter++;
                     }
-                    inputStream = connection.getInputStream();
-                    try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
-                        StringBuilder jsonContent = new StringBuilder();
-                        String line;
-                        while ((line = bufferedReader.readLine()) != null) {
-                            jsonContent.append(line);
-                        }
-                        JSONObject jsonObject = new JSONObject(jsonContent.toString());
-                        int score;
-                        try{
-                            score = jsonObject.getInt("overall_coding_score");
-                        }catch(Exception e) { score = 0; }
-                        list.get(i).setGeeksForGeekspScore(score);
-                        GFGpMaxScore = Integer.max(score, GFGpMaxScore);
-                    }catch (Exception e) { }
-                }catch(Exception e) {  }
-
-                // Codechef
-                try{
-                    if(list.get(i).getCodeChefHandle().isBlank()) throw new Exception("");
-                    url = "https://codechef-api.vercel.app/"+list.get(i).getCodeChefHandle();
-                    websiteUrl = new URI(url);
-                    connection = new URI(url).toURL().openConnection();
-                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
-                    o.setRequestMethod("GET");
-                    if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){
-                        throw new ArithmeticException();
-                    }
-                    inputStream = connection.getInputStream();
-                    try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
-                        StringBuilder jsonContent = new StringBuilder();
-                        String line;
-                        while ((line = bufferedReader.readLine()) != null) {
-                            jsonContent.append(line);
-                        }
-                        JSONObject jsonObject = new JSONObject(jsonContent.toString());
-                        int rating = 0;
-                        try{
-                            rating = jsonObject.getInt("currentRating");
-                        }catch(Exception e) { rating = 0; }
-                        list.get(i).setCodeChefRating(rating);
-                        codechefMaxRating = Integer.max(codechefMaxRating, rating);
-                    }catch (Exception e) { }
-                }catch(Exception e){  }
-
-                // leetcode
-                try{
-                    if(list.get(i).leetcode_handle.isBlank()) throw new Exception("");
-
-                    String username = list.get(i).leetcode_handle;
-                    String encodedUsername = URLEncoder.encode(username, StandardCharsets.UTF_8);
-
-                    url = "https://leetcode.com/graphql?query=" +
-                            URLEncoder.encode("query{userContestRanking(username:\"" + encodedUsername + "\"){rating}}", StandardCharsets.UTF_8);
-                    websiteUrl = new URI(url);
-                    connection = new URI(url).toURL().openConnection();
-                    o = (HttpURLConnection) websiteUrl.toURL().openConnection();
-                    o.setRequestMethod("GET");
-                    if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE)
-                    {  throw new ArithmeticException(); }
-                    inputStream = connection.getInputStream();
-                    try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
-                        StringBuilder jsonContent = new StringBuilder();
-                        String line;
-                        while ((line = bufferedReader.readLine()) != null) {
-                            jsonContent.append(line);
-                        }
-                        JSONObject jsonObject = new JSONObject(jsonContent.toString());
-                        int rating = 0;
-                        try{
-                            rating = (int)jsonObject.getJSONObject("data").getJSONObject("userContestRanking").getDouble("rating");
-                        }catch(Exception e) { rating = 0; }
-                        list.get(i).setLeetcodeRating(rating);
-                        leetcodeMaxRating = Integer.max(rating, leetcodeMaxRating);
-                    }catch (Exception e) { }
-                }catch(Exception e) {  }
-
+                } catch (JSONException e) {
+                    System.err.println("Error fetching codeforces rating: " + e.getMessage());
+                }
+            } catch (IOException | URISyntaxException e) {
+                System.err.println("Error fetching codeforces rating: " + e.getMessage());
             }
-        } catch(Exception e) {}
-
-
-        return list;
-    }
-
-    private double participantRank(Participant p){ // using normalization and weighted averages
-        // metric being 35% codeforces, 30% geeksforgeeks, 10% geeksforgeeks(practice), 15% leetcode, 10% codechef
-        // including hackerrank:
-        // metric being 30% codeforces, 30% geeksforgeeks, 10% geeksforgeeks(practice), 10% leetcode, 10% codechef, 10% hackerrank
-        // 1477 3400 13.03235
-        try{
-            double cf   =   (p.getCodeforcesRating()/(double)codeforcesMaxRating)  *100  ;
-            double gfgs =   (p.getGeeksForGeeksScore()/(double)GFGMaxScore)        *100  ;
-            double gfgp =   (p.getGeeksForGeekspScore()/(double)GFGpMaxScore)      *100  ;
-            double lc   =   (p.getLeetcodeRating()/(double)leetcodeMaxRating)      *100  ;
-            double cc   =   (p.getCodeChefRating()/(double)codechefMaxRating)      *100  ;
-            double hr   =   (p.getHackerrankScore()/(double)hackerrankMaxScore)    *100  ;
-            double percentile ;
-            if( hackerrankchk ) percentile = ( cf * 0.3 + gfgs*0.3  + gfgp*0.1 + lc*0.1 + cc*0.1 + hr*0.1 );
-            else                percentile = ( cf * 0.35 + gfgs*0.3  + gfgp*0.1 + lc*0.15 + cc*0.1 );
-            p.percentile = percentile;
-            return percentile;
-        }catch (Exception e) {
-
-            return 0;
         }
+        System.out.println("Codeforces scraping completed.");
+        System.out.println("========================================");
     }
 
-    private List<Participant> loadExcelSheet(String excelSheetPath) {
-        // Format of excel sheet must be : {Handle, GFG_Handle, Codeforces_Handle, LeetCode_Handle, CodeChef_Handle}
-        ArrayList<Participant> participants = new ArrayList<>( );
+    private static List<List<User>> splitUsersIntoChunks(ArrayList<User> resultSet) {
+        List<List<User>> chunks = new ArrayList<>();
+        int size = resultSet.size();
+        for (int i = 0; i < size; i += MAX_HANDLES_PER_REQUEST) {
+            int end = Math.min(size, i + MAX_HANDLES_PER_REQUEST);
+            chunks.add(new ArrayList<>(resultSet.subList(i, end)));
+        }
+        return chunks;
+    }
+
+
+    private static void scrapeLeetcode() {
+        // Scraper logic for Leetcode
+    }
+
+    private static void scrapeGfg() {
+        // Scraper logic for GeeksforGeeks
+    }
+
+    private static void scrapeHackerrank() {
+        // Scraper logic for Hackerrank
+    }
+
+    public static void loadCSVtoSQL(String path) {
+        String dbName = "cmrit";
+        Connection conn = null;
+        BufferedReader reader = null;
 
         try {
-            try ( FileInputStream excelFile = new FileInputStream(excelSheetPath);  Workbook workbook = WorkbookFactory.create(excelFile)) {
-                // Assuming the data is in the first sheet (index 0)
-                org.apache.poi.ss.usermodel.Sheet sheet = workbook.getSheetAt(0);
+            conn = DriverManager.getConnection("jdbc:sqlite:" + dbName);
+            Statement statement = conn.createStatement();
 
-                // Assuming 'Handle' is in column A (index 0) and Other handles start from column B (index 1)
-                Iterator<Row> rowIterator = sheet.iterator();
-                int handleInd = 0;
-                int gfgInd = 1;
-                int codeforcesInd = 2;
-                int leetcodeInd = 3;
-                int codechefInd = 4;
-                int hackerrankInd = 5;
+            // Create table if not exists
+            statement.execute(CREATE_TABLE_SQL);
 
-                if ( handleInd==-1 || gfgInd == -1 || codeforcesInd == -1 || leetcodeInd == -1 || codechefInd == -1 || sheet.getRow(0).getCell(codeforcesInd) == null || sheet.getRow(0).getCell(gfgInd) == null || sheet.getRow(0).getCell(leetcodeInd) == null || sheet.getRow(0).getCell(codechefInd) == null || sheet.getRow(0).getCell(handleInd) == null  ) {
+            // Prepare statement for inserting data
+            PreparedStatement preparedStatement = conn.prepareStatement(INSERT_DATA_SQL);
 
-                    return new ArrayList<>();
-                }
-
-                if( (hackerrankchk && sheet.getRow(0).getCell(hackerrankInd) == null   ) ){
-
-                    return new ArrayList<>();
-                }
-
-                if (rowIterator.hasNext()) {
-                    rowIterator.next();
-                }
-
-                int ind = 0;
-                while (rowIterator.hasNext()) {
-                    Row row = rowIterator.next();
-
-                    Cell handleCell = row.getCell(handleInd, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
-                    Cell gfgCell = row.getCell(gfgInd, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
-                    Cell codeforcesCell = row.getCell(codeforcesInd, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
-                    Cell leetcodeCell = row.getCell(leetcodeInd, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
-                    Cell codechefCell = row.getCell(codechefInd, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
-                    Cell hackerrankCell = row.getCell(hackerrankInd, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
-
-                    Participant participant = new Participant();
-                    if( handleCell != null ){
-                        participant.setHandle(handleCell.toString().replace(" ", "").toLowerCase());
-                    } else break;
-                    if ( codeforcesCell != null ) {
-                        String cfhandle = codeforcesCell.toString().replace(" ", "").toLowerCase();
-                        cfhandle = cfhandle.replace("#n/a", "");
-                        cfhandle = cfhandle.replace("@cmritonline.ac.in", "");
-                        codeforcesDB.put(cfhandle, ind);
-                        participant.setCodeforcesHandle(cfhandle);
+            reader = new BufferedReader(new FileReader(path));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // skip header and last 2 rows
+                if (line.equals("Handle,GeeksForGeeks Handle,Codeforces Handle,LeetCode Handle,CodeChef Handle,HackerRank Handle," + "GeeksForGeeks URL Exists,Codeforces URL Exists,LeetCode URL Exists,CodeChef URL Exists,HackerRank URL Exists"))
+                    continue;
+                if (line.startsWith("None") || line.startsWith("TOTAL")) continue;
+                String[] data = line.split(",");
+                for (int i = 0; i < data.length; i++) {
+                    if (i == 6 || i == 7 || i == 8 || i == 9 || i == 10) {
+                        preparedStatement.setBoolean(i + 1, Boolean.parseBoolean(data[i])); // URL Exists (true or false)
+                    } else {
+                        preparedStatement.setString(i + 1, data[i]);
                     }
-                    if ( gfgCell != null ) {
-                        String gfghandle = gfgCell.toString().replace(" ", "").toLowerCase();
-                        gfghandle = gfghandle.replace("#n/a", "");
-                        gfghandle = gfghandle.replace("@cmritonline.ac.in", "");
-                        participant.setGeeksForGeeksHandle(gfghandle);
-                        geeksforgeeksDB.put(gfghandle, ind);
-                    }
-                    if ( leetcodeCell != null ){
-                        String lthandle = leetcodeCell.toString().replace(" ", "").toLowerCase();
-                        lthandle = lthandle.replace("#n/a", "");
-                        lthandle = lthandle.replace("@cmritonline.ac.in", "");
-                        participant.setLeetcodeHandle(lthandle);
-                    }
-                    if ( codechefCell != null ){
-                        String cchandle = codechefCell.toString().replace(" ", "").toLowerCase();
-                        cchandle = cchandle.replace("#n/a", "");
-                        cchandle = cchandle.replace("@cmritonline.ac.in", "");
-                        participant.setCodeChefHandle(cchandle);
-                    }
-                    if ( hackerrankCell != null && hackerrankchk ){
-                        String hrhandle = hackerrankCell.toString().replace(" ", "").toLowerCase();
-                        hrhandle = hrhandle.replace("#n/a", "");
-                        if( hrhandle.length()>1 && hrhandle.charAt(0) == '@') hrhandle = hrhandle.substring(1);
-                        hrhandle = hrhandle.replace("@cmritonline.ac.in", "");
-                        participant.setHackerrankHandle(hrhandle);
-                        hackerrankDB.put(hrhandle, ind);
-                    }
-                    participants.add(participant);
-                    ind++;
                 }
+                preparedStatement.addBatch();
             }
-        } catch ( Exception e ) {
 
-            return new ArrayList<>();
-        }
-        return participants;
-    }
+            // Execute batch insert
+            preparedStatement.executeBatch();
 
-    private void assignRanks(List<Participant> leaderboard) {
-        Collections.sort(leaderboard, (a, b)-> -Double.compare(participantRank(a),participantRank(b) ) );
-        try {
-            for (int i = 0; i < leaderboard.size(); i++) {
-                leaderboard.get(i).setRank(i + 1);
+        } catch (SQLException | IOException e) {
+            System.err.println("Error loading CSV data to SQL database: " + e.getMessage());
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (reader != null) reader.close();
+                if (conn != null) conn.close();
+            } catch (IOException | SQLException e) {
+                System.err.println("Error closing reader or connection: " + e.getMessage());
             }
-        } catch (Exception e) {
-
-        }
-    }
-
-    private class Participant {
-        private String handle;
-
-        private String codechef_handle;
-        private String codeforces_handle;
-        private String leetcode_handle;
-        private String geeksforgeeks_handle;
-        private String hackerrank_handle;
-
-        private int codechefrating;
-        private int codeforcesrating;
-        private int leetcoderating;
-        private int geeksforgeeksscore;  // Contest Score
-        private int geeksforgeekspscore; // Practice Score
-        private int hackerrankscore;
-        private double percentile;
-
-        private int rank;
-
-        private Participant() {
-            this.percentile = 0;
-            this.hackerrankscore = 0;
-            this.geeksforgeekspscore = 0;
-            this.geeksforgeeksscore = 0;
-            this.codeforcesrating = 0;
-            this.codechefrating = 0;
-            this.leetcoderating = 0;
-        }
-
-        public void setPercentile(double p){
-            this.percentile = p;
-        }
-
-        public double getPercentile(){
-            return this.percentile;
-        }
-
-        public void setHandle(String handle) {
-            this.handle = handle;
-        }
-
-        public void setHackerrankHandle(String handle) {
-            this.hackerrank_handle = handle;
-        }
-
-        public void setGeeksForGeeksHandle(String handle) {
-            this.geeksforgeeks_handle = handle;
-        }
-
-        public void setLeetcodeHandle(String handle) {
-            this.leetcode_handle = handle;
-        }
-
-        public void setCodeChefHandle(String handle) {
-            this.codechef_handle = handle;
-        }
-
-        public void setCodeforcesHandle(String handle) {
-            this.codeforces_handle = handle;
-        }
-
-        public String getGeeksForGeeksHandle() {
-            return this.geeksforgeeks_handle;
-        }
-
-        public String getLeetcodeHandle() {
-            return this.leetcode_handle;
-        }
-
-        public String getHackerrankHandle() {
-            return this.hackerrank_handle;
-        }
-
-        public String getCodeChefHandle() {
-            return this.codechef_handle;
-        }
-
-        public String getCodeforcesHandle() {
-            return this.codeforces_handle;
-        }
-
-        public void setGeeksForGeeksScore(int score) {
-            this.geeksforgeeksscore = score;
-        }
-
-        public void setHackerrankScore(int score) {
-            this.hackerrankscore = score;
-        }
-
-        public void setGeeksForGeekspScore(int score){
-            this.geeksforgeekspscore = score;
-        }
-
-        public void setLeetcodeRating(int rating) {
-            this.leetcoderating = rating;
-        }
-
-        public void setCodeChefRating(int rating) {
-            this.codechefrating = rating;
-        }
-
-        public void setCodeforcesRating(int rating) {
-            this.codeforcesrating = rating;
-        }
-
-        public String getHandle() {
-            return handle;
-        }
-
-        public int getGeeksForGeeksScore() {
-            return this.geeksforgeeksscore;
-        }
-
-        public int getHackerrankScore() {
-            return this.hackerrankscore;
-        }
-
-        public int getGeeksForGeekspScore() {
-            return this.geeksforgeekspscore;
-        }
-
-        public int getLeetcodeRating() {
-            return this.leetcoderating;
-        }
-
-        public int getCodeChefRating() {
-            return this.codechefrating;
-        }
-
-        public int getCodeforcesRating() {
-            return this.codeforcesrating;
-        }
-
-        public int getRank() {
-            return rank;
-        }
-
-        public void setRank(int rank) {
-            this.rank = rank;
-        }
-    }
-    public static void main(String[] args) {
-        try {
-            if (args.length > 1){
-                System.out.println("Invalid Arguments!");
-                System.exit(0);
-            }
-            else if (args.length == 1){
-                // Calling the constructor with minimal Excel sheet
-                if (Objects.equals(args[0], "minimal")) {
-                    new CMRITLeaderboard2025(true);
-                }
-            }
-            else {
-                // Calling the constructor with default Excel sheet
-                new CMRITLeaderboard2025(false);
-            }
-        } catch (Exception e) {
-            System.out.println("Something went wrong!" + "Error!!!");
         }
     }
 }
+
+class User {
+    private String handle;
+    private String codeforcesHandle;
+    private String geeksforgeeksHandle;
+    private String leetcodeHandle;
+    private String codechefHandle;
+    private String hackerrankHandle;
+
+    public User(String handle, String platform, String username) {
+        this.handle = handle;
+        switch (platform) {
+            case "codeforces" -> this.codeforcesHandle = username;
+            case "geeksforgeeks" -> this.geeksforgeeksHandle = username;
+            case "leetcode" -> this.leetcodeHandle = username;
+            case "codechef" -> this.codechefHandle = username;
+            case "hackerrank" -> this.hackerrankHandle = username;
+        }
+    }
+
+    // getters
+    public String getHandle(){
+        return handle;
+    }
+
+    public String getCodeforcesHandle(){
+        return codeforcesHandle;
+    }
+
+    public String getLeetcodeHandle() {return leetcodeHandle;}
+
+    public String getGeeksforgeeksHandle() {return geeksforgeeksHandle;}
+
+    public String getCodechefHandle() {return codechefHandle;}
+
+    public String getHackerrankHandle() {return hackerrankHandle;}
+
+    // setters
+
+    public void setHandle(String handle){this.handle = handle;}
+
+    public void setCodeforcesHandle(String codeforcesHandle){this.codeforcesHandle = codeforcesHandle;}
+
+    public void setLeetcodeHandle(String leetcodeHandle){this.leetcodeHandle = leetcodeHandle;}
+
+    public void setGeeksforgeeksHandle(String geeksforgeeksHandle){this.geeksforgeeksHandle = geeksforgeeksHandle;}
+
+    public void setCodechefHandle(String codechefHandle){this.codechefHandle = codechefHandle;}
+
+    public void setHackerrankHandle(String hackerrankHandle){this.hackerrankHandle = hackerrankHandle;}
+
+}
+
