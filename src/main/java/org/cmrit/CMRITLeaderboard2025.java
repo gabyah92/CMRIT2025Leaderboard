@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,7 @@ public class CMRITLeaderboard2025 {
 
     private static final String CODECHEF_URL = "https://codechef-api.vercel.app/";
     private static final String CODEFORCES_URL = "https://codeforces.com/api/user.info?handles=";
-    private static final String LEETCODE_URL = "https://leetcode.com/graphql?";
+    private static final String LEETCODE_URL = "https://leetcode.com/graphql?query=";
     private static final String GFG_URL = "https://coding-platform-profile-api.onrender.com/geeksforgeeks/";
 
 
@@ -52,6 +53,9 @@ public class CMRITLeaderboard2025 {
         ResultSet resultSet = null;
         ArrayList <User> trueCodechef = new ArrayList<>();
         ArrayList <User> trueCodeforces = new ArrayList<>();
+        ArrayList <User> trueLeetcode = new ArrayList<>();
+        ArrayList <User> trueGeeksforgeeks = new ArrayList<>();
+        ArrayList <User> trueHackerrank = new ArrayList<>();
 
         switch (methodName) {
             case "codechef":
@@ -119,7 +123,36 @@ public class CMRITLeaderboard2025 {
                 scrapeCodeforces(trueCodeforces);
                 break;
             case "leetcode":
-                scrapeLeetcode();
+                // Fetch all true leetcode handles from the database
+                try{
+                    conn = DriverManager.getConnection("jdbc:sqlite:" + dbName);
+                    statement = conn.createStatement();
+
+                    String sql = "SELECT handle, leetcode_handle FROM users_data WHERE leetcode_url_exists = 1";
+                    resultSet = statement.executeQuery(sql);
+
+                    assert resultSet != null;
+
+                    while (resultSet.next()) {
+                        String handle = resultSet.getString("handle");
+                        String leetcodeHandle = resultSet.getString("leetcode_handle");
+                        if (leetcodeHandle != null) {
+                            trueLeetcode.add(new User(handle, "leetcode", leetcodeHandle));
+                        }
+                    }
+                } catch (SQLException e) {
+                    System.err.println("Error fetching true Leetcode handles: " + e.getMessage());
+                } finally {
+                    try {
+                        if (resultSet != null) resultSet.close();
+                        if (statement != null) statement.close();
+                        if (conn != null) conn.close();
+                    } catch (SQLException e) {
+                        System.err.println("Error closing resultSet, statement, or connection: " + e.getMessage());
+                    }
+                }
+
+                scrapeLeetcode(trueLeetcode);
                 break;
             case "gfg":
                 scrapeGfg();
@@ -312,8 +345,84 @@ public class CMRITLeaderboard2025 {
     }
 
 
-    private static void scrapeLeetcode() {
+    private static void scrapeLeetcode(ArrayList<User> resultSet) {
         // Scraper logic for Leetcode
+        System.out.println("Leetcode scraping in progress...");
+
+        // Create or clear the file for writing
+        File file = new File("leetcode_ratings.txt");
+        try {
+            FileWriter writer = new FileWriter(file);
+            writer.write(""); // Clearing the file
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Error clearing file: " + e.getMessage());
+        }
+
+        int counter = 1;
+        int size = resultSet.size();
+
+        for (User user : resultSet) {
+            String handle = user.getHandle();
+            String leetcodeHandle = user.getLeetcodeHandle();
+            String encodedLeetcodeHandle = URLEncoder.encode(leetcodeHandle, StandardCharsets.UTF_8);
+
+            String url = LEETCODE_URL + URLEncoder.encode("query{userContestRanking(username:\"" + encodedLeetcodeHandle + "\"){rating}}", StandardCharsets.UTF_8);
+
+            try {
+                URI websiteUrl = new URI(url);
+                URLConnection connection = websiteUrl.toURL().openConnection();
+                HttpURLConnection o = (HttpURLConnection) connection;
+
+                o.setRequestMethod("GET");
+                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_BAD_REQUEST) {
+                    throw new RuntimeException();
+                }
+
+                // Read response
+                try (InputStream inputStream = connection.getInputStream();
+                     BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+                    StringBuilder jsonContent = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        jsonContent.append(line);
+                    }
+
+                    // Parse JSON response
+                    JSONObject jsonObject = new JSONObject(jsonContent.toString());
+                    JSONObject data = jsonObject.optJSONObject("data");
+                    JSONObject userContestRanking = data.optJSONObject("userContestRanking");
+
+                    int rating = 0; // Default rating is 0
+
+                    if (userContestRanking != null) {
+                        double rawRating = userContestRanking.optDouble("rating", Double.NaN);
+                        if (!Double.isNaN(rawRating)) {
+                            // Convert rating to int if it's not NaN
+                            rating = (int) rawRating;
+                        }
+                    }
+
+                    System.out.println("(" + counter + "/" + size + ") " + "Leetcode rating for " + handle + " with leetcode handle " + leetcodeHandle + " is: " + rating);
+
+                    // Write to a text file
+                    FileWriter writer = new FileWriter("leetcode_ratings.txt", true);
+                    writer.write(user.getHandle() + "," + leetcodeHandle + "," + rating + "\n");
+                    writer.close();
+
+                    counter++;
+                } catch (JSONException e) {
+                    System.err.println("Error fetching leetcode rating for " + handle + " with leetcode handle " + leetcodeHandle + ": " + e.getMessage());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            } catch (URISyntaxException | IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        System.out.println("Leetcode scraping completed.");
+        System.out.println("========================================");
     }
 
     private static void scrapeGfg() {
