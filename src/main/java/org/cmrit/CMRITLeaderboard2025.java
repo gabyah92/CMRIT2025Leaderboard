@@ -427,6 +427,124 @@ public class CMRITLeaderboard2025 {
 
     private static void scrapeGfg() {
         // Scraper logic for GeeksforGeeks
+
+        /*
+        private static void scrapeGfg(ArrayList<User> trueGfg) {
+                // Scraper logic for GeeksforGeeks
+                System.out.println("GeeksforGeeks scraping in progress...");
+
+                String url;
+                URI websiteUrl;
+                URLConnection connection;
+                HttpURLConnection o;
+                InputStream inputStream;
+                int GFGMaxScore = 0;
+                int GFGpMaxScore = 0;
+
+                // Fetching GFG leaderboard
+                System.out.println("Downloading GFG leaderboard...");
+                for (int j = 1; j <= 10000; j++) {
+                    try {
+                        url = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page=" + j;
+                        websiteUrl = new URI(url);
+                        connection = websiteUrl.toURL().openConnection();
+                        o = (HttpURLConnection) websiteUrl.toURL().openConnection();
+                        o.setRequestMethod("GET");
+                        if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE) {
+                            continue;
+                        }
+                        inputStream = connection.getInputStream();
+                        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
+                            StringBuilder jsonContent = new StringBuilder();
+                            String line;
+                            while ((line = bufferedReader.readLine()) != null) {
+                                jsonContent.append(line);
+                            }
+                            JSONObject jsonObject = new JSONObject(jsonContent.toString());
+                            JSONArray arr = jsonObject.getJSONArray("results");
+                            int n = arr.length();
+                            if (n == 0) break;
+                            for (int i = 0; i < n; i++) {
+                                JSONObject tmp = arr.getJSONObject(i);
+                                String userHandle = tmp.getString("user_handle").toLowerCase();
+                                for (User user : trueGfg) {
+                                    if (user.getGeeksforgeeksHandle().equalsIgnoreCase(userHandle)) {
+                                        int score = (int) tmp.getDouble("user_score");
+                                        user.setGeeksForGeeksScore(score);
+                                        GFGMaxScore = Integer.max(GFGMaxScore, score);
+                                        break; // Move to the next user
+                                    }
+                                }
+                            }
+                        } catch (Exception ignored) {
+                        }
+                    } catch (Exception ignored) {
+                    }
+                }
+
+                // Fetching overall scores of GeeksforGeeks profiles
+                int n = trueGfg.size();
+                for (int i = 0; i < n; i++) {
+                    User user = trueGfg.get(i);
+                    try {
+                        if (user.getGeeksforgeeksHandle().isBlank()) throw new Exception("");
+                        url = "https://coding-platform-profile-api.onrender.com/geeksforgeeks/" + user.getGeeksforgeeksHandle();
+                        websiteUrl = new URI(url);
+                        connection = new URI(url).toURL().openConnection();
+                        o = (HttpURLConnection) websiteUrl.toURL().openConnection();
+                        o.setRequestMethod("GET");
+                        if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE) {
+                            throw new ArithmeticException();
+                        }
+                        inputStream = connection.getInputStream();
+                        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
+                            StringBuilder jsonContent = new StringBuilder();
+                            String line;
+                            while ((line = bufferedReader.readLine()) != null) {
+                                jsonContent.append(line);
+                            }
+                            JSONObject jsonObject = new JSONObject(jsonContent.toString());
+                            int score;
+                            try {
+                                score = jsonObject.getInt("overall_coding_score");
+                            } catch (Exception e) {
+                                score = 0;
+                            }
+                            user.setGeeksForGeeksScore(score);
+                            GFGpMaxScore = Integer.max(score, GFGpMaxScore);
+                        } catch (Exception ignored) {
+                        }
+                    } catch (Exception ignored) {
+                    }
+                }
+
+                System.out.println("GeeksforGeeks scraping completed.");
+                System.out.println("========================================");
+            }
+
+         */
+
+        /*
+        // Build a HashMap for faster lookup
+        Map<String, User> handleToUserMap = new HashMap<>();
+        for (User user : trueGfg) {
+            handleToUserMap.put(user.getGeeksforgeeksHandle().toLowerCase(), user);
+        }
+
+        // Iterate through the JSON array and update scores efficiently
+        for (int i = 0; i < n; i++) {
+            JSONObject tmp = arr.getJSONObject(i);
+            String userHandle = tmp.getString("user_handle").toLowerCase();
+            User user = handleToUserMap.get(userHandle);
+            if (user != null) {
+                int score = (int) tmp.getDouble("user_score");
+                user.setGeeksForGeeksScore(score);
+                GFGMaxScore = Integer.max(GFGMaxScore, score);
+            }
+        }
+
+         */
+
     }
 
     private static void scrapeHackerrank() {
