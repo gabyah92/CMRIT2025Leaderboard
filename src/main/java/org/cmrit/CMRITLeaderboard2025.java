@@ -9,7 +9,9 @@ import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CMRITLeaderboard2025 {
@@ -37,6 +39,7 @@ public class CMRITLeaderboard2025 {
     private static final String CODEFORCES_URL = "https://codeforces.com/api/user.info?handles=";
     private static final String LEETCODE_URL = "https://leetcode.com/graphql?query=";
     private static final String GFG_URL = "https://coding-platform-profile-api.onrender.com/geeksforgeeks/";
+    private static final String GFG_PRACTICE_URL = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page=";
 
 
     public static void main(String[] args) {
@@ -155,7 +158,42 @@ public class CMRITLeaderboard2025 {
                 scrapeLeetcode(trueLeetcode);
                 break;
             case "gfg":
-                scrapeGfg();
+                // Fetch all true gfg handles from the database
+                try{
+                    conn = DriverManager.getConnection("jdbc:sqlite:" + dbName);
+                    statement = conn.createStatement();
+
+                    String sql = "SELECT handle, geeksforgeeks_handle FROM users_data WHERE geeksforgeeks_url_exists = 1";
+                    resultSet = statement.executeQuery(sql);
+
+                    assert resultSet != null;
+
+                    while (resultSet.next()) {
+                        String handle = resultSet.getString("handle");
+                        String geeksforgeeksHandle = resultSet.getString("geeksforgeeks_handle");
+                        if (geeksforgeeksHandle != null) {
+                            trueGeeksforgeeks.add(new User(handle, "geeksforgeeks", geeksforgeeksHandle));
+                        }
+                    }
+                } catch (SQLException e) {
+                    System.err.println("Error fetching true GeeksforGeeks handles: " + e.getMessage());
+                } finally {
+                    try {
+                        if (resultSet != null) resultSet.close();
+                        if (statement != null) statement.close();
+                        if (conn != null) conn.close();
+                    } catch (SQLException e) {
+                        System.err.println("Error closing resultSet, statement, or connection: " + e.getMessage());
+                    }
+                }
+
+                // create a gfgHandle to user map
+                Map<String, User> gfgHandleToUserMap = new HashMap<>();
+                for (User user : trueGeeksforgeeks) {
+                    gfgHandleToUserMap.put(user.getGeeksforgeeksHandle().toLowerCase(), user);
+                }
+
+                scrapeGfg(trueGeeksforgeeks, gfgHandleToUserMap);
                 break;
             case "hackerrank":
                 scrapeHackerrank();
@@ -222,6 +260,9 @@ public class CMRITLeaderboard2025 {
                     int codechefRating;
                     try {
                         codechefRating = jsonObject.getInt("currentRating");
+
+                        // update the user object with the codechef rating
+                        user.setCodechefRating(codechefRating);
 
                         System.out.println("Codechef rating for " + codechefHandle + " is: " + codechefRating);
                         // Write to a text file
@@ -315,6 +356,8 @@ public class CMRITLeaderboard2025 {
                                 .findFirst()
                                 .orElse(null);
                         if (user != null) {
+                            // update the user object with the codeforces rating
+                            user.setCodeforcesRating(rating);
                             // Write to a text file
                             FileWriter writer = new FileWriter("codeforces_ratings.txt", true);
                             writer.write(user.getHandle() + "," + handle + "," + rating + "\n");
@@ -403,6 +446,9 @@ public class CMRITLeaderboard2025 {
                         }
                     }
 
+                    // update the user object with the leetcode rating
+                    user.setLeetcodeRating(rating);
+
                     System.out.println("(" + counter + "/" + size + ") " + "Leetcode rating for " + handle + " with leetcode handle " + leetcodeHandle + " is: " + rating);
 
                     // Write to a text file
@@ -425,126 +471,85 @@ public class CMRITLeaderboard2025 {
         System.out.println("========================================");
     }
 
-    private static void scrapeGfg() {
+    private static void scrapeGfg(ArrayList<User> trueGfg, Map<String, User> gfgHandleToUserMap) {
         // Scraper logic for GeeksforGeeks
 
-        /*
-        private static void scrapeGfg(ArrayList<User> trueGfg) {
-                // Scraper logic for GeeksforGeeks
-                System.out.println("GeeksforGeeks scraping in progress...");
+        System.out.println("GeeksforGeeks scraping in progress...");
 
-                String url;
-                URI websiteUrl;
-                URLConnection connection;
-                HttpURLConnection o;
-                InputStream inputStream;
-                int GFGMaxScore = 0;
-                int GFGpMaxScore = 0;
+        // Essential variables
+        String url;
+        URI websiteUrl;
+        URLConnection connection;
+        HttpURLConnection o;
+        InputStream inputStream;
 
-                // Fetching GFG leaderboard
-                System.out.println("Downloading GFG leaderboard...");
-                for (int j = 1; j <= 10000; j++) {
-                    try {
-                        url = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page=" + j;
-                        websiteUrl = new URI(url);
-                        connection = websiteUrl.toURL().openConnection();
-                        o = (HttpURLConnection) websiteUrl.toURL().openConnection();
-                        o.setRequestMethod("GET");
-                        if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE) {
-                            continue;
-                        }
-                        inputStream = connection.getInputStream();
-                        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
-                            StringBuilder jsonContent = new StringBuilder();
-                            String line;
-                            while ((line = bufferedReader.readLine()) != null) {
-                                jsonContent.append(line);
-                            }
-                            JSONObject jsonObject = new JSONObject(jsonContent.toString());
-                            JSONArray arr = jsonObject.getJSONArray("results");
-                            int n = arr.length();
-                            if (n == 0) break;
-                            for (int i = 0; i < n; i++) {
-                                JSONObject tmp = arr.getJSONObject(i);
-                                String userHandle = tmp.getString("user_handle").toLowerCase();
-                                for (User user : trueGfg) {
-                                    if (user.getGeeksforgeeksHandle().equalsIgnoreCase(userHandle)) {
-                                        int score = (int) tmp.getDouble("user_score");
-                                        user.setGeeksForGeeksScore(score);
-                                        GFGMaxScore = Integer.max(GFGMaxScore, score);
-                                        break; // Move to the next user
-                                    }
-                                }
-                            }
-                        } catch (Exception ignored) {
-                        }
-                    } catch (Exception ignored) {
-                    }
-                }
-
-                // Fetching overall scores of GeeksforGeeks profiles
-                int n = trueGfg.size();
-                for (int i = 0; i < n; i++) {
-                    User user = trueGfg.get(i);
-                    try {
-                        if (user.getGeeksforgeeksHandle().isBlank()) throw new Exception("");
-                        url = "https://coding-platform-profile-api.onrender.com/geeksforgeeks/" + user.getGeeksforgeeksHandle();
-                        websiteUrl = new URI(url);
-                        connection = new URI(url).toURL().openConnection();
-                        o = (HttpURLConnection) websiteUrl.toURL().openConnection();
-                        o.setRequestMethod("GET");
-                        if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE) {
-                            throw new ArithmeticException();
-                        }
-                        inputStream = connection.getInputStream();
-                        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
-                            StringBuilder jsonContent = new StringBuilder();
-                            String line;
-                            while ((line = bufferedReader.readLine()) != null) {
-                                jsonContent.append(line);
-                            }
-                            JSONObject jsonObject = new JSONObject(jsonContent.toString());
-                            int score;
-                            try {
-                                score = jsonObject.getInt("overall_coding_score");
-                            } catch (Exception e) {
-                                score = 0;
-                            }
-                            user.setGeeksForGeeksScore(score);
-                            GFGpMaxScore = Integer.max(score, GFGpMaxScore);
-                        } catch (Exception ignored) {
-                        }
-                    } catch (Exception ignored) {
-                    }
-                }
-
-                System.out.println("GeeksforGeeks scraping completed.");
-                System.out.println("========================================");
-            }
-
-         */
-
-        /*
-        // Build a HashMap for faster lookup
-        Map<String, User> handleToUserMap = new HashMap<>();
-        for (User user : trueGfg) {
-            handleToUserMap.put(user.getGeeksforgeeksHandle().toLowerCase(), user);
+        // Create or clear the file for writing
+        File file = new File("gfg_ratings.txt");
+        try {
+            FileWriter writer = new FileWriter(file);
+            writer.write(""); // Clearing the file
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Error clearing file: " + e.getMessage());
         }
 
-        // Iterate through the JSON array and update scores efficiently
-        for (int i = 0; i < n; i++) {
-            JSONObject tmp = arr.getJSONObject(i);
-            String userHandle = tmp.getString("user_handle").toLowerCase();
-            User user = handleToUserMap.get(userHandle);
-            if (user != null) {
-                int score = (int) tmp.getDouble("user_score");
-                user.setGeeksForGeeksScore(score);
-                GFGMaxScore = Integer.max(GFGMaxScore, score);
+        int counter = 1;
+
+        // Practice contest ratings
+
+        for(int j=1;j<=10000;j++) {
+            try {
+                url = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page=" + j;
+                websiteUrl = new URI(url);
+                connection = new URI(url).toURL().openConnection();
+                o = (HttpURLConnection) websiteUrl.toURL().openConnection();
+                o.setRequestMethod("GET");
+
+                System.out.println("Page: " + j);
+
+                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){ continue; }
+
+                inputStream = o.getInputStream();
+
+                try {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                    StringBuilder jsonContent = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        jsonContent.append(line);
+                    }
+                    JSONObject jsonObject = new JSONObject(jsonContent.toString());
+                    JSONArray jsonArray = jsonObject.getJSONArray("results");
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject obj = jsonArray.getJSONObject(i);
+                        String handle = obj.getString("user_handle");
+                        int rating = obj.getInt("user_score");
+
+                        // find user handle with gfg handle
+                        User user = gfgHandleToUserMap.get(handle.toLowerCase());
+                        if (user != null) {
+                            // update the user object with the gfg rating
+                            user.setGeeksforgeeksRating(rating);
+
+                            System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GeeksforGeeks rating for user " + user.getHandle() + " with gfg handle " + handle + " is: " + rating);
+
+                            // Write to a text file
+                            FileWriter writer = new FileWriter("gfg_ratings.txt", true);
+                            writer.write(user.getHandle() + "," + handle + "," + rating + "\n");
+                            writer.close();
+
+                            counter++;
+                        }
+                    }
+                } catch (JSONException e) {
+                    System.err.println("Error fetching gfg rating: " + e.getMessage());
+                }
+
+            } catch (URISyntaxException | IOException e) {
+                throw new RuntimeException(e);
             }
         }
-
-         */
-
     }
 
     private static void scrapeHackerrank() {
@@ -609,6 +614,13 @@ class User {
     private String codechefHandle;
     private String hackerrankHandle;
 
+    private Integer codeforcesRating;
+    private Integer geeksforgeeksRating;
+    private Integer geesforgeeksPracticeRating;
+    private Integer leetcodeRating;
+    private Integer codechefRating;
+    private Integer hackerrankRating;
+
     public User(String handle, String platform, String username) {
         this.handle = handle;
         switch (platform) {
@@ -650,6 +662,54 @@ class User {
     public void setCodechefHandle(String codechefHandle){this.codechefHandle = codechefHandle;}
 
     public void setHackerrankHandle(String hackerrankHandle){this.hackerrankHandle = hackerrankHandle;}
+
+    public Integer getCodeforcesRating() {
+        return codeforcesRating;
+    }
+
+    public void setCodeforcesRating(Integer codeforcesRating) {
+        this.codeforcesRating = codeforcesRating;
+    }
+
+    public Integer getGeeksforgeeksRating() {
+        return geeksforgeeksRating;
+    }
+
+    public void setGeeksforgeeksRating(Integer geeksforgeeksRating) {
+        this.geeksforgeeksRating = geeksforgeeksRating;
+    }
+
+    public Integer getGeesforgeeksPracticeRating() {
+        return geesforgeeksPracticeRating;
+    }
+
+    public void setGeesforgeeksPracticeRating(Integer geesforgeeksPracticeRating) {
+        this.geesforgeeksPracticeRating = geesforgeeksPracticeRating;
+    }
+
+    public Integer getLeetcodeRating() {
+        return leetcodeRating;
+    }
+
+    public void setLeetcodeRating(Integer leetcodeRating) {
+        this.leetcodeRating = leetcodeRating;
+    }
+
+    public Integer getCodechefRating() {
+        return codechefRating;
+    }
+
+    public void setCodechefRating(Integer codechefRating) {
+        this.codechefRating = codechefRating;
+    }
+
+    public Integer getHackerrankRating() {
+        return hackerrankRating;
+    }
+
+    public void setHackerrankRating(Integer hackerrankRating) {
+        this.hackerrankRating = hackerrankRating;
+    }
 
 }
 
