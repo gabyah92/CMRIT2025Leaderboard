@@ -502,7 +502,7 @@ public class CMRITLeaderboard2025 {
 
         for(int j=1;j<=10000;j++) {
             try {
-                url = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page=" + j;
+                url = GFG_PRACTICE_URL + j;
 
                 System.out.println("Page: " + j);
 
@@ -527,7 +527,7 @@ public class CMRITLeaderboard2025 {
                     }
                     if (user != null) {
                         user.setGeeksforgeeksRating((int)gfgUser.user_score);
-                        System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG overall rating for " + user.getHandle() + " with GFG handle " + gfgHandle + " is: " + (int)gfgUser.user_score);
+                        System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG weekly contest rating for " + user.getHandle() + " with GFG handle " + gfgHandle + " is: " + (int)gfgUser.user_score);
                         // Write to a text file
                         FileWriter writer = new FileWriter("gfg_ratings.txt", true);
                         writer.write(user.getHandle() + "," + gfgHandle + "," + (int)gfgUser.user_score + "\n");
@@ -560,6 +560,81 @@ public class CMRITLeaderboard2025 {
                 }
             }
         }
+
+        System.out.println("GFG overall scraping completed.");
+        System.out.println("========================================");
+
+        // Practice contest scraping
+
+        counter = 1;
+
+        // create or clear the file for writing
+        file = new File("gfg_practice_ratings.txt");
+        try {
+            FileWriter writer = new FileWriter(file);
+            writer.write(""); // Clearing the file
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Error clearing file: " + e.getMessage());
+        }
+
+        for (User user: trueGfg) {
+            String gfgHandle = user.getGeeksforgeeksHandle();
+            url = GFG_URL + gfgHandle;
+
+            try {
+                websiteUrl = new URI(url);
+                connection = websiteUrl.toURL().openConnection();
+                o = (HttpURLConnection) connection;
+                o.setRequestMethod("GET");
+                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_BAD_REQUEST) {
+                    // set the practice rating to 0
+                    user.setGeesforgeeksPracticeRating(0);
+                    System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG practice rating for " + user.getHandle() + " with GFG handle " + gfgHandle + " is: " + 0);
+                    // Write to a text file
+                    FileWriter writer = new FileWriter("gfg_practice_ratings.txt", true);
+                    writer.write(user.getHandle() + "," + gfgHandle + "," + 0 + "\n");
+                    writer.close();
+                    counter++;
+                    continue;
+                }
+                inputStream = o.getInputStream();
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+                    StringBuilder jsonContent = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        jsonContent.append(line);
+                    }
+                    JSONObject jsonObject = new JSONObject(jsonContent.toString());
+                    int gfgPracticeRating = 0;
+
+                    try {
+                        gfgPracticeRating = jsonObject.getInt("overall_coding_score");
+
+                    } catch (JSONException e) {
+                        System.err.println("Error fetching GFG Practice rating for " + gfgHandle + ": " + e.getMessage());
+                    }
+
+                    // update the user object with the gfg practice rating
+                    user.setGeesforgeeksPracticeRating(gfgPracticeRating);
+
+                    System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG practice rating for " + user.getHandle() + " with GFG handle " + gfgHandle + " is: " + gfgPracticeRating);
+                    // Write to a text file
+                    FileWriter writer = new FileWriter("gfg_practice_ratings.txt", true);
+                    writer.write(user.getHandle() + "," + gfgHandle + "," + gfgPracticeRating + "\n");
+                    writer.close();
+                    counter++;
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+            } catch (URISyntaxException | IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        System.out.println("GeeksforGeeks scraping completed.");
+        System.out.println("========================================");
     }
 
     static class DataModel {
