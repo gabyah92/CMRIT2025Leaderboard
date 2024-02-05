@@ -1,8 +1,11 @@
 package org.cmrit;
 
+import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 import java.io.*;
 import java.net.*;
@@ -495,61 +498,81 @@ public class CMRITLeaderboard2025 {
 
         int counter = 1;
 
-        // Practice contest ratings
+        // Overall weekly leaderboard scraping
 
         for(int j=1;j<=10000;j++) {
             try {
                 url = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page=" + j;
-                websiteUrl = new URI(url);
-                connection = new URI(url).toURL().openConnection();
-                o = (HttpURLConnection) websiteUrl.toURL().openConnection();
-                o.setRequestMethod("GET");
 
                 System.out.println("Page: " + j);
 
-                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_NOT_ACCEPTABLE){ continue; }
+                // Fetch JSON data from a URL (or you can read from a file)
+                Document doc = Jsoup.connect(url).ignoreContentType(true).get();
+                String json = doc.body().text();
 
-                inputStream = o.getInputStream();
+                // Parse JSON using Gson
+                Gson gson = new Gson();
+                DataModel gfguserData = gson.fromJson(json, DataModel.class);
 
-                try {
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-                    StringBuilder jsonContent = new StringBuilder();
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        jsonContent.append(line);
+                // Access parsed data
+
+                boolean foundZero = false;
+
+                for (Result gfgUser : gfguserData.results) {
+                    String gfgHandle = gfgUser.user_handle;
+                    User user = gfgHandleToUserMap.get(gfgHandle.toLowerCase());
+                    if (gfgUser.user_score == 0) {
+                        foundZero = true;
+                        break;
                     }
-                    JSONObject jsonObject = new JSONObject(jsonContent.toString());
-                    JSONArray jsonArray = jsonObject.getJSONArray("results");
-
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject obj = jsonArray.getJSONObject(i);
-                        String handle = obj.getString("user_handle");
-                        int rating = obj.getInt("user_score");
-
-                        // find user handle with gfg handle
-                        User user = gfgHandleToUserMap.get(handle.toLowerCase());
-                        if (user != null) {
-                            // update the user object with the gfg rating
-                            user.setGeeksforgeeksRating(rating);
-
-                            System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GeeksforGeeks rating for user " + user.getHandle() + " with gfg handle " + handle + " is: " + rating);
-
-                            // Write to a text file
-                            FileWriter writer = new FileWriter("gfg_ratings.txt", true);
-                            writer.write(user.getHandle() + "," + handle + "," + rating + "\n");
-                            writer.close();
-
-                            counter++;
-                        }
+                    if (user != null) {
+                        user.setGeeksforgeeksRating((int)gfgUser.user_score);
+                        System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG overall rating for " + user.getHandle() + " with GFG handle " + gfgHandle + " is: " + (int)gfgUser.user_score);
+                        // Write to a text file
+                        FileWriter writer = new FileWriter("gfg_ratings.txt", true);
+                        writer.write(user.getHandle() + "," + gfgHandle + "," + (int)gfgUser.user_score + "\n");
+                        writer.close();
+                        counter++;
                     }
-                } catch (JSONException e) {
-                    System.err.println("Error fetching gfg rating: " + e.getMessage());
                 }
 
-            } catch (URISyntaxException | IOException e) {
-                throw new RuntimeException(e);
+                if (foundZero) {
+                    break;
+                }
+            } catch (IOException e) {
+                System.err.println("Error fetching GFG Practice rating: " + e.getMessage());
             }
         }
+
+        // set all unset ratings to 0
+        for (User user : trueGfg) {
+            if (user.getGeeksforgeeksRating() == null) {
+                user.setGeeksforgeeksRating(0);
+                System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG overall rating for " + user.getHandle() + " with GFG handle " + user.getGeeksforgeeksHandle() + " is: " + 0);
+
+                try{
+                    FileWriter writer = new FileWriter("gfg_ratings.txt", true);
+                    writer.write(user.getHandle() + "," + user.getGeeksforgeeksHandle() + "," + 0 + "\n");
+                    writer.close();
+                    counter++;
+                } catch (IOException e) {
+                    System.err.println("Error fetching GFG Practice rating: " + e.getMessage());
+                }
+            }
+        }
+    }
+
+    static class DataModel {
+        int count;
+        Result[] results;
+        boolean consider_for_geek_bits;
+    }
+
+    static class Result {
+        int user_id;
+        String user_handle;
+        double user_score;
+        int user_rank;
     }
 
     private static void scrapeHackerrank() {
