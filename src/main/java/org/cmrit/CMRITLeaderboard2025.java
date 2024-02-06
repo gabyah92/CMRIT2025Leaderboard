@@ -251,7 +251,13 @@ public class CMRITLeaderboard2025 {
                     conn = DriverManager.getConnection("jdbc:sqlite:" + dbName);
                     statement = conn.createStatement();
 
-                    String sql = "SELECT handle, codeforces_handle, leetcode_handle, geeksforgeeks_handle, codechef_handle, hackerrank_handle FROM users_data";
+                    String sql = "SELECT handle, " +
+                            "CASE WHEN codeforces_url_exists = 1 THEN codeforces_handle ELSE NULL END AS codeforces_handle, " +
+                            "CASE WHEN leetcode_url_exists = 1 THEN leetcode_handle ELSE NULL END AS leetcode_handle, " +
+                            "CASE WHEN geeksforgeeks_url_exists = 1 THEN geeksforgeeks_handle ELSE NULL END AS geeksforgeeks_handle, " +
+                            "CASE WHEN codechef_url_exists = 1 THEN codechef_handle ELSE NULL END AS codechef_handle, " +
+                            "CASE WHEN hackerrank_url_exists = 1 THEN hackerrank_handle ELSE NULL END AS hackerrank_handle " +
+                            "FROM users_data";
                     resultSet = statement.executeQuery(sql);
 
                     assert resultSet != null;
@@ -264,29 +270,19 @@ public class CMRITLeaderboard2025 {
                         String codechefHandle = resultSet.getString("codechef_handle");
                         String hackerrankHandle = resultSet.getString("hackerrank_handle");
 
-                        Boolean codeforcesURLExists = resultSet.getBoolean("codeforces_url_exists");
-                        Boolean leetcodeURLExists = resultSet.getBoolean("leetcode_url_exists");
-                        Boolean geeksforgeeksURLExists = resultSet.getBoolean("geeksforgeeks_url_exists");
-                        Boolean codechefURLExists = resultSet.getBoolean("codechef_url_exists");
-                        Boolean hackerrankURLExists = resultSet.getBoolean("hackerrank_url_exists");
-
-                        if (codeforcesHandle != null && codeforcesURLExists) {
+                        if (codeforcesHandle != null) {
                             trueCodeforces.add(new User(handle, "codeforces", codeforcesHandle));
                         }
-
-                        if (leetcodeHandle != null && leetcodeURLExists) {
+                        if (leetcodeHandle != null) {
                             trueLeetcode.add(new User(handle, "leetcode", leetcodeHandle));
                         }
-
-                        if (geeksforgeeksHandle != null && geeksforgeeksURLExists) {
+                        if (geeksforgeeksHandle != null) {
                             trueGeeksforgeeks.add(new User(handle, "geeksforgeeks", geeksforgeeksHandle));
                         }
-
-                        if (codechefHandle != null && codechefURLExists) {
+                        if ((codechefHandle != null)) {
                             trueCodechef.add(new User(handle, "codechef", codechefHandle));
                         }
-
-                        if (hackerrankHandle != null && hackerrankURLExists) {
+                        if (hackerrankHandle != null) {
                             trueHackerrank.add(new User(handle, "hackerrank", hackerrankHandle));
                         }
                     }
