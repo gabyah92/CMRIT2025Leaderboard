@@ -6,6 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.io.*;
 import java.net.*;
@@ -43,6 +44,11 @@ public class CMRITLeaderboard2025 {
     private static final String LEETCODE_URL = "https://leetcode.com/graphql?query=";
     private static final String GFG_URL = "https://coding-platform-profile-api.onrender.com/geeksforgeeks/";
     private static final String GFG_PRACTICE_URL = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page=";
+    public static final String[] SEARCH_TOKENS = {
+            "cmrit25-1-basics", "cmrit25-4-rbd", "cmrit25-3-iterables", "cmrit25-2-lpb", "cmrit25-5-ds",
+            "1-basics-2025", "2-loops-2025", "3-bitpat-2025", "4-iterables-2025", "5-recursion-2025",
+            "ds-2025", "codevita-2025"
+    };
 
 
     public static void main(String[] args) {
@@ -199,7 +205,42 @@ public class CMRITLeaderboard2025 {
                 scrapeGfg(trueGeeksforgeeks, gfgHandleToUserMap);
                 break;
             case "hackerrank":
-                scrapeHackerrank();
+                // Fetch all true hackerrank handles from the database
+                try{
+                    conn = DriverManager.getConnection("jdbc:sqlite:" + dbName);
+                    statement = conn.createStatement();
+
+                    String sql = "SELECT handle, hackerrank_handle FROM users_data WHERE hackerrank_url_exists = 1";
+                    resultSet = statement.executeQuery(sql);
+
+                    assert resultSet != null;
+
+                    while (resultSet.next()) {
+                        String handle = resultSet.getString("handle");
+                        String hackerrankHandle = resultSet.getString("hackerrank_handle");
+                        if (hackerrankHandle != null) {
+                            trueHackerrank.add(new User(handle, "hackerrank", hackerrankHandle));
+                        }
+                    }
+                } catch (SQLException e) {
+                    System.err.println("Error fetching true Hackerrank handles: " + e.getMessage());
+                } finally {
+                    try {
+                        if (resultSet != null) resultSet.close();
+                        if (statement != null) statement.close();
+                        if (conn != null) conn.close();
+                    } catch (SQLException e) {
+                        System.err.println("Error closing resultSet, statement, or connection: " + e.getMessage());
+                    }
+                }
+
+                // create a hackerrankHandle to user map
+                Map<String, User> hackerrankHandleToUserMap = new HashMap<>();
+                for (User user : trueHackerrank) {
+                    hackerrankHandleToUserMap.put(user.getHackerrankHandle().toLowerCase(), user);
+                }
+
+                scrapeHackerrank(trueHackerrank, hackerrankHandleToUserMap);
                 break;
             case "build_leaderboard":
                 buildLeaderboard();
@@ -224,10 +265,14 @@ public class CMRITLeaderboard2025 {
         HttpURLConnection o;
         InputStream inputStream;
 
-        // if codechef_ratings.txt exists, delete it
+        // create or clear the file for writing
         File file = new File("codechef_ratings.txt");
-        if (file.exists()) {
-            file.delete();
+        try {
+            FileWriter writer = new FileWriter(file);
+            writer.write(""); // Clearing the file
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Error clearing file: " + e.getMessage());
         }
 
         int size = resultSet.size();
@@ -650,8 +695,79 @@ public class CMRITLeaderboard2025 {
         int user_rank;
     }
 
-    private static void scrapeHackerrank() {
+    private static void scrapeHackerrank(ArrayList<User> trueHackerrank, Map<String, User> hackerrankHandleToUserMap) {
         // Scraper logic for Hackerrank
+        System.out.println("Hackerrank scraping in progress...");
+
+        // create or clear the file for writing
+        File file = new File("hackerrank_ratings.txt");
+        try {
+            FileWriter writer = new FileWriter(file);
+            writer.write(""); // Clearing the file
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Error clearing file: " + e.getMessage());
+        }
+
+        try {
+            for (String trackerName : SEARCH_TOKENS) {
+                System.out.println(trackerName);
+                for (int j = 0; j < 10000; j += 100) {
+                    try {
+                        String url = "https://www.hackerrank.com/rest/contests/" + trackerName + "/leaderboard?offset=" + j + "&limit=100";
+                        Document doc = Jsoup.connect(url).ignoreContentType(true).get();
+                        Element body = doc.body();
+                        if (body.text().contains("INVALID URL")) {
+                            throw new ArithmeticException("INVALID URL : " + trackerName);
+                        }
+                        String jsonContent = body.text();
+                        Leaderboard leaderboard = new Gson().fromJson(jsonContent, Leaderboard.class);
+                        List<LeaderboardModel> models = leaderboard.models;
+                        if (models.isEmpty()) break;
+                        for (LeaderboardModel model : models) {
+                            String userHandle = model.hacker.toLowerCase();
+
+                            // find user handle with hackerrank handle
+                            User user = hackerrankHandleToUserMap.get(userHandle);
+                            if (user != null) {
+                                if (user.getHackerrankRating() == null) {
+                                    user.setHackerrankRating((int) model.score);
+                                }
+                                else{
+                                    // add the ratings
+                                    user.setHackerrankRating(user.getHackerrankRating() + (int) model.score);
+                                }
+                                System.out.println("Hackerrank rating for " + userHandle + " is: " + (int) model.score);
+                            }
+                            else {
+                                System.out.println("User not found: " + userHandle);
+                            }
+                        }
+                    } catch (IOException | ArithmeticException e) {
+                        System.err.println("Error fetching Hackerrank rating for " + trackerName + ": " + e.getMessage());
+                    }
+                }
+            }
+            for (User user : trueHackerrank) {
+                if (user.getHackerrankRating() != null) {
+                    // Write to a text file
+                    FileWriter writer = new FileWriter("hackerrank_ratings.txt", true);
+                    writer.write(user.getHandle() + "," + user.getHackerrankHandle() + "," + user.getHackerrankRating() + "\n");
+                    writer.close();
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Error fetching Hackerrank rating: " + e.getMessage());
+        }
+    }
+
+    static class Leaderboard {
+        List<LeaderboardModel> models;
+    }
+
+    static class LeaderboardModel {
+        String hacker;
+        double score;
     }
 
     public static void loadCSVtoSQL(String path) {
