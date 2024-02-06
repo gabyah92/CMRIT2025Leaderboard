@@ -75,53 +75,10 @@ jobs:
 
     - name: Run JAR File
       run: |
-        java -jar ./build/libs/CMRIT2025Leaderboard-1.0-SNAPSHOT.jar
+        java -jar ./build/libs/CMRIT2025Leaderboard-1.0-SNAPSHOT.jar all
 
-    - name: Archive Generated File
-      run: |
-        mkdir -p ${{ github.workspace }}/LeaderboardsStorage
-        cp -f Leaderboards/* ${{ github.workspace }}/LeaderboardsStorage
-
-    - name: Upload Artifact
+    - name: Archive all files
       uses: actions/upload-artifact@v4.0.0
       with:
-        name: leaderboard-artifact
-        path: ${{ github.workspace }}/LeaderboardsStorage
-
-  commit:
-    needs: check
-
-    runs-on: ubuntu-latest
-
-    steps:
-
-    - name: Checkout Repository
-      uses: actions/checkout@v4.1.1
-
-    - name: Check all files
-      run: |
-        ls -R
-
-    - name: Download Artifact
-      uses: actions/download-artifact@v4.0.0
-      with:
-        name: leaderboard-artifact
-        path: ./LeaderboardsStorage
-
-    - name: Move Excel to Leaderboards
-      run: mv -f ./LeaderboardsStorage/* Leaderboards/
-
-    - name: Get current date
-      id: date
-      run: echo "::set-output name=date::$(date +'%d-%m-%Y %H:%M:%S')"
-
-    - name: Commit Generated Excel File
-      run: |
-        git config --global user.email "actions@github.com"
-        git config --global user.name "GitHub Actions"
-        git add Leaderboards/*
-        git commit -m "Add generated leaderboard data - ${{ steps.date.outputs.date }}"
-        git push --force
-
-    - name: Delete workflow artifact
-      uses: philips-labs/action-delete-artifacts@v1.0.0
+        name: all-files
+        path: ./

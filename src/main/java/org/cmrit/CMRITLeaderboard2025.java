@@ -69,6 +69,9 @@ public class CMRITLeaderboard2025 {
         ArrayList <User> trueGeeksforgeeks = new ArrayList<>();
         ArrayList <User> trueHackerrank = new ArrayList<>();
 
+        Map<String, User> gfgHandleToUserMap;
+        Map<String, User> hackerrankHandleToUserMap;
+
         switch (methodName) {
             case "codechef":
                 // Fetch all true codechef handles from the database
@@ -197,7 +200,7 @@ public class CMRITLeaderboard2025 {
                 }
 
                 // create a gfgHandle to user map
-                Map<String, User> gfgHandleToUserMap = new HashMap<>();
+                gfgHandleToUserMap = new HashMap<>();
                 for (User user : trueGeeksforgeeks) {
                     gfgHandleToUserMap.put(user.getGeeksforgeeksHandle().toLowerCase(), user);
                 }
@@ -235,11 +238,77 @@ public class CMRITLeaderboard2025 {
                 }
 
                 // create a hackerrankHandle to user map
-                Map<String, User> hackerrankHandleToUserMap = new HashMap<>();
+                hackerrankHandleToUserMap = new HashMap<>();
                 for (User user : trueHackerrank) {
                     hackerrankHandleToUserMap.put(user.getHackerrankHandle().toLowerCase(), user);
                 }
 
+                scrapeHackerrank(trueHackerrank, hackerrankHandleToUserMap);
+                break;
+            case "all":
+                // Fetch all true handles from the database
+                try {
+                    conn = DriverManager.getConnection("jdbc:sqlite:" + dbName);
+                    statement = conn.createStatement();
+
+                    String sql = "SELECT handle, codeforces_handle, leetcode_handle, geeksforgeeks_handle, codechef_handle, hackerrank_handle FROM users_data";
+                    resultSet = statement.executeQuery(sql);
+
+                    assert resultSet != null;
+
+                    while (resultSet.next()) {
+                        String handle = resultSet.getString("handle");
+                        String codeforcesHandle = resultSet.getString("codeforces_handle");
+                        String leetcodeHandle = resultSet.getString("leetcode_handle");
+                        String geeksforgeeksHandle = resultSet.getString("geeksforgeeks_handle");
+                        String codechefHandle = resultSet.getString("codechef_handle");
+                        String hackerrankHandle = resultSet.getString("hackerrank_handle");
+
+                        if (codeforcesHandle != null) {
+                            trueCodeforces.add(new User(handle, "codeforces", codeforcesHandle));
+                        }
+                        if (leetcodeHandle != null) {
+                            trueLeetcode.add(new User(handle, "leetcode", leetcodeHandle));
+                        }
+                        if (geeksforgeeksHandle != null) {
+                            trueGeeksforgeeks.add(new User(handle, "geeksforgeeks", geeksforgeeksHandle));
+                        }
+                        if ((codechefHandle != null) && !codechefHandle.equals("#N/A")) {
+                            trueCodechef.add(new User(handle, "codechef", codechefHandle));
+                        }
+                        if (hackerrankHandle != null) {
+                            trueHackerrank.add(new User(handle, "hackerrank", hackerrankHandle));
+                        }
+                    }
+
+                } catch (SQLException e) {
+                    System.err.println("Error fetching true handles: " + e.getMessage());
+                } finally {
+                    try {
+                        if (resultSet != null) resultSet.close();
+                        if (statement != null) statement.close();
+                        if (conn != null) conn.close();
+                    } catch (SQLException e) {
+                        System.err.println("Error closing resultSet, statement, or connection: " + e.getMessage());
+                    }
+                }
+
+                // create a gfgHandle to user map
+                gfgHandleToUserMap = new HashMap<>();
+                for (User user : trueGeeksforgeeks) {
+                    gfgHandleToUserMap.put(user.getGeeksforgeeksHandle().toLowerCase(), user);
+                }
+
+                // create a hackerrankHandle to user map
+                hackerrankHandleToUserMap = new HashMap<>();
+                for (User user : trueHackerrank) {
+                    hackerrankHandleToUserMap.put(user.getHackerrankHandle().toLowerCase(), user);
+                }
+
+                scrapeCodechef(trueCodechef);
+                scrapeCodeforces(trueCodeforces);
+                scrapeLeetcode(trueLeetcode);
+                scrapeGfg(trueGeeksforgeeks, gfgHandleToUserMap);
                 scrapeHackerrank(trueHackerrank, hackerrankHandleToUserMap);
                 break;
             case "build_leaderboard":
@@ -252,6 +321,9 @@ public class CMRITLeaderboard2025 {
     }
 
     private static void buildLeaderboard() {
+        // Create new database if not exists "leaderboard.db" and connect to it
+
+
     }
 
     private static void scrapeCodechef(ArrayList <User> resultSet) {
