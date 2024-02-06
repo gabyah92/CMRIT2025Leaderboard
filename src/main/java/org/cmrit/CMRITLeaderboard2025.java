@@ -264,19 +264,29 @@ public class CMRITLeaderboard2025 {
                         String codechefHandle = resultSet.getString("codechef_handle");
                         String hackerrankHandle = resultSet.getString("hackerrank_handle");
 
-                        if (codeforcesHandle != null) {
+                        Boolean codeforcesURLExists = resultSet.getBoolean("codeforces_url_exists");
+                        Boolean leetcodeURLExists = resultSet.getBoolean("leetcode_url_exists");
+                        Boolean geeksforgeeksURLExists = resultSet.getBoolean("geeksforgeeks_url_exists");
+                        Boolean codechefURLExists = resultSet.getBoolean("codechef_url_exists");
+                        Boolean hackerrankURLExists = resultSet.getBoolean("hackerrank_url_exists");
+
+                        if (codeforcesHandle != null && codeforcesURLExists) {
                             trueCodeforces.add(new User(handle, "codeforces", codeforcesHandle));
                         }
-                        if (leetcodeHandle != null) {
+
+                        if (leetcodeHandle != null && leetcodeURLExists) {
                             trueLeetcode.add(new User(handle, "leetcode", leetcodeHandle));
                         }
-                        if (geeksforgeeksHandle != null) {
+
+                        if (geeksforgeeksHandle != null && geeksforgeeksURLExists) {
                             trueGeeksforgeeks.add(new User(handle, "geeksforgeeks", geeksforgeeksHandle));
                         }
-                        if ((codechefHandle != null) && !codechefHandle.equals("#N/A")) {
+
+                        if (codechefHandle != null && codechefURLExists) {
                             trueCodechef.add(new User(handle, "codechef", codechefHandle));
                         }
-                        if (hackerrankHandle != null) {
+
+                        if (hackerrankHandle != null && hackerrankURLExists) {
                             trueHackerrank.add(new User(handle, "hackerrank", hackerrankHandle));
                         }
                     }
