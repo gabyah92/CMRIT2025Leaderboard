@@ -626,7 +626,7 @@ public class CMRITLeaderboard2025 {
 
 
             // Write the workbook to a file
-            try (FileOutputStream fileOut = new FileOutputStream("CurrentCMRITLeaderboard2025.xlsx")) {
+            try (FileOutputStream fileOut = new FileOutputStream("Leaderboards\\CurrentCMRITLeaderboard2025.xlsx")) {
                 workbook.write(fileOut);
             } catch (IOException e) {
                 System.err.println("Error writing leaderboard to file: " + e.getMessage());
