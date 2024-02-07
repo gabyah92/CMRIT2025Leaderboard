@@ -230,37 +230,37 @@ jobs:
       uses: actions/download-artifact@v4.0.0
       with:
         name: codeforces_ratings
-        path: ./codeforces_ratings.txt
+        path: ./
 
     - name: Download GFG Ratings
       uses: actions/download-artifact@v4.0.0
       with:
           name: gfg_ratings
-          path: ./gfg_ratings.txt
+          path: ./
 
     - name: Download GFG Practice Ratings
       uses: actions/download-artifact@v4.0.0
       with:
           name: gfg_practice_ratings
-          path: ./gfg_practice_ratings.txt
+          path: ./
 
     - name: Download LeetCode Ratings
       uses: actions/download-artifact@v4.0.0
       with:
           name: leetcode_ratings
-          path: ./leetcode_ratings.txt
+          path: ./
 
     - name: Download CodeChef Ratings
       uses: actions/download-artifact@v4.0.0
       with:
           name: codechef_ratings
-          path: ./codechef_ratings.txt
+          path: ./
 
     - name: Download HackerRank Ratings
       uses: actions/download-artifact@v4.0.0
       with:
           name: hackerrank_ratings
-          path: ./hackerrank_ratings.txt
+          path: ./
 
     - name: Run JAR Artifact
       run: java -jar ./build/libs/CMRIT2025Leaderboard-1.0-SNAPSHOT.jar build_leaderboard
