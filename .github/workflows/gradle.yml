@@ -270,7 +270,7 @@ jobs:
       uses: actions/upload-artifact@v4.0.0
       with:
         name: leaderboard
-        path: ./Leaderboard/CurrentCMRITLeaderboard2025.xlsx
+        path: ./Leaderboards/CurrentCMRITLeaderboard2025.xlsx
         retention-days: 1
 
     - name: Get the current date
