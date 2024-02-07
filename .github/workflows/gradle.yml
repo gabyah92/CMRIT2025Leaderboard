@@ -68,8 +68,6 @@ jobs:
         name: jar-artifact
         path: ./build/libs/
 
-
-
     - name: Run JAR Artifact
       run: java -jar ./build/libs/CMRIT2025Leaderboard-1.0-SNAPSHOT.jar codeforces
 
@@ -77,7 +75,7 @@ jobs:
       uses: actions/upload-artifact@v4.0.0
       with:
         name: codeforces_ratings
-        path: ./build/codeforces_ratings.txt
+        path: ./codeforces_ratings.txt
         retention-days: 1
 
   gfg:
@@ -107,7 +105,7 @@ jobs:
       uses: actions/upload-artifact@v4.0.0
       with:
         name: gfg_ratings
-        path: ./build/gfg_ratings.txt
+        path: ./gfg_ratings.txt
         retention-days: 1
 
   leetcode:
@@ -137,7 +135,7 @@ jobs:
       uses: actions/upload-artifact@v4.0.0
       with:
         name: leetcode_ratings
-        path: ./build/leetcode_ratings.txt
+        path: ./leetcode_ratings.txt
         retention-days: 1
 
   codechef:
@@ -167,7 +165,7 @@ jobs:
       uses: actions/upload-artifact@v4.0.0
       with:
         name: codechef_ratings
-        path: ./build/codechef_ratings.txt
+        path: ./codechef_ratings.txt
         retention-days: 1
 
   hackerrank:
@@ -197,7 +195,7 @@ jobs:
       uses: actions/upload-artifact@v4.0.0
       with:
         name: hackerrank_ratings
-        path: ./build/hackerrank_ratings.txt
+        path: ./hackerrank_ratings.txt
         retention-days: 1
 
   build_leaderboard:
