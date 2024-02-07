@@ -108,6 +108,13 @@ jobs:
         path: ./gfg_ratings.txt
         retention-days: 1
 
+    - name: Upload GFG Practice Ratings
+      uses: actions/upload-artifact@v4.0.0
+      with:
+          name: gfg_practice_ratings
+          path: ./gfg_practice_ratings.txt
+          retention-days: 1
+
   leetcode:
     runs-on: ubuntu-latest
     needs: build
