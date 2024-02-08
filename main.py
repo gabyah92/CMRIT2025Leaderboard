@@ -60,6 +60,9 @@ def check_url_exists(url):
             if response.url == "https://codeforces.com/" or response.url == "https://auth.geeksforgeeks.org/?to=https://auth.geeksforgeeks.org/profile.php" or response.url == "https://www.codechef.com/":
                 return False, response.url
             else:
+                # if there's a '\' at the end of the URL, remove it
+                if response.url[-1] == '/':
+                    response.url = response.url[:-1]
                 return True, response.url
         return False, response.url
     except requests.exceptions.RequestException:
