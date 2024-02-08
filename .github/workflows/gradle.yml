@@ -265,14 +265,6 @@ jobs:
     - name: Run JAR Artifact
       run: java -jar ./build/libs/CMRIT2025Leaderboard-1.0-SNAPSHOT.jar build_leaderboard
 
-    # Archive CurrentCMRITLeaderboard2025.xlsx in Leaderboard folder
-    - name: Archive Leaderboard
-      uses: actions/upload-artifact@v4.0.0
-      with:
-        name: leaderboard
-        path: ./Leaderboards/CurrentCMRITLeaderboard2025.xlsx
-        retention-days: 1
-
     - name: Get the current date
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
