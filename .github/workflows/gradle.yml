@@ -268,7 +268,7 @@ jobs:
 
     - name: Get the current date
       id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
+      run: echo "{date}={$(date +'%Y-%m-%d %H:%M:%S')}" >> $GITHUB_DATETIME
 
     # Push the updated Leaderboard to the repository
     - name: Push Leaderboard
