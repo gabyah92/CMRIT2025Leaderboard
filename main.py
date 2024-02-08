@@ -2,8 +2,6 @@ import openpyxl
 import requests
 import csv
 from tqdm import tqdm  # Import tqdm library for progress bar
-from time import sleep
-
 
 class Participant:
     # Class to store participant details
