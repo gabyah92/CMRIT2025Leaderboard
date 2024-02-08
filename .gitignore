@@ -41,3 +41,13 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Unecessary ###
+!/cmrit
+!/codechef_ratings.txt
+!/codeforces_ratings.txt
+!/gfg_practice_ratings.txt
+!/gfg_ratings.txt
+!/hackerrank_ratings.txt
+!/leaderboard
+!/leetcode_ratings.txt
