@@ -599,7 +599,7 @@ public class CMRITLeaderboard2025 {
                 String leetcodeHandle = userMap.get(handle).getLeetcodeHandle();
                 String codechefHandle = userMap.get(handle).getCodechefHandle();
                 String hackerrankHandle = userMap.get(handle).getHackerrankHandle();
-                // System.out.println(rank + ". " + handle + " - " + codeforcesRating + " - " + geeksforgeeksRating + " - " + geeksforgeeksPracticeRating + " - " + leetcodeRating + " - " + codechefRating + " - " + hackerrankRating + " - " + percentile);
+                System.out.println(rank + ". " + handle + " - " + codeforcesRating + " - " + geeksforgeeksRating + " - " + geeksforgeeksPracticeRating + " - " + leetcodeRating + " - " + codechefRating + " - " + hackerrankRating + " - " + percentile);
 
                 // Append the data to the sheet
                 Row row = sheet.createRow(rank);
