@@ -625,6 +625,15 @@ public class CMRITLeaderboard2025 {
             }
 
 
+            // Check if the directory exists, if not create it
+            File directory = new File("Leaderboards");
+            if (!directory.exists()) {
+                boolean dirCreated = directory.mkdir();
+                if (!dirCreated) {
+                    System.err.println("Error creating directory: Leaderboards");
+                }
+            }
+
             // Write the workbook to a file
             try (FileOutputStream fileOut = new FileOutputStream("Leaderboards//CurrentCMRITLeaderboard2025.xlsx")) {
                 workbook.write(fileOut);
