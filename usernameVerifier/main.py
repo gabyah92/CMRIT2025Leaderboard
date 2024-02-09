@@ -1,6 +1,7 @@
 import openpyxl
 import requests
 import csv
+from bs4 import BeautifulSoup
 from tqdm import tqdm  # Import tqdm library for progress bar
 
 class Participant:
