@@ -33,6 +33,8 @@ def load_excel_sheet(excel_sheet_path):
     sheet = workbook.active
 
     for row in tqdm(sheet.iter_rows(min_row=2, values_only=True), desc="Processing Participants", unit="participant"):
+        # replace spaces with empty string
+        row = [str(x).strip() for x in row]
         handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle = row
         participants.append(
             Participant(handle,geeksforgeeks_handle,  codeforces_handle, leetcode_handle, codechef_handle,
@@ -42,6 +44,15 @@ def load_excel_sheet(excel_sheet_path):
 
 
 def check_url_exists(url):
+    # if url is leeetcode
+    if url.startswith("https://leetcode.com/"):
+        try:
+            response = requests.get(url)
+            if response.status_code == 200:
+                return True, response.url
+            return False, response.url
+        except requests.exceptions.RequestException:
+            return False, "Exception"
     header = {
         "User-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 "
                       "Safari/537.36"
@@ -104,7 +115,7 @@ def main():
             log_writer.write(
                 f"GeeksForGeeks Handle: {geeksforgeeks_handle}\nGeeksForGeeks URL: https://auth.geeksforgeeks.org/user/{geeksforgeeks_handle}\nResponse URL: {response_url}\nGeeksForGeeks URL Exists: {geeksforgeeks_url_exists}\n\n")
 
-            # Checking if URLs exist for each handle
+            # Checking if codeforces handle exists
             if codeforces_handle != '#N/A':
                 codeforces_url_exists, response_url = check_url_exists(
                     "https://codeforces.com/profile/" + codeforces_handle)
@@ -115,20 +126,22 @@ def main():
                 codeforces_url_exists = False
                 response_url = "N/A"
 
-            # Write to log.txt, all details of participant
+            # Write to log.txt, all details of participant for codeforces
             log_writer.write(
                 f"Handle: {handle}\nCodeforces Handle: {codeforces_handle}\nCodeforces URL: https://codeforces.com/profile/{codeforces_handle}\nResponse URL: {response_url}\nCodeforces URL Exists: {codeforces_url_exists}\n\n")
 
+            # Checking if leetcode handle exists
             if leetcode_handle != '#N/A':
                 leetcode_url_exists, response_url = check_url_exists("https://leetcode.com/" + leetcode_handle + "/")
             else:
                 leetcode_url_exists = False
                 response_url = "N/A"
 
-            # Write to log.txt, all details of participant
+            # Write to log.txt, all details of participant for leetcode
             log_writer.write(
                 f"LeetCode Handle: {leetcode_handle}\nLeetCode URL: https://leetcode.com/{leetcode_handle}\nResponse URL: {response_url}\nLeetCode URL Exists: {leetcode_url_exists}\n\n")
 
+            # Checking if codechef handle exists
             if codechef_handle != '#N/A':
                 codechef_url_exists, response_url = check_url_exists(
                     "https://www.codechef.com/users/" + codechef_handle)
@@ -136,10 +149,11 @@ def main():
                 codechef_url_exists = False
                 response_url = "N/A"
 
-            # Write to log.txt, all details of participant
+            # Write to log.txt, all details of participant for codechef
             log_writer.write(
                 f"CodeChef Handle: {codechef_handle}\nCodeChef URL: https://www.codechef.com/users/{codechef_handle}\nResponse URL: {response_url}\nCodeChef URL Exists: {codechef_url_exists}\n\n")
 
+            # Checking if hackerrank handle exists
             if hackerrank_handle != '#N/A':
                 hackerrank_url_exists, response_url = check_url_exists(
                     "https://www.hackerrank.com/profile/" + hackerrank_handle)
@@ -147,7 +161,7 @@ def main():
                 hackerrank_url_exists = False
                 response_url = "N/A"
 
-            # Write to log.txt, all details of participant
+            # Write to log.txt, all details of participant for hackerrank
             log_writer.write(
                 f"HackerRank Handle: {hackerrank_handle}\nHackerRank URL: https://www.hackerrank.com/profile/{hackerrank_handle}\nResponse URL: {response_url}\nHackerRank URL Exists: {hackerrank_url_exists}\n\n")
 
