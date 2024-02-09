@@ -1,9 +1,7 @@
 import openpyxl
 import requests
 import csv
-from bs4 import BeautifulSoup
 from tqdm import tqdm  # Import tqdm library for progress bar
-
 
 class Participant:
     # Class to store participant details
@@ -39,7 +37,7 @@ def load_excel_sheet(excel_sheet_path):
         row = [str(x).strip() for x in row]
         handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle = row
         participants.append(
-            Participant(handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle,
+            Participant(handle,geeksforgeeks_handle,  codeforces_handle, leetcode_handle, codechef_handle,
                         hackerrank_handle))
 
     return participants
@@ -56,8 +54,7 @@ def check_url_exists(url):
         except requests.exceptions.RequestException:
             return False, "Exception"
     header = {
-        "User-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 "
-                      "Safari/537.36"
+       "User-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
     }
     # if url is hackerrank
     if url.startswith("https://www.hackerrank.com/"):
@@ -92,7 +89,7 @@ def check_url_exists(url):
 
 
 def main():
-    excel_sheet_path = "CMRIT2025Leaderboard.xlsx"
+    excel_sheet_path = "..//src/main//resources//CMRIT2025Leaderboard.xlsx"
     participants = load_excel_sheet(excel_sheet_path)
     # if log.txt exists, delete it
     try:
@@ -101,9 +98,22 @@ def main():
     except FileNotFoundError:
         pass
 
-    with open('participant_details.csv', mode='w', newline='') as file:
+    # check if participant_details.csv exists, delete it
+    try:
+        open('..//src//main//resources//participant_details.csv', 'r')
+        open('..//src//main//resources//participant_details.csv', 'w').close()
+    except FileNotFoundError:
+        pass
+
+    # If folder does not exist, create it
+    try:
+        open('..//src//main//resources//participant_details.csv', 'r')
+    except FileNotFoundError:
+        open('..//src//main//resources//participant_details.csv', 'w').close()
+
+    with open('..//src//main//resources//participant_details.csv', 'w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['Handle', 'GeeksForGeeks Handle', 'Codeforces Handle', 'LeetCode Handle', 'CodeChef Handle',
+        writer.writerow(['Handle','GeeksForGeeks Handle',  'Codeforces Handle', 'LeetCode Handle', 'CodeChef Handle',
                          'HackerRank Handle', 'GeeksForGeeks URL Exists', 'Codeforces URL Exists',
                          'LeetCode URL Exists',
                          'CodeChef URL Exists', 'HackerRank URL Exists'])
