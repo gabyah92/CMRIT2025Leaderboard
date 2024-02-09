@@ -58,9 +58,6 @@ def check_url_exists(url):
             if response.url == "https://codeforces.com/" or response.url == "https://auth.geeksforgeeks.org/?to=https://auth.geeksforgeeks.org/profile.php" or response.url == "https://www.codechef.com/":
                 return False, response.url
             else:
-                # if there's a '\' at the end of the URL, remove it
-                if response.url[-1] == '/':
-                    response.url = response.url[:-1]
                 return True, response.url
         return False, response.url
     except requests.exceptions.RequestException:
@@ -123,7 +120,7 @@ def main():
                 f"Handle: {handle}\nCodeforces Handle: {codeforces_handle}\nCodeforces URL: https://codeforces.com/profile/{codeforces_handle}\nResponse URL: {response_url}\nCodeforces URL Exists: {codeforces_url_exists}\n\n")
 
             if leetcode_handle != '#N/A':
-                leetcode_url_exists, response_url = check_url_exists("https://leetcode.com/" + leetcode_handle)
+                leetcode_url_exists, response_url = check_url_exists("https://leetcode.com/" + leetcode_handle + "/")
             else:
                 leetcode_url_exists = False
                 response_url = "N/A"
