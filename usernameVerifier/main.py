@@ -76,7 +76,7 @@ def check_url_exists(url):
 
 
 def main():
-    excel_sheet_path = "CMRIT2025Leaderboard.xlsx"
+    excel_sheet_path = "..//src/main//resources//CMRIT2025Leaderboard.xlsx"
     participants = load_excel_sheet(excel_sheet_path)
     # if log.txt exists, delete it
     try:
@@ -85,7 +85,20 @@ def main():
     except FileNotFoundError:
         pass
 
-    with open('participant_details.csv', mode='w', newline='') as file:
+    # check if participant_details.csv exists, delete it
+    try:
+        open('..//src//main//resources//participant_details.csv', 'r')
+        open('..//src//main//resources//participant_details.csv', 'w').close()
+    except FileNotFoundError:
+        pass
+
+    # If folder does not exist, create it
+    try:
+        open('..//src//main//resources//participant_details.csv', 'r')
+    except FileNotFoundError:
+        open('..//src//main//resources//participant_details.csv', 'w').close()
+
+    with open('..//src//main//resources//participant_details.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(['Handle','GeeksForGeeks Handle',  'Codeforces Handle', 'LeetCode Handle', 'CodeChef Handle',
                          'HackerRank Handle', 'GeeksForGeeks URL Exists', 'Codeforces URL Exists',
