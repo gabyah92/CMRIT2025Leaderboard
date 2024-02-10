@@ -36,6 +36,9 @@ def load_excel_sheet(excel_sheet_path):
     for row in tqdm(sheet.iter_rows(min_row=2, values_only=True), desc="Processing Participants", unit="participant"):
         # replace spaces with empty string
         row = [str(x).strip() for x in row]
+        # if row elements are None, break
+        if not any(row):
+            break
         handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle = row
         participants.append(
             Participant(handle,geeksforgeeks_handle,  codeforces_handle, leetcode_handle, codechef_handle,
