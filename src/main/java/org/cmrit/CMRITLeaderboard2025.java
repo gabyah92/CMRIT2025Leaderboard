@@ -15,6 +15,7 @@ import java.io.*;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -593,9 +594,10 @@ public class CMRITLeaderboard2025 {
                 int geeksforgeeksRating = resultSet.getInt("geeksforgeeks_rating");
                 int geeksforgeeksPracticeRating = resultSet.getInt("geeksforgeeks_practice_rating");
                 int hackerrankRating = resultSet.getInt("hackerrank_rating");
-                String percentile = String.valueOf(resultSet.getDouble("percentile"));
-                // Add % to the percentile
-                percentile += "%";
+                DecimalFormat df = new DecimalFormat("#.##");
+                double percentileD = Double.parseDouble(df.format(resultSet.getDouble("percentile")));
+                // convert to string and add % at the end
+                String percentile = percentileD + "%";
                 String codeforcesHandle = userMap.get(handle).getCodeforcesHandle();
                 String geeksforgeeksHandle = userMap.get(handle).getGeeksforgeeksHandle();
                 String leetcodeHandle = userMap.get(handle).getLeetcodeHandle();
