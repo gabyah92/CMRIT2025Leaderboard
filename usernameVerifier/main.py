@@ -46,10 +46,15 @@ def load_excel_sheet(excel_sheet_path):
 
 def check_url_exists(url):
     # if url is leeetcode
-    if url.startswith("https://leetcode.com/"):
+    if "https://leetcode.com/" in url:
         try:
             response = requests.get(url)
             if response.status_code == 200:
+                # read response as json
+                response_json = response.json()
+                # if the response contains the key "errors", then the handle does not exist
+                if response_json.get("errors"):
+                    return False, response.url
                 return True, response.url
             return False, response.url
         except requests.exceptions.RequestException:
@@ -58,15 +63,17 @@ def check_url_exists(url):
        "User-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
     }
     # if url is hackerrank
-    if url.startswith("https://www.hackerrank.com/"):
+    if "https://www.hackerrank.com/" in url:
         try:
             response = requests.get(url, headers=header)
             soup = BeautifulSoup(response.text, 'html.parser')
             # Extract the title of the page
             title = soup.title.string
-            # Hackerrank handles that do not exist have the title "HackerRank" in them
+            print(title)
+            # Hackerrank handles that do not exist have the title "HTTP 404: Page Not Found | HackerRank"
+            # But the title in beautiful soup is "Programming Problems and Competitions :: HackerRank"
             # If user exists, title will be " Name - User Profile | HackerRank"
-            if title.startswith("HackerRank"):
+            if "Programming Problems and Competitions :: HackerRank" in title:
                 return False, response.url
             return True, response.url
         except requests.exceptions.RequestException:
@@ -87,6 +94,21 @@ def check_url_exists(url):
         return False, response.url
     except requests.exceptions.RequestException:
         return False, "Exception"
+
+
+LEETCODE_QUERY = '''
+https://leetcode.com/graphql?query=query
+{     
+      userContestRanking(username:  "{<username>}") 
+      {
+        attendedContestsCount
+        rating
+        globalRanking
+        totalParticipants
+        topPercentage    
+      }
+}
+'''
 
 
 def main():
@@ -159,7 +181,10 @@ def main():
 
             # Checking if leetcode handle exists
             if leetcode_handle != '#N/A':
-                leetcode_url_exists, response_url = check_url_exists("https://leetcode.com/" + leetcode_handle + "/")
+                url = LEETCODE_QUERY.replace("{<username>}", leetcode_handle)
+                # encode the url
+                url = url.replace(" ", "%20")
+                leetcode_url_exists, response_url = check_url_exists(url)
             else:
                 leetcode_url_exists = False
                 response_url = "N/A"

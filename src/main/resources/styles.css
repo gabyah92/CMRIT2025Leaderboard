@@ -19,3 +19,27 @@ div.ag-root .ag-cell-focus {
     -ms-user-select: text;
     user-select: text;
 }
+
+.nav {
+    background-color: black; /* Same background color as the body */
+}
+
+.nav-link {
+    /* Text size and color for nav links */
+    font-size: 1.2em;
+    color: orange; /* Text color for nav links */
+}
+
+.nav-link:hover {
+    color: khaki /* Text color for nav links on hover */
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: white; /* Text color for active nav link */
+    background-color: #356a9b; /* Background color for active nav link */
+}
+
+.nav-pills .nav-link.active:hover, .nav-pills .show>.nav-link:hover {
+    color: khaki; /* Text color for active nav link */
+    background-color: #356a9b; /* Background color for active nav link */
+}

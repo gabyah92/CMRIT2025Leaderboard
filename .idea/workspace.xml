@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4eb88ae-ae22-46ba-bfa6-b76ecb913ed7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/sqlite-jdbc-3.45.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/participant_details.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="a4eb88ae-ae22-46ba-bfa6-b76ecb913ed7" name="Changes" comment="Me dumb af">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/users.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/jekyll-gh-pages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/jekyll-gh-pages.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/CMRIT2025Leaderboard.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CMRIT2025Leaderboard.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/CMRIT2025Leaderboard_Minimal.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cmrit/CMRITLeaderboard2025.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cmrit/CMRITLeaderboard2025.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboards/CurrentCMRITLeaderboard2025.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usernameVerifier/log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usernameVerifier/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/usernameVerifier/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +60,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -72,12 +75,16 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2bMvIOp52dKcTIKZAB3cKsPReMi" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Gradle.CMRIT2025Leaderboard [:CMRITLeaderboard2025.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.CMRIT2025Leaderboard [:ScraperApplication.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.CMRIT2025Leaderboard [assemble].executor&quot;: &quot;Run&quot;,
@@ -132,7 +139,7 @@
     <configuration name="CMRITLeaderboard2025" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.cmrit.CMRITLeaderboard2025" />
       <module name="CMRIT2025Leaderboard.main" />
-      <option name="PROGRAM_PARAMETERS" value="codeforces" />
+      <option name="PROGRAM_PARAMETERS" value="build_leaderboard" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.cmrit.*" />
@@ -250,10 +257,107 @@
       <workItem from="1706710469111" duration="1000000" />
       <workItem from="1706713957165" duration="8523000" />
       <workItem from="1706804859203" duration="7200000" />
+      <workItem from="1707502505975" duration="6195000" />
     </task>
+    <task id="LOCAL-00001" summary="Fix leaderboard storage path">
+      <option name="closed" value="true" />
+      <created>1707406791724</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707406791724</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fix a few things">
+      <option name="closed" value="true" />
+      <created>1707407354283</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707407354284</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Replace deprecated set-output for date &amp; time generation">
+      <option name="closed" value="true" />
+      <created>1707407689537</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707407689537</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update database">
+      <option name="closed" value="true" />
+      <created>1707444418574</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707444418574</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Test user verifier with old data">
+      <option name="closed" value="true" />
+      <created>1707500298515</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707500298515</updated>
+    </task>
+    <task id="LOCAL-00006" summary="revert back to current data">
+      <option name="closed" value="true" />
+      <created>1707500522905</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707500522905</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fix hackerrank logic for verification">
+      <option name="closed" value="true" />
+      <created>1707506905018</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1707506905018</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Me dumb">
+      <option name="closed" value="true" />
+      <created>1707507160185</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1707507160185</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Me dumb af">
+      <option name="closed" value="true" />
+      <created>1707507260954</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1707507260954</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix leaderboard storage path" />
+    <MESSAGE value="Fix a few things" />
+    <MESSAGE value="Replace deprecated set-output for date &amp; time generation" />
+    <MESSAGE value="Update database" />
+    <MESSAGE value="Test user verifier with old data" />
+    <MESSAGE value="revert back to current data" />
+    <MESSAGE value="Fix hackerrank logic for verification" />
+    <MESSAGE value="Me dumb" />
+    <MESSAGE value="Me dumb af" />
+    <option name="LAST_COMMIT_MESSAGE" value="Me dumb af" />
   </component>
 </project>
