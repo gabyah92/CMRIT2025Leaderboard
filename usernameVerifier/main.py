@@ -4,6 +4,21 @@ import csv
 from bs4 import BeautifulSoup
 from tqdm import tqdm  # Import tqdm library for progress bar
 
+"""
+Class to store participant details.
+
+Attributes:
+    handle (str): The participant's handle.
+    geeksforgeeks_handle (str): The participant's GeeksForGeeks handle.
+    codeforces_handle (str): The participant's Codeforces handle.
+    leetcode_handle (str): The participant's LeetCode handle.
+    codechef_handle (str): The participant's CodeChef handle.
+    hackerrank_handle (str): The participant's HackerRank handle.
+
+Methods:
+    __init__(handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle):
+        Initializes a Participant object with the given handles.
+"""
 class Participant:
     # Class to store participant details
     def __init__(self, handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle,
@@ -26,6 +41,24 @@ class Participant:
         self.hackerrank_handle = hackerrank_handle
 
 
+"""
+Function to load the excel sheet and return a list of Participant objects.
+
+Parameters:
+- excel_sheet_path (str): The path to the excel sheet.
+
+Returns:
+- participants (list): A list of Participant objects.
+
+Description:
+This function takes the path to an excel sheet as input and loads the sheet using the openpyxl library. It then iterates over the rows of the sheet, starting from the second row, and creates a Participant object for each row. The Participant object is initialized with the values from the row, including the handle, GeeksForGeeks handle, Codeforces handle, LeetCode handle, CodeChef handle, and HackerRank handle. The Participant object is then added to the list of participants.
+
+The function uses the tqdm library to display a progress bar while processing the participants.
+
+Example:
+excel_sheet_path = "path/to/excel/sheet.xlsx"
+participants = load_excel_sheet(excel_sheet_path)
+"""
 def load_excel_sheet(excel_sheet_path):
     # Function to load the excel sheet and return a list of Participant objects
     participants = []
@@ -47,6 +80,31 @@ def load_excel_sheet(excel_sheet_path):
     return participants
 
 
+"""
+Check if a given URL exists.
+
+Parameters:
+- url (str): The URL to check.
+
+Returns:
+- tuple: A tuple containing a boolean value indicating whether the URL exists or not, and the final URL after any redirects.
+
+Example:
+>>> check_url_exists("https://leetcode.com/")
+(True, "https://leetcode.com/")
+
+>>> check_url_exists("https://www.hackerrank.com/")
+(True, "https://www.hackerrank.com/")
+
+>>> check_url_exists("https://www.google.com/")
+(True, "https://www.google.com/")
+
+>>> check_url_exists("https://www.example.com/")
+(False, "https://www.example.com/")
+
+>>> check_url_exists("https://www.nonexistenturl.com/")
+(False, "https://www.nonexistenturl.com/")
+"""
 def check_url_exists(url):
     # if url is leeetcode
     if "https://leetcode.com/" in url:

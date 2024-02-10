@@ -91,6 +91,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    /**
+     * Check if a URL exists for a given column and row index.
+     *
+     * @param {string} col - The column name.
+     * @param {number} rowIndex - The index of the row.
+     * @returns {boolean} - True if the URL exists, false otherwise.
+     */
     function check_url(col, rowIndex) {
         let url_exists;
         console.log("rowIndex: " + rowIndex);

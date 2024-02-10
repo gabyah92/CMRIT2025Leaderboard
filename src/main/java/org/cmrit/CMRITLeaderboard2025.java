@@ -22,6 +22,25 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * The CMRITLeaderboard2025 class is responsible for scraping and processing data from various coding platforms
+ * such as Codeforces, Leetcode, GeeksforGeeks, Codechef, and Hackerrank. It loads participant details from a CSV file
+ * and stores them in a SQLite database. It then scrapes the ratings of participants from each platform and calculates
+ * their percentile based on the maximum rating in each platform. Finally, it builds a leaderboard by fetching the
+ * ratings from the database and sorting them in descending order of percentile. The leaderboard is then saved as an
+ * Excel file.
+ *
+ * The class provides methods for scraping ratings from each platform, loading data from CSV to the database,
+ * building the leaderboard, and uploading the leaderboard to the database. It also includes helper methods for
+ * splitting users into chunks for efficient scraping and parsing JSON responses from the platforms.
+ *
+ * The class uses external libraries such as Gson for JSON parsing and Jsoup for web scraping. It also makes use of
+ * standard Java libraries for database connectivity and file handling.
+ *
+ * Note: This class assumes that the necessary libraries are included in the classpath and the required database
+ * and file resources are available.
+ */
+
 public class CMRITLeaderboard2025 {
 
     private static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS " +
@@ -1281,6 +1300,48 @@ public class CMRITLeaderboard2025 {
         }
     }
 }
+
+/**
+ * Represents a user with various handles and ratings on different platforms.
+ * The User class provides methods to get and set the user's handles and ratings on platforms such as Codeforces, GeeksforGeeks, LeetCode, Codechef, and Hackerrank.
+ * 
+ * The User class has the following attributes:
+ * - handle: The user's handle or username.
+ * - codeforcesHandle: The user's handle on Codeforces platform.
+ * - geeksforgeeksHandle: The user's handle on GeeksforGeeks platform.
+ * - leetcodeHandle: The user's handle on LeetCode platform.
+ * - codechefHandle: The user's handle on Codechef platform.
+ * - hackerrankHandle: The user's handle on Hackerrank platform.
+ * - codeforcesRating: The user's rating on Codeforces platform.
+ * - geeksforgeeksRating: The user's rating on GeeksforGeeks platform.
+ * - geesforgeeksPracticeRating: The user's practice rating on GeeksforGeeks platform.
+ * - leetcodeRating: The user's rating on LeetCode platform.
+ * - codechefRating: The user's rating on Codechef platform.
+ * - hackerrankRating: The user's rating on Hackerrank platform.
+ * - percentile: The user's percentile.
+ * 
+ * The User class provides the following methods:
+ * - getHandle(): Returns the user's handle.
+ * - getCodeforcesHandle(): Returns the user's handle on Codeforces platform.
+ * - getGeeksforgeeksHandle(): Returns the user's handle on GeeksforGeeks platform.
+ * - getLeetcodeHandle(): Returns the user's handle on LeetCode platform.
+ * - getCodechefHandle(): Returns the user's handle on Codechef platform.
+ * - getHackerrankHandle(): Returns the user's handle on Hackerrank platform.
+ * - getCodeforcesRating(): Returns the user's rating on Codeforces platform.
+ * - getGeeksforgeeksRating(): Returns the user's rating on GeeksforGeeks platform.
+ * - getGeesforgeeksPracticeRating(): Returns the user's practice rating on GeeksforGeeks platform.
+ * - getLeetcodeRating(): Returns the user's rating on LeetCode platform.
+ * - getCodechefRating(): Returns the user's rating on Codechef platform.
+ * - getHackerrankRating(): Returns the user's rating on Hackerrank platform.
+ * - getPercentile(): Returns the user's percentile.
+ * - setCodeforcesRating(Integer codeforcesRating): Sets the user's rating on Codeforces platform.
+ * - setGeeksforgeeksRating(Integer geeksforgeeksRating): Sets the user's rating on GeeksforGeeks platform.
+ * - setGeesforgeeksPracticeRating(Integer geesforgeeksPracticeRating): Sets the user's practice rating on GeeksforGeeks platform.
+ * - setLeetcodeRating(Integer leetcodeRating): Sets the user's rating on LeetCode platform.
+ * - setCodechefRating(Integer codechefRating): Sets the user's rating on Codechef platform.
+ * - setHackerrankRating(Integer hackerrankRating): Sets the user's rating on Hackerrank platform.
+ * - setPercentile(Double percentile): Sets the user's percentile.
+ */
 
 class User {
     private String handle;
