@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'src/main/resources/**' # Trigger only when files in this path are pushed
+      - 'src/main/resources/CMRIT2025Leaderboard.xlsx'
 
 jobs:
   build:

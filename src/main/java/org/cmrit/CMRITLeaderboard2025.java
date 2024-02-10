@@ -593,7 +593,9 @@ public class CMRITLeaderboard2025 {
                 int geeksforgeeksRating = resultSet.getInt("geeksforgeeks_rating");
                 int geeksforgeeksPracticeRating = resultSet.getInt("geeksforgeeks_practice_rating");
                 int hackerrankRating = resultSet.getInt("hackerrank_rating");
-                double percentile = resultSet.getDouble("percentile");
+                String percentile = String.valueOf(resultSet.getDouble("percentile"));
+                // Add % to the percentile
+                percentile += "%";
                 String codeforcesHandle = userMap.get(handle).getCodeforcesHandle();
                 String geeksforgeeksHandle = userMap.get(handle).getGeeksforgeeksHandle();
                 String leetcodeHandle = userMap.get(handle).getLeetcodeHandle();
