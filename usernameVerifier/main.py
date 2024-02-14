@@ -79,6 +79,24 @@ def load_excel_sheet(excel_sheet_path):
 
     return participants
 
+def load_csv_sheet(csv_sheet_path):
+    # Function to load the csv sheet and return a list of Participant objects
+    participants = []
+
+    with open(csv_sheet_path, 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            # skip the first row
+            if row[0] == "Admn No:":
+                continue
+            # Admn No:,Name,GFG,CODEFORCES,LEETCODE,CODECHEF,HACKERRANK
+            handle, name, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle = row
+            participants.append(
+                Participant(handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle,
+                            hackerrank_handle))
+
+    return participants
+
 
 """
 Check if a given URL exists.
@@ -174,7 +192,13 @@ https://leetcode.com/graphql?query=query
 
 def main():
     excel_sheet_path = "..//src//main//resources//CMRIT2025Leaderboard.xlsx"
-    participants = load_excel_sheet(excel_sheet_path)
+    csv_sheet_path = "..//src//main//resources//CMRIT2025Leaderboard.csv"
+    # try to load the excel sheet, if it fails, load the csv sheet
+    try:
+        participants = load_excel_sheet(excel_sheet_path)
+    except FileNotFoundError:
+        participants = load_csv_sheet(csv_sheet_path)
+    
     # if log.txt exists, delete it
     try:
         open('log.txt', 'r')

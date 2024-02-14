@@ -18,8 +18,8 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4.1.1 # Checkout the repository's code
 
-    - name: Download CSV File
-      run: wget -O "src/main/resources/CMRIT2025Leaderboard.xlsx" "https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vTuq5uvNpRnEXxfwPUOgSWhFZPs_0BQZV6HnV-HIqh2tovJTHVWT_moXoOTl-uejmY_bgREOaqMZ27-/pub?output=csv&gid=1214357857&single=true"
+    - name: Download Username excel sheet # Download the Username excel sheet from the Google Sheets
+      run:  wget "https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vTuq5uvNpRnEXxfwPUOgSWhFZPs_0BQZV6HnV-HIqh2tovJTHVWT_moXoOTl-uejmY_bgREOaqMZ27-/pub?output=csv&gid=1214357857&single=true" -O src/main/resources/CMRIT2025Leaderboard.csv
 
     - name: Set up Python 3.10 # Set up Python version 3.10
       uses: actions/setup-python@v3
