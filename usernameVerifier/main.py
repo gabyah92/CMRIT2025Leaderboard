@@ -173,7 +173,7 @@ https://leetcode.com/graphql?query=query
 
 
 def main():
-    excel_sheet_path = "..//src/main//resources//CMRIT2025Leaderboard.xlsx"
+    excel_sheet_path = "..//src//main//resources//CMRIT2025Leaderboard.xlsx"
     participants = load_excel_sheet(excel_sheet_path)
     # if log.txt exists, delete it
     try:
