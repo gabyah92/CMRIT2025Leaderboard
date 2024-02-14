@@ -89,6 +89,9 @@ def load_csv_sheet(csv_sheet_path):
             # skip the first row
             if row[0] == "Admn No:":
                 continue
+            # stop reading if all elements of the row are 'None' or empty
+            if all(x == 'None' or x == '' for x in row):
+                break
             # Admn No:,Name,GFG,CODEFORCES,LEETCODE,CODECHEF,HACKERRANK
             handle, name, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle = row
             participants.append(
