@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let rowData = [];
 
     $.ajax({
-        url: 'https://raw.githubusercontent.com/dog-broad/CMRIT2025Leaderboard/main/src/main/resources/participant_details.csv',
+        url: 'https://raw.githubusercontent.com/gabyah92/CMRIT2025Leaderboard/main/src/main/resources/participant_details.csv',
         success: function (csvData) {
             Papa.parse(csvData, {
                 header: true,
