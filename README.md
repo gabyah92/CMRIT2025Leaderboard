@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 **Many thanks to [Rushyendra(21r01a67e6)](https://github.com/dog-broad) for his contributions on this projects UI, Yaml, gradle build, code, and so much more!**
 
 ## Introduction:
@@ -44,6 +45,9 @@ Contributions are welcome! Feel free to submit issues for bug fixes, feature req
 
 ## Disclaimer:
 This project is not officially affiliated with CMR Institute of Technology (CMRIT). It is an independent initiative by coding enthusiasts.
+=======
+**Many thanks to [Rushyendra(21r01a67e6)](https://github.com/dog-broad) for his contributions on this projects UI and Yaml!**
+>>>>>>> parent of 725aa51 (Merge branch 'pr/3')
 =======
 **Many thanks to [Rushyendra(21r01a67e6)](https://github.com/dog-broad) for his contributions on this projects UI and Yaml!**
 >>>>>>> parent of 725aa51 (Merge branch 'pr/3')
