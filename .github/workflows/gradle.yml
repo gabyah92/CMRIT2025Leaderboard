@@ -279,9 +279,13 @@ jobs:
         git commit -m "Add generated leaderboard data - $NOW"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         git pull --rebase
 =======
 >>>>>>> parent of 7fe6db4 (Try again)
+=======
+        git pull --rebase
+>>>>>>> parent of df87cc9 (Merge pull request #4 from dog-broad/main)
 =======
         git pull --rebase
 >>>>>>> parent of df87cc9 (Merge pull request #4 from dog-broad/main)
