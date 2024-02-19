@@ -1,363 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="CMRITLeaderboard2025:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4eb88ae-ae22-46ba-bfa6-b76ecb913ed7" name="Changes" comment="Me dumb af">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/users.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/jekyll-gh-pages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/jekyll-gh-pages.yml" afterDir="false" />
+    <list default="true" id="17621965-8b63-4478-9ab3-a925b02c3cf3" name="Changes" comment="Add jar file for ease of run">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Leaderboards/CurrentCMRITLeaderboard2025.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usernameVerifier/log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usernameVerifier/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/usernameVerifier/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/CMRITLeaderboard2025_jar/CMRITLeaderboard2025.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/CMRITLeaderboard2025_jar/CMRITLeaderboard2025.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CMRITLeaderboard2025.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMRITLeaderboard2025.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$">
-      <ProjectState />
-    </projectState>
-  </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CMRIT2025Leaderboard" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CMRIT2025Leaderboard" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CMRIT2025Leaderboard" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="HTML File" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
+  &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2bMvIOp52dKcTIKZAB3cKsPReMi" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2Zf2hTaZTv8pP44DEX41LoLOx4A" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Gradle.CMRIT2025Leaderboard [:CMRITLeaderboard2025.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CMRIT2025Leaderboard [:ScraperApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CMRIT2025Leaderboard [assemble].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CMRIT2025Leaderboard [buildDependents].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CMRIT2025Leaderboard [buildNeeded].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CMRIT2025Leaderboard [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CMRIT2025Leaderboard [check].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CMRIT2025Leaderboard [classes].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CMRIT2025Leaderboard [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CMRIT2025Leaderboard [jar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CMRIT2025Leaderboard [test].executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.sqlite-jdbc-3.45.1.0.jar.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/gradleBuildLeaderbaord/CMRIT2025Leaderboard/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.1487669&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/CMRIT2025Leaderboard",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.1487669",
+    "project.structure.side.proportion": "0.27324915",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="org.cmrit" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\gradleBuildLeaderbaord\CMRIT2025Leaderboard\src\main\resources" />
-      <recent name="D:\gradleBuildLeaderbaord\CMRIT2025Leaderboard\lib" />
-      <recent name="D:\gradleBuildLeaderbaord\CMRIT2025Leaderboard" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\gradleBuildLeaderbaord\CMRIT2025Leaderboard\src\main\java\org\cmrit" />
-      <recent name="D:\gradleBuildLeaderbaord\CMRIT2025Leaderboard\src\main\resources" />
-      <recent name="D:\gradleBuildLeaderbaord\CMRIT2025Leaderboard\src\test\resources" />
-    </key>
-  </component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="gradle assemble" />
-      <command value="gradle build" />
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.CMRITLeaderboard2025">
+}]]></component>
+  <component name="RunManager">
     <configuration name="CMRITLeaderboard2025" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.cmrit.CMRITLeaderboard2025" />
-      <module name="CMRIT2025Leaderboard.main" />
-      <option name="PROGRAM_PARAMETERS" value="build_leaderboard" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.cmrit.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="MAIN_CLASS_NAME" value="CMRITLeaderboard2025" />
+      <module name="CMRITLeaderboard2025" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CMRIT2025Leaderboard [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="assemble" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="CMRIT2025Leaderboard [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="check" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="CMRIT2025Leaderboard [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="sqlite-jdbc-3.45.1.0.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/lib/sqlite-jdbc-3.45.1.0.jar" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Application.CMRITLeaderboard2025" />
-      <item itemvalue="Gradle.CMRIT2025Leaderboard [assemble]" />
-      <item itemvalue="Gradle.CMRIT2025Leaderboard [check]" />
-      <item itemvalue="Gradle.CMRIT2025Leaderboard [test]" />
-      <item itemvalue="JAR Application.sqlite-jdbc-3.45.1.0.jar" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.sqlite-jdbc-3.45.1.0.jar" />
         <item itemvalue="Application.CMRITLeaderboard2025" />
-        <item itemvalue="Gradle.CMRIT2025Leaderboard [assemble]" />
-        <item itemvalue="Gradle.CMRIT2025Leaderboard [test]" />
-        <item itemvalue="Gradle.CMRIT2025Leaderboard [check]" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.1-openjdk-21.0.1-f644763e9732-f98dd351" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a4eb88ae-ae22-46ba-bfa6-b76ecb913ed7" name="Changes" comment="" />
-      <created>1706037691350</created>
+      <changelist id="17621965-8b63-4478-9ab3-a925b02c3cf3" name="Changes" comment="" />
+      <created>1702798931936</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1706037691350</updated>
-      <workItem from="1706037692461" duration="6042000" />
-      <workItem from="1706186421930" duration="5886000" />
-      <workItem from="1706710469111" duration="1000000" />
-      <workItem from="1706713957165" duration="8523000" />
-      <workItem from="1706804859203" duration="7200000" />
-      <workItem from="1707502505975" duration="6195000" />
+      <updated>1702798931936</updated>
+      <workItem from="1702798933007" duration="3762000" />
+      <workItem from="1702817020677" duration="1320000" />
     </task>
-    <task id="LOCAL-00001" summary="Fix leaderboard storage path">
+    <task id="LOCAL-00001" summary="Add jar file for ease of run">
       <option name="closed" value="true" />
-      <created>1707406791724</created>
+      <created>1702817296199</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1707406791724</updated>
+      <updated>1702817296199</updated>
     </task>
-    <task id="LOCAL-00002" summary="Fix a few things">
-      <option name="closed" value="true" />
-      <created>1707407354283</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1707407354284</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Replace deprecated set-output for date &amp; time generation">
-      <option name="closed" value="true" />
-      <created>1707407689537</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1707407689537</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Update database">
-      <option name="closed" value="true" />
-      <created>1707444418574</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1707444418574</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Test user verifier with old data">
-      <option name="closed" value="true" />
-      <created>1707500298515</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1707500298515</updated>
-    </task>
-    <task id="LOCAL-00006" summary="revert back to current data">
-      <option name="closed" value="true" />
-      <created>1707500522905</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1707500522905</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Fix hackerrank logic for verification">
-      <option name="closed" value="true" />
-      <created>1707506905018</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1707506905018</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Me dumb">
-      <option name="closed" value="true" />
-      <created>1707507160185</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1707507160185</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Me dumb af">
-      <option name="closed" value="true" />
-      <created>1707507260954</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1707507260954</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix leaderboard storage path" />
-    <MESSAGE value="Fix a few things" />
-    <MESSAGE value="Replace deprecated set-output for date &amp; time generation" />
-    <MESSAGE value="Update database" />
-    <MESSAGE value="Test user verifier with old data" />
-    <MESSAGE value="revert back to current data" />
-    <MESSAGE value="Fix hackerrank logic for verification" />
-    <MESSAGE value="Me dumb" />
-    <MESSAGE value="Me dumb af" />
-    <option name="LAST_COMMIT_MESSAGE" value="Me dumb af" />
+    <MESSAGE value="Add jar file for ease of run" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add jar file for ease of run" />
   </component>
 </project>
