@@ -76,7 +76,7 @@ public class CMRITLeaderboard2025 {
     static Map<String, User> userMap = new HashMap<>();
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CustomScrapingException {
 
         // Load data from csv
 
@@ -818,7 +818,7 @@ public class CMRITLeaderboard2025 {
 
     private static final int MAX_HANDLES_PER_REQUEST = 380;
 
-    private static void scrapeCodeforces(ArrayList<User> resultSet) {
+    private static void scrapeCodeforces(ArrayList<User> resultSet) throws CustomScrapingException {
         // Scraper logic for Codeforces
         System.out.println("Codeforces scraping in progress...");
 
@@ -838,38 +838,29 @@ public class CMRITLeaderboard2025 {
         int totalUsers = resultSet.size();
 
         for (List<User> users : userChunks) {
-            try {
-                // Create a list of all the Codeforces handles separated by ";"
-                String codeforcesHandles = users.stream()
-                        .map(User::getCodeforcesHandle)
-                        .map(handle -> handle.replaceAll(" ", ""))
-                        .collect(Collectors.joining(";"));
+            int retryCount = 0;
+            while (retryCount < 10) {
+                try {
+                    // Create a list of all the Codeforces handles separated by ";"
+                    String codeforcesHandles = users.stream()
+                            .map(User::getCodeforcesHandle)
+                            .map(handle -> handle.replaceAll(" ", ""))
+                            .collect(Collectors.joining(";"));
 
-                // Construct the URL with handles
-                String url = CODEFORCES_URL + codeforcesHandles;
-                System.out.println("Codeforces URL: " + url);
+                    // Construct the URL with handles
+                    String url = CODEFORCES_URL + codeforcesHandles;
+                    url = url.replaceAll("\t", "");
+                    System.out.println("Codeforces URL: " + url);
 
-                // Make HTTP request
-                URI websiteUrl = new URI(url);
-                URLConnection connection = websiteUrl.toURL().openConnection();
-                HttpURLConnection o = (HttpURLConnection) connection;
+                    // remove any special characters from the url
+                    url = url.replaceAll("[^\\x00-\\x7F]", "");
 
-                o.setRequestMethod("GET");
-                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_BAD_REQUEST) {
-                    throw new RuntimeException();
-                }
-
-                // Read response
-                try (InputStream inputStream = connection.getInputStream();
-                     BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-                    StringBuilder jsonContent = new StringBuilder();
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        jsonContent.append(line);
-                    }
+                    // Make HTTP request using Jsoup
+                    Document doc = Jsoup.connect(url).ignoreContentType(true).method(org.jsoup.Connection.Method.GET).execute().parse();
+                    String jsonContent = doc.body().text();
 
                     // Parse JSON response
-                    JSONObject jsonObject = new JSONObject(jsonContent.toString());
+                    JSONObject jsonObject = new JSONObject(jsonContent);
                     JSONArray array = jsonObject.getJSONArray("result");
 
                     // Process JSON data
@@ -895,16 +886,29 @@ public class CMRITLeaderboard2025 {
 
                         counter++;
                     }
+                    break; // Break out of the retry loop if successful
+                } catch (IOException e) {
+                    retryCount++;
+                    System.err.println("Error fetching codeforces rating. Retrying attempt " + retryCount + ": " + e.getMessage());
                 } catch (JSONException e) {
-                    System.err.println("Error fetching codeforces rating: " + e.getMessage());
+                    System.err.println("Error parsing JSON response: " + e.getMessage());
                 }
-            } catch (IOException | URISyntaxException e) {
-                System.err.println("Error fetching codeforces rating: " + e.getMessage());
+            }
+            if (retryCount == 10) {
+                throw new CustomScrapingException("Failed to fetch Codeforces rating after 10 retries.");
             }
         }
         System.out.println("Codeforces scraping completed.");
         System.out.println("========================================");
     }
+
+    // Custom exception for scraping
+    private static class CustomScrapingException extends Exception {
+        public CustomScrapingException(String message) {
+            super(message);
+        }
+    }
+
 
     private static List<List<User>> splitUsersIntoChunks(ArrayList<User> resultSet) {
         List<List<User>> chunks = new ArrayList<>();
