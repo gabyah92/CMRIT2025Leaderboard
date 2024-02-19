@@ -1,6 +1,6 @@
 # CMRIT 2025 Batch AutoUpdating Leaderboard.
 
-[![Java CI with Gradle](https://github.com/gabyah92/CMRIT2025Leaderboard/actions/workflows/gradle.yml/badge.svg)](https://github.com/gabyah92/CMRIT2025Leaderboard/actions/workflows/gradle.yml)
+[![Java CI with Gradle](https://github.com/dog-broad/CMRIT2025Leaderboard/actions/workflows/gradle.yml/badge.svg)](https://github.com/dog-broad/CMRIT2025Leaderboard/actions/workflows/gradle.yml)
 
 **The autoupdating leaderboard of CMR Institute of Technology, 2025 batch.**
 

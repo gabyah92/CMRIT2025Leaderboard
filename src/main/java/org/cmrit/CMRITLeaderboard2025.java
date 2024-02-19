@@ -916,10 +916,6 @@ public class CMRITLeaderboard2025 {
         return chunks;
     }
 
-    private static final int MAX_REQUESTS_PER_SECOND = 25;
-    private static final long REQUEST_INTERVAL_MILLIS = 1000 / MAX_REQUESTS_PER_SECOND;
-
-    private static long lastRequestTime = 0;
 
     private static void scrapeLeetcode(ArrayList<User> resultSet) {
         // Scraper logic for Leetcode
@@ -939,20 +935,6 @@ public class CMRITLeaderboard2025 {
         int size = resultSet.size();
 
         for (User user : resultSet) {
-
-            // Rate limiting
-            long currentTime = System.currentTimeMillis();
-            long timeElapsedSinceLastRequest = currentTime - lastRequestTime;
-            if (timeElapsedSinceLastRequest < REQUEST_INTERVAL_MILLIS) {
-                try {
-                    Thread.sleep(REQUEST_INTERVAL_MILLIS - timeElapsedSinceLastRequest);
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                    throw new RuntimeException("Interrupted while sleeping for rate limiting", e);
-                }
-            }
-            lastRequestTime = System.currentTimeMillis();
-
             String handle = user.getHandle();
             String leetcodeHandle = user.getLeetcodeHandle();
             String encodedLeetcodeHandle = URLEncoder.encode(leetcodeHandle, StandardCharsets.UTF_8);
