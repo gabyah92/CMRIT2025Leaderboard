@@ -277,5 +277,8 @@ jobs:
         git config --global user.name "GitHub Actions"
         git add ./Leaderboards/CurrentCMRITLeaderboard2025.xlsx
         git commit -m "Add generated leaderboard data - $NOW"
+<<<<<<< HEAD
         git pull --rebase
+=======
+>>>>>>> parent of 7fe6db4 (Try again)
         git push --force
