@@ -920,7 +920,7 @@ public class CMRITLeaderboard2025 {
         return chunks;
     }
 
-    private static final int MAX_REQUESTS_PER_SECOND = 5;
+    private static final int MAX_REQUESTS_PER_SECOND = 2;
     private static final long REQUEST_INTERVAL_MILLIS = 1000 / MAX_REQUESTS_PER_SECOND;
 
     private static long lastRequestTime = 0;
