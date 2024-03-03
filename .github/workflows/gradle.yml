@@ -82,6 +82,9 @@ jobs:
   gfg:
     runs-on: ubuntu-latest
     needs: build
+    env:
+        GFG_USERNAME: ${{ secrets.GFG_USERNAME }}
+        GFG_PASSWORD: ${{ secrets.GFG_PASSWORD }}
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4.1.1
