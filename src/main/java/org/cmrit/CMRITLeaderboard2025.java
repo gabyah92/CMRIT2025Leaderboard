@@ -1,6 +1,7 @@
 package org.cmrit;
 
 import com.google.gson.Gson;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -10,6 +11,11 @@ import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.*;
 import java.net.*;
@@ -76,7 +82,7 @@ public class CMRITLeaderboard2025 {
     static Map<String, User> userMap = new HashMap<>();
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CustomScrapingException {
 
         // Load data from csv
 
@@ -818,7 +824,7 @@ public class CMRITLeaderboard2025 {
 
     private static final int MAX_HANDLES_PER_REQUEST = 380;
 
-    private static void scrapeCodeforces(ArrayList<User> resultSet) {
+    private static void scrapeCodeforces(ArrayList<User> resultSet) throws CustomScrapingException {
         // Scraper logic for Codeforces
         System.out.println("Codeforces scraping in progress...");
 
@@ -838,38 +844,29 @@ public class CMRITLeaderboard2025 {
         int totalUsers = resultSet.size();
 
         for (List<User> users : userChunks) {
-            try {
-                // Create a list of all the Codeforces handles separated by ";"
-                String codeforcesHandles = users.stream()
-                        .map(User::getCodeforcesHandle)
-                        .map(handle -> handle.replaceAll(" ", ""))
-                        .collect(Collectors.joining(";"));
+            int retryCount = 0;
+            while (retryCount < 10) {
+                try {
+                    // Create a list of all the Codeforces handles separated by ";"
+                    String codeforcesHandles = users.stream()
+                            .map(User::getCodeforcesHandle)
+                            .map(handle -> handle.replaceAll(" ", ""))
+                            .collect(Collectors.joining(";"));
 
-                // Construct the URL with handles
-                String url = CODEFORCES_URL + codeforcesHandles;
-                System.out.println("Codeforces URL: " + url);
+                    // Construct the URL with handles
+                    String url = CODEFORCES_URL + codeforcesHandles;
+                    url = url.replaceAll("\t", "");
+                    System.out.println("Codeforces URL: " + url);
 
-                // Make HTTP request
-                URI websiteUrl = new URI(url);
-                URLConnection connection = websiteUrl.toURL().openConnection();
-                HttpURLConnection o = (HttpURLConnection) connection;
+                    // remove any special characters from the url
+                    url = url.replaceAll("[^\\x00-\\x7F]", "");
 
-                o.setRequestMethod("GET");
-                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_BAD_REQUEST) {
-                    throw new RuntimeException();
-                }
-
-                // Read response
-                try (InputStream inputStream = connection.getInputStream();
-                     BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-                    StringBuilder jsonContent = new StringBuilder();
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        jsonContent.append(line);
-                    }
+                    // Make HTTP request using Jsoup
+                    Document doc = Jsoup.connect(url).ignoreContentType(true).method(org.jsoup.Connection.Method.GET).execute().parse();
+                    String jsonContent = doc.body().text();
 
                     // Parse JSON response
-                    JSONObject jsonObject = new JSONObject(jsonContent.toString());
+                    JSONObject jsonObject = new JSONObject(jsonContent);
                     JSONArray array = jsonObject.getJSONArray("result");
 
                     // Process JSON data
@@ -895,16 +892,29 @@ public class CMRITLeaderboard2025 {
 
                         counter++;
                     }
+                    break; // Break out of the retry loop if successful
+                } catch (IOException e) {
+                    retryCount++;
+                    System.err.println("Error fetching codeforces rating. Retrying attempt " + retryCount + ": " + e.getMessage());
                 } catch (JSONException e) {
-                    System.err.println("Error fetching codeforces rating: " + e.getMessage());
+                    System.err.println("Error parsing JSON response: " + e.getMessage());
                 }
-            } catch (IOException | URISyntaxException e) {
-                System.err.println("Error fetching codeforces rating: " + e.getMessage());
+            }
+            if (retryCount == 10) {
+                throw new CustomScrapingException("Failed to fetch Codeforces rating after 10 retries.");
             }
         }
         System.out.println("Codeforces scraping completed.");
         System.out.println("========================================");
     }
+
+    // Custom exception for scraping
+    private static class CustomScrapingException extends Exception {
+        public CustomScrapingException(String message) {
+            super(message);
+        }
+    }
+
 
     private static List<List<User>> splitUsersIntoChunks(ArrayList<User> resultSet) {
         List<List<User>> chunks = new ArrayList<>();
@@ -916,6 +926,8 @@ public class CMRITLeaderboard2025 {
         return chunks;
     }
 
+    private static final int MAX_REQUESTS_PER_SECOND = 2;
+    private static final long REQUEST_INTERVAL_MILLIS = 1000 / MAX_REQUESTS_PER_SECOND;
 
     private static void scrapeLeetcode(ArrayList<User> resultSet) {
         // Scraper logic for Leetcode
@@ -948,6 +960,12 @@ public class CMRITLeaderboard2025 {
 
                 o.setRequestMethod("GET");
                 if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_BAD_REQUEST) {
+                    // if response is 524, wait for 30 seconds and try again
+                    if (o.getResponseCode() == 524) {
+                        Thread.sleep(30000);
+                        o.setRequestMethod("GET");
+                        continue;
+                    }
                     throw new RuntimeException();
                 }
 
@@ -991,7 +1009,7 @@ public class CMRITLeaderboard2025 {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-            } catch (URISyntaxException | IOException e) {
+            } catch (URISyntaxException | IOException | InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
@@ -1082,7 +1100,7 @@ public class CMRITLeaderboard2025 {
                     writer.close();
                     counter++;
                 } catch (IOException e) {
-                    System.err.println("Error fetching GFG Practice rating: " + e.getMessage());
+                    System.err.println("Error fetching GFG contest rating: " + e.getMessage());
                 }
             }
         }
@@ -1104,63 +1122,95 @@ public class CMRITLeaderboard2025 {
             System.err.println("Error clearing file: " + e.getMessage());
         }
 
-        for (User user: trueGfg) {
-            String gfgHandle = user.getGeeksforgeeksHandle();
-            url = GFG_URL + gfgHandle;
+        // Create an object of Firefox Options class
+        FirefoxOptions options = new FirefoxOptions();
+        // Set Firefox Headless mode as TRUE
+        options.addArguments("-headless");
+        // Initialize Firefox driver
+        WebDriver driver = new FirefoxDriver(options);
 
-            try {
-                websiteUrl = new URI(url);
-                connection = websiteUrl.toURL().openConnection();
-                o = (HttpURLConnection) connection;
-                o.setRequestMethod("GET");
-                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_BAD_REQUEST) {
-                    // set the practice rating to 0
-                    user.setGeesforgeeksPracticeRating(0);
-                    System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG practice rating for " + user.getHandle() + " with GFG handle " + gfgHandle + " is: " + 0);
-                    // Write to a text file
-                    FileWriter writer = new FileWriter("gfg_practice_ratings.txt", true);
-                    writer.write(user.getHandle() + "," + gfgHandle + "," + 0 + "\n");
-                    writer.close();
-                    counter++;
-                    continue;
-                }
-                inputStream = o.getInputStream();
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-                    StringBuilder jsonContent = new StringBuilder();
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        jsonContent.append(line);
+        // Navigate to the website
+        driver.get("https://auth.geeksforgeeks.org/");
+
+        try {
+            // Find username and password fields and enter credentials
+            WebElement username = driver.findElement(By.id("luser"));
+            WebElement password = driver.findElement(By.id("password"));
+            //load username from ENV
+            String gfgUsername = System.getenv("GFG_USERNAME");
+            String gfgPassword = System.getenv("GFG_PASSWORD");
+            username.sendKeys(gfgUsername);
+            password.sendKeys(gfgPassword);
+
+            // Click on the sign-in button
+            WebElement signInButton = driver.findElement(By.className("signin-button"));
+            signInButton.click();
+
+            // Add a delay for demonstration purposes
+            Thread.sleep(5000);
+
+            // open https://www.geeksforgeeks.org/colleges/cmr-institute-of-technology-hyderabad/students/?page=1
+            // but change page number each time
+
+            int page = 1;
+            boolean nonZeroScores = true;
+            while (nonZeroScores) {
+                // Print page
+                System.out.println("Page: " + page);
+                driver.get("https://www.geeksforgeeks.org/colleges/cmr-institute-of-technology-hyderabad/students/?page=" + page);
+                Thread.sleep(2000);
+                // get all the users list with <a> tag and href containing auth.geeksforgeeks.org/user/
+                List<WebElement> users_list = driver.findElements(By.xpath("//a[contains(@href, 'auth.geeksforgeeks.org/user/')]"));
+                for (WebElement user_instance : users_list) {
+                    // Fetch username from <p> with class UserCodingProfileCard_userCodingProfileCard_dataDiv_data--linkhandle__lZchE in the user element
+                    String gfgHandle = user_instance.findElement(By.xpath(".//p[contains(@class, 'UserCodingProfileCard_userCodingProfileCard_dataDiv_data--linkhandle__lZchE')]"))
+                            .getText().toLowerCase();
+
+                    // Fetch coding score from <div> with class UserCodingProfileCard_userCodingProfileCard_dataDiv_data__sLYOO and title "Coding Score"
+                    WebElement codingScoreDiv = user_instance.findElement(By.xpath(".//div[contains(@class, 'UserCodingProfileCard_userCodingProfileCard_dataDiv_data__sLYOO')]//p[contains(@class, 'UserCodingProfileCard_userCodingProfileCard_dataDiv_data--title__VIW4B') and text()='Coding Score']/following-sibling::p[contains(@class, 'UserCodingProfileCard_userCodingProfileCard_dataDiv_data--value__3A8Kx')]"));
+                    int gfgRating = Integer.parseInt(codingScoreDiv.getText().replaceAll("[^0-9]", ""));
+
+                    // if the score is 0, break the loop
+                    if (gfgRating == 0) {
+                        nonZeroScores = false;
+                        break;
                     }
-                    JSONObject jsonObject = new JSONObject(jsonContent.toString());
-                    int gfgPracticeRating = 0;
 
-                    try {
-                        gfgPracticeRating = jsonObject.getInt("overall_coding_score");
-
-                    } catch (JSONException e) {
-                        System.err.println("Error fetching GFG Practice rating for " + gfgHandle + ": " + e.getMessage());
+                    // find user handle with gfg handle
+                    User user = gfgHandleToUserMap.get(gfgHandle);
+                    if (user != null) {
+                        user.setGeesforgeeksPracticeRating(gfgRating);
+                        System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG practice contest rating for " + user.getHandle() + " with GFG handle " + gfgHandle + " is: " + gfgRating);
+                        // Write to a text file
+                        FileWriter writer = new FileWriter("gfg_practice_ratings.txt", true);
+                        writer.write(user.getHandle() + "," + gfgHandle + "," + gfgRating + "\n");
+                        writer.close();
+                        counter++;
                     }
-
-                    // update the user object with the gfg practice rating
-                    user.setGeesforgeeksPracticeRating(gfgPracticeRating);
-
-                    System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG practice rating for " + user.getHandle() + " with GFG handle " + gfgHandle + " is: " + gfgPracticeRating);
-                    // Write to a text file
-                    FileWriter writer = new FileWriter("gfg_practice_ratings.txt", true);
-                    writer.write(user.getHandle() + "," + gfgHandle + "," + gfgPracticeRating + "\n");
-                    writer.close();
-                    counter++;
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
                 }
-
-            } catch (URISyntaxException | IOException e) {
-                throw new RuntimeException(e);
+                page++;
             }
-        }
+            for (User user : trueGfg) {
+                if (user.getGeesforgeeksPracticeRating() == null) {
+                    user.setGeesforgeeksPracticeRating(0);
+                    System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG practice contest rating for " + user.getHandle() + " with GFG handle " + user.getGeeksforgeeksHandle() + " is: " + 0);
 
-        System.out.println("GeeksforGeeks scraping completed.");
-        System.out.println("========================================");
+                    try{
+                        FileWriter writer = new FileWriter("gfg_ratings.txt", true);
+                        writer.write(user.getHandle() + "," + user.getGeeksforgeeksHandle() + "," + 0 + "\n");
+                        writer.close();
+                        counter++;
+                    } catch (IOException e) {
+                        System.err.println("Error fetching GFG Practice rating: " + e.getMessage());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            // Close the browser
+            driver.quit();
+        }
     }
 
     static class DataModel {
