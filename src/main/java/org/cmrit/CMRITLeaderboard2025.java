@@ -1,4 +1,4 @@
-package main.java.org.cmrit;
+package org.cmrit;
 
 import com.google.gson.Gson;
 import io.github.bonigarcia.wdm.WebDriverManager;
