@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CMRITLeaderboard2025.iml" filepath="$PROJECT_DIR$/CMRITLeaderboard2025.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CMRIT2025Leaderboard.iml" filepath="$PROJECT_DIR$/.idea/modules/CMRIT2025Leaderboard.iml" />
     </modules>
   </component>
 </project>
