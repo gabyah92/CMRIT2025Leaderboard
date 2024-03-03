@@ -54,4 +54,4 @@ jobs:
         git config --global user.name "GitHub Actions"
         git add src/main/resources/participant_details.csv
         git commit -m "Add generated Verification data - $NOW"
-        git push origin HEAD:main --force
+        git push --force # Push the changes forcefully
