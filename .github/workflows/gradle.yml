@@ -96,6 +96,10 @@ jobs:
         distribution: 'temurin'
         architecture: x64
 
+    - name: Setup GeckoDriver
+      uses: midnight-madman/setup-geckodriver@latest
+      run: geckodriver --version
+
     - name: Download JAR Artifact
       uses: actions/download-artifact@v4.0.0
       with:

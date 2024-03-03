@@ -1138,8 +1138,6 @@ public class CMRITLeaderboard2025 {
             System.err.println("Error clearing file: " + e.getMessage());
         }
 
-        // Set up firefox selenium driver
-        WebDriverManager.firefoxdriver().setup();
         // Create an object of Firefox Options class
         FirefoxOptions options = new FirefoxOptions();
         // Set Firefox Headless mode as TRUE
