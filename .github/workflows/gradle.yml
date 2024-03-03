@@ -281,6 +281,7 @@ jobs:
 
     # Push the updated Leaderboard to the repository
     - name: Push Leaderboard
+      if: github.event_name != 'pull_request'  # Skip this job if triggered by pull request event
       run: |
         git config --global user.email "actions@github.com"
         git config --global user.name "GitHub Actions"
