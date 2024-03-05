@@ -1,6 +1,6 @@
 # CMRIT 2025 Batch AutoUpdating Leaderboard.
 
-[![Java CI with Gradle](https://github.com/dog-broad/CMRIT2025Leaderboard/actions/workflows/gradle.yml/badge.svg)](https://github.com/dog-broad/CMRIT2025Leaderboard/actions/workflows/gradle.yml)
+[![Java CI with Gradle](https://github.com/gabyah92/CMRIT2025Leaderboard/actions/workflows/gradle.yml/badge.svg)](https://github.com/gabyah92/CMRIT2025Leaderboard/actions/workflows/gradle.yml)
 
 **The autoupdating leaderboard of CMR Institute of Technology, 2025 batch.**
 
@@ -55,10 +55,10 @@ This section guides you through the steps required to set up and run the project
 * **Git Clone:**  Begin by cloning this repository to your local development environment using the following command in your terminal:
 
 ```bash
-git clone https://github.com/dog-broad/CMRITLeaderboard2025.git
+git clone https://github.com/gabyah92/CMRITLeaderboard2025.git
 ```
 
-If you have forked the Repo, replace `dog-broad` with your actual GitHub username. This will download the project's source code to your local machine.
+If you have forked the Repo, replace `gabyah92` with your actual GitHub username. This will download the project's source code to your local machine.
 
 **2. Gradle Installation:**
 
