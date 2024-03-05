@@ -22,10 +22,7 @@ import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -1208,16 +1205,36 @@ public class CMRITLeaderboard2025 {
             }
             for (User user : trueGfg) {
                 if (user.getGeesforgeeksPracticeRating() == null) {
-                    user.setGeesforgeeksPracticeRating(0);
-                    System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG practice contest rating for " + user.getHandle() + " with GFG handle " + user.getGeeksforgeeksHandle() + " is: " + 0);
+                    // Open their profile and get the rating
+                    String gfgHandle = user.getGeeksforgeeksHandle();
+                    driver.get("https://auth.geeksforgeeks.org/user/" + gfgHandle);
+                    Thread.sleep(2000);
+                    /*
+                    Score is in div:
+                    <div class="score_card">
+                        <div class="score_card_left">
+                            <span class="score_card_name">Overall Coding Score</span>
+                            <br/>
+                            <span class="score_card_value">572</span>
+                        </div>
+                        <img height="60" src="Group-96.svg" alt=""/>
+                    </div>
+                     */
+                    // score_card -> score_card_left -> span class "score_card_name" with content Overall Coding Score, parse score_card_value from there
+                    // get from xpath
+                    try {
+                        WebElement scoreCardValue = driver.findElement(By.xpath("//span[contains(text(), 'Overall Coding Score')]/following-sibling::br/following-sibling::span"));
+                        int gfgRating = Integer.parseInt(scoreCardValue.getText());
+                        user.setGeesforgeeksPracticeRating(gfgRating);
 
-                    try{
-                        FileWriter writer = new FileWriter("gfg_ratings.txt", true);
-                        writer.write(user.getHandle() + "," + user.getGeeksforgeeksHandle() + "," + 0 + "\n");
+                        System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG practice contest rating for " + user.getHandle() + " with GFG handle " + user.getGeeksforgeeksHandle() + " is: " + gfgRating);
+                        FileWriter writer = new FileWriter("gfg_practice_ratings.txt", true);
+                        writer.write(user.getHandle() + "," + gfgHandle + "," + gfgRating + "\n");
                         writer.close();
                         counter++;
-                    } catch (IOException e) {
-                        System.err.println("Error fetching GFG Practice rating: " + e.getMessage());
+                    }
+                    catch (NoSuchElementException e) {
+                        System.err.println("Error fetching GFG practice contest rating for " + gfgHandle + ": " + e.getMessage());
                     }
                 }
             }
