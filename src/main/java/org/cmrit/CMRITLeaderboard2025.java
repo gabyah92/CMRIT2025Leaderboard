@@ -2,7 +2,6 @@ package org.cmrit;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -757,7 +756,11 @@ public class CMRITLeaderboard2025 {
                 preparedStatement.setInt(3, user.getCodechefRating());
                 preparedStatement.setInt(4, user.getLeetcodeRating());
                 preparedStatement.setInt(5, user.getGeeksforgeeksRating());
-                preparedStatement.setInt(6, user.getgeeksforgeeksPracticeRating());
+                if (user.getgeeksforgeeksPracticeRating() == null) {
+                    preparedStatement.setInt(6, 0);
+                } else {
+                    preparedStatement.setInt(6, user.getgeeksforgeeksPracticeRating());
+                }
                 preparedStatement.setInt(7, user.getHackerrankRating());
                 if (user.getPercentile() == null) {
                     preparedStatement.setNull(8, Types.REAL);
