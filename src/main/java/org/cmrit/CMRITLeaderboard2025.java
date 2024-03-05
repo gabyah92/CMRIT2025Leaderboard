@@ -1,7 +1,7 @@
 package org.cmrit;
 
 import com.google.gson.Gson;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.google.gson.annotations.SerializedName;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -68,8 +68,9 @@ public class CMRITLeaderboard2025 {
     private static final String CODECHEF_URL = "https://codechef-api.vercel.app/";
     private static final String CODEFORCES_URL = "https://codeforces.com/api/user.info?handles=";
     private static final String LEETCODE_URL = "https://leetcode.com/graphql?query=";
-    private static final String GFG_URL = "https://coding-platform-profile-api.onrender.com/geeksforgeeks/";
-    private static final String GFG_PRACTICE_URL = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page=";
+    private static final String GFG_URL = "https://auth.geeksforgeeks.org/user/";
+    private static final String GFG_WEEKLY_CONTEST_URL = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page=";
+    private static final String GFG_PRACTICE_URL = "https://practiceapi.geeksforgeeks.org/api/v1/institute/341/students/stats?page=";
     public static final String[] SEARCH_TOKENS = {
             "cmrit25-1-basics", "cmrit25-4-rbd", "cmrit25-3-iterables", "cmrit25-2-lpb", "cmrit25-5-ds",
             "1-basics-2025", "2-loops-2025", "3-bitpat-2025", "4-iterables-2025", "5-recursion-2025",
@@ -234,6 +235,44 @@ public class CMRITLeaderboard2025 {
                 }
 
                 scrapeGfg(trueGeeksforgeeks, gfgHandleToUserMap);
+                break;
+            case "gfg_practice":
+                // Fetch all true gfg handles from the database
+                try{
+                    conn = DriverManager.getConnection("jdbc:sqlite:" + dbName);
+                    statement = conn.createStatement();
+
+                    String sql = "SELECT handle, geeksforgeeks_handle FROM users_data WHERE geeksforgeeks_url_exists = 1";
+                    resultSet = statement.executeQuery(sql);
+
+                    assert resultSet != null;
+
+                    while (resultSet.next()) {
+                        String handle = resultSet.getString("handle");
+                        String geeksforgeeksHandle = resultSet.getString("geeksforgeeks_handle");
+                        if (geeksforgeeksHandle != null) {
+                            trueGeeksforgeeks.add(new User(handle, "geeksforgeeks", geeksforgeeksHandle));
+                        }
+                    }
+                } catch (SQLException e) {
+                    System.err.println("Error fetching true GeeksforGeeks handles: " + e.getMessage());
+                } finally {
+                    try {
+                        if (resultSet != null) resultSet.close();
+                        if (statement != null) statement.close();
+                        if (conn != null) conn.close();
+                    } catch (SQLException e) {
+                        System.err.println("Error closing resultSet, statement, or connection: " + e.getMessage());
+                    }
+                }
+
+                // create a gfgHandle to user map
+                gfgHandleToUserMap = new HashMap<>();
+                for (User user : trueGeeksforgeeks) {
+                    gfgHandleToUserMap.put(user.getGeeksforgeeksHandle().toLowerCase(), user);
+                }
+
+                scrapeGfgPractice(trueGeeksforgeeks, gfgHandleToUserMap);
                 break;
             case "hackerrank":
                 // Fetch all true hackerrank handles from the database
@@ -433,7 +472,7 @@ public class CMRITLeaderboard2025 {
                     userMap.put(handle, new User(handle, "geeksforgeeks", gfgHandle));
                 }
                 User user = userMap.get(handle);
-                user.setGeesforgeeksPracticeRating(rating);
+                user.setgeeksforgeeksPracticeRating(rating);
             }
         } catch (IOException e) {
             System.err.println("Error reading GFG Practice ratings file: " + e.getMessage());
@@ -543,7 +582,10 @@ public class CMRITLeaderboard2025 {
         for (User user : userMap.values()) {
             double cf = (double) user.getCodeforcesRating() / maxCodeforcesRating * 100;
             double gfgs = (double) user.getGeeksforgeeksRating() / maxGeeksforgeeksRating * 100;
-            double gfgp = (double) user.getGeesforgeeksPracticeRating() / maxGeeksforgeeksPracticeRating * 100;
+            if (user.getgeeksforgeeksPracticeRating() == null) {
+                user.setgeeksforgeeksPracticeRating(0);
+            }
+            double gfgp = (double) user.getgeeksforgeeksPracticeRating() / maxGeeksforgeeksPracticeRating * 100;
             double lc = (double) user.getLeetcodeRating() / maxLeetcodeRating * 100;
             double cc = (double) user.getCodechefRating() / maxCodechefRating * 100;
             double hr = (double) user.getHackerrankRating() / maxHackerrankRating * 100;
@@ -717,7 +759,11 @@ public class CMRITLeaderboard2025 {
                 preparedStatement.setInt(3, user.getCodechefRating());
                 preparedStatement.setInt(4, user.getLeetcodeRating());
                 preparedStatement.setInt(5, user.getGeeksforgeeksRating());
-                preparedStatement.setInt(6, user.getGeesforgeeksPracticeRating());
+                if (user.getgeeksforgeeksPracticeRating() == null) {
+                    preparedStatement.setInt(6, 0);
+                } else {
+                    preparedStatement.setInt(6, user.getgeeksforgeeksPracticeRating());
+                }
                 preparedStatement.setInt(7, user.getHackerrankRating());
                 if (user.getPercentile() == null) {
                     preparedStatement.setNull(8, Types.REAL);
@@ -1031,7 +1077,7 @@ public class CMRITLeaderboard2025 {
         System.out.println("========================================");
     }
 
-    private static void scrapeGfg(ArrayList<User> trueGfg, Map<String, User> gfgHandleToUserMap) {
+    private static void scrapeGfg(ArrayList<User> trueGfg, Map<String, User> gfgHandleToUserMap){
         // Scraper logic for GeeksforGeeks
 
         System.out.println("GeeksforGeeks scraping in progress...");
@@ -1059,7 +1105,7 @@ public class CMRITLeaderboard2025 {
 
         for(int j=1;j<=10000;j++) {
             try {
-                url = GFG_PRACTICE_URL + j;
+                url = GFG_WEEKLY_CONTEST_URL + j;
 
                 System.out.println("Page: " + j);
 
@@ -1121,12 +1167,24 @@ public class CMRITLeaderboard2025 {
         System.out.println("GFG overall scraping completed.");
         System.out.println("========================================");
 
-        // Practice contest scraping
+    }
 
-        counter = 1;
+    private static void scrapeGfgPractice(ArrayList<User> trueGfg, Map<String, User> gfgHandleToUserMap){
+        // Scraper logic for GeeksforGeeks
+
+        System.out.println("GeeksforGeeks scraping in progress...");
+
+        // Essential variables
+        String url;
+        URI websiteUrl;
+        URLConnection connection;
+        HttpURLConnection o;
+        InputStream inputStream;
+
+        int counter = 1;
 
         // create or clear the file for writing
-        file = new File("gfg_practice_ratings.txt");
+        File file = new File("gfg_practice_ratings.txt");
         try {
             FileWriter writer = new FileWriter(file);
             writer.write(""); // Clearing the file
@@ -1135,13 +1193,64 @@ public class CMRITLeaderboard2025 {
             System.err.println("Error clearing file: " + e.getMessage());
         }
 
+        System.out.println("GFG practice scraping in progress...");
+
+        // Overall Practice score scraping
+        for(int j=1;j<=100;j++) {
+            try {
+                url = GFG_PRACTICE_URL + j + "&page_size=1000";
+
+                System.out.println("Page: " + j);
+
+                // Check if URL exists else break
+                URI uri = new URI(url);
+                HttpURLConnection exists = (HttpURLConnection) uri.toURL().openConnection();
+                exists.setRequestMethod("GET");
+                if (exists.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || exists.getResponseCode() == HttpURLConnection.HTTP_BAD_REQUEST) {
+                    break;
+                }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+
+                // Fetch JSON data from a URL (or you can read from a file)
+                Document doc = Jsoup.connect(url).ignoreContentType(true).get();
+                String json = doc.body().text();
+
+                // Parse JSON using Gson
+                Gson gson = new Gson();
+                GeeksforgeeksStatsResponse gfguserData = gson.fromJson(json, GeeksforgeeksStatsResponse.class);
+
+                // Access parsed data
+
+                for (GeeksforgeeksStatsResult gfgUser : gfguserData.getResults()) {
+                    String gfgHandle = gfgUser.getHandle();
+                    User user = gfgHandleToUserMap.get(gfgHandle.toLowerCase());
+                    if (user != null) {
+                        user.setgeeksforgeeksPracticeRating(gfgUser.getCodingScore());
+                        System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG practice contest rating for " + user.getHandle() + " with GFG handle " + gfgHandle + " is: " + gfgUser.getCodingScore());
+                        // Write to a text file
+                        FileWriter writer = new FileWriter("gfg_practice_ratings.txt", true);
+                        writer.write(user.getHandle() + "," + gfgHandle + "," + gfgUser.getCodingScore() + "\n");
+                        writer.close();
+                        counter++;
+                    }
+                }
+            } catch (IOException e) {
+                System.err.println("Error fetching GFG Practice rating: " + e.getMessage());
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        System.out.println("GFG practice scraping from institute page completed.");
         // Create an object of Firefox Options class
         FirefoxOptions options = new FirefoxOptions();
         // Set Firefox Headless mode as TRUE
         options.addArguments("-headless");
         // Initialize Firefox driver
         WebDriver driver = new FirefoxDriver(options);
-
         // Navigate to the website
         driver.get("https://auth.geeksforgeeks.org/");
 
@@ -1162,78 +1271,46 @@ public class CMRITLeaderboard2025 {
             // Add a delay for demonstration purposes
             Thread.sleep(5000);
 
-            // open https://www.geeksforgeeks.org/colleges/cmr-institute-of-technology-hyderabad/students/?page=1
-            // but change page number each time
-
-            int page = 1;
-            boolean nonZeroScores = true;
-            while (nonZeroScores) {
-                // Print page
-                System.out.println("Page: " + page);
-                driver.get("https://www.geeksforgeeks.org/colleges/cmr-institute-of-technology-hyderabad/students/?page=" + page);
-                Thread.sleep(2000);
-                // get all the users list with <a> tag and href containing auth.geeksforgeeks.org/user/
-                List<WebElement> users_list = driver.findElements(By.xpath("//a[contains(@href, 'auth.geeksforgeeks.org/user/')]"));
-                for (WebElement user_instance : users_list) {
-                    // Fetch username from <p> with class UserCodingProfileCard_userCodingProfileCard_dataDiv_data--linkhandle__lZchE in the user element
-                    String gfgHandle = user_instance.findElement(By.xpath(".//p[contains(@class, 'UserCodingProfileCard_userCodingProfileCard_dataDiv_data--linkhandle__lZchE')]"))
-                            .getText().toLowerCase();
-
-                    // Fetch coding score from <div> with class UserCodingProfileCard_userCodingProfileCard_dataDiv_data__sLYOO and title "Coding Score"
-                    WebElement codingScoreDiv = user_instance.findElement(By.xpath(".//div[contains(@class, 'UserCodingProfileCard_userCodingProfileCard_dataDiv_data__sLYOO')]//p[contains(@class, 'UserCodingProfileCard_userCodingProfileCard_dataDiv_data--title__VIW4B') and text()='Coding Score']/following-sibling::p[contains(@class, 'UserCodingProfileCard_userCodingProfileCard_dataDiv_data--value__3A8Kx')]"));
-                    int gfgRating = Integer.parseInt(codingScoreDiv.getText().replaceAll("[^0-9]", ""));
-
-                    // if the score is 0, break the loop
-                    if (gfgRating == 0) {
-                        nonZeroScores = false;
-                        break;
-                    }
-
-                    // find user handle with gfg handle
-                    User user = gfgHandleToUserMap.get(gfgHandle);
-                    if (user != null) {
-                        user.setGeesforgeeksPracticeRating(gfgRating);
-                        System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG practice contest rating for " + user.getHandle() + " with GFG handle " + gfgHandle + " is: " + gfgRating);
-                        // Write to a text file
-                        FileWriter writer = new FileWriter("gfg_practice_ratings.txt", true);
-                        writer.write(user.getHandle() + "," + gfgHandle + "," + gfgRating + "\n");
-                        writer.close();
-                        counter++;
-                    }
-                }
-                page++;
-            }
             for (User user : trueGfg) {
-                if (user.getGeesforgeeksPracticeRating() == null) {
+                if (user.getgeeksforgeeksPracticeRating() == null) {
                     // Open their profile and get the rating
                     String gfgHandle = user.getGeeksforgeeksHandle();
-                    driver.get("https://auth.geeksforgeeks.org/user/" + gfgHandle);
-                    Thread.sleep(2000);
-                    /*
-                    Score is in div:
-                    <div class="score_card">
-                        <div class="score_card_left">
-                            <span class="score_card_name">Overall Coding Score</span>
-                            <br/>
-                            <span class="score_card_value">572</span>
+                    System.out.println("Practice rating not found for " + user.getHandle() + " with GFG handle " + gfgHandle + ". Fetching from profile...");
+                    driver.get(GFG_URL + gfgHandle);
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                        /*
+                        Score is in div:
+                        <div class="score_card">
+                            <div class="score_card_left">
+                                <span class="score_card_name">Overall Coding Score</span>
+                                <br/>
+                                <span class="score_card_value">572</span>
+                            </div>
+                            <img height="60" src="Group-96.svg" alt=""/>
                         </div>
-                        <img height="60" src="Group-96.svg" alt=""/>
-                    </div>
-                     */
+                         */
                     // score_card -> score_card_left -> span class "score_card_name" with content Overall Coding Score, parse score_card_value from there
                     // get from xpath
                     try {
                         WebElement scoreCardValue = driver.findElement(By.xpath("//span[contains(text(), 'Overall Coding Score')]/following-sibling::br/following-sibling::span"));
-                        int gfgRating = Integer.parseInt(scoreCardValue.getText());
-                        user.setGeesforgeeksPracticeRating(gfgRating);
+                        int gfgRating = 0;
+                        try {
+                            gfgRating = Integer.parseInt(scoreCardValue.getText());
+                        } catch (NumberFormatException e) {
+                            System.err.println("Error parsing GFG practice contest rating for " + gfgHandle + ": " + e.getMessage());
+                        }
+                        user.setgeeksforgeeksPracticeRating(gfgRating);
 
                         System.out.println("(" + counter + "/" + trueGfg.size() + ") " + "GFG practice contest rating for " + user.getHandle() + " with GFG handle " + user.getGeeksforgeeksHandle() + " is: " + gfgRating);
                         FileWriter writer = new FileWriter("gfg_practice_ratings.txt", true);
                         writer.write(user.getHandle() + "," + gfgHandle + "," + gfgRating + "\n");
                         writer.close();
                         counter++;
-                    }
-                    catch (NoSuchElementException e) {
+                    } catch (NoSuchElementException | IOException e) {
                         System.err.println("Error fetching GFG practice contest rating for " + gfgHandle + ": " + e.getMessage());
                     }
                 }
@@ -1257,6 +1334,36 @@ public class CMRITLeaderboard2025 {
         String user_handle;
         double user_score;
         int user_rank;
+    }
+
+    static class GeeksforgeeksStatsResponse {
+
+        @SerializedName("page_size")
+        private int pageSize;
+        private int count;
+        private String next;
+        private String previous;
+        private List<GeeksforgeeksStatsResult> results;
+
+        // Getters and setters
+        public List<GeeksforgeeksStatsResult> getResults() {return results;}
+    }
+
+    static class GeeksforgeeksStatsResult {
+
+        @SerializedName("user_id")
+        private int userId;
+        private String handle;
+        @SerializedName("coding_score")
+        private int codingScore;
+        @SerializedName("total_problems_solved")
+        private int totalProblemsSolved;
+        @SerializedName("potd_longest_streak")
+        private Integer potdLongestStreak;
+
+        // Getters and setters
+        public String getHandle() {return handle;}
+        public int getCodingScore() {return codingScore;}
     }
 
     private static void scrapeHackerrank(ArrayList<User> trueHackerrank, Map<String, User> hackerrankHandleToUserMap) {
@@ -1397,7 +1504,7 @@ public class CMRITLeaderboard2025 {
  * - hackerrankHandle: The user's handle on Hackerrank platform.
  * - codeforcesRating: The user's rating on Codeforces platform.
  * - geeksforgeeksRating: The user's rating on GeeksforGeeks platform.
- * - geesforgeeksPracticeRating: The user's practice rating on GeeksforGeeks platform.
+ * - geeksforgeeksPracticeRating: The user's practice rating on GeeksforGeeks platform.
  * - leetcodeRating: The user's rating on LeetCode platform.
  * - codechefRating: The user's rating on Codechef platform.
  * - hackerrankRating: The user's rating on Hackerrank platform.
@@ -1412,14 +1519,14 @@ public class CMRITLeaderboard2025 {
  * - getHackerrankHandle(): Returns the user's handle on Hackerrank platform.
  * - getCodeforcesRating(): Returns the user's rating on Codeforces platform.
  * - getGeeksforgeeksRating(): Returns the user's rating on GeeksforGeeks platform.
- * - getGeesforgeeksPracticeRating(): Returns the user's practice rating on GeeksforGeeks platform.
+ * - getgeeksforgeeksPracticeRating(): Returns the user's practice rating on GeeksforGeeks platform.
  * - getLeetcodeRating(): Returns the user's rating on LeetCode platform.
  * - getCodechefRating(): Returns the user's rating on Codechef platform.
  * - getHackerrankRating(): Returns the user's rating on Hackerrank platform.
  * - getPercentile(): Returns the user's percentile.
  * - setCodeforcesRating(Integer codeforcesRating): Sets the user's rating on Codeforces platform.
  * - setGeeksforgeeksRating(Integer geeksforgeeksRating): Sets the user's rating on GeeksforGeeks platform.
- * - setGeesforgeeksPracticeRating(Integer geesforgeeksPracticeRating): Sets the user's practice rating on GeeksforGeeks platform.
+ * - setgeeksforgeeksPracticeRating(Integer geeksforgeeksPracticeRating): Sets the user's practice rating on GeeksforGeeks platform.
  * - setLeetcodeRating(Integer leetcodeRating): Sets the user's rating on LeetCode platform.
  * - setCodechefRating(Integer codechefRating): Sets the user's rating on Codechef platform.
  * - setHackerrankRating(Integer hackerrankRating): Sets the user's rating on Hackerrank platform.
@@ -1436,7 +1543,7 @@ class User {
 
     private Integer codeforcesRating;
     private Integer geeksforgeeksRating;
-    private Integer geesforgeeksPracticeRating;
+    private Integer geeksforgeeksPracticeRating;
     private Integer leetcodeRating;
     private Integer codechefRating;
     private Integer hackerrankRating;
@@ -1454,7 +1561,7 @@ class User {
         // set all ratings to 0
         this.codeforcesRating = 0;
         this.geeksforgeeksRating = 0;
-        this.geesforgeeksPracticeRating = 0;
+        this.geeksforgeeksPracticeRating = null;
         this.leetcodeRating = 0;
         this.codechefRating = 0;
         this.hackerrankRating = 0;
@@ -1470,7 +1577,7 @@ class User {
         // set all ratings to 0
         this.codeforcesRating = 0;
         this.geeksforgeeksRating = 0;
-        this.geesforgeeksPracticeRating = 0;
+        this.geeksforgeeksPracticeRating = null;
         this.leetcodeRating = 0;
         this.codechefRating = 0;
         this.hackerrankRating = 0;
@@ -1510,8 +1617,8 @@ class User {
         return geeksforgeeksRating;
     }
 
-    public Integer getGeesforgeeksPracticeRating() {
-        return geesforgeeksPracticeRating;
+    public Integer getgeeksforgeeksPracticeRating() {
+        return geeksforgeeksPracticeRating;
     }
 
     public Integer getLeetcodeRating() {
@@ -1540,8 +1647,8 @@ class User {
         this.geeksforgeeksRating = geeksforgeeksRating;
     }
 
-    public void setGeesforgeeksPracticeRating(Integer geesforgeeksPracticeRating) {
-        this.geesforgeeksPracticeRating = geesforgeeksPracticeRating;
+    public void setgeeksforgeeksPracticeRating(Integer geeksforgeeksPracticeRating) {
+        this.geeksforgeeksPracticeRating = geeksforgeeksPracticeRating;
     }
 
     public void setLeetcodeRating(Integer leetcodeRating) {
