@@ -582,6 +582,9 @@ public class CMRITLeaderboard2025 {
         for (User user : userMap.values()) {
             double cf = (double) user.getCodeforcesRating() / maxCodeforcesRating * 100;
             double gfgs = (double) user.getGeeksforgeeksRating() / maxGeeksforgeeksRating * 100;
+            if (user.getgeeksforgeeksPracticeRating() == null) {
+                user.setgeeksforgeeksPracticeRating(0);
+            }
             double gfgp = (double) user.getgeeksforgeeksPracticeRating() / maxGeeksforgeeksPracticeRating * 100;
             double lc = (double) user.getLeetcodeRating() / maxLeetcodeRating * 100;
             double cc = (double) user.getCodechefRating() / maxCodechefRating * 100;
