@@ -249,7 +249,7 @@ jobs:
 
   build_leaderboard:
     runs-on: ubuntu-latest
-    needs: [codeforces, gfg, leetcode, codechef, hackerrank]
+    needs: [codeforces, gfg, gfg_practice, leetcode, codechef, hackerrank]
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4.1.1
