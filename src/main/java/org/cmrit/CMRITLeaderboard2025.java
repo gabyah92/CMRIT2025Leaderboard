@@ -71,7 +71,7 @@ public class CMRITLeaderboard2025 {
     private static final String GFG_URL = "https://auth.geeksforgeeks.org/user/";
     private static final String GFG_WEEKLY_CONTEST_URL = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page=";
     private static final String GFG_PRACTICE_URL = "https://practiceapi.geeksforgeeks.org/api/v1/institute/341/students/stats?page=";
-    public static String[] SEARCH_TOKENS = new String[50];
+    public static List<String> SEARCH_TOKENS = new ArrayList<>();
 
     static Map<String, User> userMap = new HashMap<>();
 
@@ -83,17 +83,12 @@ public class CMRITLeaderboard2025 {
         loadCSVtoSQL("src//main//resources//participant_details.csv");
 
         // Load hackerrank urls
-        try (BufferedReader br = new BufferedReader(new FileReader("src//main//resources//hackerrank_urls.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("urls.txt"))) {
             String line;
-            int index = 0;
             while ((line = br.readLine()) != null) {
-                // if line ends with '/' remove it
-                if (line.endsWith("/")) {
-                    line = line.substring(0, line.length() - 1);
-                }
                 String[] parts = line.split("/");
                 String lastPart = parts[parts.length - 1];
-                SEARCH_TOKENS[index++] = lastPart;
+                SEARCH_TOKENS.add(lastPart);
             }
             System.out.println("Hackerrank urls loaded successfully.");
             // Print all assigned search tokens
