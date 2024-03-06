@@ -71,11 +71,7 @@ public class CMRITLeaderboard2025 {
     private static final String GFG_URL = "https://auth.geeksforgeeks.org/user/";
     private static final String GFG_WEEKLY_CONTEST_URL = "https://practiceapi.geeksforgeeks.org/api/latest/events/recurring/gfg-weekly-coding-contest/leaderboard/?leaderboard_type=0&page=";
     private static final String GFG_PRACTICE_URL = "https://practiceapi.geeksforgeeks.org/api/v1/institute/341/students/stats?page=";
-    public static final String[] SEARCH_TOKENS = {
-            "cmrit25-1-basics", "cmrit25-4-rbd", "cmrit25-3-iterables", "cmrit25-2-lpb", "cmrit25-5-ds",
-            "1-basics-2025", "2-loops-2025", "3-bitpat-2025", "4-iterables-2025", "5-recursion-2025",
-            "strivers-sde-sheet", "ds-2025", "codevita-2025", "mentor-graphics-2025"
-    };
+    public static String[] SEARCH_TOKENS = new String[50];
 
     static Map<String, User> userMap = new HashMap<>();
 
@@ -85,6 +81,28 @@ public class CMRITLeaderboard2025 {
         // Load data from csv
 
         loadCSVtoSQL("src//main//resources//participant_details.csv");
+
+        // Load hackerrank urls
+        try (BufferedReader br = new BufferedReader(new FileReader("src//main//resources//hackerrank_urls.txt"))) {
+            String line;
+            int index = 0;
+            while ((line = br.readLine()) != null) {
+                // if line ends with '/' remove it
+                if (line.endsWith("/")) {
+                    line = line.substring(0, line.length() - 1);
+                }
+                String[] parts = line.split("/");
+                String lastPart = parts[parts.length - 1];
+                SEARCH_TOKENS[index++] = lastPart;
+            }
+            System.out.println("Hackerrank urls loaded successfully.");
+            // Print all assigned search tokens
+            for (String token : SEARCH_TOKENS) {
+                System.out.println(token);
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
 
         String methodName = args[0];
 
@@ -1382,6 +1400,7 @@ public class CMRITLeaderboard2025 {
 
         try {
             for (String trackerName : SEARCH_TOKENS) {
+                if (trackerName.equals("null")) break;
                 System.out.println(trackerName);
                 for (int j = 0; j < 10000; j += 100) {
                     try {
