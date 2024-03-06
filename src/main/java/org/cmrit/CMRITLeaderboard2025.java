@@ -74,7 +74,7 @@ public class CMRITLeaderboard2025 {
     public static final String[] SEARCH_TOKENS = {
             "cmrit25-1-basics", "cmrit25-4-rbd", "cmrit25-3-iterables", "cmrit25-2-lpb", "cmrit25-5-ds",
             "1-basics-2025", "2-loops-2025", "3-bitpat-2025", "4-iterables-2025", "5-recursion-2025",
-            "ds-2025", "codevita-2025"
+            "strivers-sde-sheet", "ds-2025", "codevita-2025", "mentor-graphics-2025"
     };
 
     static Map<String, User> userMap = new HashMap<>();
