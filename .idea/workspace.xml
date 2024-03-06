@@ -10,10 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71ed4a03-44c5-449a-9db2-e47038eb76ca" name="Changes" comment="Add jar file for ease of run">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMRITLeaderboard2025.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cmrit/CMRITLeaderboard2025.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cmrit/CMRITLeaderboard2025.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usernameVerifier/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/usernameVerifier/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,9 +63,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/gradleBuildLeaderbaord/CMRIT2025Leaderboard",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
@@ -103,7 +105,7 @@
       <updated>1702798931936</updated>
       <workItem from="1702798933007" duration="3762000" />
       <workItem from="1702817020677" duration="1320000" />
-      <workItem from="1709489706674" duration="60000" />
+      <workItem from="1709489706674" duration="785000" />
     </task>
     <task id="LOCAL-00001" summary="Add jar file for ease of run">
       <option name="closed" value="true" />

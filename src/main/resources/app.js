@@ -114,7 +114,7 @@ function populateGrid(workbook) {
 function importExcel() {
   makeRequest(
     'GET',
-    'https://raw.githubusercontent.com/dog-broad/CMRIT2025Leaderboard/main/Leaderboards/CurrentCMRITLeaderboard2025.xlsx',
+    'https://raw.githubusercontent.com/gabyah92/CMRIT2025Leaderboard/main/Leaderboards/CurrentCMRITLeaderboard2025.xlsx',
     // success
     function (data) {
       var workbook = convertDataToWorkbook(data);
