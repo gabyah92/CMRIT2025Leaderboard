@@ -1,8 +1,21 @@
 import openpyxl
 import requests
 import csv
+import re
 from bs4 import BeautifulSoup
 from tqdm import tqdm  # Import tqdm library for progress bar
+
+"""
+Removes non-ASCII characters from the input_string.
+
+Args:
+    input_string (str): The input string containing non-ASCII characters.
+    
+Returns:
+    str: The input string with non-ASCII characters removed.
+"""
+def remove_non_ascii(input_string):
+    return re.sub(r'[\t\n\x0B\f\r]+', '', input_string)
 
 """
 Class to store participant details.
@@ -232,6 +245,15 @@ def main():
             leetcode_handle = participant.leetcode_handle
             codechef_handle = participant.codechef_handle
             hackerrank_handle = participant.hackerrank_handle
+
+            # Remove all special characters
+            handle = remove_non_ascii(handle)
+            geeksforgeeks_handle = remove_non_ascii(geeksforgeeks_handle)
+            codeforces_handle = remove_non_ascii(codeforces_handle)
+            leetcode_handle = remove_non_ascii(leetcode_handle)
+            codechef_handle = remove_non_ascii(codechef_handle)
+            hackerrank_handle = remove_non_ascii(hackerrank_handle)
+
 
             row = [handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle]
 
