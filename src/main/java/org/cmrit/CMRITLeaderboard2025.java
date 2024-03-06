@@ -83,9 +83,15 @@ public class CMRITLeaderboard2025 {
         loadCSVtoSQL("src//main//resources//participant_details.csv");
 
         // Load hackerrank urls
-        try (BufferedReader br = new BufferedReader(new FileReader("urls.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src//main//resources//hackerrank_urls.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
+                // Trim the line to remove leading and trailing whitespace characters
+                line = line.trim();
+                // Remove the last character if it's a '/'
+                if (line.endsWith("/")) {
+                    line = line.substring(0, line.length() - 1);
+                }
                 String[] parts = line.split("/");
                 String lastPart = parts[parts.length - 1];
                 SEARCH_TOKENS.add(lastPart);
