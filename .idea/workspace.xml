@@ -63,7 +63,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "git-widget-placeholder": "test",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/gradleBuildLeaderbaord/CMRIT2025Leaderboard",
     "node.js.detected.package.eslint": "true",
@@ -104,8 +105,7 @@
       <updated>1702798931936</updated>
       <workItem from="1702798933007" duration="3762000" />
       <workItem from="1702817020677" duration="1320000" />
-      <workItem from="1709489706674" duration="60000" />
-      <workItem from="1709731624074" duration="486000" />
+      <workItem from="1709489706674" duration="785000" />
     </task>
     <task id="LOCAL-00001" summary="Add jar file for ease of run">
       <option name="closed" value="true" />
