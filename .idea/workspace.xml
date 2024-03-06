@@ -10,7 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71ed4a03-44c5-449a-9db2-e47038eb76ca" name="Changes" comment="Add jar file for ease of run">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cmrit/CMRITLeaderboard2025.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cmrit/CMRITLeaderboard2025.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usernameVerifier/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/usernameVerifier/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
