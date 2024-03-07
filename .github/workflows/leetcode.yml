@@ -62,7 +62,7 @@ jobs:
         path: ./build/libs/
 
     - name: Run JAR Artifact
-      run: java -jar ./build/libs/CMRIT2025Leaderboard-1.0-SNAPSHOT.jar leetcode
+      run: java -jar ./build/libs/CMRIT2025Leaderboard-1.0-SNAPSHOT.jar load_data
 
     - name: Set up Python 3.10 # Set up Python version 3.10
       uses: actions/setup-python@v3
