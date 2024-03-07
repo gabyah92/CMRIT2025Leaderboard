@@ -436,6 +436,9 @@ public class CMRITLeaderboard2025 {
                 }
                 buildLeaderboard();
                 break;
+            case "load_data":
+                System.out.println("Completed loading data from CSV to database.");
+                System.exit(0);
             default:
                 System.err.println("Invalid method specified.");
                 System.exit(1);
@@ -1088,12 +1091,35 @@ public class CMRITLeaderboard2025 {
             String url = LEETCODE_URL + URLEncoder.encode("query{userContestRanking(username:\"" + encodedLeetcodeHandle + "\"){rating}}", StandardCharsets.UTF_8);
 
             try {
+                System.out.println("URL: " + url + "\n====================================");
                 URI websiteUrl = new URI(url);
                 URLConnection connection = websiteUrl.toURL().openConnection();
                 HttpURLConnection o = (HttpURLConnection) connection;
 
                 // Set request method
                 o.setRequestMethod("GET");
+
+                // Add provided headers
+                o.setRequestProperty("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7");
+                o.setRequestProperty("Accept-Language", "en-US,en;q=0.9,en-IN;q=0.8,en-GB;q=0.7");
+                o.setRequestProperty("Cache-Control", "max-age=0");
+                o.setRequestProperty("Cookie", "gr_user_id=e0bc031e-2749-493a-b6e8-33f33fe2e6d0; __stripe_mid=f4e2affa-c7a2-4359-b07d-9ed75a0d2ff74f1623; 87b5a3c3f1a55520_gr_last_sent_cs1=21r01a67e6; csrftoken=wNsw5l1EIsHhzc4TQX0Q6DDw3C1gkGN83o9229f3ULBBccvahHyRldbeLWNSqvNu; 87b5a3c3f1a55520_gr_cs1=21r01a67e6; _ga_CDRWKZTDEX=GS1.1.1706187230.19.1.1706187296.60.0.0; _ga=GA1.1.1231149882.1693316228; cf_clearance=wfRNb1td_mDRegZDij_p0TPFyRXf6hvQctV6X5xzEK4-1708415178-1.0-AQG+8uiVC3mUEYY8sC4cibGLgiW/1S94eORpvLmbnddQ1Pl4pcDHQfbFjwxeTOVKicAOKjPO6d2TfTsIA3EO9uY=; LEETCODE_SESSION=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfYXV0aF91c2VyX2lkIjoiNzk3NzczMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImFsbGF1dGguYWNjb3VudC5hdXRoX2JhY2tlbmRzLkF1dGhlbnRpY2F0aW9uQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjM3ZGEyNzM3OTEzMWZkNGVkNzNiMjEzOTc5MmRiYWU3YmEzNzU0MjVmYTE1ZDQ0NmFhNGQ4MDdhYjQ4ZmZlZWYiLCJpZCI6Nzk3NzczMiwiZW1haWwiOiIyMXIwMWE2N2U2QGNtcml0b25saW5lLmFjLmluIiwidXNlcm5hbWUiOiIyMXIwMWE2N2U2IiwidXNlcl9zbHVnIjoiMjFyMDFhNjdlNiIsImF2YXRhciI6Imh0dHBzOi8vYXNzZXRzLmxlZXRjb2RlLmNvbS91c2Vycy9hdmF0YXJzL2F2YXRhcl8xNjY4MTg2MzEwLnBuZyIsInJlZnJlc2hlZF9hdCI6MTcwOTgyNTA2NCwiaXAiOiIxODMuODMuMjI1LjI0MyIsImlkZW50aXR5IjoiY2U1OGE1MjYwYmE0ZmE5Y2RlZGY0ODg2ZTRjZjQ1YzYiLCJzZXNzaW9uX2lkIjo1NDI3OTE4NH0.6zLWAStoqoYNd_1nM67_UohxjqkvSZkNIAmIPupV-Vs; INGRESSCOOKIE=25e33f9f5bb4b70334074b2a6707350c|8e0876c7c1464cc0ac96bc2edceabd27; __cf_bm=ca1lJgDedKfTUr8uvXaHThqTO7xIm2D6NFB71xAYeIs-1709827901-1.0.1.1-l8Kl3r1Eq6d3zxmKkKSOM9_lWIwYugvVncpeWebvf43gyY5aJiN6bkML7cOW_LbY7sx0LB2BAsaSQlpx4HirBw");
+                o.setRequestProperty("Sec-Ch-Ua", "\"Chromium\";v=\"122\", \"Not(A:Brand\";v=\"24\", \"Microsoft Edge\";v=\"122\"");
+                o.setRequestProperty("Sec-Ch-Ua-Arch", "\"x86\"");
+                o.setRequestProperty("Sec-Ch-Ua-Bitness", "\"64\"");
+                o.setRequestProperty("Sec-Ch-Ua-Full-Version", "\"122.0.2365.66\"");
+                o.setRequestProperty("Sec-Ch-Ua-Full-Version-List", "\"Chromium\";v=\"122.0.6261.95\", \"Not(A:Brand\";v=\"24.0.0.0\", \"Microsoft Edge\";v=\"122.0.2365.66\"");
+                o.setRequestProperty("Sec-Ch-Ua-Mobile", "?0");
+                o.setRequestProperty("Sec-Ch-Ua-Model", "\"\"");
+                o.setRequestProperty("Sec-Ch-Ua-Platform", "\"Windows\"");
+                o.setRequestProperty("Sec-Ch-Ua-Platform-Version", "\"15.0.0\"");
+                o.setRequestProperty("Sec-Fetch-Dest", "document");
+                o.setRequestProperty("Sec-Fetch-Mode", "navigate");
+                o.setRequestProperty("Sec-Fetch-Site", "none");
+                o.setRequestProperty("Sec-Fetch-User", "?1");
+                o.setRequestProperty("Upgrade-Insecure-Requests", "1");
+                o.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0");
+
                 if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_BAD_REQUEST) {
                     // Handle specific response codes
                     if (o.getResponseCode() == 524) {
@@ -1107,12 +1133,15 @@ public class CMRITLeaderboard2025 {
 
                 // Read response
                 try (InputStream inputStream = connection.getInputStream();
-                     BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+                     BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+                    System.out.println("input stream: \n" + inputStream + "\n==================================");
                     StringBuilder jsonContent = new StringBuilder();
                     String line;
                     while ((line = reader.readLine()) != null) {
                         jsonContent.append(line);
                     }
+
+                    System.out.println("Json Content: \n" + jsonContent + "\n==================================");
 
                     // Parse JSON response
                     int rating = getRating(jsonContent);
