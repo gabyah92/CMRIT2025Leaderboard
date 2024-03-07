@@ -1,4 +1,4 @@
-name: Java CI with Gradle
+name: Java, Python CI with Gradle for LeetCode
 
 on:
   workflow_dispatch:
@@ -84,7 +84,7 @@ jobs:
         timeout_minutes: 10
         max_attempts: 25
         retry_on: error
-        command: python .src/main/python/scrape_leetcode.py
+        command: python src/main/python/scrape_leetcode.py
 
     - name: Upload LeetCode Ratings
       uses: actions/upload-artifact@v4.0.0
