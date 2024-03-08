@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
       - py-tests
 
 jobs:
@@ -44,8 +43,11 @@ jobs:
         retention-days: 1
   
   leetcode:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
+    env:
+      USERNAME: ${{ secrets.TEMP_GITHUB_PASSWORD }}
+      PASSWD: ${{ secrets.TEMP_GITHUB_USERNAME }}
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4.1.1
@@ -82,9 +84,9 @@ jobs:
       uses: nick-fields/retry@v3
       with:
         timeout_minutes: 10
-        max_attempts: 25
+        max_attempts: 10
         retry_on: error
-        command: python src/main/python/scrape_leetcode.py
+        command: python -u src/main/python/scrape_leetcode.py
 
     - name: Upload LeetCode Ratings
       uses: actions/upload-artifact@v4.0.0
