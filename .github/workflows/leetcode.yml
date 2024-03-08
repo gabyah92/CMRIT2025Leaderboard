@@ -1,3 +1,4 @@
+#
 name: Java, Python CI with Gradle for LeetCode
 
 on:
