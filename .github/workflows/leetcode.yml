@@ -83,7 +83,7 @@ jobs:
     - name: Run the program # Run the Python main.py script
       uses: nick-fields/retry@v3
       with:
-        timeout_minutes: 10
+        timeout_minutes: 20
         max_attempts: 10
         retry_on: error
         command: python -u src/main/python/scrape_leetcode.py
