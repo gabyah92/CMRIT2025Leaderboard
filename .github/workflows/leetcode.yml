@@ -2,6 +2,8 @@ name: Java, Python CI with Gradle for LeetCode
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '58 18 * * *' 
   push:
     branches:
       - py-tests
@@ -16,7 +18,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4.1.1
       with:
-        ref: ${{ github.ref }}
+        ref: py-tests
 
     - name: Set up JDK 21
       uses: actions/setup-java@v4
@@ -52,7 +54,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4.1.1
       with:
-        ref: ${{ github.ref }}
+        ref: py-tests
 
     - name: Set up JDK 21
       uses: actions/setup-java@v4

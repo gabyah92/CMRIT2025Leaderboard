@@ -1,144 +1,51 @@
-import openpyxl
-import requests
 import csv
+import json
+import os
 import re
+import time
+import requests
+import sys
+import logging
 from bs4 import BeautifulSoup
-from tqdm import tqdm  # Import tqdm library for progress bar
+from openpyxl import load_workbook
+from tqdm import tqdm
+from ratelimiter import RateLimiter
+import undetected_chromedriver as uc
+import urllib.parse
+from selenium.webdriver.common.by import By
 
-"""
-Removes non-ASCII characters from the input_string.
+LEETCODE_QUERY = '''
+https://leetcode.com/graphql?query=query
+{     
+      userContestRanking(username:  "{<username>}") 
+      {
+        attendedContestsCount
+        rating
+        globalRanking
+        totalParticipants
+        topPercentage    
+      }
+}
+'''
 
-Args:
-    input_string (str): The input string containing non-ASCII characters.
-    
-Returns:
-    str: The input string with non-ASCII characters removed.
-"""
-def remove_non_ascii(input_string):
-    return re.sub(r'[\t\n\x0B\f\r]+', '', input_string)
+MAX_REQUESTS_PER_SECOND = 2
 
-"""
-Class to store participant details.
 
-Attributes:
-    handle (str): The participant's handle.
-    geeksforgeeks_handle (str): The participant's GeeksForGeeks handle.
-    codeforces_handle (str): The participant's Codeforces handle.
-    leetcode_handle (str): The participant's LeetCode handle.
-    codechef_handle (str): The participant's CodeChef handle.
-    hackerrank_handle (str): The participant's HackerRank handle.
-
-Methods:
-    __init__(handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle):
-        Initializes a Participant object with the given handles.
-"""
 class Participant:
-    # Class to store participant details
     def __init__(self, handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle,
                  hackerrank_handle):
-        # type cast all handles to string
-        handle = str(handle)
-        geeksforgeeks_handle = str(geeksforgeeks_handle)
-        codeforces_handle = str(codeforces_handle)
-        leetcode_handle = str(leetcode_handle)
-        codechef_handle = str(codechef_handle)
-        hackerrank_handle = str(hackerrank_handle)
-
         self.handle = handle
-        self.codeforces_handle = codeforces_handle
         self.geeksforgeeks_handle = geeksforgeeks_handle
+        self.codeforces_handle = codeforces_handle
         self.leetcode_handle = leetcode_handle
         self.codechef_handle = codechef_handle
-        if hackerrank_handle.startswith('@'):
-            hackerrank_handle = hackerrank_handle[1:]
         self.hackerrank_handle = hackerrank_handle
 
 
-"""
-Function to load the excel sheet and return a list of Participant objects.
-
-Parameters:
-- excel_sheet_path (str): The path to the excel sheet.
-
-Returns:
-- participants (list): A list of Participant objects.
-
-Description:
-This function takes the path to an excel sheet as input and loads the sheet using the openpyxl library. It then iterates over the rows of the sheet, starting from the second row, and creates a Participant object for each row. The Participant object is initialized with the values from the row, including the handle, GeeksForGeeks handle, Codeforces handle, LeetCode handle, CodeChef handle, and HackerRank handle. The Participant object is then added to the list of participants.
-
-The function uses the tqdm library to display a progress bar while processing the participants.
-
-Example:
-excel_sheet_path = "path/to/excel/sheet.xlsx"
-participants = load_excel_sheet(excel_sheet_path)
-"""
-def load_excel_sheet(excel_sheet_path):
-    # Function to load the excel sheet and return a list of Participant objects
-    participants = []
-
-    workbook = openpyxl.load_workbook(excel_sheet_path)
-    sheet = workbook.active
-
-    for row in tqdm(sheet.iter_rows(min_row=2, values_only=True), desc="Processing Participants", unit="participant"):
-        # replace spaces with empty string
-        row = [str(x).strip() for x in row]
-        # if all elements of the row are 'None', then break
-        if all(x == 'None' for x in row):
-            break
-        handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle = row
-        participants.append(
-            Participant(handle,geeksforgeeks_handle,  codeforces_handle, leetcode_handle, codechef_handle,
-                        hackerrank_handle))
-
-    return participants
-
-def load_csv_sheet(csv_sheet_path):
-    # Function to load the csv sheet and return a list of Participant objects
-    participants = []
-
-    with open(csv_sheet_path, 'r') as file:
-        reader = csv.reader(file)
-        for row in reader:
-            # skip the first row
-            if row[0] == "Admn No:":
-                continue
-            # stop reading if all elements of the row are 'None' or empty
-            if all(x == 'None' or x == '' for x in row):
-                break
-            # Admn No:,Name,GFG,CODEFORCES,LEETCODE,CODECHEF,HACKERRANK
-            handle, name, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle = row
-            participants.append(
-                Participant(handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle,
-                            hackerrank_handle))
-
-    return participants
+def remove_non_ascii(input_string):
+    return re.sub(r'[\t\n\x0B\f\r]+', '', input_string)
 
 
-"""
-Check if a given URL exists.
-
-Parameters:
-- url (str): The URL to check.
-
-Returns:
-- tuple: A tuple containing a boolean value indicating whether the URL exists or not, and the final URL after any redirects.
-
-Example:
->>> check_url_exists("https://leetcode.com/")
-(True, "https://leetcode.com/")
-
->>> check_url_exists("https://www.hackerrank.com/")
-(True, "https://www.hackerrank.com/")
-
->>> check_url_exists("https://www.google.com/")
-(True, "https://www.google.com/")
-
->>> check_url_exists("https://www.example.com/")
-(False, "https://www.example.com/")
-
->>> check_url_exists("https://www.nonexistenturl.com/")
-(False, "https://www.nonexistenturl.com/")
-"""
 def check_url_exists(url):
     # if url is leeetcode
     if "https://leetcode.com/" in url:
@@ -155,7 +62,8 @@ def check_url_exists(url):
         except requests.exceptions.RequestException:
             return False, "Exception"
     header = {
-       "User-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+        "User-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                      "Chrome/121.0.0.0 Safari/537.36"
     }
     # if url is hackerrank
     if "https://www.hackerrank.com/" in url:
@@ -182,7 +90,9 @@ def check_url_exists(url):
             # https://auth.geeksforgeeks.org/?to=https://auth.geeksforgeeks.org/profile.php codechef redirect is
             # found by checking if final url is https://www.codechef.com/ Hackerrank and Leetcode return 404 error if
             # handle does not exist
-            if response.url == "https://codeforces.com/" or response.url == "https://auth.geeksforgeeks.org/?to=https://auth.geeksforgeeks.org/profile.php" or response.url == "https://www.codechef.com/":
+            if (response.url == "https://codeforces.com/" or response.url == ("https://auth.geeksforgeeks.org/?to=https"
+                                                                              "://auth.geeksforgeeks.org/profile.php")
+                    or response.url == "https://www.codechef.com/"):
                 return False, response.url
             else:
                 return True, response.url
@@ -191,165 +101,391 @@ def check_url_exists(url):
         return False, "Exception"
 
 
-LEETCODE_QUERY = '''
-https://leetcode.com/graphql?query=query
-{     
-      userContestRanking(username:  "{<username>}") 
-      {
-        attendedContestsCount
-        rating
-        globalRanking
-        totalParticipants
-        topPercentage    
-      }
-}
-'''
+def process_geeksforgeeks(participants):
+    """
+    Process GeeksForGeeks handles for each participant and log the progress.
+
+    Args:
+    participants (list): List of participant objects
+
+    Returns:
+    None
+    """
+    # Configure logging
+    logging.basicConfig(filename='geeksforgeeks_debug.log', level=logging.DEBUG)
+
+    # Iterate through each participant
+    for participant in tqdm(participants, desc="Processing GeeksForGeeks Handles", unit="participant"):
+        # Check if GeeksForGeeks handle is valid
+        if participant.geeksforgeeks_handle != '#N/A':
+            logging.debug(f"Checking GeeksForGeeks URL for participant {participant.handle}")
+
+            # Check if the GeeksForGeeks URL exists
+            geeksforgeeks_url_exists, response_url = check_url_exists(
+                "https://auth.geeksforgeeks.org/user/" + participant.geeksforgeeks_handle)
+            logging.debug(f"GeeksForGeeks URL exists: {geeksforgeeks_url_exists}, Response URL: {response_url}")
+
+            # Retry if the GeeksForGeeks URL does not exist
+            if not geeksforgeeks_url_exists and participant.geeksforgeeks_handle != '#N/A':
+                logging.debug(f"Retrying GeeksForGeeks URL check for participant {participant.handle}")
+                geeksforgeeks_url_exists, response_url = check_url_exists(
+                    "https://auth.geeksforgeeks.org/user/" + participant.geeksforgeeks_handle)
+                logging.debug(f"GeeksForGeeks URL retry: {geeksforgeeks_url_exists}, Response URL: {response_url}")
+
+            # Write participant data to file
+            with open('geeksforgeeks_handles.txt', 'a') as file:
+                file.write(f"{participant.handle}, {participant.geeksforgeeks_handle}, {geeksforgeeks_url_exists}\n")
+            logging.debug(
+                f"Data written to file for participant {participant.handle}: {participant.geeksforgeeks_handle},"
+                f" {geeksforgeeks_url_exists}")
+            logging.debug("---------------------------------------------------")
+    # Shutdown logging
+    logging.shutdown()
 
 
-def main():
-    csv_sheet_path = "..//src//main//resources//CMRIT2025Leaderboard.csv"
-    participants = load_csv_sheet(csv_sheet_path)
-    # if log.txt exists, delete it
+def process_codeforces(participants):
+    """
+    Process Codeforces handles for each participant and log the progress.
+
+    Args:
+    participants (list): List of participant objects
+
+    Returns:
+    None
+    """
+    # Iterate through the list of participants and check if their Codeforces handle exists
+    for participant in tqdm(participants, desc="Processing Codeforces Handles", unit="participant"):
+        # Check if the Codeforces handle is not '#N/A'
+        if participant.codeforces_handle != '#N/A':
+            # Log the checking of Codeforces URL for the current participant
+            logging.debug(f"Checking Codeforces URL for participant {participant.handle}")
+            # Check if the URL exists and get the response URL
+            codeforces_url_exists, response_url = check_url_exists("https://codeforces.com/profile/" + participant.codeforces_handle)
+
+            # Log the result of the URL existence check
+            logging.debug(f"Codeforces URL exists: {codeforces_url_exists}, Response URL: {response_url}")
+            if not codeforces_url_exists and participant.codeforces_handle != '#N/A':
+                # Log the retry of Codeforces URL check for the current participant
+                logging.debug(f"Retrying Codeforces URL check for participant {participant.handle}")
+                # Retry the URL existence check and get the response URL
+                codeforces_url_exists, response_url = check_url_exists("https://codeforces.com/profile/" + participant.codeforces_handle)
+                logging.debug(f"Codeforces URL retry: {codeforces_url_exists}, Response URL: {response_url}")
+
+            # Write the participant's handle, Codeforces handle, and URL existence to a file
+            with open('codeforces_handles.txt', 'a') as file:
+                file.write(f"{participant.handle}, {participant.codeforces_handle}, {codeforces_url_exists}\n")
+
+            # Log the data written to the file for the current participant
+            logging.debug(f"Data written to file for participant {participant.handle}: {participant.codeforces_handle}, {codeforces_url_exists}")
+            logging.debug("---------------------------------------------------")
+    # Shutdown the logging system to release resources
+    logging.shutdown()
+
+
+
+def process_leetcode(participants):
+    """
+    Process the LeetCode handles of participants.
+
+    :param participants: A list of Participant objects containing their handles and LeetCode handles.
+    :return: None
+
+    This function processes the LeetCode handles of participants by making API requests to retrieve their contest ranking information. It uses a rate limiter to ensure a maximum of 2 requests per second. The function uses undetected-chromedriver to run in headless mode and performs the following steps:
+    1. Configures logging.
+    2. Creates chrome options and configures undetected-chromedriver.
+    3. Logs in to GitHub using the provided username and password.
+    4. Opens a new tab and navigates to the LeetCode login page.
+    5. Authorizes the GitHub login if prompted.
+    6. Iterates over the participants and retrieves their contest ranking information using the LeetCode API.
+    7. Parses the JSON response and checks if the response contains any errors.
+    8. Writes the participant's handle, LeetCode handle, and a boolean indicating if the response was successful to a file.
+
+    Note: The function assumes that the LeetCode API query is defined in the LEETCODE_QUERY variable and the maximum number of requests per second is defined in the MAX_REQUESTS_PER_SECOND variable.
+
+    Raises:
+    - RuntimeError: If there is an error parsing the JSON response or getting the content for a participant.
+    - Exception: If there is an error processing the LeetCode handle for a participant.
+    """
+    # Configure logging
+    counter = 1
+    size = len(participants)
+
+    # Rate limit the function to a maximum of 2 requests per second
+    limiter = RateLimiter(max_calls=MAX_REQUESTS_PER_SECOND, period=1)
+
+    # Create chrome options
+    options = uc.ChromeOptions()
+    options.add_argument("--auto-open-devtools-for-tabs")
+
+    # Configure undetected-chromedriver to run in headless mode
+    driver = uc.Chrome(options=options)
+
+    # Login to GitHub
+    driver.get("https://github.com/login")
+    time.sleep(5)
+    login = driver.find_element(By.NAME, "login")
+    password = driver.find_element(By.NAME, "password")
+    signin_btn = driver.find_element(By.NAME, "commit")
+    username = "rushi12565@gmail.com"
+    passwd = "ruchitha*9"
+    login.send_keys(username)
+    password.send_keys(passwd)
+    signin_btn.click()
+
+    # Open new tab to https://leetcode.com/accounts/login/
+    driver.get('https://leetcode.com/accounts/github/login/?next=%2F')
+    time.sleep(5)
     try:
-        open('log.txt', 'r')
-        open('log.txt', 'w').close()
-    except FileNotFoundError:
-        pass
+        authorize_btn = driver.find_element(By.NAME, "authorize")
+        authorize_btn.click()
+        time.sleep(5)
+    except Exception as e:
+        print(f"Error: {e}")
 
-    # check if participant_details.csv exists, delete it
-    try:
-        open('..//src//main//resources//participant_details.csv', 'r')
-        open('..//src//main//resources//participant_details.csv', 'w').close()
-    except FileNotFoundError:
-        pass
+    for participant in participants:
+        handle = participant.handle
+        leetcode_handle = participant.leetcode_handle
+        # Construct URL for API request
+        encoded_leetcode_handle = urllib.parse.quote(leetcode_handle, safe='')
+        url = LEETCODE_QUERY.replace("{<username>}", encoded_leetcode_handle)
+        url = url.replace(" ", "%20")
+        try:
+            with limiter:
+                driver.get(url)
 
-    # If folder does not exist, create it
-    try:
-        open('..//src//main//resources//participant_details.csv', 'r')
-    except FileNotFoundError:
-        open('..//src//main//resources//participant_details.csv', 'w').close()
+                # Parse JSON response
+                try:
+                    json_content = driver.find_element(By.TAG_NAME, "pre").text
+                    json_content = json.loads(json_content)
+                except Exception as e:
+                    raise RuntimeError(f"Error parsing JSON response for {handle} with LeetCode handle {leetcode_handle}: {e}")
 
-    with open('..//src//main//resources//participant_details.csv', 'w', newline='') as file:
-        writer = csv.writer(file)
+                try:
+                    # Check if the response contains error
+                    if json_content.get("errors"):
+                        with open('leetcode_handles.txt', 'a') as file:
+                            file.write(f"{handle}, {leetcode_handle}, False\n")
+                        print(f"( {counter} / {size} ) Data written to file for participant {handle}: {leetcode_handle}, False")
+                        print("---------------------------------------------------")
+                        counter += 1
+                        continue
+                    else:
+                        with open('leetcode_handles.txt', 'a') as file:
+                            file.write(f"{handle}, {leetcode_handle}, True\n")
+                        print(f"( {counter} / {size} ) Data written to file for participant {handle}: {leetcode_handle}, True")
+                        print("---------------------------------------------------")
+                        counter += 1
+                except (KeyError, TypeError) as e:
+                    raise RuntimeError(f"Error getting content for {handle} with LeetCode handle {leetcode_handle}: {e}")
+        except Exception as e:
+            raise RuntimeError(f"Error processing LeetCode handle for {handle}: {e}")
+            
+
+def process_codechef(participants):
+    """
+    Process the CodeChef handles for the given participants and log the progress.
+
+    Args:
+    participants (list): List of Participant objects.
+
+    Returns:
+    None
+    """
+    logging.basicConfig(filename='codechef_debug.log', level=logging.DEBUG)
+    for participant in tqdm(participants, desc="Processing CodeChef Handles", unit="participant"):
+        # Check CodeChef URL for each participant
+        logging.debug(f"Checking CodeChef URL for participant {participant.handle}")
+
+        if participant.codechef_handle != '#N/A':
+            # Check if CodeChef URL exists
+            codechef_url_exists, response_url = check_url_exists(
+                "https://www.codechef.com/users/" + participant.codechef_handle)
+            logging.debug(f"CodeChef URL exists: {codechef_url_exists}, Response URL: {response_url}")
+
+            if not codechef_url_exists and participant.codechef_handle != '#N/A':
+                # Retry checking CodeChef URL
+                logging.debug(f"Retrying CodeChef URL check for participant {participant.handle}")
+                codechef_url_exists, response_url = check_url_exists(
+                    "https://www.codechef.com/users/" + participant.codechef_handle)
+                logging.debug(f"CodeChef URL retry: {codechef_url_exists}, Response URL: {response_url}")
+
+            # Write participant data to file
+            with open('codechef_handles.txt', 'a') as file:
+                file.write(f"{participant.handle}, {participant.codechef_handle}, {codechef_url_exists}\n")
+            logging.debug(f"Data written to file for participant {participant.handle}: {participant.codechef_handle},"
+                          f" {codechef_url_exists}")
+            logging.debug("---------------------------------------------------")
+
+    logging.shutdown()
+
+
+def process_hackerrank(participants):
+    """
+    Process the HackerRank handles for the given participants and log the debugging information.
+
+    Args:
+    participants (list): List of Participant objects
+
+    Returns:
+    None
+    """
+    # Configure logging
+    logging.basicConfig(filename='hackerrank_debug.log', level=logging.DEBUG)
+
+    # Iterate through the participants
+    for participant in tqdm(participants, desc="Processing HackerRank Handles", unit="participant"):
+        # Log the participant's HackerRank URL check
+        logging.debug(f"Checking HackerRank URL for participant {participant.handle}")
+
+        # Check if the HackerRank URL exists
+        if participant.hackerrank_handle != '#N/A':
+            hackerrank_url_exists, response_url = check_url_exists(
+                "https://www.hackerrank.com/profile/" + participant.hackerrank_handle)
+            logging.debug(f"HackerRank URL exists: {hackerrank_url_exists}, Response URL: {response_url}")
+
+            # Retry the HackerRank URL check if it doesn't exist
+            if not hackerrank_url_exists and participant.hackerrank_handle != '#N/A':
+                logging.debug(f"Retrying HackerRank URL check for participant {participant.handle}")
+                hackerrank_url_exists, response_url = check_url_exists(
+                    "https://www.hackerrank.com/profile/" + participant.hackerrank_handle)
+                logging.debug(f"HackerRank URL retry: {hackerrank_url_exists}, Response URL: {response_url}")
+
+            # Write data to file
+            with open('hackerrank_handles.txt', 'a') as file:
+                file.write(f"{participant.handle}, {participant.hackerrank_handle}, {hackerrank_url_exists}\n")
+            logging.debug(f"Data written to file for participant {participant.handle}: {participant.hackerrank_handle},"
+                          f" {hackerrank_url_exists}")
+            logging.debug("---------------------------------------------------")
+
+    # Shutdown logging
+    logging.shutdown()
+
+
+def load_excel_sheet(excel_sheet_path):
+    participants = []
+    workbook = load_workbook(excel_sheet_path)
+    sheet = workbook.active
+    total_rows = sheet.max_row - 2
+    count = 1
+    for row in sheet.iter_rows(min_row=2, values_only=True):
+        if all(x == 'None' for x in row):
+            break
+        handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle = row
+        print(f"( {count} / {total_rows} ) Loading participant {handle}")
+        participants.append(
+            Participant(handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle,
+                        hackerrank_handle))
+        count += 1
+    print("Finished loading participants")
+    return participants
+
+
+def load_csv_sheet(csv_sheet_path):
+    """
+    Load participant data from a CSV sheet and return a list of Participant objects.
+
+    Args:
+    csv_sheet_path (str): The file path to the CSV sheet
+
+    Returns:
+    list: A list of Participant objects
+    """
+    participants = []
+    with open(csv_sheet_path, 'r') as temp_file:
+        temp_reader = csv.reader(temp_file)  # Create a temporary reader to count total rows
+        total_rows = sum(1 for _ in temp_reader) - 2  # Calculate total rows in the CSV
+        # close the temporary file
+        temp_file.close()
+    with open(csv_sheet_path, 'r') as file:
+        reader = csv.reader(file)
+        print(f"Total rows in CSV: {total_rows}")  # Print the total rows in the CSV
+        count = 1
+        for row in reader:
+            if row[0] == "Admn No:":  # Skip the header row
+                continue
+            if all(x == 'None' or x == '' for x in row):  # Stop if all cells in the row are empty
+                break
+            handle, name = row[:2]
+            geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle = row[2:7]
+            print(f"( {count} / {total_rows} ) Loading participant {handle}")  # Print progress
+            participant = Participant(handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle,
+                                      hackerrank_handle)  # Create Participant object
+            participants.append(participant)  # Add Participant object to list
+            count += 1
+    print("Finished loading participants")
+    file.close()
+    return participants
+
+
+def combine_results():
+    """
+    Combines handle details from multiple files and writes them to a CSV file called participant_details.csv.
+    Each file contains handle details for a different platform, and the function loops through each file,
+    reads the handle details, and writes them to the CSV file.
+    """
+
+    # Open participant_details.csv for writing
+    with open('participant_details.csv', 'w', newline='') as csv_file:
+        writer = csv.writer(csv_file)
+
+        # Write header row to CSV
         writer.writerow(['Handle', 'GeeksForGeeks Handle', 'Codeforces Handle', 'LeetCode Handle', 'CodeChef Handle',
                          'HackerRank Handle', 'GeeksForGeeks URL Exists', 'Codeforces URL Exists',
                          'LeetCode URL Exists',
                          'CodeChef URL Exists', 'HackerRank URL Exists'])
 
-        log_writer = open('log.txt', 'a')
-
-        for participant in tqdm(participants, desc="Checking URLs", unit="participant"):
-            handle = participant.handle
-            geeksforgeeks_handle = participant.geeksforgeeks_handle
-            codeforces_handle = participant.codeforces_handle
-            leetcode_handle = participant.leetcode_handle
-            codechef_handle = participant.codechef_handle
-            hackerrank_handle = participant.hackerrank_handle
-
-            # Remove all special characters
-            handle = remove_non_ascii(handle)
-            geeksforgeeks_handle = remove_non_ascii(geeksforgeeks_handle)
-            codeforces_handle = remove_non_ascii(codeforces_handle)
-            leetcode_handle = remove_non_ascii(leetcode_handle)
-            codechef_handle = remove_non_ascii(codechef_handle)
-            hackerrank_handle = remove_non_ascii(hackerrank_handle)
+        # Loop through each file and write handle details to CSV
+        for file_name in ['geeksforgeeks_handles.txt', 'codeforces_handles.txt', 'leetcode_handles.txt',
+                          'codechef_handles.txt', 'hackerrank_handles.txt']:
+            with open(file_name, 'r') as file:
+                for line in file:
+                    data = line.strip().split(', ')
+                    writer.writerow(data)
+                    print(f'Writing data: {data}')
+            print(f'Finished writing data from {file_name}')
+            print('-----------------------------------------')
+        print('Finished writing all data to participant_details.csv')
 
 
-            row = [handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle, hackerrank_handle]
+def main():
+    if len(sys.argv) != 3:
+        print("Usage: python script.py <excel/csv file path> <platform>")
+        return
 
-            # Check if GeeksForGeeks URL exists
-            if geeksforgeeks_handle != '#N/A':
-                geeksforgeeks_url_exists, response_url = check_url_exists(
-                    "https://auth.geeksforgeeks.org/user/" + geeksforgeeks_handle)
-            else:
-                geeksforgeeks_url_exists = False
-                response_url = "N/A"
+    file_path = sys.argv[1]
+    platform = sys.argv[2].lower()
 
-            if not geeksforgeeks_url_exists and geeksforgeeks_handle != '#N/A':
-                # Retry once
-                geeksforgeeks_url_exists, response_url = check_url_exists(
-                    "https://auth.geeksforgeeks.org/user/" + geeksforgeeks_handle)
+    platforms = ['geeksforgeeks', 'codeforces', 'leetcode', 'codechef', 'hackerrank']
 
-            # Write to log.txt, all details of participant
-            log_writer.write(
-                f"GeeksForGeeks Handle: {geeksforgeeks_handle}\nGeeksForGeeks URL: https://auth.geeksforgeeks.org/user/{geeksforgeeks_handle}\nResponse URL: {response_url}\nGeeksForGeeks URL Exists: {geeksforgeeks_url_exists}\n\n")
+    if platform not in platforms and platform != 'all' and platform != 'combine':
+        print("Invalid platform. Please choose one of: GeeksForGeeks, Codeforces, LeetCode, CodeChef, HackerRank, "
+              "All, Combine")
+        return
 
-            # Checking if Codeforces URL exists
-            if codeforces_handle != '#N/A':
-                codeforces_url_exists, response_url = check_url_exists(
-                    "https://codeforces.com/profile/" + codeforces_handle)
-            else:
-                codeforces_url_exists = False
-                response_url = "N/A"
+    if not os.path.isfile(file_path):
+        print("File does not exist.")
+        return
 
-            if not codeforces_url_exists and codeforces_handle != '#N/A':
-                # Retry once
-                codeforces_url_exists, response_url = check_url_exists(
-                    "https://codeforces.com/profile/" + codeforces_handle)
+    if file_path.endswith('.xlsx'):
+        participants = load_excel_sheet(file_path)
+    elif file_path.endswith('.csv'):
+        participants = load_csv_sheet(file_path)
+    else:
+        print("Invalid file format. Please provide an Excel (.xlsx) or CSV (.csv) file.")
+        return
 
-            # Write to log.txt, all details of participant for codeforces
-            log_writer.write(
-                f"Handle: {handle}\nCodeforces Handle: {codeforces_handle}\nCodeforces URL: https://codeforces.com/profile/{codeforces_handle}\nResponse URL: {response_url}\nCodeforces URL Exists: {codeforces_url_exists}\n\n")
-
-            # Checking if LeetCode URL exists
-            if leetcode_handle != '#N/A':
-                url = LEETCODE_QUERY.replace("{<username>}", leetcode_handle)
-                # encode the url
-                url = url.replace(" ", "%20")
-                leetcode_url_exists, response_url = check_url_exists(url)
-            else:
-                leetcode_url_exists = False
-                response_url = "N/A"
-
-            if not leetcode_url_exists and leetcode_handle != '#N/A':
-                # Retry once
-                leetcode_url_exists, response_url = check_url_exists(url)
-
-            # Write to log.txt, all details of participant for LeetCode
-            log_writer.write(
-                f"LeetCode Handle: {leetcode_handle}\nLeetCode URL: https://leetcode.com/{leetcode_handle}\nResponse URL: {response_url}\nLeetCode URL Exists: {leetcode_url_exists}\n\n")
-
-            # Checking if CodeChef URL exists
-            if codechef_handle != '#N/A':
-                codechef_url_exists, response_url = check_url_exists(
-                    "https://www.codechef.com/users/" + codechef_handle)
-            else:
-                codechef_url_exists = False
-                response_url = "N/A"
-
-            if not codechef_url_exists and codechef_handle != '#N/A':
-                # Retry once
-                codechef_url_exists, response_url = check_url_exists(
-                    "https://www.codechef.com/users/" + codechef_handle)
-
-            # Write to log.txt, all details of participant for CodeChef
-            log_writer.write(
-                f"CodeChef Handle: {codechef_handle}\nCodeChef URL: https://www.codechef.com/users/{codechef_handle}\nResponse URL: {response_url}\nCodeChef URL Exists: {codechef_url_exists}\n\n")
-
-            # Checking if HackerRank URL exists
-            if hackerrank_handle != '#N/A':
-                hackerrank_url_exists, response_url = check_url_exists(
-                    "https://www.hackerrank.com/profile/" + hackerrank_handle)
-            else:
-                hackerrank_url_exists = False
-                response_url = "N/A"
-
-            if not hackerrank_url_exists and hackerrank_handle != '#N/A':
-                # Retry once
-                hackerrank_url_exists, response_url = check_url_exists(
-                    "https://www.hackerrank.com/profile/" + hackerrank_handle)
-
-            # Write to log.txt, all details of participant for HackerRank
-            log_writer.write(
-                f"HackerRank Handle: {hackerrank_handle}\nHackerRank URL: https://www.hackerrank.com/profile/{hackerrank_handle}\nResponse URL: {response_url}\nHackerRank URL Exists: {hackerrank_url_exists}\n\n")
-
-            row.extend([geeksforgeeks_url_exists, codeforces_url_exists, leetcode_url_exists, codechef_url_exists,
-                        hackerrank_url_exists])
-
-            log_writer.write(
-                "================================================================================================================================================================================\n")
-
-            writer.writerow(row)
+    if platform == 'geeksforgeeks' or platform == 'all':
+        process_geeksforgeeks(participants)
+    if platform == 'codeforces' or platform == 'all':
+        process_codeforces(participants)
+    if platform == 'leetcode' or platform == 'all':
+        process_leetcode(participants)
+    if platform == 'codechef' or platform == 'all':
+        process_codechef(participants)
+    if platform == 'hackerrank' or platform == 'all':
+        process_hackerrank(participants)
+    if platform == 'combine':
+        combine_results()
 
 
 if __name__ == "__main__":
