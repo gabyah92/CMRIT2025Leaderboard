@@ -32,14 +32,31 @@ MAX_REQUESTS_PER_SECOND = 2
 
 
 class Participant:
+    handle = ""
+    geeksforgeeks_handle = ""
+    codeforces_handle = ""
+    leetcode_handle = ""
+    codechef_handle = ""
+    hackerrank_handle = ""
+    geeksforgeeks_url_exists = False
+    codeforces_url_exists = False
+    leetcode_url_exists = False
+    codechef_url_exists = False
+    hackerrank_url_exists = False
     def __init__(self, handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle,
-                 hackerrank_handle):
+                 hackerrank_handle, geeksforgeeks_url_exists=False, codeforces_url_exists=False, leetcode_url_exists=False, 
+                    codechef_url_exists=False, hackerrank_url_exists=False):
         self.handle = handle
         self.geeksforgeeks_handle = geeksforgeeks_handle
         self.codeforces_handle = codeforces_handle
         self.leetcode_handle = leetcode_handle
         self.codechef_handle = codechef_handle
         self.hackerrank_handle = hackerrank_handle
+        self.geeksforgeeks_url_exists = geeksforgeeks_url_exists
+        self.codeforces_url_exists = codeforces_url_exists
+        self.leetcode_url_exists = leetcode_url_exists
+        self.codechef_url_exists = codechef_url_exists
+        self.hackerrank_url_exists = hackerrank_url_exists
 
 
 def remove_non_ascii(input_string):
@@ -417,7 +434,7 @@ def load_csv_sheet(csv_sheet_path):
     return participants
 
 
-def combine_results():
+def combine_results(participants):
     """
     Combines handle details from multiple files and writes them to a CSV file called participant_details.csv.
     Each file contains handle details for a different platform, and the function loops through each file,
@@ -434,17 +451,51 @@ def combine_results():
                          'LeetCode URL Exists',
                          'CodeChef URL Exists', 'HackerRank URL Exists'])
 
-        # Loop through each file and write handle details to CSV
-        for file_name in ['geeksforgeeks_handles.txt', 'codeforces_handles.txt', 'leetcode_handles.txt',
-                          'codechef_handles.txt', 'hackerrank_handles.txt']:
-            with open(file_name, 'r') as file:
+        # Iterate over all files and update participant object details
+        for participant in participants:
+            with open('geeksforgeeks_handles.txt', 'r') as file:
                 for line in file:
-                    data = line.strip().split(', ')
-                    writer.writerow(data)
-                    print(f'Writing data: {data}')
-            print(f'Finished writing data from {file_name}')
-            print('-----------------------------------------')
-        print('Finished writing all data to participant_details.csv')
+                    handle, geeksforgeeks_handle, geeksforgeeks_url_exists = line.split(',')
+                    if handle == participant.handle:
+                        participant.geeksforgeeks_handle = geeksforgeeks_handle
+                        participant.geeksforgeeks_url_exists = geeksforgeeks_url_exists.strip()
+
+            with open('codeforces_handles.txt', 'r') as file:
+                for line in file:
+                    handle, codeforces_handle, codeforces_url_exists = line.split(',')
+                    if handle == participant.handle:
+                        participant.codeforces_handle = codeforces_handle
+                        participant.codeforces_url_exists = codeforces_url_exists.strip()
+
+            with open('leetcode_handles.txt', 'r') as file:
+                for line in file:
+                    handle, leetcode_handle, leetcode_url_exists = line.split(',')
+                    if handle == participant.handle:
+                        participant.leetcode_handle = leetcode_handle
+                        participant.leetcode_url_exists = leetcode_url_exists.strip()
+
+            with open('codechef_handles.txt', 'r') as file:
+                for line in file:
+                    handle, codechef_handle, codechef_url_exists = line.split(',')
+                    if handle == participant.handle:
+                        participant.codechef_handle = codechef_handle
+                        participant.codechef_url_exists = codechef_url_exists.strip()
+
+            with open('hackerrank_handles.txt', 'r') as file:
+                for line in file:
+                    handle, hackerrank_handle, hackerrank_url_exists = line.split(',')
+                    if handle == participant.handle:
+                        participant.hackerrank_handle = hackerrank_handle
+                        participant.hackerrank_url_exists = hackerrank_url_exists.strip()
+
+            # Write participant details to CSV
+            writer.writerow([participant.handle, participant.geeksforgeeks_handle, participant.codeforces_handle,
+                             participant.leetcode_handle, participant.codechef_handle, participant.hackerrank_handle,
+                             participant.geeksforgeeks_url_exists, participant.codeforces_url_exists,
+                             participant.leetcode_url_exists, participant.codechef_url_exists,
+                             participant.hackerrank_url_exists])
+            
+    print("Participant details written to participant_details.csv")
 
 
 def main():
@@ -485,7 +536,7 @@ def main():
     if platform == 'hackerrank' or platform == 'all':
         process_hackerrank(participants)
     if platform == 'combine':
-        combine_results()
+        combine_results(participants)
 
 
 if __name__ == "__main__":
