@@ -9,15 +9,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17621965-8b63-4478-9ab3-a925b02c3cf3" name="Changes" comment="Add jar file for ease of run">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/CMRITLeaderboard2025_jar/CMRITLeaderboard2025.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/CMRITLeaderboard2025_jar/CMRITLeaderboard2025.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CMRITLeaderboard2025.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMRITLeaderboard2025.java" afterDir="false" />
+    <list default="true" id="71ed4a03-44c5-449a-9db2-e47038eb76ca" name="Changes" comment="Add jar file for ease of run">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cmrit/CMRITLeaderboard2025.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cmrit/CMRITLeaderboard2025.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usernameVerifier/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/usernameVerifier/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -29,11 +46,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2Zf2hTaZTv8pP44DEX41LoLOx4A" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -41,19 +63,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/CMRIT2025Leaderboard",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/gradleBuildLeaderbaord/CMRIT2025Leaderboard",
     "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.1487669",
-    "project.structure.side.proportion": "0.27324915",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -71,16 +88,24 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-f644763e9732-f98dd351" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="17621965-8b63-4478-9ab3-a925b02c3cf3" name="Changes" comment="" />
+      <changelist id="71ed4a03-44c5-449a-9db2-e47038eb76ca" name="Changes" comment="Add jar file for ease of run" />
       <created>1702798931936</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1702798931936</updated>
       <workItem from="1702798933007" duration="3762000" />
       <workItem from="1702817020677" duration="1320000" />
+      <workItem from="1709489706674" duration="785000" />
     </task>
     <task id="LOCAL-00001" summary="Add jar file for ease of run">
       <option name="closed" value="true" />
