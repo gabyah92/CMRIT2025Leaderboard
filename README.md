@@ -6,7 +6,7 @@
 
 **The scores of CMRIT 2025 Batch will automatically be mapped at https://gabyah92.github.io/CMRIT2025Leaderboard/ based on usernames from https://tinyurl.com/2025-CODING-USERNAMES**
 
-**Many thanks to [Rushyendra(21r01a67e6)](https://github.com/dog-broad) for his contributions on this projects UI and Yaml!**
+**Many thanks and gratitude to [Rushyendra(21r01a67e6)](https://github.com/dog-broad) for his contributions on this projects UI, Code, Yaml and so much more! This project would not be working were it not for his relentless efforts!**
 
 ## Introduction
 This project aims to create and maintain a leaderboard for participants from CMR Institute of Technology (CMRIT) for the year 2025. The leaderboard displays ratings and statistics of participants from various coding platforms such as Codeforces, LeetCode, GeeksforGeeks, Codechef, and Hackerrank.
