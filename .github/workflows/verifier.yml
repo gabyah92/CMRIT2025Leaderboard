@@ -64,6 +64,7 @@ jobs:
         run: |
           cd usernameVerifier
           python main.py ../src/main/resources/CMRIT2025Leaderboard.csv codeforces
+          
       - name: Archive Codeforces logs
         uses: actions/upload-artifact@v4
         with:
@@ -96,6 +97,7 @@ jobs:
         run: |
           cd usernameVerifier
           python -u main.py ../src/main/resources/CMRIT2025Leaderboard.csv leetcode
+          
       - name: Archive LeetCode logs
         uses: actions/upload-artifact@v4
         with:
@@ -129,6 +131,7 @@ jobs:
         run: |
           cd usernameVerifier
           python main.py ../src/main/resources/CMRIT2025Leaderboard.csv codechef
+          
       - name: Archive CodeChef logs
         uses: actions/upload-artifact@v4
         with:
@@ -161,6 +164,7 @@ jobs:
         run: |
           cd usernameVerifier
           python main.py ../src/main/resources/CMRIT2025Leaderboard.csv hackerrank
+
       - name: Archive HackerRank logs
         uses: actions/upload-artifact@v4
         with:
@@ -183,28 +187,28 @@ jobs:
         run:  wget "https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vTuq5uvNpRnEXxfwPUOgSWhFZPs_0BQZV6HnV-HIqh2tovJTHVWT_moXoOTl-uejmY_bgREOaqMZ27-/pub?output=csv&gid=1214357857&single=true" -O src/main/resources/CMRIT2025Leaderboard.csv
 
 
-      - name: Download geeksforgeeks handles
-        uses: actions/download-artifact@v4.0.0
+      - name: Download geeksforgeeks handles.
+        uses: actions/download-artifact@v4
         with:
           name: gfg_handles
 
       - name: Download codeforces handles
-        uses: actions/download-artifact@v4.0.0
+        uses: actions/download-artifact@v4
         with:
           name: codeforces-handles
   
       - name: Download leetcode handles
-        uses: actions/download-artifact@v4.0.0
+        uses: actions/download-artifact@v4
         with:
           name: leetcode-handles
   
       - name: Download codechef handles
-        uses: actions/download-artifact@v4.0.0
+        uses: actions/download-artifact@v4
         with:
           name: codechef-handles
   
       - name: Download hackerrank handles
-        uses: actions/download-artifact@v4.0.0
+        uses: actions/download-artifact@v4
         with:
           name: hackerrank-handles
 
@@ -220,6 +224,7 @@ jobs:
       - name: Run combine option
         run: |
           python usernameVerifier/main.py src/main/resources/CMRIT2025Leaderboard.csv combine
+          
       - name: Get the current date
         id: date
         run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
