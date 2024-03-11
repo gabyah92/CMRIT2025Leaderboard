@@ -27,7 +27,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r usernameVerifier/requirements.txt
-
       - name: Run GeeksForGeeks platform
         run: |
           cd usernameVerifier
@@ -61,12 +60,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r usernameVerifier/requirements.txt
-
       - name: Run Codeforces script # Run the Python script for Codeforces
         run: |
           cd usernameVerifier
           python main.py ../src/main/resources/CMRIT2025Leaderboard.csv codeforces
-
+          
       - name: Archive Codeforces logs
         uses: actions/upload-artifact@v4
         with:
@@ -95,12 +93,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r usernameVerifier/requirements.txt
-
       - name: Run LeetCode script # Run the Python script for LeetCode
         run: |
           cd usernameVerifier
           python -u main.py ../src/main/resources/CMRIT2025Leaderboard.csv leetcode
-
+          
       - name: Archive LeetCode logs
         uses: actions/upload-artifact@v4
         with:
@@ -130,12 +127,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r usernameVerifier/requirements.txt
-
       - name: Run CodeChef processing
         run: |
           cd usernameVerifier
           python main.py ../src/main/resources/CMRIT2025Leaderboard.csv codechef
-
+          
       - name: Archive CodeChef logs
         uses: actions/upload-artifact@v4
         with:
@@ -164,7 +160,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r usernameVerifier/requirements.txt
-
       - name: Run HackerRank processing
         run: |
           cd usernameVerifier
@@ -192,7 +187,7 @@ jobs:
         run:  wget "https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vTuq5uvNpRnEXxfwPUOgSWhFZPs_0BQZV6HnV-HIqh2tovJTHVWT_moXoOTl-uejmY_bgREOaqMZ27-/pub?output=csv&gid=1214357857&single=true" -O src/main/resources/CMRIT2025Leaderboard.csv
 
 
-      - name: Download geeksforgeeks handles
+      - name: Download geeksforgeeks handles.
         uses: actions/download-artifact@v4
         with:
           name: gfg_handles
@@ -226,11 +221,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r usernameVerifier/requirements.txt
-
       - name: Run combine option
         run: |
           python usernameVerifier/main.py src/main/resources/CMRIT2025Leaderboard.csv combine
-
+          
       - name: Get the current date
         id: date
         run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
