@@ -68,7 +68,7 @@ jobs:
         architecture: x64
 
     - name: Download JAR Artifact
-      uses: actions/download-artifact@v4.0.0
+      uses: actions/download-artifact@v4
       with:
         name: jar-artifact
         path: ./build/libs/
@@ -109,7 +109,7 @@ jobs:
         ./src/main/resources/gecko.sh
 
     - name: Download JAR Artifact
-      uses: actions/download-artifact@v4.0.0
+      uses: actions/download-artifact@v4
       with:
         name: jar-artifact
         path: ./build/libs/
@@ -148,7 +148,7 @@ jobs:
           ./src/main/resources/gecko.sh
 
       - name: Download JAR Artifact
-        uses: actions/download-artifact@v4.0.0
+        uses: actions/download-artifact@v4
         with:
           name: jar-artifact
           path: ./build/libs/
@@ -183,7 +183,7 @@ jobs:
         architecture: x64
 
     - name: Download JAR Artifact
-      uses: actions/download-artifact@v4.0.0
+      uses: actions/download-artifact@v4
       with:
         name: jar-artifact
         path: ./build/libs/
@@ -233,7 +233,7 @@ jobs:
         architecture: x64
 
     - name: Download JAR Artifact
-      uses: actions/download-artifact@v4.0.0
+      uses: actions/download-artifact@v4
       with:
         name: jar-artifact
         path: ./build/libs/
@@ -265,7 +265,7 @@ jobs:
         architecture: x64
 
     - name: Download JAR Artifact
-      uses: actions/download-artifact@v4.0.0
+      uses: actions/download-artifact@v4
       with:
         name: jar-artifact
         path: ./build/libs/
@@ -297,44 +297,44 @@ jobs:
         architecture: x64
 
     - name: Download JAR Artifact
-      uses: actions/download-artifact@v4.0.0
+      uses: actions/download-artifact@v4
       with:
         name: jar-artifact
         path: ./build/libs/
 
     # Download the previous ratings into root directory
     - name: Download Codeforces Ratings
-      uses: actions/download-artifact@v4.0.0
+      uses: actions/download-artifact@v4
       with:
         name: codeforces_ratings
         path: ./
 
     - name: Download GFG Ratings
-      uses: actions/download-artifact@v4.0.0
+      uses: actions/download-artifact@v4
       with:
           name: gfg_ratings
           path: ./
 
     - name: Download GFG Practice Ratings
-      uses: actions/download-artifact@v4.0.0
+      uses: actions/download-artifact@v4
       with:
           name: gfg_practice_ratings
           path: ./
 
     - name: Download LeetCode Ratings
-      uses: actions/download-artifact@v4.0.0
+      uses: actions/download-artifact@v4
       with:
           name: leetcode_ratings
           path: ./
 
     - name: Download CodeChef Ratings
-      uses: actions/download-artifact@v4.0.0
+      uses: actions/download-artifact@v4
       with:
           name: codechef_ratings
           path: ./
 
     - name: Download HackerRank Ratings
-      uses: actions/download-artifact@v4.0.0
+      uses: actions/download-artifact@v4
       with:
           name: hackerrank_ratings
           path: ./

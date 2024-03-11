@@ -494,7 +494,9 @@ def combine_results(participants):
                              participant.geeksforgeeks_url_exists, participant.codeforces_url_exists,
                              participant.leetcode_url_exists, participant.codechef_url_exists,
                              participant.hackerrank_url_exists])
-            
+        
+    # move participant_details.csv to src/main/resources/participant_details.csv, if it exists over write
+    os.replace('participant_details.csv', 'src/main/resources/participant_details.csv')        
     print("Participant details written to participant_details.csv")
 
 

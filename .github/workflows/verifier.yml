@@ -193,27 +193,27 @@ jobs:
 
 
       - name: Download geeksforgeeks handles
-        uses: actions/download-artifact@v4.0.0
+        uses: actions/download-artifact@v4
         with:
           name: gfg_handles
 
       - name: Download codeforces handles
-        uses: actions/download-artifact@v4.0.0
+        uses: actions/download-artifact@v4
         with:
           name: codeforces-handles
   
       - name: Download leetcode handles
-        uses: actions/download-artifact@v4.0.0
+        uses: actions/download-artifact@v4
         with:
           name: leetcode-handles
   
       - name: Download codechef handles
-        uses: actions/download-artifact@v4.0.0
+        uses: actions/download-artifact@v4
         with:
           name: codechef-handles
   
       - name: Download hackerrank handles
-        uses: actions/download-artifact@v4.0.0
+        uses: actions/download-artifact@v4
         with:
           name: hackerrank-handles
 
