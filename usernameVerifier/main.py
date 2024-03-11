@@ -46,6 +46,14 @@ class Participant:
     def __init__(self, handle, geeksforgeeks_handle, codeforces_handle, leetcode_handle, codechef_handle,
                  hackerrank_handle, geeksforgeeks_url_exists=False, codeforces_url_exists=False, leetcode_url_exists=False, 
                     codechef_url_exists=False, hackerrank_url_exists=False):
+        handle = remove_non_ascii(handle)
+        geeksforgeeks_handle = remove_non_ascii(geeksforgeeks_handle)
+        codeforces_handle = remove_non_ascii(codeforces_handle)
+        leetcode_handle = remove_non_ascii(leetcode_handle)
+        codechef_handle = remove_non_ascii(codechef_handle)
+        hackerrank_handle = remove_non_ascii(hackerrank_handle)
+        # remove @ from the leeetcode handle
+        leetcode_handle = leetcode_handle.replace('@', '')
         self.handle = handle
         self.geeksforgeeks_handle = geeksforgeeks_handle
         self.codeforces_handle = codeforces_handle
