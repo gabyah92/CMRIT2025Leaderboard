@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: gfg_handles
-          path: geeksforgeeks_handles.txt
+          path: usernameVerifier/geeksforgeeks_handles.txt
           compression-level: 9
           retention-days: 5
 
@@ -71,7 +71,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: codeforces-handles
-          path: codeforces_handles.txt
+          path: usernameVerifier/codeforces_handles.txt
           compression-level: 9
           retention-days: 5  
 
@@ -105,7 +105,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: leetcode-handles
-          path: leetcode_handles.txt
+          path: usernameVerifier/leetcode_handles.txt
           compression-level: 9
           retention-days: 5
 
@@ -140,7 +140,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: codechef-handles
-          path: codechef_handles.txt
+          path: usernameVerifier/codechef_handles.txt
           compression-level: 9
           retention-days: 5
 
@@ -174,7 +174,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: hackerrank-handles
-          path: hackerrank_handles.txt
+          path: usernameVerifier/hackerrank_handles.txt
           compression-level: 9
           retention-days: 5
 
@@ -225,8 +225,7 @@ jobs:
 
       - name: Run combine option
         run: |
-          cd usernameVerifier
-          python main.py ../src/main/resources/CMRIT2025Leaderboard.csv combine
+          python usernameVerifier/main.py ../src/main/resources/CMRIT2025Leaderboard.csv combine
 
       - name: Get the current date
         id: date
