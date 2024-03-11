@@ -514,7 +514,7 @@ def main():
         return
 
     if not os.path.isfile(file_path):
-        file_path = 'src/main/resources/CMRIT2025Leaderboard.csv'
+        print("Invalid file path. Please provide a valid file path.")
         return
 
     if file_path.endswith('.xlsx'):

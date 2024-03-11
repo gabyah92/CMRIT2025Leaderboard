@@ -225,7 +225,7 @@ jobs:
 
       - name: Run combine option
         run: |
-          python usernameVerifier/main.py ../src/main/resources/CMRIT2025Leaderboard.csv combine
+          python usernameVerifier/main.py src/main/resources/CMRIT2025Leaderboard.csv combine
 
       - name: Get the current date
         id: date
