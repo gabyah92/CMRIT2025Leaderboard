@@ -503,6 +503,12 @@ def combine_results(participants):
                              participant.leetcode_url_exists, participant.codechef_url_exists,
                              participant.hackerrank_url_exists])
         
+    # remove all spaces in the csv file
+    with open('participant_details.csv', 'r') as file:
+        lines = file.readlines()
+    with open('participant_details.csv', 'w') as file:
+        for line in lines:
+            file.write(line.replace(' ', ''))
     # move participant_details.csv to src/main/resources/participant_details.csv, if it exists over write
     os.replace('participant_details.csv', 'src/main/resources/participant_details.csv')        
     print("Participant details written to participant_details.csv")
