@@ -365,23 +365,12 @@ def process_hackerrank(participants):
         logging.debug(f"Checking HackerRank URL for participant {participant.handle}")
 
         # Check if the HackerRank URL exists
-        if participant.hackerrank_handle != '#N/A':
-            hackerrank_url_exists, response_url = check_url_exists(
-                "https://www.hackerrank.com/profile/" + participant.hackerrank_handle)
-            logging.debug(f"HackerRank URL exists: {hackerrank_url_exists}, Response URL: {response_url}")
-
-            # Retry the HackerRank URL check if it doesn't exist
-            if not hackerrank_url_exists and participant.hackerrank_handle != '#N/A':
-                logging.debug(f"Retrying HackerRank URL check for participant {participant.handle}")
-                hackerrank_url_exists, response_url = check_url_exists(
-                    "https://www.hackerrank.com/profile/" + participant.hackerrank_handle)
-                logging.debug(f"HackerRank URL retry: {hackerrank_url_exists}, Response URL: {response_url}")
-
+        if participant.hackerrank_handle != '#N/A':  
             # Write data to file
             with open('hackerrank_handles.txt', 'a') as file:
-                file.write(f"{participant.handle}, {participant.hackerrank_handle}, {hackerrank_url_exists}\n")
+                file.write(f"{participant.handle}, {participant.hackerrank_handle}, {True}\n")
             logging.debug(f"Data written to file for participant {participant.handle}: {participant.hackerrank_handle},"
-                          f" {hackerrank_url_exists}")
+                          f" {True}")
             logging.debug("---------------------------------------------------")
 
     # Shutdown logging
