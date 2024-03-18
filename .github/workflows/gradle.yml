@@ -10,7 +10,7 @@ name: Java CI with Gradle
 on:
   workflow_dispatch:
   schedule:
-    - cron: '58 18 * * *' 
+    - cron: '58 19 * * *' 
   pull_request:
     branches: [ "main" ]
 
