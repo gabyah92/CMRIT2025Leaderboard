@@ -621,7 +621,7 @@ public class CMRITLeaderboard2025 {
             double lc = (double) user.getLeetcodeRating() / maxLeetcodeRating * 100;
             double cc = (double) user.getCodechefRating() / maxCodechefRating * 100;
             double hr = (double) user.getHackerrankRating() / maxHackerrankRating * 100;
-            double percentile = ( cf * 0.3 + gfgs*0.3  + gfgp*0.1 + lc*0.1 + cc*0.1 + hr*0.1 );
+            double percentile = ( cf * 0.3 + gfgs*0.35  + gfgp*0.05 + lc*0.1 + cc*0.1 + hr*0.1 );
 
             user.setPercentile(percentile);
         }
