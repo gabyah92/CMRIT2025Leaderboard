@@ -954,7 +954,7 @@ public class CMRITLeaderboard2025 {
                     System.out.println("Codeforces URL: " + url);
 
                     // Remove any special characters from the URL
-                    url = url.replaceAll("[^\\x00-\\x7F]", "");
+                    url = url.replaceAll("`", "").replaceAll("[^\\x00-\\x7F]", "");
 
                     // Make HTTP request using Jsoup
                     Document doc = Jsoup.connect(url).ignoreContentType(true).method(org.jsoup.Connection.Method.GET).execute().parse();
