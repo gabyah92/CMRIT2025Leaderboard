@@ -861,25 +861,12 @@ public class CMRITLeaderboard2025 {
             i++;
 
             try {
-                    Thread.sleep(30000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
             
-            // Rate limiting
-            long currentTime = System.currentTimeMillis();
-            long timeElapsedSinceLastRequest = currentTime - lastRequestTime;
-            if (timeElapsedSinceLastRequest < REQUEST_INTERVAL_MILLIS) {
-                try {
-                    // Sleep for rate limiting
-                    Thread.sleep(REQUEST_INTERVAL_MILLIS - timeElapsedSinceLastRequest);
-                } catch (InterruptedException e) {
-                    // Interrupted exception handling
-                    Thread.currentThread().interrupt();
-                    throw new RuntimeException("Interrupted while sleeping for rate limiting", e);
-                }
-            }
-            lastRequestTime = System.currentTimeMillis();
+            
             
             try {
                 url = CODECHEF_URL + codechefHandle;
