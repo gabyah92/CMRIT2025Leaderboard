@@ -323,11 +323,11 @@ def process_codechef(participants):
             #        "https://www.codechef.com/users/" + participant.codechef_handle)
             #    logging.debug(f"CodeChef URL retry: {codechef_url_exists}, Response URL: {response_url}")
 
-            # Write participant data to file
+            # Write participant data to file codechef_url_exists
             with open('codechef_handles.txt', 'a') as file:
                 file.write(f"{participant.handle}, {participant.codechef_handle}, {True}\n")
             logging.debug(f"Data written to file for participant {participant.handle}: {participant.codechef_handle},"
-                          f" {codechef_url_exists}")
+                          f" {True}")
             logging.debug("---------------------------------------------------")
 
     logging.shutdown()
