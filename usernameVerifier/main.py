@@ -28,7 +28,7 @@ https://leetcode.com/graphql?query=query
 }
 '''
 
-MAX_REQUESTS_PER_SECOND = 2
+MAX_REQUESTS_PER_SECOND = 1
 
 
 class Participant:
