@@ -861,7 +861,7 @@ public class CMRITLeaderboard2025 {
             i++;
 
             try {
-                    Thread.sleep(8000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -885,9 +885,15 @@ public class CMRITLeaderboard2025 {
                         jsonContent.append(line);
                     }
                     JSONObject jsonObject = new JSONObject(jsonContent.toString());
-                    int codechefRating;
+                    int codechefRating = 0;
                     try {
-                        codechefRating = jsonObject.getInt("currentRating");
+                        try {
+                            codechefRating = jsonObject.getInt("currentRating");
+                        } catch (Exception e) {
+                            Thread.sleep(6000);
+                            codechefRating = jsonObject.getInt("currentRating");
+                        }
+                        
 
                         // update the user object with the codechef rating
                         user.setCodechefRating(codechefRating);
