@@ -826,7 +826,7 @@ public class CMRITLeaderboard2025 {
      *
      * @param  resultSet   list of users to scrape
      */
-    private static void scrapeCodechef(ArrayList <User> resultSet) {
+    private static void scrapeCodechef(ArrayList <User> resultSet) throws Exception{
         // Scraper logic for Codechef
 
         System.out.println("Codechef scraping in progress...");
