@@ -65,7 +65,7 @@ public class CMRITLeaderboard2025 {
             "geeksforgeeks_url_exists, codeforces_url_exists, leetcode_url_exists, codechef_url_exists, hackerrank_url_exists) " +
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    private static final String CODECHEF_URL = "https://codechef-api-one.vercel.app/";
+    private static final String CODECHEF_URL = "https://codechef-api.vercel.app/handle/";
     private static final String CODEFORCES_URL = "https://codeforces.com/api/user.info?handles=";
     private static final String LEETCODE_URL = "https://leetcode.com/graphql?query=";
     private static final String GFG_URL = "https://auth.geeksforgeeks.org/user/";
@@ -860,6 +860,27 @@ public class CMRITLeaderboard2025 {
             System.out.println("(" + i + "/" + size + ") Scraping Codechef for " + handle + " (Codechef Handle: " + codechefHandle + ")");
             i++;
 
+            try {
+                    Thread.sleep(30000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            
+            // Rate limiting
+            long currentTime = System.currentTimeMillis();
+            long timeElapsedSinceLastRequest = currentTime - lastRequestTime;
+            if (timeElapsedSinceLastRequest < REQUEST_INTERVAL_MILLIS) {
+                try {
+                    // Sleep for rate limiting
+                    Thread.sleep(REQUEST_INTERVAL_MILLIS - timeElapsedSinceLastRequest);
+                } catch (InterruptedException e) {
+                    // Interrupted exception handling
+                    Thread.currentThread().interrupt();
+                    throw new RuntimeException("Interrupted while sleeping for rate limiting", e);
+                }
+            }
+            lastRequestTime = System.currentTimeMillis();
+            
             try {
                 url = CODECHEF_URL + codechefHandle;
                 websiteUrl = new URI(url);
