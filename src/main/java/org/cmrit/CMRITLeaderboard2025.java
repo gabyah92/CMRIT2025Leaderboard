@@ -861,7 +861,7 @@ public class CMRITLeaderboard2025 {
             i++;
 
             try {
-                    Thread.sleep(20000);
+                    Thread.sleep(8000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
