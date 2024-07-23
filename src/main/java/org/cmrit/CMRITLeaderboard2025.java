@@ -860,11 +860,7 @@ public class CMRITLeaderboard2025 {
             System.out.println("(" + i + "/" + size + ") Scraping Codechef for " + handle + " (Codechef Handle: " + codechefHandle + ")");
             i++;
 
-            try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+            Thread.sleep(1000);
             
             
             
