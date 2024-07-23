@@ -82,7 +82,7 @@ public class CMRITLeaderboard2025 {
      * @param  args    the command-line arguments
      * @throws CustomScrapingException    if a custom scraping exception occurs
      */
-    public static void main(String[] args) throws CustomScrapingException {
+    public static void main(String[] args) throws Exception {
 
         // Load data from csv
 
