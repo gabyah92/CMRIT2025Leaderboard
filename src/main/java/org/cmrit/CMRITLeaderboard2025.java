@@ -859,8 +859,6 @@ public class CMRITLeaderboard2025 {
 
             System.out.println("(" + i + "/" + size + ") Scraping Codechef for " + handle + " (Codechef Handle: " + codechefHandle + ")");
             i++;
-
-            Thread.sleep(4000);
             
             
             
@@ -886,7 +884,7 @@ public class CMRITLeaderboard2025 {
                         try {
                             codechefRating = jsonObject.getInt("currentRating");
                         } catch (Exception e) {
-                            Thread.sleep(8000);
+                            Thread.sleep(15000);
                             codechefRating = jsonObject.getInt("currentRating");
                         }
                         
