@@ -884,7 +884,7 @@ public class CMRITLeaderboard2025 {
                         try {
                             codechefRating = jsonObject.getInt("currentRating");
                         } catch (Exception e) {
-                            Thread.sleep(15000);
+                            Thread.sleep(30000);
                             codechefRating = jsonObject.getInt("currentRating");
                         }
                         
