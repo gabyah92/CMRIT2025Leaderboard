@@ -881,12 +881,8 @@ public class CMRITLeaderboard2025 {
                     JSONObject jsonObject = new JSONObject(jsonContent.toString());
                     int codechefRating = 0;
                     try {
-                        try {
-                            codechefRating = jsonObject.getInt("currentRating");
-                        } catch (Exception e) {
-                            Thread.sleep(61000);
-                            codechefRating = jsonObject.getInt("currentRating");
-                        }
+                        Thread.sleep(8000);
+                        codechefRating = jsonObject.getInt("currentRating"); 
                         
 
                         // update the user object with the codechef rating
