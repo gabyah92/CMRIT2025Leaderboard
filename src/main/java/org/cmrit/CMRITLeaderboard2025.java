@@ -919,7 +919,7 @@ public class CMRITLeaderboard2025 {
      * @param  resultSet  list of User objects to scrape ratings for
      * @throws CustomScrapingException  if unable to fetch Codeforces rating after 10 retries
      */
-    private static void scrapeCodeforces(ArrayList<User> resultSet) throws CustomScrapingException {
+    private static void scrapeCodeforces(ArrayList<User> resultSet) throws Exception {
         // Print a message indicating the start of Codeforces scraping
         System.out.println("Codeforces scraping in progress...");
 
