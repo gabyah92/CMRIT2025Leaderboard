@@ -65,7 +65,7 @@ public class CMRITLeaderboard2025 {
             "geeksforgeeks_url_exists, codeforces_url_exists, leetcode_url_exists, codechef_url_exists, hackerrank_url_exists) " +
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    private static final String CODECHEF_URL = "https://codechef-api.vercel.app/handle/";
+    private static final String CODECHEF_URL = "https://codechef-api-one.vercel.app/";
     private static final String CODEFORCES_URL = "https://codeforces.com/api/user.info?handles=";
     private static final String LEETCODE_URL = "https://leetcode.com/graphql?query=";
     private static final String GFG_URL = "https://auth.geeksforgeeks.org/user/";
