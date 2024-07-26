@@ -944,7 +944,8 @@ public class CMRITLeaderboard2025 {
         for (List<User> users : userChunks) {
             int retryCount = 0; // Counter for retry attempts
             // Retry scraping until successful or until 10 attempts are made
-            while (retryCount < 10) {
+            while (retryCount < 20) {
+                Thread.sleep(8000);
                 try {
                     // Create a list of all the Codeforces handles separated by ";"
                     String codeforcesHandles = users.stream()
