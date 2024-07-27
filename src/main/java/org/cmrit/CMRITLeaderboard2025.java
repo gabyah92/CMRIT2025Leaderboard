@@ -868,7 +868,8 @@ public class CMRITLeaderboard2025 {
                 connection = websiteUrl.toURL().openConnection();
                 o = (HttpURLConnection) connection;
                 o.setRequestMethod("GET");
-                if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_BAD_REQUEST) {
+                if(o.getResponseCode() == 500 ) continue;
+                else if (o.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND || o.getResponseCode() == HttpURLConnection.HTTP_BAD_REQUEST) {
                     throw new RuntimeException();
                 }
                 inputStream = o.getInputStream();
@@ -904,7 +905,7 @@ public class CMRITLeaderboard2025 {
                     throw new RuntimeException(e);
                 }
 
-            } catch (URISyntaxException | IOException e) {
+            } catch (Exception e) {
                 throw new RuntimeException(e);
             }
 
