@@ -3,60 +3,36 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>CMRIT 2025 Leaderboard</title>
-    <link rel="shortcut icon" type="image/x-icon"
-          href="https://github.com/gabyah92/CMRIT2025Leaderboard/blob/main/lib/logonobg.png?raw=true">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&amp;display=swap"
-          rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <style media="only screen">
-        html,
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMRIT 2026 Leaderboard</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://github.com/gabyah92/CMRIT2025Leaderboard/blob/main/lib/logonobg.png?raw=true">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
         body {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            box-sizing: border-box;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        html {
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 0;
-            overflow: auto;
-        }
-
-        body {
-            padding: 25px;
-            overflow: auto;
-            background-color: black;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            background: linear-gradient(to bottom right, #000000, #ff4c4c); /* Red to black gradient */
         }
     </style>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.full.min.js"></script>
 </head>
 
-<body>
-<nav class="nav nav-pills flex-column flex-sm-row">
-    <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="index.html">Leaderboard</a>
-    <a class="flex-sm-fill text-sm-center nav-link" href="users.html">UserHandles</a>
-</nav>
-<div class="example-wrapper">
-    <div id="myGrid" class="ag-theme-quartz-dark"></div>
-</div>
-<script>var __basePath = './';</script>
-<script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
-<script src="app.js"></script>
+<body class="text-white font-sans antialiased">
+    <header class="bg-opacity-60 bg-black p-4 fixed w-full top-0 left-0 shadow-md z-50">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <img src="https://github.com/gabyah92/CMRIT2025Leaderboard/blob/main/lib/logonobg.png?raw=true" alt="Logo" class="h-10 w-auto">
+    
+            <!-- Title -->
+            <h1 class="text-xl font-bold text-white md:mr-auto">CMRIT 2026 Leaderboard</h1>
+        </div>
+    </header>
 
-<h1>Excel Sheet: <a
-        href="https://github.com/gabyah92/CMRIT2025Leaderboard/raw/main/Leaderboards/CurrentCMRITLeaderboard2025.xlsx">
-    Download</a></h1>
-<h1>App By : <a href="https://www.instagram.com/gabyah92">gabyah92</a> & <a href="https://github.com/dog-broad">Rushyendra</a>
-</h1>
+    <main class="pt-20 pb-8 min-h-screen flex items-center justify-center">
+        <div class="text-center p-4 bg-black bg-opacity-70 rounded-lg shadow-lg">
+            <h2 class="text-lg font-semibold mb-2">We have moved to:</h2>
+            <a href="https://pyramid-it-learn.github.io/pyramid-leaderboards/" class="text-blue-400 hover:underline text-xl">https://dog-broad.github.io/pyramid-leaderboards/</a>
+        </div>
+    </main>
 </body>
 
 </html>
